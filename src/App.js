@@ -1,4 +1,4 @@
-// import { data } from './data.js';
+import { data } from './data.js';
 import * as React from 'react';
 import 'ace-builds';
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -10,9 +10,16 @@ import { Button } from 'semantic-ui-react';
 function App() {
   const [value, setValue] = React.useState('');
   const [value2, setValue2] = React.useState('');
+  const editor1 = React.useRef();
+  const editor2 = React.useRef();
 
   const onChange = a => {
     setValue(a);
+    editor1.current.editor.resize();
+  };
+
+  const onChange2 = a => {
+    editor2.current.editor.resize();
   };
 
   return (
@@ -21,12 +28,14 @@ function App() {
         <div className="column">
           <h2>Editor</h2>
           <AceEditor
+            ref={editor1}
             placeholder={'Enter text here...'}
             mode="javascript"
             theme="github"
             name="editor1"
             onChange={onChange}
             value={value}
+            width={'100%'}
             height={'50vh'}
             showPrintMargin={true}
             showGutter={true}
@@ -43,15 +52,18 @@ function App() {
         <div className="column">
           <h2>Code</h2>
           <AceEditor
+            ref={editor2}
             placeholder="editor2"
             mode="javascript"
             theme="github"
+            width={'100%'}
             height={'50vh'}
             name="editor2"
             readOnly={true}
             showPrintMargin={true}
             showGutter={true}
             highlightActiveLine={true}
+            onChange={onChange2}
             value={value2}
             setOptions={{
               showLineNumbers: true,
