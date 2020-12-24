@@ -10,6 +10,10 @@
     "react-ace": "^9.2.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "react-split": "^2.0.9",
+    "react-split-grid": "^1.0.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
