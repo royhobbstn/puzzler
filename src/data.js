@@ -30,11 +30,11 @@ export const data = {
   problemID: 1,
   problemText:
     'Write an **insertAtHead** method in a Singly-Linked-List Class.  The method should accept an arbitrary node value, and return the list.',
-  testCases: [],
+  testCases: [{ id: 1, name: 'compiles', code: `;const ll=new LinkedList();ll;`, expected: '{}' }],
   setupCode: '',
   category: 'Data Structures - Basic',
   difficulty: 2,
-  maxExecutionTime: '5000',
+  maxExecutionTime: 5,
   solution: {
     stages: [0, 30, 60, 120],
     solutions: [{ solutionName: 'standard', solutionLines: solution }],
