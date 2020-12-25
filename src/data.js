@@ -28,15 +28,16 @@ const solution = [
 
 export const data = {
   problemID: 1,
-  problemText: 'Write an insertAtHead method in the Singly Linked List Class.',
+  problemText:
+    'Write an **insertAtHead** method in a Singly-Linked-List Class.  The method should accept an arbitrary node value, and return the list.',
   testCases: [],
   setupCode: '',
   category: 'Data Structures - Basic',
   difficulty: 2,
   maxExecutionTime: '5000',
   solution: {
-    stages: [60, 60, 60],
-    solutions: [{ solutionName: 'standard', solutionLines: [solution] }],
+    stages: [0, 30, 60, 120],
+    solutions: [{ solutionName: 'standard', solutionLines: solution }],
   },
 };
 
