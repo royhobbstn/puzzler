@@ -17,3 +17,14 @@ body {
 th {
   font-size: 12px;
 }
+.tabrow {
+  display: flex;
+}
+
+.tabcolumn {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  height: '100%';
+}

@@ -7,11 +7,17 @@ import Worker from 'worker-loader!./worker';
 import EditorMain from './EditorMain.js';
 import EditorSecondary from './EditorSecondary.js';
 import TabPanes from './TabPanes.js';
+import { useStopwatch } from 'react-timer-hook';
+
+const COMMENT = '  //';
 
 function App() {
   const [value, setValue] = React.useState('');
   const [value2, setValue2] = React.useState('');
   const [results, setResults] = React.useState([]);
+  const { seconds, minutes, hours, days, isRunning, start, pause, reset } = useStopwatch({
+    autoStart: true,
+  });
 
   // run tests
   const clickRun = async () => {
@@ -49,28 +55,30 @@ function App() {
 
     await Promise.all(promisedResults).then(r => {
       setResults(r);
+
+      if (r.every(d => d.ok)) {
+        pause();
+      }
     });
   };
 
-  const panes = TabPanes(data, clickRun, results);
+  const panes = TabPanes(data, clickRun, results, hours, minutes, seconds);
 
   // gradually show lines from the solution
   React.useEffect(() => {
     for (let [index, duration] of data.solution.stages.entries()) {
       window.setTimeout(() => {
-        const transform = data.solution.solutions[0].solutionLines
-          .map(line => {
-            if (line.stage <= index) {
-              return line.text;
-            }
-            return '  //';
-          })
-          .join('\n');
+        const transform = data.solution.solutions[0].solutionLines.map(line => {
+          if (line.stage <= index) {
+            return line.text;
+          }
+          return COMMENT;
+        });
 
-        setValue2(transform);
+        setValue2(transform.join('\n'));
 
         if (index === 0) {
-          setValue(transform);
+          setValue(transform.filter(d => d !== COMMENT).join('\n'));
         }
       }, duration * 1000);
     }
