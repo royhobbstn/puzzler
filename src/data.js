@@ -30,7 +30,21 @@ export const data = {
   problemID: 1,
   problemText:
     'Write an **insertAtHead** method in a Singly-Linked-List Class.  The method should accept an arbitrary node value, and return the list.',
-  testCases: [{ id: 1, name: 'compiles', code: `;const ll=new LinkedList();ll;`, expected: '{}' }],
+  testCases: [
+    { id: 1, name: 'compiles', code: `;const ll=new LinkedList();ll;`, expected: '{}' },
+    {
+      id: 2,
+      name: 'empty list, head value',
+      code: `;const ll=new LinkedList();ll.insertAtHead(5);ll.head.value;`,
+      expected: '5',
+    },
+    {
+      id: 3,
+      name: 'empty list, tail value',
+      code: `;const ll=new LinkedList();ll.insertAtHead(6);ll.tail.value;`,
+      expected: '6',
+    },
+  ],
   setupCode: '',
   category: 'Data Structures - Basic',
   difficulty: 2,

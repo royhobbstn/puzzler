@@ -1,13 +1,13 @@
 body {
-  background-color: lightblue;
+  background-color: white;
   overflow: hidden;
 }
 
-.columns {
+.columns-ex {
   display: flex;
 }
 
-.column {
+.column-ex {
   display: block;
   flex-basis: 0;
   flex-grow: 1;

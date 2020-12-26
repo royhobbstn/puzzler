@@ -7,7 +7,7 @@ import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/webpack-resolver';
 import AceEditor from 'react-ace';
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card, Tab } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable.js';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
@@ -98,17 +98,46 @@ function App() {
     return { __html: converter.makeHtml(data.problemText) };
   }
 
+  const panes = [
+    {
+      menuItem: 'Problem',
+      render: () => (
+        <Card fluid color="red" raised={true} style={{ height: '26vh', overflowY: 'scroll' }}>
+          <Card.Content>
+            <div dangerouslySetInnerHTML={createMarkup()} />
+          </Card.Content>
+        </Card>
+      ),
+    },
+    {
+      menuItem: 'Test Results',
+      render: () => (
+        <Card fluid color="blue" raised={true} style={{ height: '26vh', overflowY: 'scroll' }}>
+          <Card.Content>
+            <TestCaseTable results={results} />
+          </Card.Content>
+        </Card>
+      ),
+    },
+    {
+      menuItem: 'Run',
+      render: () => (
+        <Card fluid color="green" raised={true} style={{ height: '26vh', overflowY: 'scroll' }}>
+          <Card.Content>
+            <Button onClick={clickRun}>Run</Button>
+          </Card.Content>
+        </Card>
+      ),
+    },
+  ];
+
   return (
     <div style={{ padding: '1vh 1vw' }}>
-      <Card fluid color="red" raised={true} style={{ height: '28vh', overflowY: 'scroll' }}>
-        <Card.Content>
-          <div dangerouslySetInnerHTML={createMarkup()} />
-          <Button onClick={clickRun}>Run</Button>
-          <TestCaseTable results={results} />
-        </Card.Content>
-      </Card>
-      <div className="columns">
-        <div className="column">
+      <div style={{ height: '36vh', padding: '1vh 1vw' }}>
+        <Tab menu={{ fluid: true, vertical: true }} panes={panes} />
+      </div>
+      <div className="columns-ex">
+        <div className="column-ex">
           <AceEditor
             ref={editor1}
             placeholder={'Enter text here...'}
@@ -118,7 +147,7 @@ function App() {
             onChange={onChange}
             value={value}
             width={'100%'}
-            height={'68vh'}
+            height={'60vh'}
             showGutter={true}
             highlightActiveLine={true}
             wrapEnabled={true}
@@ -150,7 +179,7 @@ function App() {
             mode="javascript"
             theme="tomorrow_night_eighties"
             width={'100%'}
-            height={'68vh'}
+            height={'60vh'}
             name="editor2"
             readOnly={true}
             showGutter={true}
