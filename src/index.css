@@ -1,15 +1,19 @@
 body {
-  background-color: white;
-  overflow: hidden;
+  background-color: lightsteelblue;
 }
 
-.columns-ex {
+.editor-area.columns {
   display: flex;
 }
 
-.column-ex {
+.editor-area.column {
   display: block;
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
+}
+
+.run-results td,
+th {
+  font-size: 12px;
 }
