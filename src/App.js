@@ -1,103 +1,39 @@
-import { data } from './data.js';
 import * as React from 'react';
-import { Tab } from 'semantic-ui-react';
-import * as Comlink from 'comlink';
-/* eslint-disable import/no-webpack-loader-syntax */
-import Worker from 'worker-loader!./worker';
-import EditorMain from './EditorMain.js';
-import EditorSecondary from './EditorSecondary.js';
-import TabPanes from './TabPanes.js';
-import { useStopwatch } from 'react-timer-hook';
-
-const COMMENT = '  //';
+import Problem from './Problem.js';
+import { Button } from 'semantic-ui-react';
+import { Switch, Route, useHistory } from 'react-router-dom';
 
 function App() {
-  const [value, setValue] = React.useState('');
-  const [value2, setValue2] = React.useState('');
-  const [results, setResults] = React.useState([]);
-  const { seconds, minutes, hours, days, isRunning, start, pause, reset } = useStopwatch({
-    autoStart: true,
-  });
+  let history = useHistory();
 
-  // run tests
-  const clickRun = async () => {
-    // for each test
-    const promisedResults = data.testCases.map(async (test, index) => {
-      // run sandbox code in a worker
-      const worker = new Worker();
-      const obj = Comlink.wrap(worker);
-      let error = '';
-      const response = obj.evaluate(value + test.code).catch(e => {
-        error = e.message;
-      });
-      const timeout = new Promise((resolve, reject) => {
-        setTimeout(reject, data.maxExecutionTime * 1000, new Error('Timeout'));
-      }).catch(e => {
-        error = e.message;
-      });
-      const val = await Promise.race([response, timeout]);
-      obj[Comlink.releaseProxy]();
-      worker.terminate();
+  const startApp = () => {
+    sessionStorage.setItem('problemIds', JSON.stringify([1, 2, 3]));
 
-      // update test result
-      let representation = '';
-      if (typeof val === 'object') {
-        representation = JSON.stringify(val);
-      } else {
-        representation = val;
-      }
+    console.log('starting');
 
-      // determine if actual === expected
-      const ok = test.expected === representation;
-
-      return { ...test, actual: representation, error, ok };
-    });
-
-    await Promise.all(promisedResults).then(r => {
-      setResults(r);
-
-      if (r.every(d => d.ok)) {
-        pause();
-      }
-    });
+    // get next
+    const problemIdsRaw = sessionStorage.getItem('problemIds');
+    if (!problemIdsRaw) {
+      throw new Error('Out of problems error.');
+    } else {
+      const problemIds = JSON.parse(problemIdsRaw);
+      const id = problemIds.pop();
+      sessionStorage.setItem('problemIds', JSON.stringify(problemIds));
+      // go to page.
+      console.log({ history });
+      history.push(`/${id}`);
+    }
   };
 
-  const panes = TabPanes(data, clickRun, results, hours, minutes, seconds);
-
-  // gradually show lines from the solution
-  React.useEffect(() => {
-    for (let [index, duration] of data.solution.stages.entries()) {
-      window.setTimeout(() => {
-        const transform = data.solution.solutions[0].solutionLines.map(line => {
-          if (line.stage <= index) {
-            return line.text;
-          }
-          return COMMENT;
-        });
-
-        setValue2(transform.join('\n'));
-
-        if (index === 0) {
-          setValue(transform.filter(d => d !== COMMENT).join('\n'));
-        }
-      }, duration * 1000);
-    }
-  }, []);
-
   return (
-    <div style={{ padding: '1vh 1vw' }}>
-      <div style={{ height: '36vh', padding: '1vh 1vw' }}>
-        <Tab menu={{ fluid: true, vertical: true }} panes={panes} />
-      </div>
-      <div className="editor-area columns">
-        <div className="editor-area column">
-          <EditorMain value={value} setValue={setValue} />
+    <Switch>
+      <Route path="/:id" children={<Problem />} />
+      <Route path="/">
+        <div>
+          <Button onClick={() => startApp()}>Start</Button>
         </div>
-        <div className="column">
-          <EditorSecondary value2={value2} />
-        </div>
-      </div>
-    </div>
+      </Route>
+    </Switch>
   );
 }
 
