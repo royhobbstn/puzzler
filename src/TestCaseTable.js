@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { Table, Modal, Button, Icon } from 'semantic-ui-react';
+import { constructTest } from './util.js';
+import { inventory } from './data/inventory.js';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
+import 'highlight.js/styles/github.css';
 
-//
+hljs.registerLanguage('javascript', javascript);
 
-function TestCaseTable({ results }) {
+function TestCaseTable({ results, id }) {
   const [open, setOpen] = React.useState(false);
   const [noteCode, setNoteCode] = React.useState('');
 
@@ -13,12 +18,17 @@ function TestCaseTable({ results }) {
     return null;
   }
 
+  const data = inventory[id];
+
   return (
     <div>
       <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}>
         <Modal.Header>Test Code</Modal.Header>
         <Modal.Content>
-          <pre>{noteCode}</pre>
+          <div
+            style={{ whiteSpace: 'pre' }}
+            dangerouslySetInnerHTML={{ __html: hljs.highlight('javascript', noteCode).value }}
+          ></div>
         </Modal.Content>
         <Modal.Actions>
           <Button onClick={() => setOpen(false)}>Close</Button>
@@ -49,7 +59,13 @@ function TestCaseTable({ results }) {
                     icon
                     compact
                     onClick={() => {
-                      const formatted = prettier.format(test.code, {
+                      const constructedTest = constructTest(
+                        data.testCases,
+                        test.inherit,
+                        test.code,
+                        test.evaluate,
+                      );
+                      const formatted = prettier.format(constructedTest, {
                         parser: 'babel',
                         plugins: [parserBabel],
                       });
@@ -60,7 +76,11 @@ function TestCaseTable({ results }) {
                     <Icon name="sticky note outline" />
                   </Button>
                 </Table.Cell>
-                <Table.Cell>{test.expected}</Table.Cell>
+                <Table.Cell>
+                  {typeof test.expected !== 'string'
+                    ? JSON.stringify(test.expected)
+                    : test.expected}
+                </Table.Cell>
                 <Table.Cell>{test.actual}</Table.Cell>
                 <Table.Cell>{test.error}</Table.Cell>
               </Table.Row>

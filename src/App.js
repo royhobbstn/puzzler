@@ -7,9 +7,8 @@ function App() {
   let history = useHistory();
 
   const startApp = () => {
+    // temporary
     sessionStorage.setItem('problemIds', JSON.stringify([1, 2, 3]));
-
-    console.log('starting');
 
     // get next
     const problemIdsRaw = sessionStorage.getItem('problemIds');
@@ -17,10 +16,8 @@ function App() {
       throw new Error('Out of problems error.');
     } else {
       const problemIds = JSON.parse(problemIdsRaw);
-      const id = problemIds.pop();
+      const id = problemIds.shift();
       sessionStorage.setItem('problemIds', JSON.stringify(problemIds));
-      // go to page.
-      console.log({ history });
       history.push(`/${id}`);
     }
   };

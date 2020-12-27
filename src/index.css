@@ -28,3 +28,17 @@ th {
   flex: 1;
   height: '100%';
 }
+
+.animate-icon {
+  animation: rotation 2s infinite linear;
+  transform-origin: 50% 55%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
