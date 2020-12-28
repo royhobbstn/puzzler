@@ -86,7 +86,7 @@ function Problem() {
   }
 
   // run tests
-  const clickRun = async () => {
+  const clickRun = async mainEditorValue => {
     // for each test
     setResults([]);
     setActiveIndex(1);
@@ -97,7 +97,9 @@ function Problem() {
       const obj = Comlink.wrap(worker);
       let error = '';
       const response = obj
-        .evaluate(value + constructTest(data.testCases, test.inherit, test.code, test.evaluate))
+        .evaluate(
+          mainEditorValue + constructTest(data.testCases, test.inherit, test.code, test.evaluate),
+        )
         .catch(e => {
           error = e.message;
         });
@@ -197,7 +199,7 @@ function Problem() {
       </div>
       <div style={{ position: 'absolute', top: '28vh', left: '1vw' }}>
         <Button.Group>
-          <Button icon onClick={clickRun}>
+          <Button icon onClick={() => clickRun(value)}>
             <Icon
               name="cog"
               className={isBusyTesting ? 'animate-icon' : ''}
@@ -236,7 +238,7 @@ function Problem() {
       </div>
       <div className="editor-area columns">
         <div className="editor-area column">
-          <EditorMain value={value} setValue={setValue} />
+          <EditorMain value={value} setValue={setValue} clickRun={clickRun} />
         </div>
         <div className="column">
           <EditorSecondary value2={value2} />

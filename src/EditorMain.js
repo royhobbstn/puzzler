@@ -3,7 +3,7 @@ import AceEditor from 'react-ace';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 
-export default function EditorMain({ setValue, value }) {
+export default function EditorMain({ setValue, value, clickRun }) {
   const editor1 = React.useRef();
 
   const onChange = a => {
@@ -36,7 +36,7 @@ export default function EditorMain({ setValue, value }) {
         }}
         commands={[
           {
-            name: 'save',
+            name: 'prettier',
             bindKey: { win: 'Ctrl-S', mac: 'Cmd-S' },
             exec: editor => {
               try {
@@ -47,6 +47,17 @@ export default function EditorMain({ setValue, value }) {
                 setValue(formatted);
               } catch (err) {
                 console.log('There was an error in compilation.');
+              }
+            },
+          },
+          {
+            name: 'run tests',
+            bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
+            exec: async editor => {
+              try {
+                await clickRun(editor.session.getValue());
+              } catch (err) {
+                console.log('Encountered an error when attempting to run tests.');
               }
             },
           },
