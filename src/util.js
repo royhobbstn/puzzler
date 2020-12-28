@@ -13,3 +13,34 @@ export function constructTest(testCases, inherit, code, evaluate) {
   test += code + evaluate;
   return test;
 }
+
+export function convertToSeconds(hours, minutes, seconds) {
+  return hours * 3600 + minutes * 60 + seconds;
+}
+
+export function convertToTimer(secondsRaw) {
+  if (!secondsRaw) {
+    return `--:--:--`;
+  }
+  const { hours, minutes, seconds } = convertToHoursMinutesSeconds(secondsRaw);
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(
+    seconds,
+  ).padStart(2, '0')}`;
+}
+
+export function convertToHoursMinutesSeconds(seconds) {
+  let hours = 0;
+  let minutes = 0;
+
+  if (seconds > 3600) {
+    hours = Math.floor(seconds / 3600);
+    seconds = seconds % 3600;
+  }
+
+  if (seconds > 60) {
+    minutes = Math.floor(seconds / 60);
+    seconds = seconds % 60;
+  }
+
+  return { hours, minutes, seconds };
+}

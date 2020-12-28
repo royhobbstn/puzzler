@@ -10,7 +10,9 @@ import TabPanes from './TabPanes.js';
 import { useStopwatch } from 'react-timer-hook';
 import { useParams, useHistory } from 'react-router-dom';
 import { hasOutstandingProblemIds, grabNextProblemId } from './problemSet.js';
-import { constructTest } from './util.js';
+import { constructTest, convertToSeconds } from './util.js';
+import { submitResult } from './personalBests';
+import { addToSessionHistory } from './sessionHistory.js';
 
 const COMMENT = '  //';
 
@@ -41,8 +43,20 @@ function Problem() {
 
   const hasNext = hasOutstandingProblemIds();
 
+  function clickSkip(skipToResults) {
+    const entry = { id, seconds: null };
+    addToSessionHistory(entry);
+    reset();
+    start();
+    if (skipToResults) {
+      history.push(`/sessionStats`);
+    } else {
+      history.push(`/${grabNextProblemId()}`);
+      setActiveIndex(0);
+    }
+  }
+
   function clickNext() {
-    // todo record time as personal best if applicable
     reset();
     start();
     history.push(`/${grabNextProblemId()}`);
@@ -98,11 +112,14 @@ function Problem() {
 
       if (r.every(d => d.ok)) {
         pause();
+        const entry = { id, seconds: convertToSeconds(hours, minutes, seconds) };
+        addToSessionHistory(entry);
+        submitResult(entry);
       }
     });
   };
 
-  const panes = TabPanes(data, results, start, reset, setActiveIndex, isBusyTesting, id);
+  const panes = TabPanes(data, results, isBusyTesting, id, clickSkip);
 
   // gradually show lines from the solution
   React.useEffect(() => {
@@ -156,6 +173,15 @@ function Problem() {
           {showNextButton && hasNext ? (
             <Button icon onClick={clickNext}>
               <Icon name="step forward" />
+            </Button>
+          ) : showNextButton ? (
+            <Button
+              icon
+              onClick={() => {
+                history.push(`/sessionStats`);
+              }}
+            >
+              <Icon name="file alternate outline" />
             </Button>
           ) : null}
         </Button.Group>

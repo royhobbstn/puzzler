@@ -28,6 +28,7 @@ const solution = [
 
 export const data = {
   problemID: 1,
+  problemName: 'Problem3',
   problemText: 'Problem 3 todo.',
   testCases: [
     {

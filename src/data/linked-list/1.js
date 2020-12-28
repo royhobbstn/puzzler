@@ -28,6 +28,7 @@ const solution = [
 
 export const data = {
   problemID: 1,
+  problemName: 'Implement insertAtHead in a Singly Linked List',
   problemText:
     'Write an **insertAtHead** method in a Singly-Linked-List Class.  The method should accept an arbitrary node value, and return the list.',
   testCases: [

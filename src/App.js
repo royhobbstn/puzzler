@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Problem from './Problem.js';
+import SessionStats from './SessionStats.js';
 import { Button } from 'semantic-ui-react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 
@@ -24,12 +25,13 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/:id" children={<Problem />} />
-      <Route path="/">
+      <Route exact path="/">
         <div>
           <Button onClick={() => startApp()}>Start</Button>
         </div>
       </Route>
+      <Route exact path="/sessionStats" children={<SessionStats />} />
+      <Route exact path="/:id" children={<Problem />} />
     </Switch>
   );
 }

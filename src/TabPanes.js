@@ -1,15 +1,12 @@
 import * as React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable.js';
-import { useHistory } from 'react-router-dom';
 import showdown from 'showdown';
-import { hasOutstandingProblemIds, grabNextProblemId } from './problemSet.js';
+import { hasOutstandingProblemIds } from './problemSet.js';
 
 const converter = new showdown.Converter();
 
-export default function TabPanes(data, results, start, reset, setActiveIndex, isBusyTesting, id) {
-  let history = useHistory();
-
+export default function TabPanes(data, results, isBusyTesting, id, clickSkip) {
   if (!data) {
     return [];
   }
@@ -20,13 +17,6 @@ export default function TabPanes(data, results, start, reset, setActiveIndex, is
 
   const hasNext = hasOutstandingProblemIds();
 
-  function clickSkip() {
-    reset();
-    start();
-    history.push(`/${grabNextProblemId()}`);
-    setActiveIndex(0);
-  }
-
   return [
     {
       menuItem: 'Problem',
@@ -36,17 +26,25 @@ export default function TabPanes(data, results, start, reset, setActiveIndex, is
             <div dangerouslySetInnerHTML={createMarkup()} />
           </Card.Content>
 
-          {hasNext ? (
-            <Card.Content>
+          <Card.Content>
+            {hasNext ? (
               <Button
                 visible={hasNext}
                 style={{ margin: 'auto', display: 'block' }}
-                onClick={() => clickSkip()}
+                onClick={() => clickSkip(false)}
               >
                 Skip
               </Button>
-            </Card.Content>
-          ) : null}
+            ) : (
+              <Button
+                visible={hasNext}
+                style={{ margin: 'auto', display: 'block' }}
+                onClick={() => clickSkip(true)}
+              >
+                Skip to Results
+              </Button>
+            )}
+          </Card.Content>
         </Card>
       ),
     },
