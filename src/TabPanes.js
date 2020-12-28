@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable.js';
 import showdown from 'showdown';
-import { hasOutstandingProblemIds } from './problemSet.js';
+import { hasOutstandingProblemIds } from './problemIds.js';
 
 const converter = new showdown.Converter();
 

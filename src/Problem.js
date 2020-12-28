@@ -9,7 +9,7 @@ import EditorSecondary from './EditorSecondary.js';
 import TabPanes from './TabPanes.js';
 import { useStopwatch } from 'react-timer-hook';
 import { useParams, useHistory } from 'react-router-dom';
-import { hasOutstandingProblemIds, grabNextProblemId } from './problemSet.js';
+import { hasOutstandingProblemIds, grabNextProblemId } from './problemIds.js';
 import { constructTest, convertToSeconds, convertToTimer, colorCodeTime } from './util.js';
 import { submitResult } from './personalBests';
 import { addToSessionHistory } from './sessionHistory.js';
