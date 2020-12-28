@@ -3,7 +3,7 @@ import AceEditor from 'react-ace';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 
-export default function EditorMain({ setValue, value, clickRun }) {
+export default function EditorMain({ setValue, clickRun, value, propRefs }) {
   const editor1 = React.useRef();
 
   const onChange = a => {
@@ -53,9 +53,9 @@ export default function EditorMain({ setValue, value, clickRun }) {
           {
             name: 'run tests',
             bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
-            exec: async editor => {
+            exec: async () => {
               try {
-                await clickRun(editor.session.getValue());
+                await clickRun(propRefs);
               } catch (err) {
                 console.log('Encountered an error when attempting to run tests.');
               }

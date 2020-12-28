@@ -14,7 +14,7 @@ function SessionStats() {
   const personalBests = getPersonalBests();
 
   return (
-    <div>
+    <div style={{ paddingBottom: '30px' }}>
       <h2 style={{ margin: '0 auto', padding: '30px 0', textAlign: 'center' }}>
         Session Statistics
       </h2>
@@ -59,16 +59,21 @@ function SessionStats() {
 
         <Table.Body>
           {sessionHistory.map((entry, index) => {
+            const measuredTime = convertToTimer(entry.seconds);
+            const bestTime = convertToTimer(personalBests[entry.id]);
+
             return (
-              <Table.Row key={index}>
+              <Table.Row
+                key={index}
+                style={{
+                  backgroundColor:
+                    measuredTime === bestTime ? `rgba(0,255,0,0.2)` : `rgba(255,0,0,0.2)`,
+                }}
+              >
                 <Table.Cell>{entry.id}</Table.Cell>
                 <Table.Cell>{inventory[entry.id].problemName}</Table.Cell>
-                <Table.Cell style={{ textAlign: 'center' }}>
-                  {convertToTimer(entry.seconds)}
-                </Table.Cell>
-                <Table.Cell style={{ textAlign: 'center' }}>
-                  {convertToTimer(personalBests[entry.id])}
-                </Table.Cell>
+                <Table.Cell style={{ textAlign: 'center' }}>{measuredTime}</Table.Cell>
+                <Table.Cell style={{ textAlign: 'center' }}>{bestTime}</Table.Cell>
               </Table.Row>
             );
           })}
