@@ -1,3 +1,5 @@
+import { getPersonalBests } from './personalBests.js';
+
 export function constructTest(testCases, inherit, code, evaluate) {
   let test = ';';
 
@@ -43,4 +45,23 @@ export function convertToHoursMinutesSeconds(seconds) {
   }
 
   return { hours, minutes, seconds };
+}
+
+export function colorCodeTime(totalSeconds, data) {
+  const personalBests = getPersonalBests();
+  const personalBest = personalBests[data.problemID];
+
+  let color = 'green';
+
+  if (personalBest && totalSeconds > personalBest) {
+    color = 'blue';
+  }
+
+  const lastStageSeconds = data.solution.stages[data.solution.stages.length - 1];
+
+  if (totalSeconds > lastStageSeconds) {
+    color = 'red';
+  }
+
+  return color;
 }

@@ -29,7 +29,7 @@ function SessionStats() {
         }}
       >
         <Button
-          style={{ float: 'left' }}
+          style={{ float: 'left', width: '138px' }}
           onClick={() => {
             history.push('/');
           }}
@@ -37,7 +37,7 @@ function SessionStats() {
           Go Home
         </Button>
         <Button
-          style={{ float: 'right' }}
+          style={{ float: 'right', width: '138px' }}
           onClick={() => {
             clearSessionHistory();
             setUpdate(update + 1);

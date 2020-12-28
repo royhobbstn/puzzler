@@ -6,7 +6,15 @@ import { hasOutstandingProblemIds } from './problemSet.js';
 
 const converter = new showdown.Converter();
 
-export default function TabPanes(data, results, isBusyTesting, id, clickSkip) {
+export default function TabPanes(
+  data,
+  results,
+  isBusyTesting,
+  id,
+  clickSkip,
+  revealAnswer,
+  revealButtonPressed,
+) {
   if (!data) {
     return [];
   }
@@ -27,23 +35,35 @@ export default function TabPanes(data, results, isBusyTesting, id, clickSkip) {
           </Card.Content>
 
           <Card.Content>
-            {hasNext ? (
-              <Button
-                visible={hasNext}
-                style={{ margin: 'auto', display: 'block' }}
-                onClick={() => clickSkip(false)}
-              >
-                Skip
-              </Button>
-            ) : (
-              <Button
-                visible={hasNext}
-                style={{ margin: 'auto', display: 'block' }}
-                onClick={() => clickSkip(true)}
-              >
-                Skip to Results
-              </Button>
-            )}
+            <div style={{ margin: 'auto', width: '60vw', maxWidth: '500px' }}>
+              {!revealButtonPressed ? (
+                <Button
+                  visible={hasNext}
+                  style={{ margin: 'auto', display: 'block', float: 'left', width: '138px' }}
+                  onClick={() => revealAnswer()}
+                >
+                  Reveal Answer
+                </Button>
+              ) : null}
+
+              {hasNext ? (
+                <Button
+                  visible={hasNext}
+                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
+                  onClick={() => clickSkip(false)}
+                >
+                  Skip
+                </Button>
+              ) : (
+                <Button
+                  visible={hasNext}
+                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
+                  onClick={() => clickSkip(true)}
+                >
+                  Skip to Results
+                </Button>
+              )}
+            </div>
           </Card.Content>
         </Card>
       ),

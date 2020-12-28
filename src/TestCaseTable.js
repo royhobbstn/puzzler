@@ -60,7 +60,9 @@ function TestCaseTable({ results: rawResults, id }) {
           ></div>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={() => setOpen(false)}>Close</Button>
+          <Button style={{ width: '138px' }} onClick={() => setOpen(false)}>
+            Close
+          </Button>
         </Modal.Actions>
       </Modal>
 

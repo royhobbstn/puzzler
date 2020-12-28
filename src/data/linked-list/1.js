@@ -71,6 +71,6 @@ export const data = {
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 120],
-    solutions: [{ solutionName: 'standard', solutionLines: solution }],
+    solutionLines: solution,
   },
 };

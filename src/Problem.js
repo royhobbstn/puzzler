@@ -10,7 +10,7 @@ import TabPanes from './TabPanes.js';
 import { useStopwatch } from 'react-timer-hook';
 import { useParams, useHistory } from 'react-router-dom';
 import { hasOutstandingProblemIds, grabNextProblemId } from './problemSet.js';
-import { constructTest, convertToSeconds } from './util.js';
+import { constructTest, convertToSeconds, convertToTimer, colorCodeTime } from './util.js';
 import { submitResult } from './personalBests';
 import { addToSessionHistory } from './sessionHistory.js';
 
@@ -21,6 +21,8 @@ function Problem() {
   const [value, setValue] = React.useState('');
   const [value2, setValue2] = React.useState('');
   const [results, setResults] = React.useState([]);
+  const [revealButtonPressed, setRevealButtonPressed] = React.useState(false);
+  const revealButtonRefPressed = React.useRef(false);
   const [isBusyTesting, setIsBusyTesting] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const { seconds, minutes, hours, start, pause, reset } = useStopwatch({
@@ -44,10 +46,14 @@ function Problem() {
   const hasNext = hasOutstandingProblemIds();
 
   function clickSkip(skipToResults) {
-    const entry = { id, seconds: null };
-    addToSessionHistory(entry);
+    if (!revealButtonPressed) {
+      const entry = { id, seconds: null };
+      addToSessionHistory(entry);
+    }
     reset();
     start();
+    setRevealButtonPressed(false);
+    revealButtonRefPressed.current = false;
     if (skipToResults) {
       history.push(`/sessionStats`);
     } else {
@@ -56,9 +62,25 @@ function Problem() {
     }
   }
 
+  function revealAnswer() {
+    setRevealButtonPressed(true);
+    revealButtonRefPressed.current = true;
+    pause();
+    const entry = { id, seconds: null };
+    addToSessionHistory(entry);
+
+    // code to reveal
+    const transform = data.solution.solutionLines.map(line => {
+      return line.text;
+    });
+    setValue2(transform.join('\n'));
+  }
+
   function clickNext() {
     reset();
     start();
+    setRevealButtonPressed(false);
+    revealButtonRefPressed.current = false;
     history.push(`/${grabNextProblemId()}`);
     setActiveIndex(0);
   }
@@ -110,7 +132,7 @@ function Problem() {
       setResults(r);
       setIsBusyTesting(false);
 
-      if (r.every(d => d.ok)) {
+      if (r.every(d => d.ok) && !revealButtonPressed) {
         pause();
         const entry = { id, seconds: convertToSeconds(hours, minutes, seconds) };
         addToSessionHistory(entry);
@@ -119,7 +141,15 @@ function Problem() {
     });
   };
 
-  const panes = TabPanes(data, results, isBusyTesting, id, clickSkip);
+  const panes = TabPanes(
+    data,
+    results,
+    isBusyTesting,
+    id,
+    clickSkip,
+    revealAnswer,
+    revealButtonPressed,
+  );
 
   // gradually show lines from the solution
   React.useEffect(() => {
@@ -129,14 +159,16 @@ function Problem() {
     setResults([]);
     for (let [index, duration] of data.solution.stages.entries()) {
       window.setTimeout(() => {
-        const transform = data.solution.solutions[0].solutionLines.map(line => {
+        const transform = data.solution.solutionLines.map(line => {
           if (line.stage <= index) {
             return line.text;
           }
           return COMMENT;
         });
 
-        setValue2(transform.join('\n'));
+        if (!revealButtonRefPressed.current) {
+          setValue2(transform.join('\n'));
+        }
 
         if (index === 0) {
           setValue(transform.filter(d => d !== COMMENT).join('\n'));
@@ -148,6 +180,8 @@ function Problem() {
   if (!data) {
     return <p>Problem Not Found</p>;
   }
+
+  const totalSeconds = convertToSeconds(hours, minutes, seconds);
 
   return (
     <div style={{ padding: '1vh 1vw' }}>
@@ -178,6 +212,8 @@ function Problem() {
             <Button
               icon
               onClick={() => {
+                setRevealButtonPressed(false);
+                revealButtonRefPressed.current = false;
                 history.push(`/sessionStats`);
               }}
             >
@@ -193,8 +229,9 @@ function Problem() {
             display: 'block',
           }}
         >
-          <span>{hours}</span>:<span>{minutes < 10 ? '0' + minutes : minutes}</span>:
-          <span>{seconds < 10 ? '0' + seconds : seconds}</span>
+          <span style={{ color: colorCodeTime(totalSeconds, data) }}>
+            {convertToTimer(totalSeconds)}
+          </span>
         </div>
       </div>
       <div className="editor-area columns">
