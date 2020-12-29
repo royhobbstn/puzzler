@@ -37,7 +37,7 @@ export default function TabPanes(
     {
       menuItem: 'Problem',
       render: () => (
-        <Card fluid color="red" raised={true} style={{ height: '33vh', overflowY: 'scroll' }}>
+        <Card fluid color="red" raised={true} style={{ height: '30vh', overflowY: 'scroll' }}>
           <Card.Content>
             <div dangerouslySetInnerHTML={createMarkup()} />
           </Card.Content>

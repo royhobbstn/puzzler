@@ -47,3 +47,8 @@ th {
   color: red;
   cursor: pointer;
 }
+
+.ui.menu {
+  margin-bottom: 0;
+  height: 40px;
+}

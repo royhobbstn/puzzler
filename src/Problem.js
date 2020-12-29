@@ -14,6 +14,7 @@ import { submitResult } from './personalBests';
 import { addToSessionHistory } from './sessionHistory.js';
 import { useStorageState } from 'react-storage-hooks';
 import TabPanes from './TabPanes.js';
+import TabCards from './TabCards.js';
 
 const COMMENT = '  //';
 
@@ -286,17 +287,10 @@ function Problem() {
         </Modal.Content>
       </Modal>
       <div style={{ padding: '1vh 1vw' }}>
-        <div style={{ height: '36vh', padding: '1vh 0 1vh 0vw' }}>
-          <Tab
-            menu={{ fluid: true, vertical: true }}
-            onTabChange={(e, { activeIndex }) => {
-              setActiveIndex(activeIndex);
-            }}
-            activeIndex={activeIndex}
-            panes={panes}
-          />
+        <div style={{ height: 'calc(35vh - 40px)', padding: '1vh 0 1vh 0vw' }}>
+          <TabCards data={data} isBusyTesting={isBusyTesting} results={results} id={id} />
         </div>
-        <div style={{ position: 'absolute', top: '28vh', left: '1vw' }}>
+        {/* <div style={{ position: 'absolute', top: '28vh', left: '1vw' }}>
           <Button.Group>
             <Button icon onClick={() => clickRun(propRefs)}>
               <Icon
@@ -315,8 +309,8 @@ function Problem() {
               </Button>
             ) : null}
           </Button.Group>
-        </div>
-        <div style={{ position: 'absolute', top: '29vh', left: '15vw' }}>
+        </div> */}
+        {/* <div style={{ position: 'absolute', top: '29vh', left: '15vw' }}>
           <div
             style={{
               fontSize: '1.5em',
@@ -327,7 +321,7 @@ function Problem() {
               {convertToTimer(totalSeconds)}
             </span>
           </div>
-        </div>
+        </div> */}
         <div className="editor-area columns">
           <div className="editor-area column">
             <EditorMain setValue={setValue} clickRun={clickRun} value={value} propRefs={propRefs} />

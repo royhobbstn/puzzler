@@ -1,11 +1,15 @@
 import * as React from 'react';
 import Problem from './Problem.js';
 import SessionStats from './SessionStats.js';
-import { Button } from 'semantic-ui-react';
+import { Button, Menu } from 'semantic-ui-react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 
 function App() {
   let history = useHistory();
+
+  function handleMenuClick() {
+    console.log('clickeroo');
+  }
 
   const startApp = () => {
     // temporary
@@ -24,15 +28,30 @@ function App() {
   };
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <div>
-          <Button onClick={() => startApp()}>Start</Button>
-        </div>
-      </Route>
-      <Route exact path="/sessionStats" children={<SessionStats />} />
-      <Route exact path="/:id" children={<Problem />} />
-    </Switch>
+    <React.Fragment>
+      <Menu>
+        <Menu.Item name="editorials" onClick={handleMenuClick}>
+          Editorials
+        </Menu.Item>
+
+        <Menu.Item name="reviews" onClick={handleMenuClick}>
+          Reviews
+        </Menu.Item>
+
+        <Menu.Item name="upcomingEvents" onClick={handleMenuClick}>
+          Upcoming Events
+        </Menu.Item>
+      </Menu>
+      <Switch>
+        <Route exact path="/">
+          <div>
+            <Button onClick={() => startApp()}>Start</Button>
+          </div>
+        </Route>
+        <Route exact path="/sessionStats" children={<SessionStats />} />
+        <Route exact path="/:id" children={<Problem />} />
+      </Switch>
+    </React.Fragment>
   );
 }
 
