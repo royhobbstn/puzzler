@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable';
+import { connect } from 'react-redux';
 import showdown from 'showdown';
 const converter = new showdown.Converter();
 
-function TabCards({ data, isBusyTesting, results, id }) {
+import { setActiveIndex } from './store.js';
+
+function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveIndex }) {
   if (!data) {
     return [];
   }
@@ -17,19 +20,49 @@ function TabCards({ data, isBusyTesting, results, id }) {
 
   return (
     <Card fluid color="red" raised={true} style={{ height: 'calc(32vh - 40px)' }}>
-      <Card.Content>
-        <div dangerouslySetInnerHTML={createMarkup()} />
+      <p style={{ padding: '10px 0 0 10px' }}>
+        <span
+          className={activeIndex === 0 ? 'pane-base chosen-pane' : 'pane-base'}
+          onClick={() => setActiveIndex(0)}
+        >
+          Problem
+        </span>{' '}
+        |{' '}
+        <span
+          className={activeIndex === 1 ? 'pane-base chosen-pane' : 'pane-base'}
+          onClick={() => setActiveIndex(1)}
+        >
+          Test Results
+        </span>
+      </p>
 
-        {isBusyTesting ? (
-          <p>Testing in Progress...</p>
-        ) : !hasTests ? (
-          <p>Tests have not been run yet for this problem.</p>
-        ) : (
-          <TestCaseTable results={results} id={id} />
-        )}
+      <Card.Content style={{ height: 'calc(32vh - 70px)', overflowY: 'scroll' }}>
+        {activeIndex === 0 ? <div dangerouslySetInnerHTML={createMarkup()} /> : null}
+
+        {activeIndex === 1 ? (
+          isBusyTesting ? (
+            <p>Testing in Progress...</p>
+          ) : !hasTests ? (
+            <p>Tests have not been run yet for this problem.</p>
+          ) : (
+            <TestCaseTable results={results} id={id} />
+          )
+        ) : null}
       </Card.Content>
     </Card>
   );
 }
 
-export default TabCards;
+const mapStateToProps = (state, props) => {
+  return {
+    isBusyTesting: state.isBusyTesting,
+    results: state.results,
+    activeIndex: state.activeIndex,
+    id: props.id,
+    data: props.data,
+  };
+};
+
+const mapDispatchToProps = { setActiveIndex };
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabCards);

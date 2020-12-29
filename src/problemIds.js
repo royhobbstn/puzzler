@@ -17,7 +17,10 @@ export function hasOutstandingProblemIds() {
   try {
     const problemIdsRaw = sessionStorage.getItem(PROBLEM_IDS);
     const problemIds = JSON.parse(problemIdsRaw);
-    return Array.isArray(problemIds) && problemIds.length;
+    if (!problemIds) {
+      return false;
+    }
+    return Array.isArray(problemIds) && problemIds.length > 0;
   } catch (err) {
     // okay to swallow error here
     return false;

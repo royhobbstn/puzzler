@@ -10,10 +10,14 @@ import 'ace-builds/webpack-resolver';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root'),
 );

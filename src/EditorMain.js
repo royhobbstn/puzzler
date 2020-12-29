@@ -2,12 +2,16 @@ import * as React from 'react';
 import AceEditor from 'react-ace';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
+import { connect } from 'react-redux';
 
-export default function EditorMain({ setValue, clickRun, value, propRefs }) {
+import { setValue } from './store.js';
+import { clickRun } from './thunks.js';
+
+function EditorMain({ propRefs, setValue, value, clickRun }) {
   const editor1 = React.useRef();
 
-  const onChange = a => {
-    setValue(a);
+  const onChange = val => {
+    setValue(val);
     editor1.current.editor.resize();
   };
 
@@ -66,3 +70,17 @@ export default function EditorMain({ setValue, clickRun, value, propRefs }) {
     </div>
   );
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    value: state.value,
+    propRefs: props.propRefs,
+  };
+};
+
+const mapDispatchToProps = {
+  setValue,
+  clickRun,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditorMain);
