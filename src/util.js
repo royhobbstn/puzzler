@@ -47,7 +47,7 @@ export function convertToHoursMinutesSeconds(seconds) {
   return { hours, minutes, seconds };
 }
 
-export function colorCodeTime(totalSeconds, data) {
+export function colorCodeTime(totalSeconds, data, revealButtonPressed, passedAllTests) {
   const personalBests = getPersonalBests();
   const personalBest = personalBests[data.problemID];
 
@@ -59,8 +59,12 @@ export function colorCodeTime(totalSeconds, data) {
 
   const lastStageSeconds = data.solution.stages[data.solution.stages.length - 1];
 
-  if (totalSeconds > lastStageSeconds) {
+  if (totalSeconds > lastStageSeconds || revealButtonPressed) {
     color = 'red';
+  }
+
+  if (passedAllTests) {
+    color = 'green';
   }
 
   return color;

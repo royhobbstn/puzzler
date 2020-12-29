@@ -12,7 +12,6 @@ import {
   setActiveIndex,
   setIsBusyTesting,
   setRevealButtonPressed,
-  setMoveToNextModal,
   setValue,
   setValue2,
 } from './store.js';
@@ -23,7 +22,6 @@ export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
   const revealButtonPressed = state.revealButtonPressed;
   const id = propRefs.current.id;
   const data = propRefs.current.data;
-  const pause = propRefs.current.pause;
 
   thunkAPI.dispatch(setResults([]));
   thunkAPI.dispatch(setActiveIndex(1));
@@ -74,15 +72,11 @@ export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
     thunkAPI.dispatch(setIsBusyTesting(false));
 
     if (r.every(d => d.ok) && !revealButtonPressed) {
-      pause();
+      propRefs.current.pause();
       const entry = { id, seconds: state.totalSeconds };
       addToSessionHistory(entry);
       submitResult(entry);
       thunkAPI.dispatch(setRevealButtonPressed(true));
-      window.setTimeout(() => {
-        // give some time for green test results to briefly flash on screen before modal appears
-        thunkAPI.dispatch(setMoveToNextModal(true));
-      }, 1000);
     }
   });
 });

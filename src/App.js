@@ -30,10 +30,8 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route exact path="/">
-          <React.Fragment>
-            <MainMenu propRefs={propRefs} />
-            <Button onClick={() => startApp()}>Start</Button>
-          </React.Fragment>
+          <MainMenu propRefs={propRefs} />
+          <Button onClick={() => startApp()}>Start</Button>
         </Route>
         <Route exact path="/sessionStats" children={<SessionStats />} />
         <Route exact path="/:id">

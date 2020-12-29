@@ -11,13 +11,47 @@ import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import storageSession from 'redux-persist/lib/storage/session';
+import { PersistGate } from 'redux-persist/integration/react';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import { reducer } from './store';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage: storageSession,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+});
+
+let persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <App />
+      </Router>
+    </PersistGate>
   </Provider>,
   document.getElementById('root'),
 );

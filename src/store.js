@@ -1,9 +1,8 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    moveToNextModal: false,
     value: '',
     value2: '',
     results: [],
@@ -13,9 +12,6 @@ const counterSlice = createSlice({
     totalSeconds: 0,
   },
   reducers: {
-    setMoveToNextModal: (state, { type, payload }) => {
-      state.moveToNextModal = payload;
-    },
     setValue: (state, { type, payload }) => {
       state.value = payload;
     },
@@ -42,7 +38,6 @@ const counterSlice = createSlice({
 
 export const {
   setValue,
-  setMoveToNextModal,
   setValue2,
   setResults,
   setRevealButtonPressed,
@@ -51,4 +46,4 @@ export const {
   setTotalSeconds,
 } = counterSlice.actions;
 
-export const store = configureStore({ reducer: counterSlice.reducer });
+export const reducer = counterSlice.reducer;

@@ -7,9 +7,8 @@ import { useParams } from 'react-router-dom';
 import { convertToSeconds } from './util.js';
 import TabCards from './TabCards.js';
 import { connect } from 'react-redux';
-import MoveToNextModal from './MoveToNextModal';
 
-import { setValue, setValue2, setTotalSeconds } from './store.js';
+import { setValue, setValue2, setTotalSeconds, setRevealButtonPressed } from './store.js';
 
 function Problem({
   propRefs,
@@ -18,6 +17,7 @@ function Problem({
   value2,
   setValue2,
   revealButtonPressed,
+  setRevealButtonPressed,
   setTotalSeconds,
   totalSeconds,
 }) {
@@ -60,6 +60,14 @@ function Problem({
       setValue(transform.join('\n'));
     }
 
+    if (
+      !revealButtonPressed &&
+      totalSeconds > data.solution.stages[data.solution.stages.length - 1]
+    ) {
+      setRevealButtonPressed(true);
+      pause();
+    }
+
     let durationIndex = 0;
     for (let [index, duration] of data.solution.stages.entries()) {
       if (totalSeconds >= duration) {
@@ -83,7 +91,17 @@ function Problem({
     if (JSON.stringify(value2) !== JSON.stringify(transform)) {
       setValue2(transform);
     }
-  }, [data, revealButtonPressed, setValue, setValue2, totalSeconds, value, value2]);
+  }, [
+    data,
+    revealButtonPressed,
+    setRevealButtonPressed,
+    setValue,
+    setValue2,
+    totalSeconds,
+    value,
+    value2,
+    pause,
+  ]);
 
   if (!data) {
     return <p>Problem Not Found</p>;
@@ -91,8 +109,6 @@ function Problem({
 
   return (
     <React.Fragment>
-      <MoveToNextModal propRefs={propRefs} />
-
       <div style={{ padding: '1vh 1vw' }}>
         <div style={{ height: 'calc(35vh - 40px)', padding: '1vh 0 1vh 0vw' }}>
           <TabCards data={data} id={id} />
@@ -123,6 +139,7 @@ const mapDispatchToProps = {
   setValue,
   setValue2,
   setTotalSeconds,
+  setRevealButtonPressed,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Problem);

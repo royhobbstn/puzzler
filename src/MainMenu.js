@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Menu, Button, Icon } from 'semantic-ui-react';
+import { Menu, Button, Icon, Popup } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { convertToTimer, colorCodeTime } from './util.js';
 import { useParams, useHistory } from 'react-router-dom';
@@ -8,11 +8,11 @@ import { hasOutstandingProblemIds } from './problemIds.js';
 
 import {
   clickNext,
-  clickNextToResults,
   clickRun,
   clickSkipToResults,
   revealAnswer,
   clickSkip,
+  clickNextToResults,
 } from './thunks.js';
 
 function MainMenu({
@@ -22,11 +22,11 @@ function MainMenu({
   results,
   clickRun,
   clickNext,
-  clickNextToResults,
   totalSeconds,
   clickSkip,
   clickSkipToResults,
   revealAnswer,
+  clickNextToResults,
 }) {
   const history = useHistory();
   const { id } = useParams();
@@ -42,23 +42,26 @@ function MainMenu({
   const totalTests = data && data.testCases && data.testCases.length;
   const showNextButton = totalTests === passedTests;
   const hasNext = hasOutstandingProblemIds();
-  const passedAllTests = results.length === true && results.every(d => d.ok);
-  console.log(results.every(d => d.ok));
-  console.log({ revealButtonPressed, passedAllTests, hasNext, showNextButton });
+  const passedAllTests = results.length > 0 && results.every(d => d.ok);
 
   return (
     <Menu>
       {data && id ? (
         <Menu.Item>
           <Button.Group>
-            <Button
-              icon
-              onClick={() => {
-                history.push('/');
-              }}
-            >
-              <Icon name="home" />
-            </Button>
+            <Popup
+              content="Home"
+              trigger={
+                <Button
+                  icon
+                  onClick={() => {
+                    history.push('/');
+                  }}
+                >
+                  <Icon name="home" />
+                </Button>
+              }
+            />
           </Button.Group>
         </Menu.Item>
       ) : null}
@@ -67,82 +70,149 @@ function MainMenu({
         <React.Fragment>
           <Menu.Item>
             <Button.Group>
-              <Button
-                icon
-                onClick={() => {
-                  if (!isBusyTesting && !revealButtonPressed) {
-                    clickRun(propRefs);
-                  }
-                }}
-                disabled={isBusyTesting || revealButtonPressed}
-              >
-                <Icon name="rocket" className={isBusyTesting ? 'animate-icon' : ''} />
-              </Button>
+              <Popup
+                content="Run Tests"
+                trigger={
+                  <Button
+                    icon
+                    onClick={() => {
+                      if (!isBusyTesting && !revealButtonPressed) {
+                        clickRun(propRefs);
+                      }
+                    }}
+                    disabled={isBusyTesting || revealButtonPressed}
+                  >
+                    <Icon name="rocket" className={isBusyTesting ? 'animate-icon' : ''} />
+                  </Button>
+                }
+              />
 
-              <Button
-                icon
-                onClick={() => {
-                  if (showNextButton && hasNext) {
-                    clickNext(propRefs);
-                  }
-                }}
-                disabled={!showNextButton || !hasNext}
-              >
-                <Icon name="step forward" />
-              </Button>
+              <Popup
+                content="Proceed to Next Problem"
+                trigger={
+                  <Button
+                    icon
+                    onClick={() => {
+                      if (showNextButton) {
+                        if (hasNext) {
+                          clickNext(propRefs);
+                        } else {
+                          clickNextToResults(propRefs);
+                        }
+                      }
+                    }}
+                    disabled={!showNextButton}
+                  >
+                    <Icon name="step forward" />
+                  </Button>
+                }
+              />
             </Button.Group>
           </Menu.Item>
 
           <Menu.Item>
-            <span style={{ color: colorCodeTime(totalSeconds, data) }}>
+            <span
+              style={{
+                color: colorCodeTime(totalSeconds, data, revealButtonPressed, passedAllTests),
+              }}
+            >
               {convertToTimer(totalSeconds)}
             </span>
+            {contextMessage(revealButtonPressed, passedAllTests)}
+          </Menu.Item>
+
+          {!hasNext ? (
+            <Menu.Item>
+              <span
+                style={{
+                  fontWeight: 'bold',
+                  color: 'orange',
+                }}
+              >
+                Last Problem
+              </span>
+            </Menu.Item>
+          ) : null}
+
+          <Menu.Item>
+            <Button.Group>
+              <Popup
+                content="Reveal Solution"
+                trigger={
+                  <Button
+                    icon
+                    onClick={() => {
+                      if (!revealButtonPressed && !passedAllTests) {
+                        revealAnswer(propRefs);
+                      }
+                    }}
+                    disabled={revealButtonPressed || passedAllTests}
+                  >
+                    <Icon name="eye" />
+                  </Button>
+                }
+              />
+            </Button.Group>
           </Menu.Item>
 
           <Menu.Item>
             <Button.Group>
-              <Button
-                icon
-                onClick={() => {
-                  if (!revealButtonPressed && !passedAllTests) {
-                    revealAnswer(propRefs);
-                  }
-                }}
-                disabled={revealButtonPressed || passedAllTests}
-              >
-                <Icon name="eye" />
-              </Button>
+              <Popup
+                content="Skip this Problem"
+                trigger={
+                  <Button
+                    icon
+                    onClick={() => {
+                      if (!passedAllTests) {
+                        if (hasNext) {
+                          clickSkip(propRefs);
+                        } else {
+                          clickSkipToResults(propRefs);
+                        }
+                      }
+                    }}
+                    disabled={passedAllTests}
+                  >
+                    <Icon name="fast forward" />
+                  </Button>
+                }
+              />
             </Button.Group>
           </Menu.Item>
-
-          {hasNext && !passedAllTests ? (
-            <Menu.Item>
-              <Button.Group>
-                <Button icon onClick={() => clickSkip(propRefs)}>
-                  <Icon name="fast forward" />
-                </Button>
-              </Button.Group>
-            </Menu.Item>
-          ) : null}
         </React.Fragment>
       ) : null}
 
       <Menu.Item position="right">
-        <Button
-          icon
-          onClick={() => {
-            if (id && data) {
-              clickSkipToResults(propRefs);
-            } else {
-              history.push('/sessionStats');
-            }
-          }}
-        >
-          <Icon name="file alternate outline" />
-        </Button>
+        <Popup
+          content="See Session Stats"
+          trigger={
+            <Button
+              icon
+              onClick={() => {
+                if (id && data) {
+                  clickSkipToResults(propRefs);
+                } else {
+                  history.push('/sessionStats');
+                }
+              }}
+            >
+              <Icon name="file alternate outline" />
+            </Button>
+          }
+        />
       </Menu.Item>
     </Menu>
   );
+}
+
+function contextMessage(revealButtonPressed, passedAllTests) {
+  if (passedAllTests) {
+    return <span style={{ color: 'green', fontWeight: 'bold' }}>- PASSED!</span>;
+  } else if (revealButtonPressed) {
+    return <span style={{ color: 'red' }}>- Stopped</span>;
+  } else {
+    return null;
+  }
 }
 
 const mapStateToProps = (state, props) => {
@@ -159,10 +229,10 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = {
   clickRun,
   clickNext,
-  clickNextToResults,
   clickSkipToResults,
   revealAnswer,
   clickSkip,
+  clickNextToResults,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
