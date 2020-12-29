@@ -1,6 +1,6 @@
 import { inventory } from './data/inventory.js';
 import * as React from 'react';
-import { Tab, Button, Icon, Card, Modal } from 'semantic-ui-react';
+import { Tab, Button, Icon, Modal } from 'semantic-ui-react';
 import * as Comlink from 'comlink';
 /* eslint-disable import/no-webpack-loader-syntax */
 import Worker from 'worker-loader!./worker';
@@ -13,9 +13,7 @@ import { constructTest, convertToSeconds, convertToTimer, colorCodeTime } from '
 import { submitResult } from './personalBests';
 import { addToSessionHistory } from './sessionHistory.js';
 import { useStorageState } from 'react-storage-hooks';
-import TestCaseTable from './TestCaseTable.js';
-import showdown from 'showdown';
-const converter = new showdown.Converter();
+import TabPanes from './TabPanes.js';
 
 const COMMENT = '  //';
 
@@ -203,85 +201,6 @@ function Problem() {
     return <p>Problem Not Found</p>;
   }
 
-  function createMarkup() {
-    return { __html: converter.makeHtml(data.problemText) };
-  }
-
-  const hasTests = results.length;
-  const passedAllTests = results.length && results.every(d => d.ok);
-
-  const panes = [
-    {
-      menuItem: 'Problem',
-      render: () => (
-        <Card fluid color="red" raised={true} style={{ height: '33vh', overflowY: 'scroll' }}>
-          <Card.Content>
-            <div dangerouslySetInnerHTML={createMarkup()} />
-          </Card.Content>
-
-          <Card.Content>
-            <div style={{ margin: 'auto', width: '60vw', maxWidth: '500px' }}>
-              {!revealButtonPressed && !passedAllTests ? (
-                <Button
-                  style={{ margin: 'auto', display: 'block', float: 'left', width: '138px' }}
-                  onClick={revealAnswer}
-                >
-                  Reveal Answer
-                </Button>
-              ) : null}
-
-              {hasNext && !passedAllTests ? (
-                <Button
-                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
-                  onClick={clickSkip}
-                >
-                  Skip
-                </Button>
-              ) : !passedAllTests && !hasNext ? (
-                <Button
-                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
-                  onClick={clickSkipToResults}
-                >
-                  Skip to Results
-                </Button>
-              ) : passedAllTests && hasNext ? (
-                <Button
-                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
-                  onClick={clickNext}
-                >
-                  Next Problem
-                </Button>
-              ) : passedAllTests && !hasNext ? (
-                <Button
-                  style={{ margin: 'auto', display: 'block', float: 'right', width: '138px' }}
-                  onClick={clickNextToResults}
-                >
-                  See Results
-                </Button>
-              ) : null}
-            </div>
-          </Card.Content>
-        </Card>
-      ),
-    },
-    {
-      menuItem: 'Test Results',
-      render: () => (
-        <Card fluid color="blue" raised={true} style={{ height: '33vh', overflowY: 'scroll' }}>
-          <Card.Content>
-            {isBusyTesting ? (
-              <p>Testing in Progress...</p>
-            ) : !hasTests ? (
-              <p>Tests have not been run yet for this problem.</p>
-            ) : (
-              <TestCaseTable results={results} id={id} />
-            )}
-          </Card.Content>
-        </Card>
-      ),
-    },
-  ];
-
   // if nothing in main editor, place minimal in there.
   if (!value) {
     const transform = [];
@@ -328,16 +247,40 @@ function Problem() {
   propRefs.current.minutes = minutes;
   propRefs.current.seconds = seconds;
   propRefs.current.revealButtonPressed = revealButtonPressed;
+  propRefs.current.results = results;
+  propRefs.current.isBusyTesting = isBusyTesting;
+
+  const panes = TabPanes(
+    propRefs,
+    clickSkip,
+    revealAnswer,
+    clickSkipToResults,
+    clickNext,
+    clickNextToResults,
+  );
 
   return (
     <React.Fragment>
-      <Modal onClose={() => setMoveToNextModal(false)} open={moveToNextModal}>
-        <Modal.Content>
-          Congratulations! All Tests Passed!
-          <Button style={{ width: '138px' }} onClick={() => setMoveToNextModal(false)}>
-            Move To Next
+      <Modal size="tiny" onClose={() => setMoveToNextModal(false)} open={moveToNextModal}>
+        <Modal.Header>
+          &#127881; Congratulations!{' '}
+          <span style={{ marginLeft: '20px', fontWeight: 'normal' }}>All Tests Passed!</span>
+        </Modal.Header>
+        <Modal.Content style={{ width: '85%', margin: '0 auto 50px auto', maxWidth: '400px' }}>
+          <Button
+            autoFocus
+            style={{ width: '115px', float: 'left' }}
+            onClick={() => {
+              setMoveToNextModal(false);
+              hasNext ? clickNext() : clickNextToResults();
+            }}
+          >
+            {hasNext ? 'Next' : 'Results'}
           </Button>
-          <Button style={{ width: '138px' }} onClick={() => setMoveToNextModal(false)}>
+          <Button
+            style={{ width: '115px', float: 'right' }}
+            onClick={() => setMoveToNextModal(false)}
+          >
             Wait Here
           </Button>
         </Modal.Content>
@@ -359,7 +302,7 @@ function Problem() {
               <Icon
                 name="rocket"
                 className={isBusyTesting ? 'animate-icon' : ''}
-                disabled={isBusyTesting}
+                disabled={isBusyTesting || revealButtonPressed}
               />
             </Button>
             {showNextButton && hasNext ? (
