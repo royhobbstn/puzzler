@@ -27,7 +27,7 @@ const solution = [
 ];
 
 export const data = {
-  problemID: 1,
+  problemID: 2,
   problemName: 'Problem2',
   problemText: 'Problem 2 todo.',
   testCases: [
@@ -68,6 +68,7 @@ export const data = {
   category: 'Data Structures - Basic',
   difficulty: 2,
   maxExecutionTime: 2,
+  estimatedTime: 60,
   solution: {
     stages: [0, 30, 60, 120],
     solutionLines: solution,

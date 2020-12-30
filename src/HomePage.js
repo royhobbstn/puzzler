@@ -1,17 +1,9 @@
 import * as React from 'react';
-import CategoryCard from './CategoryCard.js';
-import ControlCard from './ControlCard.js';
 import ResultsCard from './ResultsCard.js';
 import SelectionsCard from './SelectionsCard.js';
-import { aggregateData } from './aggregateData.js';
-
-const defaultCategoryData = aggregateData.categories.map(d => {
-  return { name: d, isSelected: true };
-});
+import Filters from './Filters.js';
 
 export default function HomePage() {
-  const [categories, setCategories] = React.useState(defaultCategoryData);
-
   const [selections, setSelections] = React.useState([]);
   const [results, setResults] = React.useState([]);
 
@@ -23,23 +15,12 @@ export default function HomePage() {
           top: 'calc(40px + 3vh)',
           left: '5vw',
           height: 'calc(48vh - 40px)',
-          width: '23vw',
+          width: '60vw',
         }}
       >
-        <CategoryCard categories={categories} setCategories={setCategories} />
+        <Filters setResults={setResults} />
       </div>
-      <div
-        style={{
-          border: '1px solid green',
-          position: 'absolute',
-          top: 'calc(40px + 3vh)',
-          left: '29vw',
-          height: 'calc(48vh - 40px)',
-          width: '36vw',
-        }}
-      >
-        <ControlCard categories={categories} setResults={setResults} />
-      </div>
+
       <div
         style={{
           border: '1px solid yellow',
@@ -50,11 +31,10 @@ export default function HomePage() {
           width: '29vw',
         }}
       >
-        <SelectionsCard />
+        <SelectionsCard selections={selections} setSelections={setSelections} />
       </div>
       <div
         style={{
-          border: '1px solid blue',
           position: 'absolute',
           top: '52vh',
           left: '5vw',
@@ -62,7 +42,7 @@ export default function HomePage() {
           width: '60vw',
         }}
       >
-        <ResultsCard />
+        <ResultsCard results={results} selections={selections} setSelections={setSelections} />
       </div>
     </React.Fragment>
   );

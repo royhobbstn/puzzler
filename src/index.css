@@ -48,6 +48,21 @@ th {
   cursor: pointer;
 }
 
+.hover-markdown:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.hover-circle-on:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.hover-circle-off:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .ui.menu {
   margin-bottom: 0;
   height: 40px;
@@ -61,4 +76,17 @@ th {
 .chosen-pane {
   color: blue;
   font-weight: bolder;
+}
+
+.ui.card > .content,
+.ui.cards > .card > .content {
+  flex-grow: unset !important;
+}
+
+.ui.checkbox label {
+  font-weight: bold;
+}
+
+.existing-selection {
+  background-color: rgba(0, 0, 255, 0.3);
 }

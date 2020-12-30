@@ -69,6 +69,7 @@ export const data = {
   category: 'Data Structures - Basic',
   difficulty: 2,
   maxExecutionTime: 2,
+  estimatedTime: 60,
   solution: {
     stages: [0, 30, 60, 120],
     solutionLines: solution,
