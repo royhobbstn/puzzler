@@ -22,7 +22,7 @@ export function convertToSeconds(hours, minutes, seconds) {
 
 export function convertToTimer(secondsRaw) {
   if (!secondsRaw) {
-    return `--:--:--`;
+    return `00:00:00`;
   }
   const { hours, minutes, seconds } = convertToHoursMinutesSeconds(secondsRaw);
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(

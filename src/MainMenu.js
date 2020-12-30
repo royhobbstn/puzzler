@@ -65,7 +65,11 @@ function MainMenu({
           </Button.Group>
         </Menu.Item>
       ) : null}
-      <Menu.Item content="Puzzler" />
+      <Menu.Item>
+        <span style={{ fontWeight: 'bolder', fontSize: '20px', fontVariant: 'small-caps' }}>
+          Puzzler
+        </span>
+      </Menu.Item>
       {data && id ? (
         <React.Fragment>
           <Menu.Item>

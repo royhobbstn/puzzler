@@ -3,9 +3,9 @@ import { Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable';
 import { connect } from 'react-redux';
 import showdown from 'showdown';
-const converter = new showdown.Converter();
-
 import { setActiveIndex } from './store.js';
+
+const converter = new showdown.Converter();
 
 function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveIndex }) {
   if (!data) {
