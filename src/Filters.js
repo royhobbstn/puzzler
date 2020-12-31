@@ -3,8 +3,8 @@ import { Card } from 'semantic-ui-react';
 import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
 import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from './constants.js';
-import { sampleResults } from './aggregateData';
-import { aggregateData } from './aggregateData.js';
+import { inventory } from './data/inventory';
+import { aggregateData } from './aggregateData';
 
 const defaultCategoryData = aggregateData.categories.map(d => {
   return { name: d, isSelected: true };
@@ -26,7 +26,7 @@ export default function Filters({ setResults }) {
 
   const onTimeSliderChange = React.useCallback((minValue, maxValue) => {
     setMinTime(minValue);
-    setMaxTime(maxValue);
+    setMaxTime(() => maxValue);
   }, []);
 
   const pressReset = () => {
@@ -39,9 +39,49 @@ export default function Filters({ setResults }) {
     setAlgChecked(true);
   };
 
+  const runFilters = React.useCallback(() => {
+    const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
+
+    const filtered = Object.keys(inventory)
+      .map(d => Number(d))
+      .filter(key => {
+        const item = inventory[String(key)];
+        // check vs categories
+        if (!chosenCategories.includes(item.category)) {
+          return false;
+        }
+        // check vs difficulty
+        if (item.difficulty < minDifficulty || item.difficulty > maxDifficulty) {
+          return false;
+        }
+        // check vs timeEstimate
+        if (item.estimatedTime < minTime || item.estimatedTime > maxTime) {
+          return false;
+        }
+        // check vs DataStructure vs Algorithm
+        if (item.type === 'data-structure' && !dsChecked) {
+          return false;
+        }
+        if (item.type === 'algorithm' && !algChecked) {
+          return false;
+        }
+        return true;
+      });
+    setResults(filtered);
+  }, [
+    algChecked,
+    categories,
+    dsChecked,
+    maxDifficulty,
+    maxTime,
+    minDifficulty,
+    minTime,
+    setResults,
+  ]);
+
   React.useEffect(() => {
-    setResults(sampleResults);
-  }, [setResults]);
+    runFilters();
+  }, [runFilters]);
 
   return (
     <div
@@ -60,7 +100,7 @@ export default function Filters({ setResults }) {
             top: '0',
             left: '0',
             height: 'calc(48vh - 40px)',
-            width: '23vw',
+            width: '21vw',
           }}
         >
           <CategoryCard categories={categories} setCategories={setCategories} />
@@ -69,9 +109,9 @@ export default function Filters({ setResults }) {
           style={{
             position: 'absolute',
             top: '0',
-            left: '24vw',
+            left: '22vw',
             height: 'calc(48vh - 40px)',
-            width: '36vw',
+            width: '33vw',
           }}
         >
           <ControlCard

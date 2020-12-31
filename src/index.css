@@ -90,3 +90,9 @@ th {
 .existing-selection {
   background-color: rgba(0, 0, 255, 0.3);
 }
+
+.hover-link:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

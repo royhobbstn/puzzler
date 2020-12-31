@@ -48,7 +48,7 @@ export default function ControlCard({
 
         <div style={{ display: 'block', width: '100%', height: '19%' }}>
           <Checkbox
-            style={{ display: 'block', padding: '5px 10px', float: 'left' }}
+            style={{ display: 'block', padding: '5px 0', float: 'left' }}
             label="Data Structures"
             onChange={() => {
               setDsChecked(!dsChecked);

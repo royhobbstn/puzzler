@@ -48,7 +48,7 @@ export default function CategoryCard({ categories, setCategories }) {
         {categories.map(item => {
           return (
             <Checkbox
-              style={{ display: 'block', padding: '5px 10px' }}
+              style={{ display: 'block', padding: '5px 5px' }}
               key={item.name}
               label={item.name}
               onChange={() => {

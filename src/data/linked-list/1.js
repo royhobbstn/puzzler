@@ -66,10 +66,11 @@ export const data = {
     },
   ],
   setupCode: '',
-  category: 'Data Structures - Basic',
+  category: 'linked-list',
+  type: 'data-structure',
   difficulty: 2,
   maxExecutionTime: 2,
-  estimatedTime: 60,
+  estimatedTime: 1,
   solution: {
     stages: [0, 30, 60, 120],
     solutionLines: solution,

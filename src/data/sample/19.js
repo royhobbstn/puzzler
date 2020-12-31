@@ -27,9 +27,10 @@ const solution = [
 ];
 
 export const data = {
-  problemID: 2,
-  problemName: 'Problem2',
-  problemText: 'Problem 2 todo.',
+  problemID: 19,
+  problemName: 'Implement insertAtHead in a Singly Linked List',
+  problemText:
+    'Write an **insertAtHead** method in a Singly-Linked-List Class.  The method should accept an arbitrary node value, and return the list.',
   testCases: [
     {
       id: 1,
@@ -65,8 +66,8 @@ export const data = {
     },
   ],
   setupCode: '',
-  category: 'Data Structures - Basic',
-  type: 'data-structure',
+  category: 'tree',
+  type: 'algorithm',
   difficulty: 2,
   maxExecutionTime: 2,
   estimatedTime: 1,
