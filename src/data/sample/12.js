@@ -70,7 +70,7 @@ export const data = {
   type: 'data-structure',
   difficulty: 7,
   maxExecutionTime: 8,
-  estimatedTime: 60,
+  estimatedTime: 20,
   solution: {
     stages: [0, 30, 60, 120],
     solutionLines: solution,

@@ -25,6 +25,9 @@ const filterSlice = createSlice({
     setSelections: (state, { type, payload }) => {
       state.selections = payload;
     },
+    shiftSelection: (state, { type, payload }) => {
+      state.selections = state.selections.slice(1);
+    },
     setResults: (state, { type, payload }) => {
       state.results = payload;
     },
@@ -74,6 +77,7 @@ export const {
   pressReset,
   setDifficultySlider,
   setTimeSlider,
+  shiftSelection,
 } = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

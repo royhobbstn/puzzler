@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { convertToTimer, colorCodeTime } from './util.js';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory.js';
-
+import { clickRun } from './redux/thunks';
 import {
-  clickNext,
-  clickRun,
-  clickSkipToResults,
-  revealAnswer,
-  clickSkip,
   clickNextToResults,
-} from './redux/thunks.js';
+  clickSkipToResults,
+  clickNext,
+  clickSkip,
+  revealAnswer,
+} from './redux/gameStore';
+import { shiftSelection } from './redux/filterStore';
 
 function MainMenu({
   isBusyTesting,
@@ -26,6 +26,7 @@ function MainMenu({
   revealAnswer,
   clickNextToResults,
   selections,
+  shiftSelection,
 }) {
   const history = useHistory();
   const { id } = useParams();
@@ -95,13 +96,15 @@ function MainMenu({
                 trigger={
                   <Button
                     icon
-                    onClick={async () => {
+                    onClick={() => {
                       if (showNextButton) {
                         if (hasNext) {
-                          const nextId = await clickNext(id);
-                          history.push(`/${nextId.payload}`);
+                          const nextId = selections[0];
+                          clickNext(id);
+                          shiftSelection();
+                          history.push(`/${nextId}`);
                         } else {
-                          await clickNextToResults(id);
+                          clickNextToResults(id);
                           history.push(`/sessionStats`);
                         }
                       }
@@ -148,7 +151,7 @@ function MainMenu({
                     icon
                     onClick={() => {
                       if (!revealButtonPressed && !passedAllTests) {
-                        revealAnswer(id);
+                        revealAnswer({ id, data });
                       }
                     }}
                     disabled={revealButtonPressed || passedAllTests}
@@ -167,13 +170,15 @@ function MainMenu({
                 trigger={
                   <Button
                     icon
-                    onClick={async () => {
+                    onClick={() => {
                       if (!passedAllTests) {
                         if (hasNext) {
-                          const nextId = await clickSkip(id);
-                          history.push(`/${nextId.payload}`);
+                          const nextId = selections[0];
+                          clickSkip(id);
+                          shiftSelection();
+                          history.push(`/${nextId}`);
                         } else {
-                          await clickSkipToResults(id);
+                          clickSkipToResults(id);
                           history.push(`/sessionStats`);
                         }
                       }
@@ -195,10 +200,10 @@ function MainMenu({
           trigger={
             <Button
               icon
-              onClick={async () => {
+              onClick={() => {
                 // if not on homepage
                 if (id) {
-                  await clickSkipToResults(id);
+                  clickSkipToResults(id);
                 }
                 history.push('/sessionStats');
               }}
@@ -241,6 +246,7 @@ const mapDispatchToProps = {
   revealAnswer,
   clickSkip,
   clickNextToResults,
+  shiftSelection,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
