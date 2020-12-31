@@ -12,7 +12,7 @@ import {
   revealAnswer,
   clickSkip,
   clickNextToResults,
-} from './thunks.js';
+} from './redux/thunks.js';
 
 function MainMenu({
   propRefs,

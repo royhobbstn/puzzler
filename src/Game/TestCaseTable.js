@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Table, Icon } from 'semantic-ui-react';
-import { constructTest } from './util.js';
-import { inventory } from './data/inventory.js';
+import { constructTest } from '../util.js';
+import { inventory } from '../data/inventory.js';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 import { connect } from 'react-redux';
-import { setOpen, setNoteCode, updateTableSort } from './gameStore';
+import { setOpen, setNoteCode, updateTableSort } from '../redux/gameStore';
 import TestCodeModal from './TestCodeModal';
 
 function TestCaseTable({ results, id, open, noteCode, tableSort }) {

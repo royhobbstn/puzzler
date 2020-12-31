@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Card, Table, Icon, Button } from 'semantic-ui-react';
-import { inventory } from './data/inventory';
+import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
 
-import { setSelections, setActiveProblemText, setShowModal } from './filterStore';
+import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
 
 function ResultsCard({ results, selections, setSelections, setActiveProblemText, setShowModal }) {
   const addProblemId = problemID => {

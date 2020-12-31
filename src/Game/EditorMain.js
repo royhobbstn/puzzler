@@ -4,8 +4,8 @@ import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 import { connect } from 'react-redux';
 
-import { setValue } from './gameStore.js';
-import { clickRun } from './thunks.js';
+import { setValue } from '../redux/gameStore.js';
+import { clickRun } from '../redux/thunks.js';
 
 function EditorMain({ propRefs, setValue, value, clickRun }) {
   const editor1 = React.useRef();

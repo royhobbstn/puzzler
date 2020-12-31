@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { convertToTimer } from './util.js';
 import { connect } from 'react-redux';
 
-import { setSessionHistory } from './gameStore';
+import { setSessionHistory } from './redux/gameStore';
 
 function SessionStats({ sessionHistory, setSessionHistory }) {
   const history = useHistory();

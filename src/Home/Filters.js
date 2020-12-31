@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Card } from 'semantic-ui-react';
 import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
-import { inventory } from './data/inventory';
+import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
 
-import { setResults, setCategories } from './filterStore';
+import { setResults, setCategories } from '../redux/filterStore';
 
 function Filters({
   setResults,

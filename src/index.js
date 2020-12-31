@@ -25,8 +25,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { combineReducers } from 'redux';
-import { gameReducer } from './gameStore';
-import { filterReducer } from './filterStore';
+import { gameReducer } from './redux/gameStore';
+import { filterReducer } from './redux/filterStore';
 
 const reducer = combineReducers({
   game: gameReducer,

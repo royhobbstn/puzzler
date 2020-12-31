@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon } from 'semantic-ui-react';
-import { inventory } from './data/inventory';
+import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
-import { setSelections, setActiveProblemText, setShowModal } from './filterStore';
-import { clickNext } from './thunks';
+import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
+import { clickNext } from '../redux/thunks';
 
 function SelectionsCard({
   selections,
@@ -34,7 +34,7 @@ function SelectionsCard({
     <Card style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
       <Card.Content header="Selections" />
       <Card.Content>
-        <Button style={{ float: 'left' }} onClick={clearAll}>
+        <Button disabled={Boolean(!selections.length)} style={{ float: 'left' }} onClick={clearAll}>
           Clear All
         </Button>
         <Button

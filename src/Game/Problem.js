@@ -1,14 +1,19 @@
-import { inventory } from './data/inventory.js';
+import { inventory } from '../data/inventory.js';
 import * as React from 'react';
 import EditorMain from './EditorMain.js';
 import EditorSecondary from './EditorSecondary.js';
 import { useStopwatch } from 'react-timer-hook';
 import { useParams } from 'react-router-dom';
-import { convertToSeconds } from './util.js';
-import TabCards from './TabCards.js';
+import { convertToSeconds } from '../util.js';
+import TabCards from './TabCards';
 import { connect } from 'react-redux';
 
-import { setValue, setValue2, setTotalSeconds, setRevealButtonPressed } from './gameStore.js';
+import {
+  setValue,
+  setValue2,
+  setTotalSeconds,
+  setRevealButtonPressed,
+} from '../redux/gameStore.js';
 
 function Problem({
   propRefs,

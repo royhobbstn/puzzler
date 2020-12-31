@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Card, Checkbox, Button } from 'semantic-ui-react';
 import SliderView from 'semantic-ui-react-slider';
 import { connect } from 'react-redux';
-import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from './constants.js';
+import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from '../constants.js';
 
 import {
   pressReset,
@@ -10,7 +10,7 @@ import {
   setAlgChecked,
   setDifficultySlider,
   setTimeSlider,
-} from './filterStore';
+} from '../redux/filterStore';
 
 function ControlCard({
   minDifficulty,

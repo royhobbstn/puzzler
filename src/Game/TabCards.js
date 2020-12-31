@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable';
 import { connect } from 'react-redux';
 import showdown from 'showdown';
-import { setActiveIndex } from './gameStore.js';
+import { setActiveIndex } from '../redux/gameStore.js';
 
 const converter = new showdown.Converter();
 

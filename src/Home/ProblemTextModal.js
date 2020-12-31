@@ -2,7 +2,7 @@ import * as React from 'react';
 import showdown from 'showdown';
 import { Modal, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { setShowModal } from './filterStore';
+import { setShowModal } from '../redux/filterStore';
 
 const converter = new showdown.Converter();
 

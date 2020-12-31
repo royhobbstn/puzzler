@@ -4,7 +4,7 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import { connect } from 'react-redux';
 import 'highlight.js/styles/github.css';
-import { setOpen } from './gameStore';
+import { setOpen } from '../redux/gameStore';
 
 hljs.registerLanguage('javascript', javascript);
 
