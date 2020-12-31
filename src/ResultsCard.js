@@ -2,15 +2,21 @@ import * as React from 'react';
 import { Card, Table, Icon, Button } from 'semantic-ui-react';
 import { inventory } from './data/inventory';
 import { connect } from 'react-redux';
-import { setSelections } from './filterStore';
 
-function ResultsCard({ results, selections, setSelections, showModalMarkdown }) {
+import { setSelections, setActiveProblemText, setShowModal } from './filterStore';
+
+function ResultsCard({ results, selections, setSelections, setActiveProblemText, setShowModal }) {
   const addProblemId = problemID => {
     setSelections([...selections, problemID]);
   };
 
   const subtractProblemId = problemID => {
     setSelections(selections.filter(d => d !== problemID));
+  };
+
+  const showModalMarkdown = problemText => {
+    setActiveProblemText(problemText);
+    setShowModal(true);
   };
 
   // results which don't include selected problems
@@ -109,13 +115,14 @@ function ResultsCard({ results, selections, setSelections, showModalMarkdown }) 
 const mapStateToProps = (state, props) => {
   return {
     selections: state.filter.selections,
-    results: props.results,
-    showModalMarkdown: props.showModalMarkdown,
+    results: state.filter.results,
   };
 };
 
 const mapDispatchToProps = {
   setSelections,
+  setActiveProblemText,
+  setShowModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultsCard);

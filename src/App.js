@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/">
           <MainMenu propRefs={propRefs} />
           {/* <Button onClick={() => startApp()}>Start</Button> */}
-          <HomePage />
+          <HomePage propRefs={propRefs} />
         </Route>
         <Route exact path="/sessionStats" children={<SessionStats />} />
         <Route exact path="/:id">

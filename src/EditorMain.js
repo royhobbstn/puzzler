@@ -74,7 +74,7 @@ function EditorMain({ propRefs, setValue, value, clickRun }) {
 const mapStateToProps = (state, props) => {
   return {
     value: state.game.value,
-    propRefs: props.game.propRefs,
+    propRefs: props.propRefs,
   };
 };
 

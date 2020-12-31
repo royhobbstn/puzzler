@@ -10,6 +10,10 @@ const gameSlice = createSlice({
     isBusyTesting: false,
     activeIndex: 0,
     totalSeconds: 0,
+    open: false,
+    noteCode: '',
+    tableSort: 'id', // id | fail | success
+    sessionHistory: [],
   },
   reducers: {
     setValue: (state, { type, payload }) => {
@@ -33,8 +37,18 @@ const gameSlice = createSlice({
     setTotalSeconds: (state, { type, payload }) => {
       state.totalSeconds = payload;
     },
-    /////
-    //
+    setOpen: (state, { type, payload }) => {
+      state.open = payload;
+    },
+    setNoteCode: (state, { type, payload }) => {
+      state.noteCode = payload;
+    },
+    updateTableSort: (state, { type, payload }) => {
+      state.tableSort = payload;
+    },
+    setSessionHistory: (state, { type, payload }) => {
+      state.sessionHistory = payload;
+    },
   },
 });
 
@@ -46,6 +60,10 @@ export const {
   setIsBusyTesting,
   setActiveIndex,
   setTotalSeconds,
+  setOpen,
+  setNoteCode,
+  updateTableSort,
+  setSessionHistory,
 } = gameSlice.actions;
 
 export const gameReducer = gameSlice.reducer;

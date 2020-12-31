@@ -45,7 +45,7 @@ function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveInde
           ) : !hasTests ? (
             <p>Tests have not been run yet for this problem.</p>
           ) : (
-            <TestCaseTable results={results} id={id} />
+            <TestCaseTable id={id} />
           )
         ) : null}
       </Card.Content>

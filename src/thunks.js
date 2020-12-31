@@ -2,10 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as Comlink from 'comlink';
 /* eslint-disable import/no-webpack-loader-syntax */
 import Worker from 'worker-loader!./worker';
-import { addToSessionHistory } from './sessionHistory.js';
 import { submitResult } from './personalBests.js';
 import { constructTest } from './util.js';
-import { grabNextProblemId } from './problemIds.js';
 
 import {
   setResults,
@@ -14,12 +12,15 @@ import {
   setRevealButtonPressed,
   setValue,
   setValue2,
+  setSessionHistory,
 } from './gameStore.js';
+
+import { setSelections } from './filterStore.js';
 
 export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
   const state = thunkAPI.getState();
-  const value = state.value;
-  const revealButtonPressed = state.revealButtonPressed;
+  const value = state.game.value;
+  const revealButtonPressed = state.game.revealButtonPressed;
   const id = propRefs.current.id;
   const data = propRefs.current.data;
 
@@ -73,8 +74,8 @@ export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
 
     if (r.every(d => d.ok) && !revealButtonPressed) {
       propRefs.current.pause();
-      const entry = { id, seconds: state.totalSeconds };
-      addToSessionHistory(entry);
+      const entry = { id, seconds: state.game.totalSeconds };
+      thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
       submitResult(entry);
       thunkAPI.dispatch(setRevealButtonPressed(true));
     }
@@ -96,22 +97,28 @@ export const clickNextToResults = createAsyncThunk('', async (propRefs, thunkAPI
 });
 
 export const clickNext = createAsyncThunk('', async (propRefs, thunkAPI) => {
-  propRefs.current.reset();
+  if (propRefs.current.reset && propRefs.current.start) {
+    propRefs.current.reset();
+    propRefs.current.start();
+  }
   sessionStorage.setItem('savedSeconds', 0);
-  propRefs.current.start();
   thunkAPI.dispatch(setRevealButtonPressed(false));
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
-  propRefs.current.history.push(`/${grabNextProblemId()}`);
+  const state = thunkAPI.getState();
+  const selections = [...state.filter.selections];
+  const id = selections.shift();
+  thunkAPI.dispatch(setSelections(selections));
+  propRefs.current.history.push(`/${id}`);
 });
 
 export const clickSkip = createAsyncThunk('', async (propRefs, thunkAPI) => {
   const state = thunkAPI.getState();
-  const revealButtonPressed = state.revealButtonPressed;
+  const revealButtonPressed = state.game.revealButtonPressed;
   if (!revealButtonPressed) {
     const entry = { id: propRefs.current.id, seconds: null };
-    addToSessionHistory(entry);
+    thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   }
   propRefs.current.reset();
   sessionStorage.setItem('savedSeconds', 0);
@@ -120,15 +127,18 @@ export const clickSkip = createAsyncThunk('', async (propRefs, thunkAPI) => {
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
-  propRefs.current.history.push(`/${grabNextProblemId()}`);
+  const selections = [...state.filter.selections];
+  const id = selections.shift();
+  thunkAPI.dispatch(setSelections(selections));
+  propRefs.current.history.push(`/${id}`);
 });
 
 export const clickSkipToResults = createAsyncThunk('', async (propRefs, thunkAPI) => {
   const state = thunkAPI.getState();
-  const revealButtonPressed = state.revealButtonPressed;
+  const revealButtonPressed = state.game.revealButtonPressed;
   if (!revealButtonPressed) {
     const entry = { id: propRefs.current.id, seconds: null };
-    addToSessionHistory(entry);
+    thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   }
   propRefs.current.reset();
   sessionStorage.setItem('savedSeconds', 0);
@@ -144,11 +154,12 @@ export const clickSkipToResults = createAsyncThunk('', async (propRefs, thunkAPI
 });
 
 export const revealAnswer = createAsyncThunk('', async (propRefs, thunkAPI) => {
+  const state = thunkAPI.getState();
   const data = propRefs.current.data;
   thunkAPI.dispatch(setRevealButtonPressed(true));
   propRefs.current.pause();
   const entry = { id: propRefs.current.id, seconds: null };
-  addToSessionHistory(entry);
+  thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   // code to reveal
   const transform = data.solution.solutionLines.map(line => {
     return line.text;

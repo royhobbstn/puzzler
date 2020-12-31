@@ -1,10 +1,18 @@
 import * as React from 'react';
 import { Card, Checkbox, Button } from 'semantic-ui-react';
 import SliderView from 'semantic-ui-react-slider';
-
+import { connect } from 'react-redux';
 import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from './constants.js';
 
-export default function ControlCard({
+import {
+  pressReset,
+  setDsChecked,
+  setAlgChecked,
+  setDifficultySlider,
+  setTimeSlider,
+} from './filterStore';
+
+function ControlCard({
   minDifficulty,
   maxDifficulty,
   dsChecked,
@@ -13,10 +21,18 @@ export default function ControlCard({
   setAlgChecked,
   minTime,
   maxTime,
-  onDifficultySliderChange,
-  onTimeSliderChange,
+  setDifficultySlider,
+  setTimeSlider,
   pressReset,
 }) {
+  const onDifficultySliderChange = (minValue, maxValue) => {
+    setDifficultySlider([minValue, maxValue]);
+  };
+
+  const onTimeSliderChange = (minValue, maxValue) => {
+    setTimeSlider([minValue, maxValue]);
+  };
+
   return (
     <Card style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
       <Card.Content header="Options" />
@@ -67,7 +83,7 @@ export default function ControlCard({
         </div>
 
         <div style={{ clear: 'both', display: 'block', width: '100%', height: '15%' }}>
-          <Button style={{ float: 'right' }} onClick={pressReset}>
+          <Button style={{ float: 'right' }} onClick={() => pressReset()}>
             Reset
           </Button>
         </div>
@@ -75,3 +91,24 @@ export default function ControlCard({
     </Card>
   );
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    minDifficulty: state.filter.minDifficulty,
+    maxDifficulty: state.filter.maxDifficulty,
+    dsChecked: state.filter.dsChecked,
+    algChecked: state.filter.algChecked,
+    minTime: state.filter.minTime,
+    maxTime: state.filter.maxTime,
+  };
+};
+
+const mapDispatchToProps = {
+  pressReset,
+  setDsChecked,
+  setAlgChecked,
+  setDifficultySlider,
+  setTimeSlider,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ControlCard);

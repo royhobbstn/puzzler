@@ -2,15 +2,32 @@ import * as React from 'react';
 import { Card, Table, Button, Icon } from 'semantic-ui-react';
 import { inventory } from './data/inventory';
 import { connect } from 'react-redux';
-import { setSelections } from './filterStore';
+import { setSelections, setActiveProblemText, setShowModal } from './filterStore';
+import { clickNext } from './thunks';
 
-function SelectionsCard({ selections, setSelections, showModalMarkdown }) {
+function SelectionsCard({
+  selections,
+  setSelections,
+  setActiveProblemText,
+  setShowModal,
+  clickNext,
+  propRefs,
+}) {
   const clearAll = () => {
     setSelections([]);
   };
 
+  const clickStart = () => {
+    clickNext(propRefs);
+  };
+
   const subtractProblemId = problemID => {
     setSelections(selections.filter(d => d !== problemID));
+  };
+
+  const showModalMarkdown = problemText => {
+    setActiveProblemText(problemText);
+    setShowModal(true);
   };
 
   return (
@@ -20,7 +37,12 @@ function SelectionsCard({ selections, setSelections, showModalMarkdown }) {
         <Button style={{ float: 'left' }} onClick={clearAll}>
           Clear All
         </Button>
-        <Button style={{ float: 'right' }} primary={true}>
+        <Button
+          style={{ float: 'right' }}
+          onClick={clickStart}
+          disabled={Boolean(!selections.length)}
+          primary={true}
+        >
           START
         </Button>
       </Card.Content>
@@ -78,12 +100,15 @@ function SelectionsCard({ selections, setSelections, showModalMarkdown }) {
 const mapStateToProps = (state, props) => {
   return {
     selections: state.filter.selections,
-    showModalMarkdown: props.showModalMarkdown,
+    propRefs: props.propRefs,
   };
 };
 
 const mapDispatchToProps = {
   setSelections,
+  setActiveProblemText,
+  setShowModal,
+  clickNext,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectionsCard);

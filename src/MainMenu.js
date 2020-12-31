@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { convertToTimer, colorCodeTime } from './util.js';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory.js';
-import { hasOutstandingProblemIds } from './problemIds.js';
 
 import {
   clickNext,
@@ -27,6 +26,7 @@ function MainMenu({
   clickSkipToResults,
   revealAnswer,
   clickNextToResults,
+  selections,
 }) {
   const history = useHistory();
   const { id } = useParams();
@@ -41,7 +41,7 @@ function MainMenu({
 
   const totalTests = data && data.testCases && data.testCases.length;
   const showNextButton = totalTests === passedTests;
-  const hasNext = hasOutstandingProblemIds();
+  const hasNext = Boolean(selections && selections.length > 0);
   const passedAllTests = results.length > 0 && results.every(d => d.ok);
 
   return (
@@ -227,6 +227,8 @@ const mapStateToProps = (state, props) => {
     results: state.game.results,
     totalSeconds: state.game.totalSeconds,
     propRefs: props.propRefs,
+    //
+    selections: state.filter.selections,
   };
 };
 

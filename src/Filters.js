@@ -2,43 +2,22 @@ import * as React from 'react';
 import { Card } from 'semantic-ui-react';
 import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
-import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from './constants.js';
 import { inventory } from './data/inventory';
-import { aggregateData } from './aggregateData';
+import { connect } from 'react-redux';
 
-const defaultCategoryData = aggregateData.categories.map(d => {
-  return { name: d, isSelected: true };
-});
+import { setResults, setCategories } from './filterStore';
 
-export default function Filters({ setResults }) {
-  const [categories, setCategories] = React.useState(defaultCategoryData);
-  const [minDifficulty, setMinDifficulty] = React.useState(MIN_DIFFICULTY);
-  const [maxDifficulty, setMaxDifficulty] = React.useState(MAX_DIFFICULTY);
-  const [dsChecked, setDsChecked] = React.useState(true);
-  const [algChecked, setAlgChecked] = React.useState(true);
-  const [minTime, setMinTime] = React.useState(MIN_TIME);
-  const [maxTime, setMaxTime] = React.useState(MAX_TIME);
-
-  const onDifficultySliderChange = React.useCallback((minValue, maxValue) => {
-    setMinDifficulty(minValue);
-    setMaxDifficulty(maxValue);
-  }, []);
-
-  const onTimeSliderChange = React.useCallback((minValue, maxValue) => {
-    setMinTime(minValue);
-    setMaxTime(() => maxValue);
-  }, []);
-
-  const pressReset = () => {
-    setCategories(defaultCategoryData);
-    setMinDifficulty(MIN_DIFFICULTY);
-    setMaxDifficulty(MAX_DIFFICULTY);
-    setMinTime(MIN_TIME);
-    setMaxTime(MAX_TIME);
-    setDsChecked(true);
-    setAlgChecked(true);
-  };
-
+function Filters({
+  setResults,
+  setCategories,
+  categories,
+  minDifficulty,
+  maxDifficulty,
+  dsChecked,
+  algChecked,
+  minTime,
+  maxTime,
+}) {
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
 
@@ -114,21 +93,28 @@ export default function Filters({ setResults }) {
             width: '33vw',
           }}
         >
-          <ControlCard
-            minDifficulty={minDifficulty}
-            maxDifficulty={maxDifficulty}
-            dsChecked={dsChecked}
-            setDsChecked={setDsChecked}
-            algChecked={algChecked}
-            setAlgChecked={setAlgChecked}
-            minTime={minTime}
-            maxTime={maxTime}
-            onDifficultySliderChange={onDifficultySliderChange}
-            onTimeSliderChange={onTimeSliderChange}
-            pressReset={pressReset}
-          />
+          <ControlCard />
         </div>
       </Card.Content>
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    categories: state.filter.categories,
+    minDifficulty: state.filter.minDifficulty,
+    maxDifficulty: state.filter.maxDifficulty,
+    dsChecked: state.filter.dsChecked,
+    algChecked: state.filter.algChecked,
+    minTime: state.filter.minTime,
+    maxTime: state.filter.maxTime,
+  };
+};
+
+const mapDispatchToProps = {
+  setResults,
+  setCategories,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);

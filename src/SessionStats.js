@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
-import { getSessionHistory, clearSessionHistory } from './sessionHistory.js';
 import { getPersonalBests } from './personalBests.js';
 import { inventory } from './data/inventory.js';
 import { useHistory } from 'react-router-dom';
 import { convertToTimer } from './util.js';
+import { connect } from 'react-redux';
 
-function SessionStats() {
-  const [update, setUpdate] = React.useState(1); // for forcing re-render
+import { setSessionHistory } from './gameStore';
+
+function SessionStats({ sessionHistory, setSessionHistory }) {
   const history = useHistory();
-
-  const sessionHistory = getSessionHistory();
   const personalBests = getPersonalBests();
 
   return (
@@ -39,8 +38,7 @@ function SessionStats() {
         <Button
           style={{ float: 'right', width: '138px' }}
           onClick={() => {
-            clearSessionHistory();
-            setUpdate(update + 1);
+            setSessionHistory([]);
           }}
         >
           Clear Stats
@@ -89,4 +87,12 @@ function SessionStats() {
   );
 }
 
-export default SessionStats;
+const mapStateToProps = (state, props) => {
+  return {
+    sessionHistory: state.game.sessionHistory,
+  };
+};
+
+const mapDispatchToProps = { setSessionHistory };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SessionStats);

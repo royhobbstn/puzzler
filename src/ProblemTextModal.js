@@ -1,9 +1,12 @@
 import * as React from 'react';
 import showdown from 'showdown';
 import { Modal, Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { setShowModal } from './filterStore';
+
 const converter = new showdown.Converter();
 
-export default function ProblemTextModal({ showModal, setShowModal, activeProblemText }) {
+function ProblemTextModal({ showModal, setShowModal, activeProblemText }) {
   return (
     <Modal onClose={() => setShowModal(false)} onOpen={() => setShowModal(true)} open={showModal}>
       <Modal.Header>Problem Text</Modal.Header>
@@ -18,3 +21,16 @@ export default function ProblemTextModal({ showModal, setShowModal, activeProble
     </Modal>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    showModal: state.filter.showModal,
+    activeProblemText: state.filter.activeProblemText,
+  };
+};
+
+const mapDispatchToProps = {
+  setShowModal,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProblemTextModal);

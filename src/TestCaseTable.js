@@ -1,21 +1,15 @@
 import * as React from 'react';
-import { Table, Modal, Button, Icon } from 'semantic-ui-react';
+import { Table, Icon } from 'semantic-ui-react';
 import { constructTest } from './util.js';
 import { inventory } from './data/inventory.js';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
-import 'highlight.js/styles/github.css';
+import { connect } from 'react-redux';
+import { setOpen, setNoteCode, updateTableSort } from './gameStore';
+import TestCodeModal from './TestCodeModal';
 
-hljs.registerLanguage('javascript', javascript);
-
-function TestCaseTable({ results: rawResults, id }) {
-  const [open, setOpen] = React.useState(false);
-  const [noteCode, setNoteCode] = React.useState('');
-  const [tableSort, updateTableSort] = React.useState('id'); // id | fail | success
-
-  const results = [...rawResults].sort((a, b) => {
+function TestCaseTable({ results, id, open, noteCode, tableSort }) {
+  const sortedResults = [...results].sort((a, b) => {
     if (tableSort === 'id') {
       return a.id - b.id;
     } else if (tableSort === 'fail') {
@@ -43,7 +37,7 @@ function TestCaseTable({ results: rawResults, id }) {
     }
   };
 
-  if (!results.length) {
+  if (!sortedResults.length) {
     return null;
   }
 
@@ -51,20 +45,7 @@ function TestCaseTable({ results: rawResults, id }) {
 
   return (
     <div>
-      <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}>
-        <Modal.Header>Test Code</Modal.Header>
-        <Modal.Content>
-          <div
-            style={{ whiteSpace: 'pre' }}
-            dangerouslySetInnerHTML={{ __html: hljs.highlight('javascript', noteCode).value }}
-          ></div>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button style={{ width: '138px' }} onClick={() => setOpen(false)}>
-            Close
-          </Button>
-        </Modal.Actions>
-      </Modal>
+      <TestCodeModal />
 
       <Table celled compact={'very'} className="run-results">
         <Table.Header>
@@ -81,7 +62,7 @@ function TestCaseTable({ results: rawResults, id }) {
         </Table.Header>
 
         <Table.Body>
-          {results.map(test => {
+          {sortedResults.map(test => {
             return (
               <Table.Row
                 key={test.id}
@@ -134,4 +115,15 @@ function TestCaseTable({ results: rawResults, id }) {
   );
 }
 
-export default TestCaseTable;
+const mapStateToProps = (state, props) => {
+  return {
+    results: state.game.results,
+    open: state.game.open,
+    noteCode: state.game.noteCode,
+    tableSort: state.game.tableSort,
+  };
+};
+
+const mapDispatchToProps = { setOpen, setNoteCode, updateTableSort };
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestCaseTable);
