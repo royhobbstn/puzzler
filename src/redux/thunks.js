@@ -4,7 +4,7 @@ import * as Comlink from 'comlink';
 import Worker from 'worker-loader!../worker';
 import { submitResult } from '../personalBests.js';
 import { constructTest } from '../util.js';
-
+import { inventory } from '../data/inventory';
 import {
   setResults,
   setActiveIndex,
@@ -13,16 +13,17 @@ import {
   setValue,
   setValue2,
   setSessionHistory,
+  setIsRunning,
+  setTotalSeconds,
 } from './gameStore.js';
 
 import { setSelections } from './filterStore.js';
 
-export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
+export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
   const state = thunkAPI.getState();
   const value = state.game.value;
   const revealButtonPressed = state.game.revealButtonPressed;
-  const id = propRefs.current.id;
-  const data = propRefs.current.data;
+  const data = inventory[id];
 
   thunkAPI.dispatch(setResults([]));
   thunkAPI.dispatch(setActiveIndex(1));
@@ -73,7 +74,7 @@ export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
     thunkAPI.dispatch(setIsBusyTesting(false));
 
     if (r.every(d => d.ok) && !revealButtonPressed) {
-      propRefs.current.pause();
+      thunkAPI.dispatch(setIsRunning(false));
       const entry = { id, seconds: state.game.totalSeconds };
       thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
       submitResult(entry);
@@ -82,83 +83,69 @@ export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
   });
 });
 
-export const clickNextToResults = createAsyncThunk('', async (propRefs, thunkAPI) => {
-  console.log('clickNextToResults');
+export const clickNextToResults = createAsyncThunk('', async (obj, thunkAPI) => {
   thunkAPI.dispatch(setRevealButtonPressed(false));
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
-  propRefs.current.reset();
-  sessionStorage.setItem('savedSeconds', 0);
-  // hack to make sure the sessionStorage state is updated fully before navigating away from component
-  window.setTimeout(() => {
-    propRefs.current.history.push(`/sessionStats`);
-  }, 1);
+  thunkAPI.dispatch(setTotalSeconds(0));
+  thunkAPI.dispatch(setIsRunning(false));
 });
 
-export const clickNext = createAsyncThunk('', async (propRefs, thunkAPI) => {
-  if (propRefs.current.reset && propRefs.current.start) {
-    propRefs.current.reset();
-    propRefs.current.start();
-  }
-  sessionStorage.setItem('savedSeconds', 0);
+export const clickNext = createAsyncThunk('', async (obj, thunkAPI) => {
+  thunkAPI.dispatch(setTotalSeconds(0));
+  thunkAPI.dispatch(setIsRunning(true));
   thunkAPI.dispatch(setRevealButtonPressed(false));
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
   const state = thunkAPI.getState();
   const selections = [...state.filter.selections];
-  const id = selections.shift();
+  const nextId = selections.shift();
   thunkAPI.dispatch(setSelections(selections));
-  propRefs.current.history.push(`/${id}`);
+  return nextId;
 });
 
-export const clickSkip = createAsyncThunk('', async (propRefs, thunkAPI) => {
+export const clickSkip = createAsyncThunk('', async (id, thunkAPI) => {
   const state = thunkAPI.getState();
   const revealButtonPressed = state.game.revealButtonPressed;
   if (!revealButtonPressed) {
-    const entry = { id: propRefs.current.id, seconds: null };
+    const entry = { id, seconds: null };
     thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   }
-  propRefs.current.reset();
-  sessionStorage.setItem('savedSeconds', 0);
-  propRefs.current.start();
+  thunkAPI.dispatch(setTotalSeconds(0));
+  thunkAPI.dispatch(setIsRunning(true));
   thunkAPI.dispatch(setRevealButtonPressed(false));
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
   const selections = [...state.filter.selections];
-  const id = selections.shift();
+  const nextId = selections.shift();
   thunkAPI.dispatch(setSelections(selections));
-  propRefs.current.history.push(`/${id}`);
+  return nextId;
 });
 
-export const clickSkipToResults = createAsyncThunk('', async (propRefs, thunkAPI) => {
+export const clickSkipToResults = createAsyncThunk('', async (id, thunkAPI) => {
   const state = thunkAPI.getState();
   const revealButtonPressed = state.game.revealButtonPressed;
   if (!revealButtonPressed) {
-    const entry = { id: propRefs.current.id, seconds: null };
+    const entry = { id, seconds: null };
     thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   }
-  propRefs.current.reset();
-  sessionStorage.setItem('savedSeconds', 0);
-  propRefs.current.start();
+  thunkAPI.dispatch(setTotalSeconds(0));
+  thunkAPI.dispatch(setIsRunning(false));
   thunkAPI.dispatch(setRevealButtonPressed(false));
   thunkAPI.dispatch(setActiveIndex(0));
   thunkAPI.dispatch(setValue(''));
   thunkAPI.dispatch(setResults([]));
-  // hack to make sure the sessionStorage state is updated fully before navigating away from component
-  window.setTimeout(() => {
-    propRefs.current.history.push(`/sessionStats`);
-  }, 1);
 });
 
-export const revealAnswer = createAsyncThunk('', async (propRefs, thunkAPI) => {
+export const revealAnswer = createAsyncThunk('', async (id, thunkAPI) => {
   const state = thunkAPI.getState();
-  const data = propRefs.current.data;
+  const data = state.game.data;
   thunkAPI.dispatch(setRevealButtonPressed(true));
-  propRefs.current.pause();
-  const entry = { id: propRefs.current.id, seconds: null };
+  thunkAPI.dispatch(setIsRunning(false));
+  const entry = { id, seconds: null };
   thunkAPI.dispatch(setSessionHistory([...state.game.sessionHistory, entry]));
   // code to reveal
   const transform = data.solution.solutionLines.map(line => {

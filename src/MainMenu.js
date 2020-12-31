@@ -15,7 +15,6 @@ import {
 } from './redux/thunks.js';
 
 function MainMenu({
-  propRefs,
   isBusyTesting,
   revealButtonPressed,
   results,
@@ -81,7 +80,7 @@ function MainMenu({
                     icon
                     onClick={() => {
                       if (!isBusyTesting && !revealButtonPressed) {
-                        clickRun(propRefs);
+                        clickRun(id);
                       }
                     }}
                     disabled={isBusyTesting || revealButtonPressed}
@@ -96,12 +95,14 @@ function MainMenu({
                 trigger={
                   <Button
                     icon
-                    onClick={() => {
+                    onClick={async () => {
                       if (showNextButton) {
                         if (hasNext) {
-                          clickNext(propRefs);
+                          const nextId = await clickNext(id);
+                          history.push(`/${nextId.payload}`);
                         } else {
-                          clickNextToResults(propRefs);
+                          await clickNextToResults(id);
+                          history.push(`/sessionStats`);
                         }
                       }
                     }}
@@ -147,7 +148,7 @@ function MainMenu({
                     icon
                     onClick={() => {
                       if (!revealButtonPressed && !passedAllTests) {
-                        revealAnswer(propRefs);
+                        revealAnswer(id);
                       }
                     }}
                     disabled={revealButtonPressed || passedAllTests}
@@ -166,12 +167,14 @@ function MainMenu({
                 trigger={
                   <Button
                     icon
-                    onClick={() => {
+                    onClick={async () => {
                       if (!passedAllTests) {
                         if (hasNext) {
-                          clickSkip(propRefs);
+                          const nextId = await clickSkip(id);
+                          history.push(`/${nextId.payload}`);
                         } else {
-                          clickSkipToResults(propRefs);
+                          await clickSkipToResults(id);
+                          history.push(`/sessionStats`);
                         }
                       }
                     }}
@@ -192,12 +195,12 @@ function MainMenu({
           trigger={
             <Button
               icon
-              onClick={() => {
-                if (id && data) {
-                  clickSkipToResults(propRefs);
-                } else {
-                  history.push('/sessionStats');
+              onClick={async () => {
+                // if not on homepage
+                if (id) {
+                  await clickSkipToResults(id);
                 }
+                history.push('/sessionStats');
               }}
             >
               <Icon name="file alternate outline" />
@@ -226,7 +229,6 @@ const mapStateToProps = (state, props) => {
     revealButtonPressed: state.game.revealButtonPressed,
     results: state.game.results,
     totalSeconds: state.game.totalSeconds,
-    propRefs: props.propRefs,
     //
     selections: state.filter.selections,
   };

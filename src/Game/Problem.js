@@ -2,52 +2,24 @@ import { inventory } from '../data/inventory.js';
 import * as React from 'react';
 import EditorMain from './EditorMain.js';
 import EditorSecondary from './EditorSecondary.js';
-import { useStopwatch } from 'react-timer-hook';
 import { useParams } from 'react-router-dom';
-import { convertToSeconds } from '../util.js';
 import TabCards from './TabCards';
 import { connect } from 'react-redux';
 
-import {
-  setValue,
-  setValue2,
-  setTotalSeconds,
-  setRevealButtonPressed,
-} from '../redux/gameStore.js';
+import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore.js';
 
 function Problem({
-  propRefs,
   value,
   setValue,
   value2,
   setValue2,
   revealButtonPressed,
   setRevealButtonPressed,
-  setTotalSeconds,
   totalSeconds,
+  setIsRunning,
 }) {
-  const { seconds, minutes, hours, start, pause, reset } = useStopwatch({
-    autoStart: true,
-    offsetTimestamp: new Date().setSeconds(
-      new Date().getSeconds() + Number(sessionStorage.getItem('savedSeconds') || 0),
-    ),
-  });
   const { id } = useParams();
   const data = inventory[id];
-
-  // todo, these first 3... do we need them?
-  propRefs.current.data = data;
-  propRefs.current.id = id;
-  propRefs.current.totalSeconds = totalSeconds;
-  propRefs.current.pause = pause;
-  propRefs.current.start = start;
-  propRefs.current.reset = reset;
-
-  sessionStorage.setItem('savedSeconds', totalSeconds);
-
-  React.useEffect(() => {
-    setTotalSeconds(convertToSeconds(hours, minutes, seconds));
-  }, [seconds, minutes, hours, setTotalSeconds]);
 
   React.useEffect(() => {
     if (!data) {
@@ -70,7 +42,7 @@ function Problem({
       totalSeconds > data.solution.stages[data.solution.stages.length - 1]
     ) {
       setRevealButtonPressed(true);
-      pause();
+      setIsRunning(false);
     }
 
     let durationIndex = 0;
@@ -105,7 +77,7 @@ function Problem({
     totalSeconds,
     value,
     value2,
-    pause,
+    setIsRunning,
   ]);
 
   if (!data) {
@@ -120,7 +92,7 @@ function Problem({
         </div>
         <div className="editor-area columns">
           <div className="editor-area column">
-            <EditorMain propRefs={propRefs} />
+            <EditorMain />
           </div>
           <div className="column">
             <EditorSecondary />
@@ -143,8 +115,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   setValue,
   setValue2,
-  setTotalSeconds,
   setRevealButtonPressed,
+  setIsRunning,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Problem);

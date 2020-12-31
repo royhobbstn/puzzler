@@ -1,31 +1,51 @@
 import * as React from 'react';
 import Problem from './Game/Problem.js';
 import SessionStats from './SessionStats.js';
-// import { Button } from 'semantic-ui-react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import MainMenu from './MainMenu.js';
 import HomePage from './Home/HomePage.js';
+import { incrementTotalSeconds } from './redux/gameStore';
+import { connect } from 'react-redux';
 
-function App() {
-  let history = useHistory();
-  const propRefs = React.useRef({});
-  propRefs.current.history = history;
+let interval = null;
+
+function App({ incrementTotalSeconds, isRunning }) {
+  // timer implementation
+  React.useEffect(() => {
+    if (isRunning) {
+      interval = window.setInterval(() => {
+        incrementTotalSeconds();
+      }, 1000);
+    } else if (interval) {
+      window.clearInterval(interval);
+    }
+  }, [incrementTotalSeconds, isRunning]);
 
   return (
     <React.Fragment>
       <Switch>
         <Route exact path="/">
-          <MainMenu propRefs={propRefs} />
-          <HomePage propRefs={propRefs} />
+          <MainMenu />
+          <HomePage />
         </Route>
         <Route exact path="/sessionStats" children={<SessionStats />} />
         <Route exact path="/:id">
-          <MainMenu propRefs={propRefs} />
-          <Problem propRefs={propRefs} />
+          <MainMenu />
+          <Problem />
         </Route>
       </Switch>
     </React.Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = (state, props) => {
+  return {
+    isRunning: state.game.isRunning,
+  };
+};
+
+const mapDispatchToProps = {
+  incrementTotalSeconds,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

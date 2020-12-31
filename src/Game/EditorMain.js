@@ -6,9 +6,13 @@ import { connect } from 'react-redux';
 
 import { setValue } from '../redux/gameStore.js';
 import { clickRun } from '../redux/thunks.js';
+import { useParams } from 'react-router-dom';
 
-function EditorMain({ propRefs, setValue, value, clickRun }) {
+function EditorMain({ setValue, value, clickRun }) {
   const editor1 = React.useRef();
+  const propsRef = React.useRef({});
+  const { id } = useParams();
+  propsRef.current.id = id;
 
   const onChange = val => {
     setValue(val);
@@ -59,7 +63,7 @@ function EditorMain({ propRefs, setValue, value, clickRun }) {
             bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
             exec: async () => {
               try {
-                await clickRun(propRefs);
+                await clickRun(propsRef.current.id);
               } catch (err) {
                 console.log('Encountered an error when attempting to run tests.');
               }
@@ -74,7 +78,6 @@ function EditorMain({ propRefs, setValue, value, clickRun }) {
 const mapStateToProps = (state, props) => {
   return {
     value: state.game.value,
-    propRefs: props.propRefs,
   };
 };
 

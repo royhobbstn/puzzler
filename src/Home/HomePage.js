@@ -4,7 +4,7 @@ import SelectionsCard from './SelectionsCard.js';
 import Filters from './Filters.js';
 import ProblemTextModal from './ProblemTextModal';
 
-export default function HomePage({ propRefs }) {
+export default function HomePage() {
   return (
     <React.Fragment>
       <ProblemTextModal />
@@ -30,7 +30,7 @@ export default function HomePage({ propRefs }) {
           width: '34vw',
         }}
       >
-        <SelectionsCard propRefs={propRefs} />
+        <SelectionsCard />
       </div>
       <div
         style={{

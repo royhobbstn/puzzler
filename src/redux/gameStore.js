@@ -10,6 +10,7 @@ const gameSlice = createSlice({
     isBusyTesting: false,
     activeIndex: 0,
     totalSeconds: 0,
+    isRunning: false,
     open: false,
     noteCode: '',
     tableSort: 'id', // id | fail | success
@@ -49,6 +50,12 @@ const gameSlice = createSlice({
     setSessionHistory: (state, { type, payload }) => {
       state.sessionHistory = payload;
     },
+    incrementTotalSeconds: (state, { type, payload }) => {
+      state.totalSeconds = state.totalSeconds + 1;
+    },
+    setIsRunning: (state, { type, payload }) => {
+      state.isRunning = payload;
+    },
   },
 });
 
@@ -64,6 +71,8 @@ export const {
   setNoteCode,
   updateTableSort,
   setSessionHistory,
+  incrementTotalSeconds,
+  setIsRunning,
 } = gameSlice.actions;
 
 export const gameReducer = gameSlice.reducer;

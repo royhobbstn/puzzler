@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Card, Table, Button, Icon } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
-import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
 import { clickNext } from '../redux/thunks';
+import { useHistory, useParams } from 'react-router-dom';
+import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
 
 function SelectionsCard({
   selections,
@@ -11,14 +12,17 @@ function SelectionsCard({
   setActiveProblemText,
   setShowModal,
   clickNext,
-  propRefs,
 }) {
+  const history = useHistory();
+  const { id } = useParams();
+
   const clearAll = () => {
     setSelections([]);
   };
 
-  const clickStart = () => {
-    clickNext(propRefs);
+  const clickStart = async () => {
+    const nextId = await clickNext(id);
+    history.push(`/${nextId.payload}`);
   };
 
   const subtractProblemId = problemID => {
@@ -100,7 +104,6 @@ function SelectionsCard({
 const mapStateToProps = (state, props) => {
   return {
     selections: state.filter.selections,
-    propRefs: props.propRefs,
   };
 };
 
