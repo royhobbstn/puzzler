@@ -14,7 +14,7 @@ import {
   setRevealButtonPressed,
   setValue,
   setValue2,
-} from './store.js';
+} from './gameStore.js';
 
 export const clickRun = createAsyncThunk('', async (propRefs, thunkAPI) => {
   const state = thunkAPI.getState();

@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 import TestCaseTable from './TestCaseTable';
 import { connect } from 'react-redux';
 import showdown from 'showdown';
-import { setActiveIndex } from './store.js';
+import { setActiveIndex } from './gameStore.js';
 
 const converter = new showdown.Converter();
 
@@ -55,9 +55,9 @@ function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveInde
 
 const mapStateToProps = (state, props) => {
   return {
-    isBusyTesting: state.isBusyTesting,
-    results: state.results,
-    activeIndex: state.activeIndex,
+    isBusyTesting: state.game.isBusyTesting,
+    results: state.game.results,
+    activeIndex: state.game.activeIndex,
     id: props.id,
     data: props.data,
   };

@@ -3,9 +3,10 @@ import ResultsCard from './ResultsCard.js';
 import SelectionsCard from './SelectionsCard.js';
 import Filters from './Filters.js';
 import ProblemTextModal from './ProblemTextModal';
+import { connect } from 'react-redux';
+import { setSelections } from './filterStore';
 
-export default function HomePage() {
-  const [selections, setSelections] = React.useState([]);
+function HomePage() {
   const [results, setResults] = React.useState([]);
   const [showModal, setShowModal] = React.useState(false);
   const [activeProblemText, setActiveProblemText] = React.useState(0);
@@ -44,11 +45,7 @@ export default function HomePage() {
           width: '34vw',
         }}
       >
-        <SelectionsCard
-          selections={selections}
-          setSelections={setSelections}
-          showModalMarkdown={showModalMarkdown}
-        />
+        <SelectionsCard showModalMarkdown={showModalMarkdown} />
       </div>
       <div
         style={{
@@ -59,13 +56,18 @@ export default function HomePage() {
           width: '55vw',
         }}
       >
-        <ResultsCard
-          results={results}
-          selections={selections}
-          setSelections={setSelections}
-          showModalMarkdown={showModalMarkdown}
-        />
+        <ResultsCard results={results} showModalMarkdown={showModalMarkdown} />
       </div>
     </React.Fragment>
   );
 }
+
+const mapStateToProps = state => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  setSelections,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

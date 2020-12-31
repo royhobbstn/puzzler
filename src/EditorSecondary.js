@@ -38,7 +38,7 @@ function EditorSecondary({ value2 }) {
 
 const mapStateToProps = state => {
   return {
-    value2: state.value2,
+    value2: state.game.value2,
   };
 };
 

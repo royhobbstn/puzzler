@@ -24,7 +24,14 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { reducer } from './store';
+import { combineReducers } from 'redux';
+import { gameReducer } from './gameStore';
+import { filterReducer } from './filterStore';
+
+const reducer = combineReducers({
+  game: gameReducer,
+  filter: filterReducer,
+});
 
 const persistConfig = {
   key: 'root',

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const counterSlice = createSlice({
-  name: 'counter',
+const gameSlice = createSlice({
+  name: 'game',
   initialState: {
     value: '',
     value2: '',
@@ -33,6 +33,8 @@ const counterSlice = createSlice({
     setTotalSeconds: (state, { type, payload }) => {
       state.totalSeconds = payload;
     },
+    /////
+    //
   },
 });
 
@@ -44,6 +46,6 @@ export const {
   setIsBusyTesting,
   setActiveIndex,
   setTotalSeconds,
-} = counterSlice.actions;
+} = gameSlice.actions;
 
-export const reducer = counterSlice.reducer;
+export const gameReducer = gameSlice.reducer;

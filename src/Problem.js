@@ -8,7 +8,7 @@ import { convertToSeconds } from './util.js';
 import TabCards from './TabCards.js';
 import { connect } from 'react-redux';
 
-import { setValue, setValue2, setTotalSeconds, setRevealButtonPressed } from './store.js';
+import { setValue, setValue2, setTotalSeconds, setRevealButtonPressed } from './gameStore.js';
 
 function Problem({
   propRefs,
@@ -128,10 +128,10 @@ function Problem({
 
 const mapStateToProps = state => {
   return {
-    value: state.value,
-    value2: state.value2,
-    revealButtonPressed: state.revealButtonPressed,
-    totalSeconds: state.totalSeconds,
+    value: state.game.value,
+    value2: state.game.value2,
+    revealButtonPressed: state.game.revealButtonPressed,
+    totalSeconds: state.game.totalSeconds,
   };
 };
 

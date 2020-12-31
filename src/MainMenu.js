@@ -221,11 +221,11 @@ function contextMessage(revealButtonPressed, passedAllTests) {
 
 const mapStateToProps = (state, props) => {
   return {
-    value: state.value,
-    isBusyTesting: state.isBusyTesting,
-    revealButtonPressed: state.revealButtonPressed,
-    results: state.results,
-    totalSeconds: state.totalSeconds,
+    value: state.game.value,
+    isBusyTesting: state.game.isBusyTesting,
+    revealButtonPressed: state.game.revealButtonPressed,
+    results: state.game.results,
+    totalSeconds: state.game.totalSeconds,
     propRefs: props.propRefs,
   };
 };

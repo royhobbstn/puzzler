@@ -4,7 +4,7 @@ import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 import { connect } from 'react-redux';
 
-import { setValue } from './store.js';
+import { setValue } from './gameStore.js';
 import { clickRun } from './thunks.js';
 
 function EditorMain({ propRefs, setValue, value, clickRun }) {
@@ -73,8 +73,8 @@ function EditorMain({ propRefs, setValue, value, clickRun }) {
 
 const mapStateToProps = (state, props) => {
   return {
-    value: state.value,
-    propRefs: props.propRefs,
+    value: state.game.value,
+    propRefs: props.game.propRefs,
   };
 };
 

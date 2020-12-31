@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon } from 'semantic-ui-react';
 import { inventory } from './data/inventory';
+import { connect } from 'react-redux';
+import { setSelections } from './filterStore';
 
-export default function SelectionsCard({ selections, setSelections, showModalMarkdown }) {
+function SelectionsCard({ selections, setSelections, showModalMarkdown }) {
   const clearAll = () => {
     setSelections([]);
   };
@@ -72,3 +74,16 @@ export default function SelectionsCard({ selections, setSelections, showModalMar
     </Card>
   );
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    selections: state.filter.selections,
+    showModalMarkdown: props.showModalMarkdown,
+  };
+};
+
+const mapDispatchToProps = {
+  setSelections,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectionsCard);
