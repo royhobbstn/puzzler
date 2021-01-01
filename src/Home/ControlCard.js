@@ -2,14 +2,13 @@ import * as React from 'react';
 import { Card, Checkbox, Button } from 'semantic-ui-react';
 import SliderView from 'semantic-ui-react-slider';
 import { connect } from 'react-redux';
-import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from '../data/constants.js';
-
+import { MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
 import {
   pressReset,
   setDsChecked,
   setAlgChecked,
   setDifficultySlider,
-  setTimeSlider,
+  setEffortSlider,
 } from '../redux/filterStore';
 
 function ControlCard({
@@ -19,18 +18,18 @@ function ControlCard({
   setDsChecked,
   algChecked,
   setAlgChecked,
-  minTime,
-  maxTime,
+  minEffort,
+  maxEffort,
   setDifficultySlider,
-  setTimeSlider,
+  setEffortSlider,
   pressReset,
 }) {
   const onDifficultySliderChange = (minValue, maxValue) => {
     setDifficultySlider([minValue, maxValue]);
   };
 
-  const onTimeSliderChange = (minValue, maxValue) => {
-    setTimeSlider([minValue, maxValue]);
+  const onEffortSliderChange = (minValue, maxValue) => {
+    setEffortSlider([minValue, maxValue]);
   };
 
   return (
@@ -39,26 +38,26 @@ function ControlCard({
       <Card.Content style={{ width: '100%', height: '100%', padding: '1em 2em .5em 2em' }}>
         <div style={{ display: 'block', width: '100%', height: '33%' }}>
           <p style={{ fontWeight: 'bold', width: '100%', textAlign: 'center' }}>Difficulty</p>
-          <SliderView
+          {/* <SliderView
             className="slider-view"
             selectedMinValue={minDifficulty}
             selectedMaxValue={maxDifficulty}
             onSliderValuesChange={onDifficultySliderChange}
             sliderMinValue={MIN_DIFFICULTY}
             sliderMaxValue={MAX_DIFFICULTY}
-          />
+          /> */}
         </div>
         <div style={{ display: 'block', width: '100%', height: '33%' }}>
           <p style={{ fontWeight: 'bold', width: '100%', textAlign: 'center' }}>
-            Time Estimate (minutes)
+            Estimated Effort (lines)
           </p>
           <SliderView
             className="slider-view"
-            selectedMinValue={minTime}
-            selectedMaxValue={maxTime}
-            onSliderValuesChange={onTimeSliderChange}
-            sliderMinValue={MIN_TIME}
-            sliderMaxValue={MAX_TIME}
+            selectedMinValue={minEffort}
+            selectedMaxValue={maxEffort}
+            onSliderValuesChange={onEffortSliderChange}
+            sliderMinValue={MIN_EFFORT}
+            sliderMaxValue={MAX_EFFORT}
           />
         </div>
 
@@ -98,8 +97,8 @@ const mapStateToProps = (state, props) => {
     maxDifficulty: state.filter.maxDifficulty,
     dsChecked: state.filter.dsChecked,
     algChecked: state.filter.algChecked,
-    minTime: state.filter.minTime,
-    maxTime: state.filter.maxTime,
+    minEffort: state.filter.minEffort,
+    maxEffort: state.filter.maxEffort,
   };
 };
 
@@ -108,7 +107,7 @@ const mapDispatchToProps = {
   setDsChecked,
   setAlgChecked,
   setDifficultySlider,
-  setTimeSlider,
+  setEffortSlider,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlCard);

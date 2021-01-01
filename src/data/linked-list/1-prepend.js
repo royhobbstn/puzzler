@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE } from '../constants';
+import { LINKED_LIST, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
@@ -70,8 +70,7 @@ export const data = {
   setupCode: '',
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
-  difficulty: 1,
-  estimatedTime: 1,
+  difficulty: BEGINNER,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 120],

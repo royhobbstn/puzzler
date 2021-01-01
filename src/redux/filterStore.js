@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { aggregateData } from '../aggregateData';
-import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from '../data/constants.js';
+import { categories, MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
 
-const defaultCategoryData = aggregateData.categories.map(d => {
+const defaultCategoryData = categories.map(d => {
   return { name: d, isSelected: true };
 });
 
@@ -14,12 +13,12 @@ const filterSlice = createSlice({
     showModal: false,
     activeProblemText: '',
     categories: defaultCategoryData,
-    minDifficulty: MIN_DIFFICULTY,
-    maxDifficulty: MAX_DIFFICULTY,
+    // minDifficulty: MIN_DIFFICULTY,
+    // maxDifficulty: MAX_DIFFICULTY,
     dsChecked: true,
     algChecked: true,
-    minTime: MIN_TIME,
-    maxTime: MAX_TIME,
+    minEffort: MIN_EFFORT,
+    maxEffort: MAX_EFFORT,
   },
   reducers: {
     setSelections: (state, { type, payload }) => {
@@ -50,16 +49,16 @@ const filterSlice = createSlice({
       state.minDifficulty = payload[0];
       state.maxDifficulty = payload[1];
     },
-    setTimeSlider: (state, { type, payload }) => {
-      state.minTime = payload[0];
-      state.maxTime = payload[1];
+    setEffortSlider: (state, { type, payload }) => {
+      state.minEffort = payload[0];
+      state.maxEffort = payload[1];
     },
     pressReset: (state, { type, payload }) => {
       state.categories = defaultCategoryData;
-      state.minDifficulty = MIN_DIFFICULTY;
-      state.maxDifficulty = MAX_DIFFICULTY;
-      state.minTime = MIN_TIME;
-      state.maxTime = MAX_TIME;
+      // state.minDifficulty = MIN_DIFFICULTY;
+      // state.maxDifficulty = MAX_DIFFICULTY;
+      state.minEffort = MIN_EFFORT;
+      state.maxEffort = MAX_EFFORT;
       state.dsChecked = true;
       state.algChecked = true;
     },
@@ -76,7 +75,7 @@ export const {
   setAlgChecked,
   pressReset,
   setDifficultySlider,
-  setTimeSlider,
+  setEffortSlider,
   shiftSelection,
 } = filterSlice.actions;
 

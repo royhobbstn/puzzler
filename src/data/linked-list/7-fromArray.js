@@ -28,15 +28,21 @@ const solution = [
   { stage: 0, text: '' },
   { stage: 0, text: '    return this;' },
   { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 0, text: '  fromArray(values) {' },
+  { stage: 0, text: '    values.forEach(value => this.append(value));' },
+  { stage: 0, text: '    return this;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
 ];
 
 export const data = {
-  problemID: 2,
-  problemName: 'Implement `append` in a Singly Linked List',
+  problemID: 7,
+  problemName: 'Implement `fromArray` in a Singly Linked List',
   problemText:
-    'Write an **append** method in a Singly-Linked-List Class that accepts an arbitrary value and inserts it at the **end** of the list.  The method should return the original list.',
+    'Given a LinkedList class with an `append` method, create a **fromArray** method that will take in an array of values and return a linked list.',
   testCases: [
     {
       id: 1,

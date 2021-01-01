@@ -55,7 +55,7 @@ function ResultsCard({ results, selections, setSelections, setActiveProblemText,
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell style={{ textAlign: 'center' }}>Difficulty</Table.HeaderCell>
-              <Table.HeaderCell style={{ textAlign: 'center' }}>Time (m)</Table.HeaderCell>
+              <Table.HeaderCell style={{ textAlign: 'center' }}>Effort</Table.HeaderCell>
               <Table.HeaderCell style={{ textAlign: 'center' }}>Category</Table.HeaderCell>
               <Table.HeaderCell style={{ textAlign: 'center' }}>Action</Table.HeaderCell>
             </Table.Row>
@@ -84,7 +84,7 @@ function ResultsCard({ results, selections, setSelections, setActiveProblemText,
                       </span>
                     </Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>{problem.difficulty}</Table.Cell>
-                    <Table.Cell style={{ textAlign: 'center' }}>{problem.estimatedTime}</Table.Cell>
+                    <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>
                       {inProblemSet ? (

@@ -15,8 +15,8 @@ function Filters({
   maxDifficulty,
   dsChecked,
   algChecked,
-  minTime,
-  maxTime,
+  minEffort,
+  maxEffort,
 }) {
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
@@ -33,8 +33,8 @@ function Filters({
         if (item.difficulty < minDifficulty || item.difficulty > maxDifficulty) {
           return false;
         }
-        // check vs timeEstimate
-        if (item.estimatedTime < minTime || item.estimatedTime > maxTime) {
+        // check vs effort
+        if (item.effort < minEffort || item.effort > maxEffort) {
           return false;
         }
         // check vs DataStructure vs Algorithm
@@ -52,9 +52,9 @@ function Filters({
     categories,
     dsChecked,
     maxDifficulty,
-    maxTime,
+    maxEffort,
     minDifficulty,
-    minTime,
+    minEffort,
     setResults,
   ]);
 
@@ -107,8 +107,8 @@ const mapStateToProps = state => {
     maxDifficulty: state.filter.maxDifficulty,
     dsChecked: state.filter.dsChecked,
     algChecked: state.filter.algChecked,
-    minTime: state.filter.minTime,
-    maxTime: state.filter.maxTime,
+    minEffort: state.filter.minEffort,
+    maxEffort: state.filter.maxEffort,
   };
 };
 
