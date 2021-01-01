@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { aggregateData } from '../aggregateData';
-import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from '../constants.js';
+import { MIN_DIFFICULTY, MIN_TIME, MAX_DIFFICULTY, MAX_TIME } from '../data/constants.js';
 
 const defaultCategoryData = aggregateData.categories.map(d => {
   return { name: d, isSelected: true };

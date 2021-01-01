@@ -1,3 +1,5 @@
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants';
+
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
   { stage: 0, text: '  constructor(value, next = null) {' },
@@ -12,7 +14,7 @@ const solution = [
   { stage: 0, text: '    this.tail = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 1, text: '  insertAtHead(value) {' },
+  { stage: 1, text: '  prepend(value) {' },
   { stage: 2, text: '    const newNode = new LinkedListNode(value, this.head);' },
   { stage: 2, text: '    this.head = newNode;' },
   { stage: 2, text: '' },
@@ -27,9 +29,10 @@ const solution = [
 ];
 
 export const data = {
-  problemID: 2,
-  problemName: 'Problem2',
-  problemText: 'Problem 2 todo.',
+  problemID: 1,
+  problemName: 'Implement `prepend` in a Singly Linked List',
+  problemText:
+    'Write a **prepend** method in a Singly-Linked-List Class that accepts an arbitrary value and inserts it at the front of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,
@@ -43,7 +46,7 @@ export const data = {
       id: 2,
       name: 'empty list, head value',
       inherit: [1],
-      code: `ll.insertAtHead(5);`,
+      code: `ll.prepend(5);`,
       evaluate: `ll.head.value;`,
       expected: 5,
     },
@@ -51,7 +54,7 @@ export const data = {
       id: 3,
       name: 'empty list, tail value',
       inherit: [1],
-      code: `ll.insertAtHead(6);`,
+      code: `ll.prepend(6);`,
       evaluate: `ll.tail.value;`,
       expected: 6,
     },
@@ -59,17 +62,17 @@ export const data = {
       id: 4,
       name: 'insert two nodes',
       inherit: [1, 2],
-      code: `ll.insertAtHead(7);`,
+      code: `ll.prepend(7);`,
       evaluate: `ll.tail.value === 5 && ll.head.value === 7;`,
       expected: true,
     },
   ],
   setupCode: '',
-  category: 'Data Structures - Basic',
-  type: 'data-structure',
-  difficulty: 2,
-  maxExecutionTime: 2,
+  category: LINKED_LIST,
+  type: DATA_STRUCTURE,
+  difficulty: 1,
   estimatedTime: 1,
+  maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 120],
     solutionLines: solution,
