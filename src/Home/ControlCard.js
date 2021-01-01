@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, Checkbox, Button } from 'semantic-ui-react';
+import { Card, Checkbox } from 'semantic-ui-react';
 import SliderView from 'semantic-ui-react-slider';
 import { connect } from 'react-redux';
 import { MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
@@ -99,12 +99,6 @@ function ControlCard({
             sliderMaxValue={MAX_EFFORT}
           />
         </div>
-
-        {/* <div style={{ clear: 'both', display: 'block', width: '100%', height: '15%' }}>
-          <Button style={{ float: 'right' }} onClick={() => pressReset()}>
-            Reset
-          </Button>
-        </div> */}
       </Card.Content>
     </Card>
   );

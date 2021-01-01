@@ -12,7 +12,7 @@ import {
   clickSkip,
   revealAnswer,
 } from './redux/gameStore';
-import { shiftSelection } from './redux/filterStore';
+import { shiftSelection, pressReset } from './redux/filterStore';
 
 function MainMenu({
   isBusyTesting,
@@ -27,6 +27,7 @@ function MainMenu({
   clickNextToResults,
   selections,
   shiftSelection,
+  pressReset,
 }) {
   const history = useHistory();
   const { id } = useParams();
@@ -70,6 +71,25 @@ function MainMenu({
           Puzzler
         </span>
       </Menu.Item>
+      {!id ? (
+        <Menu.Item>
+          <Button.Group>
+            <Popup
+              content="Reset Filters"
+              trigger={
+                <Button
+                  icon
+                  onClick={() => {
+                    pressReset();
+                  }}
+                >
+                  <Icon name="undo" />
+                </Button>
+              }
+            />
+          </Button.Group>
+        </Menu.Item>
+      ) : null}
       {data && id ? (
         <React.Fragment>
           <Menu.Item>
@@ -247,6 +267,7 @@ const mapDispatchToProps = {
   clickSkip,
   clickNextToResults,
   shiftSelection,
+  pressReset,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
