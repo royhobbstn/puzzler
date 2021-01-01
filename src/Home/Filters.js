@@ -4,19 +4,20 @@ import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
-
+import { BEGINNER, INTERMEDIATE, ADVANCED } from '../data/constants.js';
 import { setResults, setCategories } from '../redux/filterStore';
 
 function Filters({
   setResults,
   setCategories,
   categories,
-  minDifficulty,
-  maxDifficulty,
   dsChecked,
   algChecked,
   minEffort,
   maxEffort,
+  begChecked,
+  intChecked,
+  advChecked,
 }) {
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
@@ -29,8 +30,14 @@ function Filters({
         if (!chosenCategories.includes(item.category)) {
           return false;
         }
-        // check vs difficulty
-        if (item.difficulty < minDifficulty || item.difficulty > maxDifficulty) {
+        // check vs Beginner Intermediate Advanced
+        if (item.difficulty === BEGINNER && !begChecked) {
+          return false;
+        }
+        if (item.difficulty === INTERMEDIATE && !intChecked) {
+          return false;
+        }
+        if (item.difficulty === ADVANCED && !advChecked) {
           return false;
         }
         // check vs effort
@@ -51,11 +58,12 @@ function Filters({
     algChecked,
     categories,
     dsChecked,
-    maxDifficulty,
     maxEffort,
-    minDifficulty,
     minEffort,
     setResults,
+    begChecked,
+    intChecked,
+    advChecked,
   ]);
 
   React.useEffect(() => {
@@ -103,12 +111,13 @@ function Filters({
 const mapStateToProps = state => {
   return {
     categories: state.filter.categories,
-    minDifficulty: state.filter.minDifficulty,
-    maxDifficulty: state.filter.maxDifficulty,
     dsChecked: state.filter.dsChecked,
     algChecked: state.filter.algChecked,
     minEffort: state.filter.minEffort,
     maxEffort: state.filter.maxEffort,
+    begChecked: state.filter.begChecked,
+    intChecked: state.filter.intChecked,
+    advChecked: state.filter.advChecked,
   };
 };
 

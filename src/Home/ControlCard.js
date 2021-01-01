@@ -7,27 +7,28 @@ import {
   pressReset,
   setDsChecked,
   setAlgChecked,
-  setDifficultySlider,
   setEffortSlider,
+  setBegChecked,
+  setIntChecked,
+  setAdvChecked,
 } from '../redux/filterStore';
 
 function ControlCard({
-  minDifficulty,
-  maxDifficulty,
   dsChecked,
   setDsChecked,
   algChecked,
   setAlgChecked,
   minEffort,
   maxEffort,
-  setDifficultySlider,
   setEffortSlider,
+  begChecked,
+  setBegChecked,
+  intChecked,
+  setIntChecked,
+  advChecked,
+  setAdvChecked,
   pressReset,
 }) {
-  const onDifficultySliderChange = (minValue, maxValue) => {
-    setDifficultySlider([minValue, maxValue]);
-  };
-
   const onEffortSliderChange = (minValue, maxValue) => {
     setEffortSlider([minValue, maxValue]);
   };
@@ -35,19 +36,57 @@ function ControlCard({
   return (
     <Card style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
       <Card.Content header="Options" />
-      <Card.Content style={{ width: '100%', height: '100%', padding: '1em 2em .5em 2em' }}>
-        <div style={{ display: 'block', width: '100%', height: '33%' }}>
-          <p style={{ fontWeight: 'bold', width: '100%', textAlign: 'center' }}>Difficulty</p>
-          {/* <SliderView
-            className="slider-view"
-            selectedMinValue={minDifficulty}
-            selectedMaxValue={maxDifficulty}
-            onSliderValuesChange={onDifficultySliderChange}
-            sliderMinValue={MIN_DIFFICULTY}
-            sliderMaxValue={MAX_DIFFICULTY}
-          /> */}
+      <Card.Content style={{ width: '100%', height: '100%', padding: '1em 1em .5em 1em' }}>
+        <div style={{ display: 'block', width: '100%', height: '50%' }}>
+          <div style={{ display: 'block', width: '50%', float: 'left' }}>
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Beginner"
+              onChange={() => {
+                setBegChecked(!begChecked);
+              }}
+              checked={begChecked}
+            />
+
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Intermediate"
+              onChange={() => {
+                setIntChecked(!intChecked);
+              }}
+              checked={intChecked}
+            />
+
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Advanced"
+              onChange={() => {
+                setAdvChecked(!advChecked);
+              }}
+              checked={advChecked}
+            />
+          </div>
+          <div style={{ display: 'block', width: '50%', float: 'right' }}>
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Data Structures"
+              onChange={() => {
+                setDsChecked(!dsChecked);
+              }}
+              checked={dsChecked}
+            />
+
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Algorithms"
+              onChange={() => {
+                setAlgChecked(!algChecked);
+              }}
+              checked={algChecked}
+            />
+          </div>
         </div>
-        <div style={{ display: 'block', width: '100%', height: '33%' }}>
+        <div style={{ display: 'block', width: '100%', height: '50%' }}>
           <p style={{ fontWeight: 'bold', width: '100%', textAlign: 'center' }}>
             Estimated Effort (lines)
           </p>
@@ -61,31 +100,11 @@ function ControlCard({
           />
         </div>
 
-        <div style={{ display: 'block', width: '100%', height: '19%' }}>
-          <Checkbox
-            style={{ display: 'block', padding: '5px 0', float: 'left' }}
-            label="Data Structures"
-            onChange={() => {
-              setDsChecked(!dsChecked);
-            }}
-            checked={dsChecked}
-          />
-
-          <Checkbox
-            style={{ display: 'block', padding: '5px 10px', float: 'right' }}
-            label="Algorithms"
-            onChange={() => {
-              setAlgChecked(!algChecked);
-            }}
-            checked={algChecked}
-          />
-        </div>
-
-        <div style={{ clear: 'both', display: 'block', width: '100%', height: '15%' }}>
+        {/* <div style={{ clear: 'both', display: 'block', width: '100%', height: '15%' }}>
           <Button style={{ float: 'right' }} onClick={() => pressReset()}>
             Reset
           </Button>
-        </div>
+        </div> */}
       </Card.Content>
     </Card>
   );
@@ -93,12 +112,13 @@ function ControlCard({
 
 const mapStateToProps = (state, props) => {
   return {
-    minDifficulty: state.filter.minDifficulty,
-    maxDifficulty: state.filter.maxDifficulty,
     dsChecked: state.filter.dsChecked,
     algChecked: state.filter.algChecked,
     minEffort: state.filter.minEffort,
     maxEffort: state.filter.maxEffort,
+    begChecked: state.filter.begChecked,
+    intChecked: state.filter.intChecked,
+    advChecked: state.filter.advChecked,
   };
 };
 
@@ -106,8 +126,10 @@ const mapDispatchToProps = {
   pressReset,
   setDsChecked,
   setAlgChecked,
-  setDifficultySlider,
   setEffortSlider,
+  setBegChecked,
+  setIntChecked,
+  setAdvChecked,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlCard);

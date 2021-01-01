@@ -13,12 +13,13 @@ const filterSlice = createSlice({
     showModal: false,
     activeProblemText: '',
     categories: defaultCategoryData,
-    // minDifficulty: MIN_DIFFICULTY,
-    // maxDifficulty: MAX_DIFFICULTY,
     dsChecked: true,
     algChecked: true,
     minEffort: MIN_EFFORT,
     maxEffort: MAX_EFFORT,
+    begChecked: true,
+    intChecked: true,
+    advChecked: true,
   },
   reducers: {
     setSelections: (state, { type, payload }) => {
@@ -45,22 +46,28 @@ const filterSlice = createSlice({
     setAlgChecked: (state, { type, payload }) => {
       state.algChecked = payload;
     },
-    setDifficultySlider: (state, { type, payload }) => {
-      state.minDifficulty = payload[0];
-      state.maxDifficulty = payload[1];
-    },
     setEffortSlider: (state, { type, payload }) => {
       state.minEffort = payload[0];
       state.maxEffort = payload[1];
     },
     pressReset: (state, { type, payload }) => {
       state.categories = defaultCategoryData;
-      // state.minDifficulty = MIN_DIFFICULTY;
-      // state.maxDifficulty = MAX_DIFFICULTY;
       state.minEffort = MIN_EFFORT;
       state.maxEffort = MAX_EFFORT;
       state.dsChecked = true;
       state.algChecked = true;
+      state.begChecked = true;
+      state.intChecked = true;
+      state.advChecked = true;
+    },
+    setBegChecked: (state, { type, payload }) => {
+      state.begChecked = payload;
+    },
+    setIntChecked: (state, { type, payload }) => {
+      state.intChecked = payload;
+    },
+    setAdvChecked: (state, { type, payload }) => {
+      state.advChecked = payload;
     },
   },
 });
@@ -74,9 +81,11 @@ export const {
   setDsChecked,
   setAlgChecked,
   pressReset,
-  setDifficultySlider,
   setEffortSlider,
   shiftSelection,
+  setBegChecked,
+  setIntChecked,
+  setAdvChecked,
 } = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;
