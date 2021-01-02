@@ -41,7 +41,7 @@ const solution = [
 ];
 
 export const data = {
-  problemID: 17,
+  problemID: 18,
   problemName: 'Reverse a Doubly Linked List in-place',
   problemText:
     'Provide a class method **reverse** that will reverse a Doubly Linked List in place (not using a copy), and return the list.',

@@ -19,6 +19,8 @@ import { data as _dll_deleteHead } from './doubly-linked-list/15-deleteHead';
 import { data as _dll_fromArray } from './doubly-linked-list/16-fromArray';
 import { data as _dll_toArray } from './doubly-linked-list/17-toArray';
 import { data as _dll_reverse } from './doubly-linked-list/18-reverse';
+import { data as _alg_fibonnaci_recursive } from './algorithms/19-fibonacci-recursive';
+import { data as _alg_fibonnaci_iterative } from './algorithms/20-fibonacci-iterative';
 
 const aggregate = {
   1: _ll_prepend,
@@ -39,6 +41,8 @@ const aggregate = {
   16: _dll_fromArray,
   17: _dll_toArray,
   18: _dll_reverse,
+  19: _alg_fibonnaci_recursive,
+  20: _alg_fibonnaci_iterative,
 };
 
 // todo this is crazy.  should be able to do the above dynamically
@@ -64,6 +68,7 @@ Object.keys(aggregate).forEach(key => {
   aggregate[key].effort = effortCount;
 });
 
+// todo shuttle this off to constants.js
 export const MIN_EFFORT = 0;
 export const MAX_EFFORT = maxEffort;
 
