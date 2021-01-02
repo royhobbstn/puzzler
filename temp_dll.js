@@ -101,7 +101,6 @@ class DoublyLinkedList {
       const deletedTail = this.tail;
       this.head = null;
       this.tail = null;
-
       return deletedTail;
     }
 

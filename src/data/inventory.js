@@ -11,6 +11,14 @@ import { data as _ll_toArray } from './linked-list/8-toArray.js';
 import { data as _ll_reverse } from './linked-list/9-reverse.js';
 import { data as _ll_reverse } from './linked-list/9-reverse.js';
 import { data as _dll_prepend } from './doubly-linked-list/10-prepend.js';
+import { data as _dll_append } from './doubly-linked-list/11-append.js';
+import { data as _dll_delete } from './doubly-linked-list/12-delete';
+import { data as _dll_find } from './doubly-linked-list/13-find';
+import { data as _dll_deleteTail } from './doubly-linked-list/14-deleteTail';
+import { data as _dll_deleteHead } from './doubly-linked-list/15-deleteHead';
+import { data as _dll_fromArray } from './doubly-linked-list/16-fromArray';
+import { data as _dll_toArray } from './doubly-linked-list/17-toArray';
+import { data as _dll_reverse } from './doubly-linked-list/18-reverse';
 
 const aggregate = {
   1: _ll_prepend,
@@ -23,7 +31,17 @@ const aggregate = {
   8: _ll_toArray,
   9: _ll_reverse,
   10: _dll_prepend,
+  11: _dll_append,
+  12: _dll_delete,
+  13: _dll_find,
+  14: _dll_deleteTail,
+  15: _dll_deleteHead,
+  16: _dll_fromArray,
+  17: _dll_toArray,
+  18: _dll_reverse,
 };
+
+// todo this is crazy.  should be able to do the above dynamically
 
 let maxEffort = 0;
 
