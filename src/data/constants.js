@@ -7,5 +7,6 @@ export const ADVANCED = 'advanced';
 
 export const LINKED_LIST = 'linked-list';
 export const DOUBLY_LINKED_LIST = 'doubly-linked-list';
+export const QUEUE = 'queue';
 
 export const FIBONACCI = 'fibonacci';

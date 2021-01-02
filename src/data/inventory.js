@@ -9,7 +9,6 @@ import { data as _ll_deleteHead } from './linked-list/6-deleteHead.js';
 import { data as _ll_fromArray } from './linked-list/7-fromArray.js';
 import { data as _ll_toArray } from './linked-list/8-toArray.js';
 import { data as _ll_reverse } from './linked-list/9-reverse.js';
-import { data as _ll_reverse } from './linked-list/9-reverse.js';
 import { data as _dll_prepend } from './doubly-linked-list/10-prepend.js';
 import { data as _dll_append } from './doubly-linked-list/11-append.js';
 import { data as _dll_delete } from './doubly-linked-list/12-delete';
@@ -21,6 +20,8 @@ import { data as _dll_toArray } from './doubly-linked-list/17-toArray';
 import { data as _dll_reverse } from './doubly-linked-list/18-reverse';
 import { data as _alg_fibonnaci_recursive } from './algorithms/19-fibonacci-recursive';
 import { data as _alg_fibonnaci_iterative } from './algorithms/20-fibonacci-iterative';
+import { data as _queue_implement_ll } from './queue/21-implement-from-ll';
+import { data as _queue_implement_array } from './queue/22-implement-from-array';
 
 const aggregate = {
   1: _ll_prepend,
@@ -43,6 +44,8 @@ const aggregate = {
   18: _dll_reverse,
   19: _alg_fibonnaci_recursive,
   20: _alg_fibonnaci_iterative,
+  21: _queue_implement_ll,
+  22: _queue_implement_array,
 };
 
 // todo this is crazy.  should be able to do the above dynamically
