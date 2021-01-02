@@ -1,25 +1,28 @@
 //
 
-import { data as _prepend } from './linked-list/1-prepend.js';
-import { data as _append } from './linked-list/2-append.js';
-import { data as _delete } from './linked-list/3-delete.js';
-import { data as _find } from './linked-list/4-find.js';
-import { data as _deleteTail } from './linked-list/5-deleteTail.js';
-import { data as _deleteHead } from './linked-list/6-deleteHead.js';
-import { data as _fromArray } from './linked-list/7-fromArray.js';
-import { data as _toArray } from './linked-list/8-toArray.js';
-import { data as _reverse } from './linked-list/9-reverse.js';
+import { data as _ll_prepend } from './linked-list/1-prepend.js';
+import { data as _ll_append } from './linked-list/2-append.js';
+import { data as _ll_delete } from './linked-list/3-delete.js';
+import { data as _ll_find } from './linked-list/4-find.js';
+import { data as _ll_deleteTail } from './linked-list/5-deleteTail.js';
+import { data as _ll_deleteHead } from './linked-list/6-deleteHead.js';
+import { data as _ll_fromArray } from './linked-list/7-fromArray.js';
+import { data as _ll_toArray } from './linked-list/8-toArray.js';
+import { data as _ll_reverse } from './linked-list/9-reverse.js';
+import { data as _ll_reverse } from './linked-list/9-reverse.js';
+import { data as _dll_prepend } from './doubly-linked-list/10-prepend.js';
 
 const aggregate = {
-  1: _prepend,
-  2: _append,
-  3: _delete,
-  4: _find,
-  5: _deleteTail,
-  6: _deleteHead,
-  7: _fromArray,
-  8: _toArray,
-  9: _reverse,
+  1: _ll_prepend,
+  2: _ll_append,
+  3: _ll_delete,
+  4: _ll_find,
+  5: _ll_deleteTail,
+  6: _ll_deleteHead,
+  7: _ll_fromArray,
+  8: _ll_toArray,
+  9: _ll_reverse,
+  10: _dll_prepend,
 };
 
 let maxEffort = 0;

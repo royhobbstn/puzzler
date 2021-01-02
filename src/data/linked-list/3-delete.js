@@ -54,7 +54,7 @@ export const data = {
   problemID: 3,
   problemName: 'Implement `delete` in a Singly Linked List',
   problemText:
-    'Write a **delete** method in a Singly-Linked-List Class that accepts an arbitrary value and removes all nodes that match that value.  The method should return a deleted node or null.',
+    'Write a **delete** method in a Singly-Linked-List Class that accepts an arbitrary value and removes all nodes that match that value.  The method should return the last node deleted (or null if no match found).',
   testCases: [
     {
       id: 1,
