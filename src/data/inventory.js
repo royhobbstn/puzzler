@@ -11,17 +11,19 @@ import { data as _ll_toArray } from './linked-list/8-toArray.js';
 import { data as _ll_reverse } from './linked-list/9-reverse.js';
 import { data as _dll_prepend } from './doubly-linked-list/10-prepend.js';
 import { data as _dll_append } from './doubly-linked-list/11-append.js';
-import { data as _dll_delete } from './doubly-linked-list/12-delete';
-import { data as _dll_find } from './doubly-linked-list/13-find';
-import { data as _dll_deleteTail } from './doubly-linked-list/14-deleteTail';
-import { data as _dll_deleteHead } from './doubly-linked-list/15-deleteHead';
-import { data as _dll_fromArray } from './doubly-linked-list/16-fromArray';
-import { data as _dll_toArray } from './doubly-linked-list/17-toArray';
-import { data as _dll_reverse } from './doubly-linked-list/18-reverse';
-import { data as _alg_fibonnaci_recursive } from './algorithms/19-fibonacci-recursive';
-import { data as _alg_fibonnaci_iterative } from './algorithms/20-fibonacci-iterative';
-import { data as _queue_implement_ll } from './queue/21-implement-from-ll';
-import { data as _queue_implement_array } from './queue/22-implement-from-array';
+import { data as _dll_delete } from './doubly-linked-list/12-delete.js';
+import { data as _dll_find } from './doubly-linked-list/13-find.js';
+import { data as _dll_deleteTail } from './doubly-linked-list/14-deleteTail.js';
+import { data as _dll_deleteHead } from './doubly-linked-list/15-deleteHead.js';
+import { data as _dll_fromArray } from './doubly-linked-list/16-fromArray.js';
+import { data as _dll_toArray } from './doubly-linked-list/17-toArray.js';
+import { data as _dll_reverse } from './doubly-linked-list/18-reverse.js';
+import { data as _alg_fibonnaci_recursive } from './algorithms/19-fibonacci-recursive.js';
+import { data as _alg_fibonnaci_iterative } from './algorithms/20-fibonacci-iterative.js';
+import { data as _queue_implement_ll } from './queue/21-implement-from-ll.js';
+import { data as _queue_implement_array } from './queue/22-implement-from-array.js';
+import { data as _stack_implement_ll } from './stack/23-implement-from-ll.js';
+import { data as _stack_implement_array } from './stack/24-implement-from-array.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -46,6 +48,8 @@ const aggregate = {
   20: _alg_fibonnaci_iterative,
   21: _queue_implement_ll,
   22: _queue_implement_array,
+  23: _stack_implement_ll,
+  24: _stack_implement_array,
 };
 
 // todo this is crazy.  should be able to do the above dynamically
