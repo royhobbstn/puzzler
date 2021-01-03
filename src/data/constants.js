@@ -10,5 +10,6 @@ export const DOUBLY_LINKED_LIST = 'doubly-linked-list';
 export const QUEUE = 'queue';
 export const STACK = 'stack';
 export const HASH_TABLE = 'hash-table';
+export const HEAP = 'heap';
 
 export const FIBONACCI = 'fibonacci';

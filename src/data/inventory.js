@@ -27,6 +27,15 @@ import { data as _stack_implement_array } from './stack/24-implement-from-array.
 import { data as _ht_implement_set } from './hash-table/25-implement-set.js';
 import { data as _ht_implement_get } from './hash-table/26-implement-get.js';
 import { data as _ht_implement_delete } from './hash-table/27-implement-delete.js';
+import { data as _heap_child_functions } from './heap/28-child-functions.js';
+import { data as _heap_parent_functions } from './heap/29-parent-functions.js';
+import { data as _heap_peek } from './heap/30-peek.js';
+import { data as _heap_find } from './heap/31-find.js';
+import { data as _heap_poll } from './heap/32-poll.js';
+import { data as _heap_add } from './heap/33-add.js';
+import { data as _heap_remove } from './heap/34-remove.js';
+import { data as _heap_heapifyUp } from './heap/35-heapifyUp.js';
+import { data as _heap_heapifyDown } from './heap/36-heapifyDown.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -56,6 +65,15 @@ const aggregate = {
   25: _ht_implement_set,
   26: _ht_implement_get,
   27: _ht_implement_delete,
+  28: _heap_child_functions,
+  29: _heap_parent_functions,
+  30: _heap_peek,
+  31: _heap_find,
+  32: _heap_poll,
+  33: _heap_add,
+  34: _heap_remove,
+  35: _heap_heapifyUp,
+  36: _heap_heapifyDown,
 };
 
 // todo this is crazy.  should be able to do the above dynamically
