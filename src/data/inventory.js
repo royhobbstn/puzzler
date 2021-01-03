@@ -24,6 +24,9 @@ import { data as _queue_implement_ll } from './queue/21-implement-from-ll.js';
 import { data as _queue_implement_array } from './queue/22-implement-from-array.js';
 import { data as _stack_implement_ll } from './stack/23-implement-from-ll.js';
 import { data as _stack_implement_array } from './stack/24-implement-from-array.js';
+import { data as _ht_implement_set } from './hash-table/25-implement-set.js';
+import { data as _ht_implement_get } from './hash-table/26-implement-get.js';
+import { data as _ht_implement_delete } from './hash-table/27-implement-delete.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -50,6 +53,9 @@ const aggregate = {
   22: _queue_implement_array,
   23: _stack_implement_ll,
   24: _stack_implement_array,
+  25: _ht_implement_set,
+  26: _ht_implement_get,
+  27: _ht_implement_delete,
 };
 
 // todo this is crazy.  should be able to do the above dynamically

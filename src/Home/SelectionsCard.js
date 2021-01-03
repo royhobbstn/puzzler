@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Card, Table, Button, Icon } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
+import showdown from 'showdown';
 import { useHistory, useParams } from 'react-router-dom';
 import {
   setSelections,
@@ -10,6 +11,8 @@ import {
   shiftSelection,
 } from '../redux/filterStore';
 import { clickNext } from '../redux/gameStore';
+
+const converter = new showdown.Converter();
 
 function SelectionsCard({
   selections,
@@ -78,15 +81,16 @@ function SelectionsCard({
                 return (
                   <Table.Row key={problem.problemID}>
                     <Table.Cell>
-                      <span style={{ fontWeight: 'bold', marginRight: '10px' }}>
-                        #{problem.problemID}
-                      </span>
-                      <span
+                      <div
+                        style={{ display: 'inline' }}
                         className="hover-link"
                         onClick={() => showModalMarkdown(problem.problemText)}
-                      >
-                        {problem.problemName}
-                      </span>
+                        dangerouslySetInnerHTML={{
+                          __html: converter.makeHtml(
+                            `**${problem.problemID}**:  ` + problem.problemName,
+                          ),
+                        }}
+                      ></div>
                     </Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>

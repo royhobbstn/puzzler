@@ -2,8 +2,10 @@ import * as React from 'react';
 import { Card, Table, Icon, Button } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
-
+import showdown from 'showdown';
 import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
+
+const converter = new showdown.Converter();
 
 function ResultsCard({ results, selections, setSelections, setActiveProblemText, setShowModal }) {
   const addProblemId = problemID => {
@@ -73,15 +75,16 @@ function ResultsCard({ results, selections, setSelections, setActiveProblemText,
                     className={inProblemSet ? 'existing-selection' : ''}
                   >
                     <Table.Cell>
-                      <span style={{ fontWeight: 'bold', marginRight: '10px' }}>
-                        #{problem.problemID}
-                      </span>
-                      <span
+                      <div
+                        style={{ display: 'inline' }}
                         className="hover-link"
                         onClick={() => showModalMarkdown(problem.problemText)}
-                      >
-                        {problem.problemName}
-                      </span>
+                        dangerouslySetInnerHTML={{
+                          __html: converter.makeHtml(
+                            `**${problem.problemID}**:  ` + problem.problemName,
+                          ),
+                        }}
+                      ></div>
                     </Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>{problem.difficulty}</Table.Cell>
                     <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>

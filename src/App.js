@@ -6,6 +6,7 @@ import MainMenu from './MainMenu.js';
 import HomePage from './Home/HomePage.js';
 import { incrementTotalSeconds } from './redux/gameStore';
 import { connect } from 'react-redux';
+import ProblemTextModal from './ProblemTextModal';
 
 let interval = null;
 
@@ -23,6 +24,7 @@ function App({ incrementTotalSeconds, isRunning }) {
 
   return (
     <React.Fragment>
+      <ProblemTextModal />
       <Switch>
         <Route exact path="/">
           <MainMenu />

@@ -5,12 +5,19 @@ import { inventory } from './data/inventory.js';
 import { useHistory } from 'react-router-dom';
 import { convertToTimer } from './util.js';
 import { connect } from 'react-redux';
-
+import showdown from 'showdown';
 import { setSessionHistory } from './redux/gameStore';
+import { setActiveProblemText, setShowModal } from './redux/filterStore';
+const converter = new showdown.Converter();
 
-function SessionStats({ sessionHistory, setSessionHistory }) {
+function SessionStats({ sessionHistory, setSessionHistory, setActiveProblemText, setShowModal }) {
   const history = useHistory();
   const personalBests = getPersonalBests();
+
+  const showModalMarkdown = problemText => {
+    setActiveProblemText(problemText);
+    setShowModal(true);
+  };
 
   return (
     <div style={{ paddingBottom: '30px' }}>
@@ -69,7 +76,16 @@ function SessionStats({ sessionHistory, setSessionHistory }) {
                 }}
               >
                 <Table.Cell>{entry.id}</Table.Cell>
-                <Table.Cell>{inventory[entry.id].problemName}</Table.Cell>
+                <Table.Cell>
+                  <div
+                    style={{ display: 'inline' }}
+                    className="hover-link"
+                    onClick={() => showModalMarkdown(inventory[entry.id].problemText)}
+                    dangerouslySetInnerHTML={{
+                      __html: converter.makeHtml(inventory[entry.id].problemName),
+                    }}
+                  ></div>
+                </Table.Cell>
                 <Table.Cell style={{ textAlign: 'center' }}>{measuredTime}</Table.Cell>
                 <Table.Cell style={{ textAlign: 'center' }}>{bestTime}</Table.Cell>
               </Table.Row>
@@ -93,6 +109,6 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = { setSessionHistory };
+const mapDispatchToProps = { setSessionHistory, setActiveProblemText, setShowModal };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionStats);

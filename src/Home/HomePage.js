@@ -2,12 +2,10 @@ import * as React from 'react';
 import ResultsCard from './ResultsCard.js';
 import SelectionsCard from './SelectionsCard.js';
 import Filters from './Filters.js';
-import ProblemTextModal from './ProblemTextModal';
 
 export default function HomePage() {
   return (
     <React.Fragment>
-      <ProblemTextModal />
       <div
         style={{
           position: 'absolute',
