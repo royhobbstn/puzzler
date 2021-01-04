@@ -11,5 +11,7 @@ export const QUEUE = 'queue';
 export const STACK = 'stack';
 export const HASH_TABLE = 'hash-table';
 export const HEAP = 'heap';
+export const PRIORITY_QUEUE = 'priority-queue'; // todo
+export const BINARY_SEARCH_TREE = 'binary-search-tree';
 
 export const FIBONACCI = 'fibonacci';
