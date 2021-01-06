@@ -36,7 +36,7 @@ function ControlCard({
   return (
     <Card style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
       <Card.Content header="Options" />
-      <Card.Content style={{ width: '100%', height: '100%', padding: '1em 1em .5em 1em' }}>
+      <Card.Content style={{ width: '100%', height: '100%', padding: '1em 2em .5em 2em' }}>
         <div style={{ display: 'block', width: '100%', height: '50%' }}>
           <div style={{ display: 'block', width: '50%', float: 'left' }}>
             <Checkbox

@@ -87,7 +87,7 @@ function Filters({
             top: '0',
             left: '0',
             height: 'calc(48vh - 40px)',
-            width: '21vw',
+            width: '18vw',
           }}
         >
           <CategoryCard categories={categories} setCategories={setCategories} />
@@ -96,9 +96,9 @@ function Filters({
           style={{
             position: 'absolute',
             top: '0',
-            left: '22vw',
+            left: '19vw',
             height: 'calc(48vh - 40px)',
-            width: '33vw',
+            width: '36vw',
           }}
         >
           <ControlCard />

@@ -10,7 +10,7 @@ export default function HomePage() {
         style={{
           position: 'absolute',
           top: 'calc(40px + 3vh)',
-          left: '5vw',
+          left: '2vw',
           height: 'calc(48vh - 40px)',
           width: '55vw',
         }}
@@ -23,9 +23,9 @@ export default function HomePage() {
           border: '1px solid yellow',
           position: 'absolute',
           top: 'calc(40px + 3vh)',
-          left: '61vw',
+          left: '58vw',
           height: 'calc(94vh - 40px)',
-          width: '34vw',
+          width: '40vw',
         }}
       >
         <SelectionsCard />
@@ -34,7 +34,7 @@ export default function HomePage() {
         style={{
           position: 'absolute',
           top: '52vh',
-          left: '5vw',
+          left: '2vw',
           height: '45vh',
           width: '55vw',
         }}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, Table, Button, Icon } from 'semantic-ui-react';
+import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { connect } from 'react-redux';
 import showdown from 'showdown';
@@ -46,69 +46,75 @@ function SelectionsCard({
   };
 
   return (
-    <Card style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
+    <Card style={{ width: '100%', height: '100%' }}>
       <Card.Content header="Selections" />
-      <Card.Content>
-        <Button disabled={Boolean(!selections.length)} style={{ float: 'left' }} onClick={clearAll}>
-          Clear All
-        </Button>
-        <Button
-          style={{ float: 'right' }}
-          onClick={clickStart}
-          disabled={Boolean(!selections.length)}
-          primary={true}
-        >
-          START
-        </Button>
-      </Card.Content>
-      <Card.Content>{selections.length} Problems Selected.</Card.Content>
+      <Divider style={{ padding: '0', margin: '0' }} />
+      <div style={{ overflowY: 'scroll' }}>
+        <div style={{ padding: '1em', height: '63px' }}>
+          <Button
+            disabled={Boolean(!selections.length)}
+            style={{ float: 'left' }}
+            onClick={clearAll}
+          >
+            Clear All
+          </Button>
+          <Button
+            style={{ float: 'right' }}
+            onClick={clickStart}
+            disabled={Boolean(!selections.length)}
+            primary={true}
+          >
+            START
+          </Button>
+        </div>
+        <Divider style={{ padding: '0', margin: '0' }} />
+        <div style={{ padding: '1em 1em 0 1em' }}>{selections.length} Problem(s) Selected.</div>
 
-      <Card.Content>
-        <Table celled compact="very">
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell style={{ textAlign: 'center' }}>Category</Table.HeaderCell>
-              <Table.HeaderCell style={{ textAlign: 'center' }}>Action</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          {}
-          <Table.Body>
-            {selections.length ? (
-              selections.map(id => {
-                const problem = inventory[id];
-                return (
-                  <Table.Row key={problem.problemID}>
-                    <Table.Cell>
-                      <div
-                        style={{ display: 'inline' }}
-                        className="hover-link"
-                        onClick={() => showModalMarkdown(problem.problemText)}
-                        dangerouslySetInnerHTML={{
-                          __html: converter.makeHtml(
-                            `**${problem.problemID}**:  ` + problem.problemName,
-                          ),
-                        }}
-                      ></div>
-                    </Table.Cell>
-                    <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
-                    <Table.Cell style={{ textAlign: 'center' }}>
-                      <Button icon onClick={() => subtractProblemId(problem.problemID)}>
-                        <Icon className="hover-circle-off" name="minus" />
-                      </Button>
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })
-            ) : (
-              <Table.Row key={0}>
-                <Table.Cell colSpan="4">No Selections</Table.Cell>
+        <div style={{ padding: '1em' }}>
+          <Table celled compact="very">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell style={{ textAlign: 'center' }}>Category</Table.HeaderCell>
+                <Table.HeaderCell style={{ textAlign: 'center' }}>Action</Table.HeaderCell>
               </Table.Row>
-            )}
-          </Table.Body>
-        </Table>
-      </Card.Content>
+            </Table.Header>
+            <Table.Body>
+              {selections.length ? (
+                selections.map(id => {
+                  const problem = inventory[id];
+                  return (
+                    <Table.Row key={problem.problemID}>
+                      <Table.Cell>
+                        <div
+                          style={{ display: 'inline' }}
+                          className="hover-link"
+                          onClick={() => showModalMarkdown(problem.problemText)}
+                          dangerouslySetInnerHTML={{
+                            __html: converter.makeHtml(
+                              `**${problem.problemID}**:  ` + problem.problemName,
+                            ),
+                          }}
+                        ></div>
+                      </Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>
+                        <Button icon onClick={() => subtractProblemId(problem.problemID)}>
+                          <Icon className="hover-circle-off" name="minus" />
+                        </Button>
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })
+              ) : (
+                <Table.Row key={0}>
+                  <Table.Cell colSpan="4">No Selections</Table.Cell>
+                </Table.Row>
+              )}
+            </Table.Body>
+          </Table>
+        </div>
+      </div>
     </Card>
   );
 }
