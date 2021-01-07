@@ -86,7 +86,24 @@ function ResultsCard({ results, selections, setSelections, setActiveProblemText,
                           }}
                         ></div>
                       </Table.Cell>
-                      <Table.Cell style={{ textAlign: 'center' }}>{problem.difficulty}</Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>
+                        <span
+                          style={{
+                            backgroundColor: 'azure',
+                            color: 'black',
+                            display: 'inline-block',
+                            border: '1px solid darkslategrey',
+                            borderRadius: '50%',
+                            width: '1.5em',
+                            height: '1.5em',
+                            lineHeight: '1.25em',
+                            verticalAlign: 'center',
+                            boxShadow: '1px 1px 2px lightslategrey',
+                          }}
+                        >
+                          {problem.difficulty}
+                        </span>
+                      </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>
