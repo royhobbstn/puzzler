@@ -75,6 +75,8 @@ function SelectionsCard({
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell style={{ textAlign: 'center' }}>Difficulty</Table.HeaderCell>
+                <Table.HeaderCell style={{ textAlign: 'center' }}>Effort</Table.HeaderCell>
                 <Table.HeaderCell style={{ textAlign: 'center' }}>Category</Table.HeaderCell>
                 <Table.HeaderCell style={{ textAlign: 'center' }}>Action</Table.HeaderCell>
               </Table.Row>
@@ -97,6 +99,25 @@ function SelectionsCard({
                           }}
                         ></div>
                       </Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>
+                        <span
+                          style={{
+                            backgroundColor: 'azure',
+                            color: 'black',
+                            display: 'inline-block',
+                            border: '1px solid darkslategrey',
+                            borderRadius: '50%',
+                            width: '1.5em',
+                            height: '1.5em',
+                            lineHeight: '1.25em',
+                            verticalAlign: 'center',
+                            boxShadow: '1px 1px 2px lightslategrey',
+                          }}
+                        >
+                          {problem.difficulty}
+                        </span>
+                      </Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.category}</Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>
                         <Button icon onClick={() => subtractProblemId(problem.problemID)}>
