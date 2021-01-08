@@ -3,22 +3,31 @@ import { Card } from 'semantic-ui-react';
 import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BEGINNER, INTERMEDIATE, ADVANCED } from '../data/constants.js';
-import { setResults, setCategories } from '../redux/filterStore';
-
-function Filters({
+import {
   setResults,
-  setCategories,
-  categories,
-  dsChecked,
-  algChecked,
-  minEffort,
-  maxEffort,
-  begChecked,
-  intChecked,
-  advChecked,
-}) {
+  selectCategories,
+  selectDsChecked,
+  selectAlgChecked,
+  selectMinEffort,
+  selectMaxEffort,
+  selectBegChecked,
+  selectIntChecked,
+  selectAdvChecked,
+} from '../redux/filterStore';
+
+function Filters() {
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
+  const dsChecked = useSelector(selectDsChecked);
+  const algChecked = useSelector(selectAlgChecked);
+  const minEffort = useSelector(selectMinEffort);
+  const maxEffort = useSelector(selectMaxEffort);
+  const begChecked = useSelector(selectBegChecked);
+  const intChecked = useSelector(selectIntChecked);
+  const advChecked = useSelector(selectAdvChecked);
+
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
 
@@ -53,17 +62,17 @@ function Filters({
         }
         return true;
       });
-    setResults(filtered);
+    dispatch(setResults(filtered));
   }, [
     algChecked,
     categories,
     dsChecked,
     maxEffort,
     minEffort,
-    setResults,
     begChecked,
     intChecked,
     advChecked,
+    dispatch,
   ]);
 
   React.useEffect(() => {
@@ -90,7 +99,7 @@ function Filters({
             width: '18vw',
           }}
         >
-          <CategoryCard categories={categories} setCategories={setCategories} />
+          <CategoryCard categories={categories} />
         </div>
         <div
           style={{
@@ -108,22 +117,4 @@ function Filters({
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    categories: state.filter.categories,
-    dsChecked: state.filter.dsChecked,
-    algChecked: state.filter.algChecked,
-    minEffort: state.filter.minEffort,
-    maxEffort: state.filter.maxEffort,
-    begChecked: state.filter.begChecked,
-    intChecked: state.filter.intChecked,
-    advChecked: state.filter.advChecked,
-  };
-};
-
-const mapDispatchToProps = {
-  setResults,
-  setCategories,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+export default Filters;

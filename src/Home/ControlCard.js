@@ -1,36 +1,36 @@
 import * as React from 'react';
 import { Card, Checkbox } from 'semantic-ui-react';
 import SliderView from 'semantic-ui-react-slider';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
 import {
-  pressReset,
   setDsChecked,
   setAlgChecked,
   setEffortSlider,
   setBegChecked,
   setIntChecked,
   setAdvChecked,
+  selectDsChecked,
+  selectAlgChecked,
+  selectMinEffort,
+  selectMaxEffort,
+  selectBegChecked,
+  selectIntChecked,
+  selectAdvChecked,
 } from '../redux/filterStore';
 
-function ControlCard({
-  dsChecked,
-  setDsChecked,
-  algChecked,
-  setAlgChecked,
-  minEffort,
-  maxEffort,
-  setEffortSlider,
-  begChecked,
-  setBegChecked,
-  intChecked,
-  setIntChecked,
-  advChecked,
-  setAdvChecked,
-  pressReset,
-}) {
+function ControlCard() {
+  const dispatch = useDispatch();
+  const dsChecked = useSelector(selectDsChecked);
+  const algChecked = useSelector(selectAlgChecked);
+  const minEffort = useSelector(selectMinEffort);
+  const maxEffort = useSelector(selectMaxEffort);
+  const begChecked = useSelector(selectBegChecked);
+  const intChecked = useSelector(selectIntChecked);
+  const advChecked = useSelector(selectAdvChecked);
+
   const onEffortSliderChange = (minValue, maxValue) => {
-    setEffortSlider([minValue, maxValue]);
+    dispatch(setEffortSlider([minValue, maxValue]));
   };
 
   return (
@@ -43,7 +43,7 @@ function ControlCard({
               style={{ display: 'block', padding: '5px 0' }}
               label="Beginner"
               onChange={() => {
-                setBegChecked(!begChecked);
+                dispatch(setBegChecked(!begChecked));
               }}
               checked={begChecked}
             />
@@ -52,7 +52,7 @@ function ControlCard({
               style={{ display: 'block', padding: '5px 0' }}
               label="Intermediate"
               onChange={() => {
-                setIntChecked(!intChecked);
+                dispatch(setIntChecked(!intChecked));
               }}
               checked={intChecked}
             />
@@ -61,7 +61,7 @@ function ControlCard({
               style={{ display: 'block', padding: '5px 0' }}
               label="Advanced"
               onChange={() => {
-                setAdvChecked(!advChecked);
+                dispatch(setAdvChecked(!advChecked));
               }}
               checked={advChecked}
             />
@@ -71,7 +71,7 @@ function ControlCard({
               style={{ display: 'block', padding: '5px 0' }}
               label="Data Structures"
               onChange={() => {
-                setDsChecked(!dsChecked);
+                dispatch(setDsChecked(!dsChecked));
               }}
               checked={dsChecked}
             />
@@ -80,7 +80,7 @@ function ControlCard({
               style={{ display: 'block', padding: '5px 0' }}
               label="Algorithms"
               onChange={() => {
-                setAlgChecked(!algChecked);
+                dispatch(setAlgChecked(!algChecked));
               }}
               checked={algChecked}
             />
@@ -104,26 +104,4 @@ function ControlCard({
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    dsChecked: state.filter.dsChecked,
-    algChecked: state.filter.algChecked,
-    minEffort: state.filter.minEffort,
-    maxEffort: state.filter.maxEffort,
-    begChecked: state.filter.begChecked,
-    intChecked: state.filter.intChecked,
-    advChecked: state.filter.advChecked,
-  };
-};
-
-const mapDispatchToProps = {
-  pressReset,
-  setDsChecked,
-  setAlgChecked,
-  setEffortSlider,
-  setBegChecked,
-  setIntChecked,
-  setAdvChecked,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ControlCard);
+export default ControlCard;

@@ -1,24 +1,34 @@
 import * as React from 'react';
 import { Card, Table, Icon, Button, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
-import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
+import {
+  setSelections,
+  setActiveProblemText,
+  setShowModal,
+  selectSelections,
+  selectResults,
+} from '../redux/filterStore';
 
 const converter = new showdown.Converter();
 
-function ResultsCard({ results, selections, setSelections, setActiveProblemText, setShowModal }) {
+function ResultsCard() {
+  const dispatch = useDispatch();
+  const selections = useSelector(selectSelections);
+  const results = useSelector(selectResults);
+
   const addProblemId = problemID => {
-    setSelections([...selections, problemID]);
+    dispatch(setSelections([...selections, problemID]));
   };
 
   const subtractProblemId = problemID => {
-    setSelections(selections.filter(d => d !== problemID));
+    dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
   const showModalMarkdown = problemText => {
-    setActiveProblemText(problemText);
-    setShowModal(true);
+    dispatch(setActiveProblemText(problemText));
+    dispatch(setShowModal(true));
   };
 
   // results which don't include selected problems
@@ -133,17 +143,4 @@ function ResultsCard({ results, selections, setSelections, setActiveProblemText,
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    selections: state.filter.selections,
-    results: state.filter.results,
-  };
-};
-
-const mapDispatchToProps = {
-  setSelections,
-  setActiveProblemText,
-  setShowModal,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResultsCard);
+export default ResultsCard;

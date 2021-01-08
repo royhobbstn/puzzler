@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { useHistory, useParams } from 'react-router-dom';
 import {
@@ -9,40 +9,36 @@ import {
   setActiveProblemText,
   setShowModal,
   shiftSelection,
+  selectSelections,
 } from '../redux/filterStore';
 import { clickNext } from '../redux/gameStore';
 
 const converter = new showdown.Converter();
 
-function SelectionsCard({
-  selections,
-  setSelections,
-  setActiveProblemText,
-  setShowModal,
-  clickNext,
-  shiftSelection,
-}) {
+function SelectionsCard() {
   const history = useHistory();
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const selections = useSelector(selectSelections);
 
   const clearAll = () => {
-    setSelections([]);
+    dispatch(setSelections([]));
   };
 
   const clickStart = () => {
     const nextId = selections[0];
-    clickNext(id);
-    shiftSelection();
+    dispatch(clickNext(id));
+    dispatch(shiftSelection());
     history.push(`/${nextId}`);
   };
 
   const subtractProblemId = problemID => {
-    setSelections(selections.filter(d => d !== problemID));
+    dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
   const showModalMarkdown = problemText => {
-    setActiveProblemText(problemText);
-    setShowModal(true);
+    dispatch(setActiveProblemText(problemText));
+    dispatch(setShowModal(true));
   };
 
   return (
@@ -140,18 +136,4 @@ function SelectionsCard({
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    selections: state.filter.selections,
-  };
-};
-
-const mapDispatchToProps = {
-  setSelections,
-  setActiveProblemText,
-  setShowModal,
-  clickNext,
-  shiftSelection,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectionsCard);
+export default SelectionsCard;

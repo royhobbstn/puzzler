@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { Card, Checkbox, Button, Popup, Divider } from 'semantic-ui-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCategories, setCategories } from '../redux/filterStore';
 
-export default function CategoryCard({ categories, setCategories }) {
+export default function CategoryCard() {
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
+
   const updateCheckbox = name => {
     const updatedCategories = categories.map(item => {
       if (item.name === name) {
@@ -9,22 +14,26 @@ export default function CategoryCard({ categories, setCategories }) {
       }
       return item;
     });
-    setCategories(updatedCategories);
+    dispatch(setCategories(updatedCategories));
   };
 
   const selectAll = () => {
-    setCategories(
-      categories.map(d => {
-        return { name: d.name, isSelected: true };
-      }),
+    dispatch(
+      setCategories(
+        categories.map(d => {
+          return { name: d.name, isSelected: true };
+        }),
+      ),
     );
   };
 
   const clearAll = () => {
-    setCategories(
-      categories.map(d => {
-        return { name: d.name, isSelected: false };
-      }),
+    dispatch(
+      setCategories(
+        categories.map(d => {
+          return { name: d.name, isSelected: false };
+        }),
+      ),
     );
   };
 
