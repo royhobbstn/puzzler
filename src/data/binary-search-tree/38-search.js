@@ -1,0 +1,61 @@
+import { BINARY_SEARCH_TREE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+
+const solution = [
+  { stage: 0, text: 'class BinarySearchTreeNode {' },
+  { stage: 0, text: '  constructor(value) {' },
+  { stage: 0, text: '    this.value = value;' },
+  { stage: 0, text: '    this.left = null;' },
+  { stage: 0, text: '    this.right = null;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+  { stage: 0, text: 'class BinarySearchTree {' },
+  { stage: 0, text: '  constructor() {' },
+  { stage: 0, text: '    this.root = null;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 0, text: '  search(value) {' },
+  { stage: 0, text: '    let currentRoot = this.root;' },
+  { stage: 0, text: '    let found = false;' },
+  { stage: 0, text: '    while (currentRoot) {' },
+  { stage: 0, text: '      if (currentRoot.value > value) {' },
+  { stage: 0, text: '        currentRoot = currentRoot.left;' },
+  { stage: 0, text: '      } else if (currentRoot.value < value) {' },
+  { stage: 0, text: '        currentRoot = currentRoot.right;' },
+  { stage: 0, text: '      } else {' },
+  { stage: 0, text: '        found = true;' },
+  { stage: 0, text: '        break;' },
+  { stage: 0, text: '      }' },
+  { stage: 0, text: '    }' },
+  { stage: 0, text: '    return found;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 38,
+  problemName: 'Implement `search` in a Binary Search Tree',
+  problemText:
+    'Write a **search** method in a BinarySearchTree Class that accepts an integer value and returns a boolean true or false indicating whether that integer is found within the tree.',
+  testCases: [
+    {
+      id: 1,
+      name: 'compiles',
+      inherit: [],
+      code: `const tree=new BinarySearchTree();`,
+      evaluate: `tree;`,
+      expected: `{"head":null,"tail":null}`,
+    },
+  ],
+  setupCode: '',
+  category: BINARY_SEARCH_TREE,
+  type: DATA_STRUCTURE,
+  difficulty: BEGINNER,
+  maxExecutionTime: 2,
+  solution: {
+    stages: [0, 30, 60, 120],
+    solutionLines: solution,
+  },
+};

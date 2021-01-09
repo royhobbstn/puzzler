@@ -37,6 +37,17 @@ import { data as _heap_remove } from './heap/34-remove.js';
 import { data as _heap_heapifyUp } from './heap/35-heapifyUp.js';
 import { data as _heap_heapifyDown } from './heap/36-heapifyDown.js';
 
+import { data as _bst_insert } from './binary-search-tree/37-insert.js';
+import { data as _bst_search } from './binary-search-tree/38-search.js';
+import { data as _bst_delete } from './binary-search-tree/39-delete.js';
+import { data as _bst_pre_order_iter } from './binary-search-tree/40-pre-order-iterative.js';
+import { data as _bst_pre_order_rec } from './binary-search-tree/41-pre-order-recursive.js';
+import { data as _bst_in_order_iter } from './binary-search-tree/42-in-order-iterative.js';
+import { data as _bst_in_order_rec } from './binary-search-tree/43-in-order-recursive.js';
+import { data as _bst_post_order_iter } from './binary-search-tree/44-post-order-iterative.js';
+import { data as _bst_post_order_rec } from './binary-search-tree/45-post-order-recursive.js';
+import { data as _bst_level_order_bfs } from './binary-search-tree/46-level-order-bfs.js';
+
 const aggregate = {
   1: _ll_prepend,
   2: _ll_append,
@@ -74,6 +85,16 @@ const aggregate = {
   34: _heap_remove,
   35: _heap_heapifyUp,
   36: _heap_heapifyDown,
+  37: _bst_insert,
+  38: _bst_search,
+  39: _bst_delete,
+  40: _bst_pre_order_iter,
+  41: _bst_pre_order_rec,
+  42: _bst_in_order_iter,
+  43: _bst_in_order_rec,
+  44: _bst_post_order_iter,
+  45: _bst_post_order_rec,
+  46: _bst_level_order_bfs,
 };
 
 // todo this is crazy.  should be able to do the above dynamically

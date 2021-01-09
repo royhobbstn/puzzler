@@ -1,13 +1,25 @@
+class BinarySearchTreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
+  }
+
+  callback(value) {
+    console.log(value);
   }
 
   traversePreOrderRecursive(node = this.root) {
     if (!node) {
       return;
     }
-    console.log(node.value);
+    this.callback(node.value);
     this.traversePreOrderRecursive(node.left);
     this.traversePreOrderRecursive(node.right);
   }
@@ -18,7 +30,7 @@ class BinarySearchTree {
 
     while (nodeStack.length) {
       let next = nodeStack.pop();
-      console.log(next.value);
+      this.callback(next.value);
       if (next.right) {
         nodeStack.push(next.right);
       }
@@ -33,7 +45,7 @@ class BinarySearchTree {
       return;
     }
     this.traverseInOrderRecursive(node.left);
-    console.log(node.value);
+    this.callback(node.value);
     this.traverseInOrderRecursive(node.right);
   }
 
@@ -48,7 +60,7 @@ class BinarySearchTree {
       } else {
         if (stack.length) {
           node = stack.pop();
-          console.log(node.value);
+          this.callback(node.value);
           node = node.right;
         } else {
           done = true;
@@ -64,7 +76,7 @@ class BinarySearchTree {
     if (node.right) {
       this.traversePostOrderRecursive(node.right);
     }
-    console.log(node.value);
+    this.callback(node.value);
   }
 
   traversePostOrderIterative(node = this.root) {
@@ -85,7 +97,7 @@ class BinarySearchTree {
     }
     while (s2.length) {
       const next = s2.pop();
-      console.log(next.value);
+      this.callback(next.value);
     }
   }
 
@@ -97,7 +109,7 @@ class BinarySearchTree {
     queue.push(node);
     while (queue.length) {
       const temp = queue.shift();
-      console.log(temp.value);
+      this.callback(temp.value);
       if (temp.left) {
         queue.push(temp.left);
       }
@@ -105,10 +117,6 @@ class BinarySearchTree {
         queue.push(temp.right);
       }
     }
-  }
-
-  height() {
-    return this.root.height();
   }
 
   insert(value) {
@@ -195,34 +203,6 @@ class BinarySearchTree {
   //
 }
 
-class BinarySearchTreeNode {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-
-  leftHeight() {
-    if (!this.left) {
-      return 0;
-    }
-
-    return this.left.height() + 1;
-  }
-
-  rightHeight() {
-    if (!this.right) {
-      return 0;
-    }
-
-    return this.right.height() + 1;
-  }
-
-  height() {
-    return Math.max(this.leftHeight(), this.rightHeight());
-  }
-}
-
 const tree = new BinarySearchTree();
 
 tree.insert(5);
@@ -232,17 +212,41 @@ tree.insert(0);
 tree.insert(7);
 tree.insert(2);
 
-// tree.traversePreOrderIterative();
-// console.log('-');
-// tree.traversePreOrderRecursive();
-// console.log('--');
-// tree.traverseInOrderIterative();
-// console.log('-');
-// tree.traverseInOrderRecursive();
-// console.log('--');
-// tree.traversePostOrderIterative();
-// console.log('-');
-// tree.traversePostOrderRecursive();
-// console.log('--');
-// tree.traverseLevelOrderBfs();
-// console.log(tree.height());
+console.log(tree.search(5));
+console.log(tree.search(3));
+console.log(tree.search(11));
+console.log(tree.search(0));
+console.log(tree.search(7));
+console.log(tree.search(2));
+
+console.log(tree.search(-1));
+console.log(tree.search(1));
+console.log(tree.search(4));
+console.log(tree.search(6));
+console.log(tree.search(8));
+console.log(tree.search(59));
+
+tree.traversePreOrderIterative();
+console.log('-');
+tree.traversePreOrderRecursive();
+console.log('--');
+tree.traverseInOrderIterative();
+console.log('-');
+tree.traverseInOrderRecursive();
+console.log('--');
+tree.traversePostOrderIterative();
+console.log('-');
+tree.traversePostOrderRecursive();
+console.log('--');
+tree.traverseLevelOrderBfs();
+
+tree.delete(5);
+tree.delete(3);
+tree.delete(11);
+
+console.log(tree.search(5));
+console.log(tree.search(3));
+console.log(tree.search(11));
+console.log(tree.search(0));
+console.log(tree.search(7));
+console.log(tree.search(2));
