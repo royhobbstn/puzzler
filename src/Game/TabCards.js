@@ -1,13 +1,23 @@
 import * as React from 'react';
 import { Card } from 'semantic-ui-react';
+import { inventory } from '../data/inventory.js';
 import TestCaseTable from './TestCaseTable';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveIndex } from '../redux/gameStore.js';
 
 const converter = new showdown.Converter();
 
-function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveIndex }) {
+function TabCards() {
+  const dispatch = useDispatch();
+  const isBusyTesting = useSelector(state => state.game.isBusyTesting);
+  const activeIndex = useSelector(state => state.game.activeIndex);
+  const results = useSelector(state => state.game.results);
+
+  const { id } = useParams();
+  const data = inventory[id];
+
   if (!data) {
     return [];
   }
@@ -23,14 +33,14 @@ function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveInde
       <p style={{ padding: '10px 0 0 10px' }}>
         <span
           className={activeIndex === 0 ? 'pane-base chosen-pane' : 'pane-base'}
-          onClick={() => setActiveIndex(0)}
+          onClick={() => dispatch(setActiveIndex(0))}
         >
           Problem
         </span>{' '}
         |{' '}
         <span
           className={activeIndex === 1 ? 'pane-base chosen-pane' : 'pane-base'}
-          onClick={() => setActiveIndex(1)}
+          onClick={() => dispatch(setActiveIndex(1))}
         >
           Test Results
         </span>
@@ -53,16 +63,4 @@ function TabCards({ data, isBusyTesting, results, id, activeIndex, setActiveInde
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    isBusyTesting: state.game.isBusyTesting,
-    results: state.game.results,
-    activeIndex: state.game.activeIndex,
-    id: props.id,
-    data: props.data,
-  };
-};
-
-const mapDispatchToProps = { setActiveIndex };
-
-export default connect(mapStateToProps, mapDispatchToProps)(TabCards);
+export default TabCards;

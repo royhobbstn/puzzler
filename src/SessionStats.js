@@ -4,19 +4,22 @@ import { getPersonalBests } from './personalBests.js';
 import { inventory } from './data/inventory.js';
 import { useHistory } from 'react-router-dom';
 import { convertToTimer } from './util.js';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setSessionHistory } from './redux/gameStore';
 import { setActiveProblemText, setShowModal } from './redux/filterStore';
 const converter = new showdown.Converter();
 
-function SessionStats({ sessionHistory, setSessionHistory, setActiveProblemText, setShowModal }) {
+function SessionStats() {
+  const dispatch = useDispatch();
+  const sessionHistory = useSelector(state => state.game.sessionHistory);
+
   const history = useHistory();
   const personalBests = getPersonalBests();
 
   const showModalMarkdown = problemText => {
-    setActiveProblemText(problemText);
-    setShowModal(true);
+    dispatch(setActiveProblemText(problemText));
+    dispatch(setShowModal(true));
   };
 
   return (
@@ -45,7 +48,7 @@ function SessionStats({ sessionHistory, setSessionHistory, setActiveProblemText,
         <Button
           style={{ float: 'right', width: '138px' }}
           onClick={() => {
-            setSessionHistory([]);
+            dispatch(setSessionHistory([]));
           }}
         >
           Clear Stats
@@ -103,12 +106,4 @@ function SessionStats({ sessionHistory, setSessionHistory, setActiveProblemText,
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    sessionHistory: state.game.sessionHistory,
-  };
-};
-
-const mapDispatchToProps = { setSessionHistory, setActiveProblemText, setShowModal };
-
-export default connect(mapStateToProps, mapDispatchToProps)(SessionStats);
+export default SessionStats;

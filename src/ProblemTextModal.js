@@ -1,20 +1,28 @@
 import * as React from 'react';
 import showdown from 'showdown';
 import { Modal, Button } from 'semantic-ui-react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setShowModal } from './redux/filterStore';
 
 const converter = new showdown.Converter();
 
-function ProblemTextModal({ showModal, setShowModal, activeProblemText }) {
+function ProblemTextModal() {
+  const dispatch = useDispatch();
+  const showModal = useSelector(state => state.game.showModal);
+  const activeProblemText = useSelector(state => state.game.activeProblemText);
+
   return (
-    <Modal onClose={() => setShowModal(false)} onOpen={() => setShowModal(true)} open={showModal}>
+    <Modal
+      onClose={() => dispatch(setShowModal(false))}
+      onOpen={() => dispatch(setShowModal(true))}
+      open={showModal}
+    >
       <Modal.Header>Problem Text</Modal.Header>
       <Modal.Content>
         <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(activeProblemText) }}></div>
       </Modal.Content>
       <Modal.Actions>
-        <Button style={{ width: '138px' }} onClick={() => setShowModal(false)}>
+        <Button style={{ width: '138px' }} onClick={() => dispatch(setShowModal(false))}>
           Close
         </Button>
       </Modal.Actions>
@@ -22,15 +30,4 @@ function ProblemTextModal({ showModal, setShowModal, activeProblemText }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    showModal: state.filter.showModal,
-    activeProblemText: state.filter.activeProblemText,
-  };
-};
-
-const mapDispatchToProps = {
-  setShowModal,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProblemTextModal);
+export default ProblemTextModal;

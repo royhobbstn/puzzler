@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Menu, Button, Icon, Popup } from 'semantic-ui-react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { convertToTimer, colorCodeTime } from './util.js';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory.js';
@@ -14,21 +14,14 @@ import {
 } from './redux/gameStore';
 import { shiftSelection, pressReset } from './redux/filterStore';
 
-function MainMenu({
-  isBusyTesting,
-  revealButtonPressed,
-  results,
-  clickRun,
-  clickNext,
-  totalSeconds,
-  clickSkip,
-  clickSkipToResults,
-  revealAnswer,
-  clickNextToResults,
-  selections,
-  shiftSelection,
-  pressReset,
-}) {
+function MainMenu() {
+  const dispatch = useDispatch();
+  const isBusyTesting = useSelector(state => state.game.isBusyTesting);
+  const revealButtonPressed = useSelector(state => state.game.revealButtonPressed);
+  const results = useSelector(state => state.game.results);
+  const totalSeconds = useSelector(state => state.game.totalSeconds);
+  const selections = useSelector(state => state.filter.selections);
+
   const history = useHistory();
   const { id } = useParams();
   const data = inventory[id];
@@ -80,7 +73,7 @@ function MainMenu({
                 <Button
                   icon
                   onClick={() => {
-                    pressReset();
+                    dispatch(pressReset());
                   }}
                 >
                   <Icon name="undo" />
@@ -101,7 +94,7 @@ function MainMenu({
                     icon
                     onClick={() => {
                       if (!isBusyTesting && !revealButtonPressed) {
-                        clickRun(id);
+                        dispatch(clickRun(id));
                       }
                     }}
                     disabled={isBusyTesting || revealButtonPressed}
@@ -120,11 +113,11 @@ function MainMenu({
                       if (showNextButton) {
                         if (hasNext) {
                           const nextId = selections[0];
-                          clickNext(id);
-                          shiftSelection();
+                          dispatch(clickNext(id));
+                          dispatch(shiftSelection());
                           history.push(`/${nextId}`);
                         } else {
-                          clickNextToResults(id);
+                          dispatch(clickNextToResults(id));
                           history.push(`/sessionStats`);
                         }
                       }
@@ -171,7 +164,7 @@ function MainMenu({
                     icon
                     onClick={() => {
                       if (!revealButtonPressed && !passedAllTests) {
-                        revealAnswer({ id, data });
+                        dispatch(revealAnswer({ id, data }));
                       }
                     }}
                     disabled={revealButtonPressed || passedAllTests}
@@ -194,11 +187,11 @@ function MainMenu({
                       if (!passedAllTests) {
                         if (hasNext) {
                           const nextId = selections[0];
-                          clickSkip(id);
-                          shiftSelection();
+                          dispatch(clickSkip(id));
+                          dispatch(shiftSelection());
                           history.push(`/${nextId}`);
                         } else {
-                          clickSkipToResults(id);
+                          dispatch(clickSkipToResults(id));
                           history.push(`/sessionStats`);
                         }
                       }
@@ -223,7 +216,7 @@ function MainMenu({
               onClick={() => {
                 // if not on homepage
                 if (id) {
-                  clickSkipToResults(id);
+                  dispatch(clickSkipToResults(id));
                 }
                 history.push('/sessionStats');
               }}
@@ -247,27 +240,4 @@ function contextMessage(revealButtonPressed, passedAllTests) {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    value: state.game.value,
-    isBusyTesting: state.game.isBusyTesting,
-    revealButtonPressed: state.game.revealButtonPressed,
-    results: state.game.results,
-    totalSeconds: state.game.totalSeconds,
-    //
-    selections: state.filter.selections,
-  };
-};
-
-const mapDispatchToProps = {
-  clickRun,
-  clickNext,
-  clickSkipToResults,
-  revealAnswer,
-  clickSkip,
-  clickNextToResults,
-  shiftSelection,
-  pressReset,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
+export default MainMenu;

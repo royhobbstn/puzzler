@@ -2,20 +2,23 @@ import * as React from 'react';
 import AceEditor from 'react-ace';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setValue } from '../redux/gameStore.js';
 import { clickRun } from '../redux/thunks.js';
 import { useParams } from 'react-router-dom';
 
-function EditorMain({ setValue, value, clickRun }) {
+function EditorMain() {
+  const dispatch = useDispatch();
+  const value = useSelector(state => state.game.value);
+
   const editor1 = React.useRef();
   const propsRef = React.useRef({});
   const { id } = useParams();
   propsRef.current.id = id;
 
   const onChange = val => {
-    setValue(val);
+    dispatch(setValue(val));
     editor1.current.editor.resize();
   };
 
@@ -52,7 +55,7 @@ function EditorMain({ setValue, value, clickRun }) {
                   parser: 'babel',
                   plugins: [parserBabel],
                 });
-                setValue(formatted);
+                dispatch(setValue(formatted));
               } catch (err) {
                 console.log('There was an error in compilation.');
               }
@@ -63,7 +66,7 @@ function EditorMain({ setValue, value, clickRun }) {
             bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
             exec: async () => {
               try {
-                await clickRun(propsRef.current.id);
+                await dispatch(clickRun(propsRef.current.id));
               } catch (err) {
                 console.log('Encountered an error when attempting to run tests.');
               }
@@ -75,15 +78,4 @@ function EditorMain({ setValue, value, clickRun }) {
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    value: state.game.value,
-  };
-};
-
-const mapDispatchToProps = {
-  setValue,
-  clickRun,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditorMain);
+export default EditorMain;

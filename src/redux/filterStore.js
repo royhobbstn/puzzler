@@ -88,17 +88,4 @@ export const {
   setAdvChecked,
 } = filterSlice.actions;
 
-export const selectSelections = state => state.filter.selections;
-export const selectResults = state => state.filter.results;
-export const selectShowModal = state => state.filter.showModal;
-export const selectActiveProblemText = state => state.filter.activeProblemText;
-export const selectCategories = state => state.filter.categories;
-export const selectDsChecked = state => state.filter.dsChecked;
-export const selectAlgChecked = state => state.filter.algChecked;
-export const selectMinEffort = state => state.filter.minEffort;
-export const selectMaxEffort = state => state.filter.maxEffort;
-export const selectBegChecked = state => state.filter.begChecked;
-export const selectIntChecked = state => state.filter.intChecked;
-export const selectAdvChecked = state => state.filter.advChecked;
-
 export const filterReducer = filterSlice.reducer;

@@ -4,11 +4,17 @@ import { constructTest } from '../util.js';
 import { inventory } from '../data/inventory.js';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { setOpen, setNoteCode, updateTableSort } from '../redux/gameStore';
 import TestCodeModal from './TestCodeModal';
 
-function TestCaseTable({ results, id, open, noteCode, tableSort }) {
+function TestCaseTable() {
+  const dispatch = useDispatch();
+  const results = useSelector(state => state.game.results);
+  const tableSort = useSelector(state => state.game.tableSort);
+  const { id } = useParams();
+
   const sortedResults = [...results].sort((a, b) => {
     if (tableSort === 'id') {
       return a.id - b.id;
@@ -27,11 +33,11 @@ function TestCaseTable({ results, id, open, noteCode, tableSort }) {
 
   const nextSort = () => {
     if (tableSort === 'id') {
-      updateTableSort('fail');
+      dispatch(updateTableSort('fail'));
     } else if (tableSort === 'fail') {
-      updateTableSort('success');
+      dispatch(updateTableSort('success'));
     } else if (tableSort === 'success') {
-      updateTableSort('id');
+      dispatch(updateTableSort('id'));
     } else {
       throw new Error(`Invalid sort choice: ${tableSort}`);
     }
@@ -87,8 +93,8 @@ function TestCaseTable({ results, id, open, noteCode, tableSort }) {
                         parser: 'babel',
                         plugins: [parserBabel],
                       });
-                      setNoteCode(formatted);
-                      setOpen(true);
+                      dispatch(setNoteCode(formatted));
+                      dispatch(setOpen(true));
                     }}
                   ></Icon>
                 </Table.Cell>
@@ -115,15 +121,4 @@ function TestCaseTable({ results, id, open, noteCode, tableSort }) {
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    results: state.game.results,
-    open: state.game.open,
-    noteCode: state.game.noteCode,
-    tableSort: state.game.tableSort,
-  };
-};
-
-const mapDispatchToProps = { setOpen, setNoteCode, updateTableSort };
-
-export default connect(mapStateToProps, mapDispatchToProps)(TestCaseTable);
+export default TestCaseTable;

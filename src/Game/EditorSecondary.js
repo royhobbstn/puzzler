@@ -1,8 +1,9 @@
 import * as React from 'react';
 import AceEditor from 'react-ace';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function EditorSecondary({ value2 }) {
+function EditorSecondary() {
+  const value2 = useSelector(state => state.game.value2);
   const editor2 = React.useRef();
 
   const onChange2 = () => {
@@ -36,12 +37,4 @@ function EditorSecondary({ value2 }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    value2: state.game.value2,
-  };
-};
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditorSecondary);
+export default EditorSecondary;

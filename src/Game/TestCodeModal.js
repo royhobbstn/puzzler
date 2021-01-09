@@ -2,15 +2,23 @@ import * as React from 'react';
 import { Modal, Button } from 'semantic-ui-react';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import 'highlight.js/styles/github.css';
 import { setOpen } from '../redux/gameStore';
 
 hljs.registerLanguage('javascript', javascript);
 
-function TestCodeModal({ open, noteCode }) {
+function TestCodeModal() {
+  const dispatch = useDispatch();
+  const open = useSelector(state => state.game.open);
+  const noteCode = useSelector(state => state.game.noteCode);
+
   return (
-    <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}>
+    <Modal
+      onClose={() => dispatch(setOpen(false))}
+      onOpen={() => dispatch(setOpen(true))}
+      open={open}
+    >
       <Modal.Header>Test Code</Modal.Header>
       <Modal.Content>
         <div
@@ -19,7 +27,7 @@ function TestCodeModal({ open, noteCode }) {
         ></div>
       </Modal.Content>
       <Modal.Actions>
-        <Button style={{ width: '138px' }} onClick={() => setOpen(false)}>
+        <Button style={{ width: '138px' }} onClick={() => dispatch(setOpen(false))}>
           Close
         </Button>
       </Modal.Actions>
@@ -27,13 +35,4 @@ function TestCodeModal({ open, noteCode }) {
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    open: state.game.open,
-    noteCode: state.game.noteCode,
-  };
-};
-
-const mapDispatchToProps = { setOpen };
-
-export default connect(mapStateToProps, mapDispatchToProps)(TestCodeModal);
+export default TestCodeModal;

@@ -9,7 +9,6 @@ import {
   setActiveProblemText,
   setShowModal,
   shiftSelection,
-  selectSelections,
 } from '../redux/filterStore';
 import { clickNext } from '../redux/gameStore';
 
@@ -19,7 +18,7 @@ function SelectionsCard() {
   const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const selections = useSelector(selectSelections);
+  const selections = useSelector(state => state.filter.selections);
 
   const clearAll = () => {
     dispatch(setSelections([]));

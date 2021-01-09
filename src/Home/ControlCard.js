@@ -10,24 +10,17 @@ import {
   setBegChecked,
   setIntChecked,
   setAdvChecked,
-  selectDsChecked,
-  selectAlgChecked,
-  selectMinEffort,
-  selectMaxEffort,
-  selectBegChecked,
-  selectIntChecked,
-  selectAdvChecked,
 } from '../redux/filterStore';
 
 function ControlCard() {
   const dispatch = useDispatch();
-  const dsChecked = useSelector(selectDsChecked);
-  const algChecked = useSelector(selectAlgChecked);
-  const minEffort = useSelector(selectMinEffort);
-  const maxEffort = useSelector(selectMaxEffort);
-  const begChecked = useSelector(selectBegChecked);
-  const intChecked = useSelector(selectIntChecked);
-  const advChecked = useSelector(selectAdvChecked);
+  const dsChecked = useSelector(state => state.filter.dsChecked);
+  const algChecked = useSelector(state => state.filter.algChecked);
+  const minEffort = useSelector(state => state.filter.minEffort);
+  const maxEffort = useSelector(state => state.filter.maxEffort);
+  const begChecked = useSelector(state => state.filter.begChecked);
+  const intChecked = useSelector(state => state.filter.intChecked);
+  const advChecked = useSelector(state => state.filter.advChecked);
 
   const onEffortSliderChange = (minValue, maxValue) => {
     dispatch(setEffortSlider([minValue, maxValue]));

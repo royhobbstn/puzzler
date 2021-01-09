@@ -5,28 +5,18 @@ import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
 import { BEGINNER, INTERMEDIATE, ADVANCED } from '../data/constants.js';
-import {
-  setResults,
-  selectCategories,
-  selectDsChecked,
-  selectAlgChecked,
-  selectMinEffort,
-  selectMaxEffort,
-  selectBegChecked,
-  selectIntChecked,
-  selectAdvChecked,
-} from '../redux/filterStore';
+import { setResults } from '../redux/filterStore';
 
 function Filters() {
   const dispatch = useDispatch();
-  const categories = useSelector(selectCategories);
-  const dsChecked = useSelector(selectDsChecked);
-  const algChecked = useSelector(selectAlgChecked);
-  const minEffort = useSelector(selectMinEffort);
-  const maxEffort = useSelector(selectMaxEffort);
-  const begChecked = useSelector(selectBegChecked);
-  const intChecked = useSelector(selectIntChecked);
-  const advChecked = useSelector(selectAdvChecked);
+  const categories = useSelector(state => state.filter.categories);
+  const dsChecked = useSelector(state => state.filter.dsChecked);
+  const algChecked = useSelector(state => state.filter.algChecked);
+  const minEffort = useSelector(state => state.filter.minEffort);
+  const maxEffort = useSelector(state => state.filter.maxEffort);
+  const begChecked = useSelector(state => state.filter.begChecked);
+  const intChecked = useSelector(state => state.filter.intChecked);
+  const advChecked = useSelector(state => state.filter.advChecked);
 
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);

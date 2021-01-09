@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Card, Checkbox, Button, Popup, Divider } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCategories, setCategories } from '../redux/filterStore';
+import { setCategories } from '../redux/filterStore';
 
 export default function CategoryCard() {
   const dispatch = useDispatch();
-  const categories = useSelector(selectCategories);
+  const categories = useSelector(state => state.filter.categories);
 
   const updateCheckbox = name => {
     const updatedCategories = categories.map(item => {

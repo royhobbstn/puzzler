@@ -5,22 +5,25 @@ import { Switch, Route } from 'react-router-dom';
 import MainMenu from './MainMenu.js';
 import HomePage from './Home/HomePage.js';
 import { incrementTotalSeconds } from './redux/gameStore';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProblemTextModal from './ProblemTextModal';
 
 let interval = null;
 
-function App({ incrementTotalSeconds, isRunning }) {
+function App() {
+  const dispatch = useDispatch();
+  const isRunning = useSelector(state => state.game.isRunning);
+
   // timer implementation
   React.useEffect(() => {
     if (isRunning) {
       interval = window.setInterval(() => {
-        incrementTotalSeconds();
+        dispatch(incrementTotalSeconds());
       }, 1000);
     } else if (interval) {
       window.clearInterval(interval);
     }
-  }, [incrementTotalSeconds, isRunning]);
+  }, [isRunning, dispatch]);
 
   return (
     <React.Fragment>
@@ -40,14 +43,4 @@ function App({ incrementTotalSeconds, isRunning }) {
   );
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    isRunning: state.game.isRunning,
-  };
-};
-
-const mapDispatchToProps = {
-  incrementTotalSeconds,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

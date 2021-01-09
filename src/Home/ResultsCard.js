@@ -3,20 +3,14 @@ import { Card, Table, Icon, Button, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
-import {
-  setSelections,
-  setActiveProblemText,
-  setShowModal,
-  selectSelections,
-  selectResults,
-} from '../redux/filterStore';
+import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
 
 const converter = new showdown.Converter();
 
 function ResultsCard() {
   const dispatch = useDispatch();
-  const selections = useSelector(selectSelections);
-  const results = useSelector(selectResults);
+  const selections = useSelector(state => state.filter.selections);
+  const results = useSelector(state => state.filter.results);
 
   const addProblemId = problemID => {
     dispatch(setSelections([...selections, problemID]));

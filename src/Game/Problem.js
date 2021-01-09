@@ -4,20 +4,17 @@ import EditorMain from './EditorMain.js';
 import EditorSecondary from './EditorSecondary.js';
 import { useParams } from 'react-router-dom';
 import TabCards from './TabCards';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore.js';
 
-function Problem({
-  value,
-  setValue,
-  value2,
-  setValue2,
-  revealButtonPressed,
-  setRevealButtonPressed,
-  totalSeconds,
-  setIsRunning,
-}) {
+function Problem() {
+  const dispatch = useDispatch();
+  const value = useSelector(state => state.game.value);
+  const value2 = useSelector(state => state.game.value2);
+  const revealButtonPressed = useSelector(state => state.game.revealButtonPressed);
+  const totalSeconds = useSelector(state => state.game.totalSeconds);
+
   const { id } = useParams();
   const data = inventory[id];
 
@@ -34,15 +31,15 @@ function Problem({
           transform.push(line.text);
         }
       });
-      setValue(transform.join('\n'));
+      dispatch(setValue(transform.join('\n')));
     }
 
     if (
       !revealButtonPressed &&
       totalSeconds > data.solution.stages[data.solution.stages.length - 1]
     ) {
-      setRevealButtonPressed(true);
-      setIsRunning(false);
+      dispatch(setRevealButtonPressed(true));
+      dispatch(setIsRunning(false));
     }
 
     let durationIndex = 0;
@@ -66,19 +63,9 @@ function Problem({
       .join('\n');
 
     if (JSON.stringify(value2) !== JSON.stringify(transform)) {
-      setValue2(transform);
+      dispatch(setValue2(transform));
     }
-  }, [
-    data,
-    revealButtonPressed,
-    setRevealButtonPressed,
-    setValue,
-    setValue2,
-    totalSeconds,
-    value,
-    value2,
-    setIsRunning,
-  ]);
+  }, [data, revealButtonPressed, totalSeconds, value, value2, dispatch]);
 
   if (!data) {
     return <p>Problem Not Found</p>;
@@ -88,7 +75,7 @@ function Problem({
     <React.Fragment>
       <div style={{ padding: '1vh 1vw' }}>
         <div style={{ height: 'calc(35vh - 40px)', padding: '1vh 0 1vh 0vw' }}>
-          <TabCards data={data} id={id} />
+          <TabCards />
         </div>
         <div className="editor-area columns">
           <div className="editor-area column">
@@ -103,20 +90,4 @@ function Problem({
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    value: state.game.value,
-    value2: state.game.value2,
-    revealButtonPressed: state.game.revealButtonPressed,
-    totalSeconds: state.game.totalSeconds,
-  };
-};
-
-const mapDispatchToProps = {
-  setValue,
-  setValue2,
-  setRevealButtonPressed,
-  setIsRunning,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Problem);
+export default Problem;
