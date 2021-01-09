@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "loc": "scc --avg-wage 130000 --by-file --exclude-dir node_modules --exclude-dir build --exclude-dir data --include-ext js ."
+    "loc": "scc --avg-wage 130000 --by-file --exclude-dir node_modules --exclude-dir implementations --exclude-dir build --exclude-dir data --include-ext js ."
   },
   "eslintConfig": {
     "extends": [
