@@ -16,10 +16,10 @@ class Graph {
     this.adjList = {};
     this.vertices = {};
     this.tempSet = [];
-    this.log = key => {
-      console.log('what');
-      this.tempSet.push(key);
-    };
+  }
+
+  log(key) {
+    this.tempSet.push(key);
   }
 
   clear() {
@@ -75,7 +75,7 @@ class Graph {
     }
   }
 
-  dfs(startVertexKey, fn = this.log) {
+  dfs(startVertexKey, fn = this.log.bind(this)) {
     const visited = {};
 
     const traverseDfs = vertex => {
@@ -91,7 +91,7 @@ class Graph {
     traverseDfs(startVertexKey);
   }
 
-  bfs(startVertexKey, fn = this.log) {
+  bfs(startVertexKey, fn = this.log.bind(this)) {
     const queue = [];
     const visited = {};
     queue.push(startVertexKey);
@@ -100,9 +100,7 @@ class Graph {
       const vertex = queue.shift();
       if (!visited[vertex]) {
         fn(vertex);
-        for (let adjacent of Object.keys(
-          this.adjList[vertex] || ['42', '41', '50', '10', '40', '45', '75'],
-        )) {
+        for (let adjacent of Object.keys(this.adjList[vertex] || [])) {
           queue.push(adjacent);
         }
       }
@@ -121,15 +119,17 @@ graph.addEdge('41', '40');
 graph.addEdge('50', '45');
 graph.addEdge('50', '75');
 
-//graph.bfs('42');
-console.log(graph.tempSet);
+graph.bfs('42');
 console.log(
   JSON.stringify(graph.tempSet) === JSON.stringify(['42', '41', '50', '10', '40', '45', '75']),
 );
 
-console.log('2');
+graph.clear();
 
 graph.dfs('42');
+console.log(
+  JSON.stringify(graph.tempSet) === JSON.stringify(['42', '41', '10', '40', '50', '45', '75']),
+);
 
 const g2 = new Graph();
 g2.addEdge('A', 'B');
@@ -142,5 +142,35 @@ g2.addEdge('G', 'H');
 g2.addEdge('F', 'J');
 
 g2.bfs('A');
+console.log(
+  JSON.stringify(g2.tempSet) === JSON.stringify(['A', 'B', 'C', 'E', 'D', 'G', 'F', 'H', 'J']),
+);
+
+g2.clear();
 
 g2.dfs('A');
+console.log(
+  JSON.stringify(g2.tempSet) === JSON.stringify(['A', 'B', 'C', 'D', 'G', 'H', 'F', 'J', 'E']),
+);
+
+g2.clear();
+
+const g3 = new Graph();
+g3.addEdge('A', 'B');
+g3.addEdge('B', 'C');
+g3.addEdge('B', 'E');
+g3.addEdge('C', 'D');
+g3.addEdge('D', 'G');
+g3.addEdge('D', 'F');
+g3.addEdge('G', 'H');
+g3.addEdge('F', 'J');
+
+console.log(Boolean(g3.adjList['D']) === true);
+console.log(g3.adjList['C']['D'].weight === 1);
+g3.deleteVertex('D');
+console.log(Boolean(g3.adjList['D']) === false);
+console.log(g3.adjList['C']['D'] === undefined);
+
+console.log(g3.adjList['F']['J'].weight === 1);
+g3.deleteEdge('F', 'J');
+console.log(g3.adjList['F']['J'] === undefined);
