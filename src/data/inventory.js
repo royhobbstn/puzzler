@@ -36,7 +36,6 @@ import { data as _heap_add } from './heap/33-add.js';
 import { data as _heap_remove } from './heap/34-remove.js';
 import { data as _heap_heapifyUp } from './heap/35-heapifyUp.js';
 import { data as _heap_heapifyDown } from './heap/36-heapifyDown.js';
-
 import { data as _bst_insert } from './binary-search-tree/37-insert.js';
 import { data as _bst_search } from './binary-search-tree/38-search.js';
 import { data as _bst_delete } from './binary-search-tree/39-delete.js';
@@ -47,6 +46,12 @@ import { data as _bst_in_order_rec } from './binary-search-tree/43-in-order-recu
 import { data as _bst_post_order_iter } from './binary-search-tree/44-post-order-iterative.js';
 import { data as _bst_post_order_rec } from './binary-search-tree/45-post-order-recursive.js';
 import { data as _bst_level_order_bfs } from './binary-search-tree/46-level-order-bfs.js';
+import { data as _graph_add_vertex } from './graph/47-add-vertex.js';
+import { data as _graph_add_edge } from './graph/48-add-edge.js';
+import { data as _graph_delete_vertex } from './graph/49-delete-vertex.js';
+import { data as _graph_delete_edge } from './graph/50-delete-edge.js';
+import { data as _graph_dfs } from './graph/51-dfs.js';
+import { data as _graph_bfs } from './graph/52-bfs.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -95,9 +100,13 @@ const aggregate = {
   44: _bst_post_order_iter,
   45: _bst_post_order_rec,
   46: _bst_level_order_bfs,
+  47: _graph_add_vertex,
+  48: _graph_add_edge,
+  49: _graph_delete_vertex,
+  50: _graph_delete_edge,
+  51: _graph_dfs,
+  52: _graph_bfs,
 };
-
-// todo this is crazy.  should be able to do the above dynamically
 
 let maxEffort = 0;
 

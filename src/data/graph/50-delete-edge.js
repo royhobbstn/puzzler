@@ -1,0 +1,58 @@
+import { GRAPH, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+
+const solution = [
+  { stage: 0, text: 'class Vertex {' },
+  { stage: 0, text: '  constructor(key) {' },
+  { stage: 0, text: '    this.key = key;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+  { stage: 0, text: 'class Edge {' },
+  { stage: 0, text: '  constructor(weight) {' },
+  { stage: 0, text: '    this.weight = weight;' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+  { stage: 0, text: 'class Graph {' },
+  { stage: 0, text: '  constructor(isDirected = true) {' },
+  { stage: 0, text: '    this.isDirected = isDirected === true;' },
+  { stage: 0, text: '    this.adjList = {};' },
+  { stage: 0, text: '    this.vertices = {};' },
+  { stage: 0, text: '    this.tempSet = [];' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 0, text: '  deleteEdge(startVertexKey, endVertexKey) {' },
+  { stage: 0, text: '    delete this.adjList[startVertexKey][endVertexKey];' },
+  { stage: 0, text: '    if (!this.isDirected) {' },
+  { stage: 0, text: '      delete this.adjList[endVertexKey][startVertexKey];' },
+  { stage: 0, text: '    }' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 50,
+  problemName: `Implement the deleteEdge method for a Graph class.`,
+  problemText: `Implement a deleteEdge method that accepts a startingVertex key and an endingVertex key, with no return value.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'compiles',
+      inherit: [],
+      code: `const graph=new Graph();`,
+      evaluate: `graph;`,
+      expected: `{"head":null,"tail":null}`,
+    },
+  ],
+  setupCode: '',
+  category: GRAPH,
+  type: DATA_STRUCTURE,
+  difficulty: BEGINNER,
+  maxExecutionTime: 2,
+  solution: {
+    stages: [0, 30, 60, 120],
+    solutionLines: solution,
+  },
+};

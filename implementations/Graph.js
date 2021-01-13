@@ -29,6 +29,10 @@ class Graph {
   addVertex(key) {
     const vertex = new Vertex(key);
     this.vertices[key] = vertex;
+
+    if (!this.adjList[key]) {
+      this.adjList[key] = {};
+    }
   }
 
   addEdge(startVertexKey, endVertexKey, edgeWeight = 1) {
@@ -41,18 +45,10 @@ class Graph {
 
     const edge = new Edge(edgeWeight);
 
-    if (!this.adjList[startVertexKey]) {
-      this.adjList[startVertexKey] = { [endVertexKey]: edge };
-    } else {
-      this.adjList[startVertexKey][endVertexKey] = edge;
-    }
+    this.adjList[startVertexKey][endVertexKey] = edge;
 
     if (!this.isDirected) {
-      if (!this.adjList[endVertexKey]) {
-        this.adjList[endVertexKey] = { [startVertexKey]: edge };
-      } else {
-        this.adjList[endVertexKey][startVertexKey] = edge;
-      }
+      this.adjList[endVertexKey][startVertexKey] = edge;
     }
   }
 
