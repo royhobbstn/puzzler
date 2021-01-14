@@ -21,7 +21,11 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
     const obj = Comlink.wrap(worker);
     let error = '';
     const response = obj
-      .evaluate(value + constructTest(data.testCases, test.inherit, test.code, test.evaluate))
+      .evaluate(
+        value +
+          data.setupCode +
+          constructTest(data.testCases, test.inherit, test.code, test.evaluate),
+      )
       .catch(e => {
         error = e.message;
       });

@@ -30,9 +30,9 @@ const solution = [
 
 export const data = {
   problemID: 1,
-  problemName: 'Implement `prepend` in a Singly Linked List',
+  problemName: 'Implement **prepend** in a Singly Linked List',
   problemText:
-    'Write a **prepend** method in a Singly-Linked-List Class that accepts an arbitrary value and inserts it at the front of the list.  The method should return the original list.',
+    'Write a **prepend** method in a *Singly Linked List* Class that accepts an arbitrary `value` parameter, creates a new Node, and inserts it at the front of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,
@@ -64,6 +64,14 @@ export const data = {
       inherit: [1, 2],
       code: `ll.prepend(7);`,
       evaluate: `ll.tail.value === 5 && ll.head.value === 7;`,
+      expected: true,
+    },
+    {
+      id: 5,
+      name: 'returns itself',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.prepend(10) === ll;`,
       expected: true,
     },
   ],
