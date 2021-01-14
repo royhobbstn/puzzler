@@ -13,18 +13,17 @@ const solution = [
   { stage: 0, text: '    this.root = new TrieNode();' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  insert(word) {' },
+  { stage: 0, text: '  search(word) {' },
   { stage: 0, text: '    let current = this.root;' },
   { stage: 0, text: '    for (let i = 0; i < word.length; i++) {' },
   { stage: 0, text: '      const ch = word.charAt(i);' },
-  { stage: 0, text: '      let node = current.children[ch];' },
+  { stage: 0, text: '      const node = current.children[ch];' },
   { stage: 0, text: '      if (node == null) {' },
-  { stage: 0, text: '        node = new TrieNode();' },
-  { stage: 0, text: '        current.children[ch] = node;' },
+  { stage: 0, text: '        return false;' },
   { stage: 0, text: '      }' },
   { stage: 0, text: '      current = node;' },
   { stage: 0, text: '    }' },
-  { stage: 0, text: '    current.endOfWord = true;' },
+  { stage: 0, text: '    return current.endOfWord;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '}' },
@@ -32,9 +31,9 @@ const solution = [
 ];
 
 export const data = {
-  problemID: 53,
-  problemName: `Implement the insert method for a Trie class.`,
-  problemText: `Implement an insert method that takes a word (string) as a parameter, with no return value.`,
+  problemID: 54,
+  problemName: `Implement the search method for a Trie class.`,
+  problemText: `Implement a search method that takes in a word (string) and returns a boolean true or false depending on if it can be found in the Trie.`,
   testCases: [
     {
       id: 1,

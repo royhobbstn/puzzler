@@ -53,8 +53,8 @@ class Trie {
       if (node == null) {
         return false;
       }
-      const shouldDeleteCurrentNode = deleteRecursively(node, word, index + 1);
-      if (shouldDeleteCurrentNode) {
+      const shouldDelete = deleteRecursively(node, word, index + 1);
+      if (shouldDelete) {
         delete current.children[ch];
         return Object.keys(current.children).length === 0;
       }

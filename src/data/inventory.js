@@ -52,6 +52,9 @@ import { data as _graph_delete_vertex } from './graph/49-delete-vertex.js';
 import { data as _graph_delete_edge } from './graph/50-delete-edge.js';
 import { data as _graph_dfs } from './graph/51-dfs.js';
 import { data as _graph_bfs } from './graph/52-bfs.js';
+import { data as _trie_insert } from './trie/53-insert.js';
+import { data as _trie_search } from './trie/54-search.js';
+import { data as _trie_delete } from './trie/55-delete.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -106,6 +109,9 @@ const aggregate = {
   50: _graph_delete_edge,
   51: _graph_dfs,
   52: _graph_bfs,
+  53: _trie_insert,
+  54: _trie_search,
+  55: _trie_delete,
 };
 
 let maxEffort = 0;
