@@ -1,74 +1,44 @@
 import { STACK, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
-  { stage: 0, text: 'class LinkedListNode {' },
-  { stage: 0, text: '  constructor(value, next = null) {' },
-  { stage: 0, text: '    this.value = value;' },
-  { stage: 0, text: '    this.next = next;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '}' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//  class LinkedList {' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//    prepend(value: any) LinkedList' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//    deleteHead() LinkedListNode' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//  }' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '// All code above is implicitly included in your environment' },
   { stage: 0, text: '' },
-  { stage: 0, text: 'class LinkedList {' },
-  { stage: 0, text: '  constructor() {' },
-  { stage: 0, text: '    this.head = null;' },
-  { stage: 0, text: '    this.tail = null;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  prepend(value) {' },
-  { stage: 0, text: '    const newNode = new LinkedListNode(value, this.head);' },
-  { stage: 0, text: '    this.head = newNode;' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    if (!this.tail) {' },
-  { stage: 0, text: '      this.tail = newNode;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    return this;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  deleteHead() {' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      return null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    const deletedHead = this.head;' },
-  { stage: 0, text: '    if (this.head.next) {' },
-  { stage: 0, text: '      this.head = this.head.next;' },
-  { stage: 0, text: '    } else {' },
-  { stage: 0, text: '      this.head = null;' },
-  { stage: 0, text: '      this.tail = null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    return deletedHead;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '}' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '/* All code above is implicitly included in your environment */' },
-  { stage: 0, text: '' },
-  { stage: 0, text: 'class Stack {' },
-  { stage: 0, text: '  constructor() {' },
-  { stage: 0, text: '    this.linkedList = new LinkedList();' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  isEmpty() {' },
-  { stage: 0, text: '    return !this.linkedList.head;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  peek() {' },
-  { stage: 0, text: '    if (this.isEmpty()) {' },
-  { stage: 0, text: '      return null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    return this.linkedList.head.value;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  push(value) {' },
-  { stage: 0, text: '    this.linkedList.prepend(value);' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  pop() {' },
-  { stage: 0, text: '    const removedHead = this.linkedList.deleteHead();' },
-  { stage: 0, text: '    return removedHead ? removedHead.value : null;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '}' },
-  { stage: 0, text: '' },
+  { stage: 1, text: 'class Stack {' },
+  { stage: 2, text: '  constructor() {' },
+  { stage: 2, text: '    this.linkedList = new LinkedList();' },
+  { stage: 2, text: '  }' },
+  { stage: 2, text: '' },
+  { stage: 3, text: '  isEmpty() {' },
+  { stage: 5, text: '    return !this.linkedList.head;' },
+  { stage: 3, text: '  }' },
+  { stage: 3, text: '' },
+  { stage: 3, text: '  peek() {' },
+  { stage: 5, text: '    if (this.isEmpty()) {' },
+  { stage: 5, text: '      return null;' },
+  { stage: 5, text: '    }' },
+  { stage: 6, text: '    return this.linkedList.head.value;' },
+  { stage: 3, text: '  }' },
+  { stage: 4, text: '' },
+  { stage: 4, text: '  push(value) {' },
+  { stage: 6, text: '    this.linkedList.prepend(value);' },
+  { stage: 4, text: '  }' },
+  { stage: 4, text: '' },
+  { stage: 4, text: '  pop() {' },
+  { stage: 7, text: '    const removedHead = this.linkedList.deleteHead();' },
+  { stage: 7, text: '    return removedHead ? removedHead.value : null;' },
+  { stage: 4, text: '  }' },
+  { stage: 1, text: '' },
+  { stage: 1, text: '}' },
+  { stage: 1, text: '' },
 ];
 
 export const data = {
@@ -86,13 +56,50 @@ export const data = {
       expected: `{"head":null,"tail":null}`,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  class LinkedListNode {
+    constructor(value, next = null) {
+      this.value = value;
+      this.next = next;
+    }
+  }
+  
+  class LinkedList {
+    constructor() {
+      this.head = null;
+      this.tail = null;
+    }
+    
+    prepend(value) {
+      const newNode = new LinkedListNode(value, this.head);
+      this.head = newNode;
+      if (!this.tail) {
+        this.tail = newNode;
+      }
+      return this;
+    }
+    
+    deleteHead() {
+      if (!this.head) {
+        return null;
+      }
+      const deletedHead = this.head;
+      if (this.head.next) {
+        this.head = this.head.next;
+      } else {
+        this.head = null;
+        this.tail = null;
+      }
+      return deletedHead;
+    }
+  }
+  `,
   category: STACK,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
   maxExecutionTime: 2,
   solution: {
-    stages: [0, 30, 60, 120],
+    stages: [0, 30, 60, 90, 120, 150, 180, 240],
     solutionLines: solution,
   },
 };
