@@ -15,20 +15,7 @@ const solution = [
   { stage: 0, text: '    this.tail = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  append(value) {' },
-  { stage: 0, text: '    const newNode = new DoublyLinkedListNode(value);' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      this.head = newNode;' },
-  { stage: 0, text: '      this.tail = newNode;' },
-  { stage: 0, text: '      return this;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    this.tail.next = newNode;' },
-  { stage: 0, text: '    newNode.previous = this.tail;' },
-  { stage: 0, text: '    this.tail = newNode;' },
-  { stage: 0, text: '    return this;' },
-  { stage: 0, text: '  }' },
+  { stage: 0, text: '  // IMPLEMENTED: append(value: any) DoublyLinkedList' },
   { stage: 0, text: '' },
   { stage: 1, text: '  fromArray(values) {' },
   { stage: 3, text: '    values.forEach(value => this.append(value));' },
@@ -54,7 +41,20 @@ export const data = {
       expected: `{"head":null,"tail":null}`,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function (value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

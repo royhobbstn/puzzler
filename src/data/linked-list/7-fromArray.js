@@ -14,25 +14,12 @@ const solution = [
   { stage: 0, text: '    this.tail = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  append(value) {' },
-  { stage: 0, text: '    const newNode = new LinkedListNode(value);' },
+  { stage: 0, text: '  // IMPLEMENTED: append(value: any) LinkedList' },
   { stage: 0, text: '' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      this.head = newNode;' },
-  { stage: 0, text: '      this.tail = newNode;' },
-  { stage: 0, text: '      return this;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    this.tail.next = newNode;' },
-  { stage: 0, text: '    this.tail = newNode;' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '    return this;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  fromArray(values) {' },
-  { stage: 0, text: '    values.forEach(value => this.append(value));' },
-  { stage: 0, text: '    return this;' },
-  { stage: 0, text: '  }' },
+  { stage: 1, text: '  fromArray(values) {' },
+  { stage: 3, text: '    values.forEach(value => this.append(value));' },
+  { stage: 2, text: '    return this;' },
+  { stage: 1, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
@@ -40,7 +27,7 @@ const solution = [
 
 export const data = {
   problemID: 7,
-  problemName: 'Implement `fromArray` in a Singly Linked List',
+  problemName: 'Implement `fromArray` in a LinkedList Class',
   problemText:
     'Given a LinkedList class with an `append` method, create a **fromArray** method that will take in an array of values and return a linked list.',
   testCases: [
@@ -53,7 +40,18 @@ export const data = {
       expected: `{"head":null,"tail":null}`,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  LinkedList.prototype.append = function (value) {
+    const newNode = new LinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    this.tail = newNode;
+    return this;
+  };`,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
