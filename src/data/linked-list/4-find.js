@@ -49,8 +49,59 @@ export const data = {
       evaluate: `ll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'find head value',
+      inherit: [1],
+      code: `ll.append(5);ll.append(4);ll.append(7);ll.append(8);`,
+      evaluate: `ll.find(5).value === 5;`,
+      expected: true,
+    },
+    {
+      id: 3,
+      name: 'find tail value',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.find(8).value === 8;`,
+      expected: true,
+    },
+    {
+      id: 4,
+      name: 'find a middle value',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.find(7).value === 7;`,
+      expected: true,
+    },
+    {
+      id: 5,
+      name: 'return null for non-existent value',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.find(17) === null;`,
+      expected: true,
+    },
+    {
+      id: 6,
+      name: 'return null when empty list',
+      inherit: [1],
+      code: ``,
+      evaluate: `ll.find(27) === null;`,
+      expected: true,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  LinkedList.prototype.append = function (value) {
+    const newNode = new LinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    this.tail = newNode;
+    return this;
+  };`,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

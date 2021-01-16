@@ -55,8 +55,43 @@ export const data = {
       evaluate: `ll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'delete tail and find return value',
+      inherit: [1],
+      code: `ll.append(5);ll.append(4);ll.append(7);ll.append(8);`,
+      evaluate: `ll.deleteTail().value === 8;`,
+      expected: true,
+    },
+    {
+      id: 3,
+      name: 'properly resets so following tail element can be deleted',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.deleteTail();ll.deleteTail().value === 7;`,
+      expected: true,
+    },
+    {
+      id: 4,
+      name: 'deleting tail of an empty list returns null',
+      inherit: [1],
+      code: ``,
+      evaluate: `ll.deleteTail() === null;`,
+      expected: true,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  LinkedList.prototype.append = function (value) {
+    const newNode = new LinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    this.tail = newNode;
+    return this;
+  };`,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
