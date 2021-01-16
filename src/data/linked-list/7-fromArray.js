@@ -39,6 +39,54 @@ export const data = {
       evaluate: `ll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'converts array to linked list (and back)',
+      inherit: [1],
+      code: `ll.fromArray([1,2,3,4,5]);`,
+      evaluate: `ll.toArray()`,
+      expected: JSON.stringify([1, 2, 3, 4, 5]),
+    },
+    {
+      id: 3,
+      name: 'double check values by stepping through (head)',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.head.value`,
+      expected: 1,
+    },
+    {
+      id: 4,
+      name: 'double check values by stepping through (tail)',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.tail.value`,
+      expected: 5,
+    },
+    {
+      id: 5,
+      name: 'empty fromArray results in empty list',
+      inherit: [1],
+      code: `ll.fromArray([]);`,
+      evaluate: `ll.head == null;`,
+      expected: true,
+    },
+    {
+      id: 6,
+      name: 'empty fromArray results in empty list',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `ll.toArray();`,
+      expected: JSON.stringify([]),
+    },
+    {
+      id: 7,
+      name: 'double check values by stepping through (head next)',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `ll.head.next.value`,
+      expected: 2,
+    },
   ],
   setupCode: `
   LinkedList.prototype.append = function (value) {
@@ -51,7 +99,17 @@ export const data = {
     this.tail.next = newNode;
     this.tail = newNode;
     return this;
-  };`,
+  };
+  LinkedList.prototype.toArray = function () {
+    const values = [];
+    let currentNode = this.head;
+    while (currentNode) {
+      values.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return values;
+  };
+  `,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

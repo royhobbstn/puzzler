@@ -40,7 +40,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
 
     // update test result
     let representation = '';
-    if (typeof val === 'object') {
+    if (typeof val === 'object' && val != null) {
       representation = JSON.stringify(val);
     } else {
       representation = val;

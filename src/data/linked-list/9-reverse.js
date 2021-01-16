@@ -39,7 +39,8 @@ const solution = [
 export const data = {
   problemID: 9,
   problemName: 'Reverse a Singly Linked List',
-  problemText: 'Write a method to reverse a Singly Linked List in-place (not using a copy).',
+  problemText:
+    'Write a method to reverse a Singly Linked List in-place (not using a copy) and returns itself.',
   testCases: [
     {
       id: 1,
@@ -49,8 +50,45 @@ export const data = {
       evaluate: `ll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'reverse a list',
+      inherit: [1],
+      code: `ll.append(1).append(2).append(3).append(4);`,
+      evaluate: `ll.reverse().toArray();`,
+      expected: JSON.stringify([4, 3, 2, 1]),
+    },
+    {
+      id: 3,
+      name: 'reverse an empty list',
+      inherit: [1],
+      code: ``,
+      evaluate: `ll.reverse().toArray();`,
+      expected: JSON.stringify([]),
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  LinkedList.prototype.append = function (value) {
+    const newNode = new LinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    this.tail = newNode;
+    return this;
+  };
+  LinkedList.prototype.toArray = function () {
+    const values = [];
+    let currentNode = this.head;
+    while (currentNode) {
+      values.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return values;
+  };
+  `,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
