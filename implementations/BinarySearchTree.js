@@ -11,26 +11,22 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  callback(value) {
-    console.log(value);
-  }
-
-  traversePreOrderRecursive(node = this.root) {
+  traversePreOrderRecursive(node = this.root, callback = this.callback) {
     if (!node) {
       return;
     }
-    this.callback(node.value);
+    callback(node.value);
     this.traversePreOrderRecursive(node.left);
     this.traversePreOrderRecursive(node.right);
   }
 
-  traversePreOrderIterative(node = this.root) {
+  traversePreOrderIterative(node = this.root, callback = this.callback) {
     const nodeStack = [];
     nodeStack.push(node);
 
     while (nodeStack.length) {
       let next = nodeStack.pop();
-      this.callback(next.value);
+      callback(next.value);
       if (next.right) {
         nodeStack.push(next.right);
       }
@@ -40,16 +36,16 @@ class BinarySearchTree {
     }
   }
 
-  traverseInOrderRecursive(node = this.root) {
+  traverseInOrderRecursive(node = this.root, callback = this.callback) {
     if (!node) {
       return;
     }
     this.traverseInOrderRecursive(node.left);
-    this.callback(node.value);
+    callback(node.value);
     this.traverseInOrderRecursive(node.right);
   }
 
-  traverseInOrderIterative(node = this.root) {
+  traverseInOrderIterative(node = this.root, callback = this.callback) {
     let stack = [];
     let done = false;
 
@@ -60,7 +56,7 @@ class BinarySearchTree {
       } else {
         if (stack.length) {
           node = stack.pop();
-          this.callback(node.value);
+          callback(node.value);
           node = node.right;
         } else {
           done = true;
@@ -69,17 +65,17 @@ class BinarySearchTree {
     }
   }
 
-  traversePostOrderRecursive(node = this.root) {
+  traversePostOrderRecursive(node = this.root, callback = this.callback) {
     if (node.left) {
       this.traversePostOrderRecursive(node.left);
     }
     if (node.right) {
       this.traversePostOrderRecursive(node.right);
     }
-    this.callback(node.value);
+    callback(node.value);
   }
 
-  traversePostOrderIterative(node = this.root) {
+  traversePostOrderIterative(node = this.root, callback = this.callback) {
     const s1 = [];
     const s2 = [];
     s1.push(node);
@@ -97,11 +93,11 @@ class BinarySearchTree {
     }
     while (s2.length) {
       const next = s2.pop();
-      this.callback(next.value);
+      callback(next.value);
     }
   }
 
-  traverseLevelOrderBfs(node = this.root) {
+  traverseLevelOrderBfs(node = this.root, callback = this.callback) {
     const queue = [];
     if (!node) {
       return;
@@ -109,7 +105,7 @@ class BinarySearchTree {
     queue.push(node);
     while (queue.length) {
       const temp = queue.shift();
-      this.callback(temp.value);
+      callback(temp.value);
       if (temp.left) {
         queue.push(temp.left);
       }
@@ -203,6 +199,16 @@ class BinarySearchTree {
   //
 }
 
+BinarySearchTree.prototype.tempNodeList = [];
+
+BinarySearchTree.prototype.callback = function (value) {
+  BinarySearchTree.prototype.tempNodeList.push(value);
+};
+
+BinarySearchTree.prototype.clearTempNodeList = function (value) {
+  BinarySearchTree.prototype.tempNodeList = [];
+};
+
 const tree = new BinarySearchTree();
 
 tree.insert(5);
@@ -227,18 +233,33 @@ console.log(tree.search(8));
 console.log(tree.search(59));
 
 tree.traversePreOrderIterative();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('-');
 tree.traversePreOrderRecursive();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('--');
 tree.traverseInOrderIterative();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('-');
 tree.traverseInOrderRecursive();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('--');
 tree.traversePostOrderIterative();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('-');
 tree.traversePostOrderRecursive();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
 console.log('--');
 tree.traverseLevelOrderBfs();
+console.log(tree.tempNodeList);
+tree.clearTempNodeList();
+console.log('--');
 
 tree.delete(5);
 tree.delete(3);

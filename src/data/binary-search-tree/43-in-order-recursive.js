@@ -14,21 +14,13 @@ const solution = [
   { stage: 0, text: '    this.root = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  callback(value) {' },
-  { stage: 0, text: '    this.tempNodeList.push(value);' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  clearTempNodeList() {' },
-  { stage: 0, text: '    this.tempNodeList = [];' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  traverseInOrderRecursive(node = this.root) {' },
-  { stage: 0, text: '    if (!node) {' },
-  { stage: 0, text: '      return;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    this.traverseInOrderRecursive(node.left);' },
-  { stage: 0, text: '    this.callback(node.value);' },
-  { stage: 0, text: '    this.traverseInOrderRecursive(node.right);' },
+  { stage: 0, text: '  traverseInOrderRecursive(node = this.root, callback = this.callback) {' },
+  { stage: 1, text: '    if (!node) {' },
+  { stage: 1, text: '      return;' },
+  { stage: 1, text: '    }' },
+  { stage: 2, text: '    this.traverseInOrderRecursive(node.left);' },
+  { stage: 2, text: '    callback(node.value);' },
+  { stage: 3, text: '    this.traverseInOrderRecursive(node.right);' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '}' },
@@ -50,7 +42,15 @@ export const data = {
       expected: `{"head":null,"tail":null}`,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  BinarySearchTree.prototype.tempNodeList = [];
+  BinarySearchTree.prototype.callback = function (value) {
+    BinarySearchTree.prototype.tempNodeList.push(value);
+  };
+  BinarySearchTree.prototype.clearTempNodeList = function (value) {
+    BinarySearchTree.prototype.tempNodeList = [];
+  };
+  `,
   category: BINARY_SEARCH_TREE,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
