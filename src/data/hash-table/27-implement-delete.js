@@ -1,87 +1,17 @@
 import { HASH_TABLE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
-  { stage: 0, text: 'class LinkedListNode {' },
-  { stage: 0, text: '  constructor(key, value, next = null) {' },
-  { stage: 0, text: '    this.key = key;' },
-  { stage: 0, text: '    this.value = value;' },
-  { stage: 0, text: '    this.next = next;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '}' },
-  { stage: 0, text: '' },
-  { stage: 0, text: 'class LinkedList {' },
-  { stage: 0, text: '  constructor() {' },
-  { stage: 0, text: '    this.head = null;' },
-  { stage: 0, text: '    this.tail = null;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  append(key, value) {' },
-  { stage: 0, text: '    const newNode = new LinkedListNode(key, value);' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      this.head = newNode;' },
-  { stage: 0, text: '      this.tail = newNode;' },
-  { stage: 0, text: '      return this;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    this.tail.next = newNode;' },
-  { stage: 0, text: '    this.tail = newNode;' },
-  { stage: 0, text: '    return this;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  findKey(key) {' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      return null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    let current = this.head;' },
-  { stage: 0, text: '    while (current) {' },
-  { stage: 0, text: '      if (current.key === key) {' },
-  { stage: 0, text: '        return current;' },
-  { stage: 0, text: '      }' },
-  { stage: 0, text: '      current = current.next;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    return null;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '  deleteKey(key) {' },
-  { stage: 0, text: '    if (!this.head) {' },
-  { stage: 0, text: '      return null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    if (key === this.head.key) {' },
-  { stage: 0, text: '      const deletedHead = this.head;' },
-  { stage: 0, text: '      if (this.head.next) {' },
-  { stage: 0, text: '        this.head = this.head.next;' },
-  { stage: 0, text: '      } else {' },
-  { stage: 0, text: '        this.head = null;' },
-  { stage: 0, text: '        this.tail = null;' },
-  { stage: 0, text: '      }' },
-  { stage: 0, text: '      return deletedHead;' },
-  { stage: 0, text: '    } else if (key === this.tail.key) {' },
-  { stage: 0, text: '      const deletedTail = this.tail;' },
-  { stage: 0, text: '      let currentNode = this.head;' },
-  { stage: 0, text: '      while (currentNode.next) {' },
-  { stage: 0, text: '        if (!currentNode.next.next) {' },
-  { stage: 0, text: '          currentNode.next = null;' },
-  { stage: 0, text: '        } else {' },
-  { stage: 0, text: '          currentNode = currentNode.next;' },
-  { stage: 0, text: '        }' },
-  { stage: 0, text: '      }' },
-  { stage: 0, text: '      this.tail = currentNode;' },
-  { stage: 0, text: '      return deletedTail;' },
-  { stage: 0, text: '    } else {' },
-  { stage: 0, text: '      let currentNode = this.head;' },
-  { stage: 0, text: '      while (currentNode.next) {' },
-  { stage: 0, text: '        if (currentNode.next.key === key) {' },
-  { stage: 0, text: '          const deletedNode = currentNode.next;' },
-  { stage: 0, text: '          currentNode.next = deletedNode.next;' },
-  { stage: 0, text: '          return deletedNode;' },
-  { stage: 0, text: '        }' },
-  { stage: 0, text: '        currentNode = currentNode.next;' },
-  { stage: 0, text: '      }' },
-  { stage: 0, text: '      return null;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '}' },
-  { stage: 0, text: '' },
-  { stage: 0, text: '/* All code above is implicitly included in your environment */' },
+  { stage: 0, text: '// class LinkedList {' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//   append(key: string, value: any) LinkedList' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '//   findKey(key: string) LinkedListNode' },
+  { stage: 0, text: '// ' },
+  { stage: 0, text: '//   deleteKey(key: string) LinkedListNode' },
+  { stage: 0, text: '// ' },
+  { stage: 0, text: '// }' },
+  { stage: 0, text: '//' },
+  { stage: 0, text: '// All code above is implicitly included in your environment' },
   { stage: 0, text: '' },
   { stage: 0, text: 'class HashTable {' },
   { stage: 0, text: '  constructor(hashTableSize = 32) {' },
@@ -99,15 +29,15 @@ const solution = [
   { stage: 0, text: '    return hash % this.buckets.length;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  delete(key) {' },
-  { stage: 0, text: '    const keyHash = this.hash(key);' },
-  { stage: 0, text: '    const bucketLinkedList = this.buckets[keyHash];' },
-  { stage: 0, text: '    const deletedNode = bucketLinkedList.deleteKey(key);' },
-  { stage: 0, text: '    if (deletedNode) {' },
-  { stage: 0, text: '      return deletedNode.value;' },
-  { stage: 0, text: '    }' },
-  { stage: 0, text: '    return null;' },
-  { stage: 0, text: '  }' },
+  { stage: 1, text: '  delete(key) {' },
+  { stage: 2, text: '    const keyHash = this.hash(key);' },
+  { stage: 2, text: '    const bucketLinkedList = this.buckets[keyHash];' },
+  { stage: 3, text: '    const deletedNode = bucketLinkedList.deleteKey(key);' },
+  { stage: 4, text: '    if (deletedNode) {' },
+  { stage: 4, text: '      return deletedNode.value;' },
+  { stage: 4, text: '    }' },
+  { stage: 3, text: '    return null;' },
+  { stage: 1, text: '  }' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
 ];
@@ -128,13 +58,89 @@ export const data = {
       expected: `{"head":null,"tail":null}`,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  class LinkedListNode {
+    constructor(key, value, next = null) {
+      this.key = key;
+      this.value = value;
+      this.next = next;
+    }
+  }
+  class LinkedList {
+    constructor() {
+      this.head = null;
+      this.tail = null;
+    }
+    append(key, value) {
+      const newNode = new LinkedListNode(key, value);
+      if (!this.head) {
+        this.head = newNode;
+        this.tail = newNode;
+        return this;
+      }
+      this.tail.next = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    findKey(key) {
+      if (!this.head) {
+        return null;
+      }
+      let current = this.head;
+      while (current) {
+        if (current.key === key) {
+          return current;
+        }
+        current = current.next;
+      }
+      return null;
+    }
+    deleteKey(key) {
+      if (!this.head) {
+        return null;
+      }
+      if (key === this.head.key) {
+        const deletedHead = this.head;
+        if (this.head.next) {
+          this.head = this.head.next;
+        } else {
+          this.head = null;
+          this.tail = null;
+        }
+        return deletedHead;
+      } else if (key === this.tail.key) {
+        const deletedTail = this.tail;
+        let currentNode = this.head;
+        while (currentNode.next) {
+          if (!currentNode.next.next) {
+            currentNode.next = null;
+          } else {
+            currentNode = currentNode.next;
+          }
+        }
+        this.tail = currentNode;
+        return deletedTail;
+      } else {
+        let currentNode = this.head;
+        while (currentNode.next) {
+          if (currentNode.next.key === key) {
+            const deletedNode = currentNode.next;
+            currentNode.next = deletedNode.next;
+            return deletedNode;
+          }
+          currentNode = currentNode.next;
+        }
+        return null;
+      }
+    }
+  }
+  `,
   category: HASH_TABLE,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
   maxExecutionTime: 2,
   solution: {
-    stages: [0, 30, 60, 120],
+    stages: [0, 30, 60, 90, 150],
     solutionLines: solution,
   },
 };
