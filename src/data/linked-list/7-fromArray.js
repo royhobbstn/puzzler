@@ -27,9 +27,9 @@ const solution = [
 
 export const data = {
   problemID: 7,
-  problemName: 'Implement `fromArray` in a LinkedList Class',
+  problemName: 'Implement **fromArray** in a *LinkedList* class.',
   problemText:
-    'Given a LinkedList class with an `append` method, create a **fromArray** method that will take in an array of values and return a linked list.',
+    'Given a *LinkedList* class with an **append** method, create a **fromArray** method that will take in an array of `values` as a parameter and return a *LinkedList*.',
   testCases: [
     {
       id: 1,

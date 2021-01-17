@@ -43,9 +43,9 @@ const solution = [
 
 export const data = {
   problemID: 5,
-  problemName: 'Implement `deleteTail` in a Singly Linked List',
+  problemName: 'Implement **deleteTail** in a *LinkedList* class.',
   problemText:
-    'Write a **deleteTail** method in a Singly-Linked-List Class that will remove the last node (the tail) of a list (if it exists, else null) and return it.',
+    'Write a **deleteTail** method in a *LinkedList* class that will remove the last node (the tail) of a list (if it exists, else null) and return it.',
   testCases: [
     {
       id: 1,

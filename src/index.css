@@ -2,6 +2,10 @@ body {
   background-color: lightslategray;
 }
 
+code {
+  background-color: gainsboro;
+}
+
 .editor-area.columns {
   display: flex;
 }

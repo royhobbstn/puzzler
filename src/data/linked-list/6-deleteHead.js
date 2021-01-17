@@ -37,9 +37,9 @@ const solution = [
 
 export const data = {
   problemID: 6,
-  problemName: 'Implement `deleteHead` in a Singly Linked List',
+  problemName: 'Implement **deleteHead** in a *LinkedList* class.',
   problemText:
-    'Write a **deleteHead** method in a Singly-Linked-List Class that will remove the first node (the head) of a list (if it exists, else null) and return it.',
+    'Write a **deleteHead** method in a *LinkedList* class that will remove the first node (the head) of a list (if it exists, else null) and return it.',
   testCases: [
     {
       id: 1,

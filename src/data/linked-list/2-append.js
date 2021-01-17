@@ -34,9 +34,9 @@ const solution = [
 
 export const data = {
   problemID: 2,
-  problemName: 'Implement **append** in a Singly Linked List',
+  problemName: 'Implement **append** in a *LinkedList* class.',
   problemText:
-    'Write an **append** method in a *Singly Linked List* Classthat accepts an arbitrary `value` parameter, creates a new Node, and inserts it at the *end* of the list.  The method should return the original list.',
+    'Write an **append** method in a *LinkedList* class that accepts an arbitrary `value` parameter, creates a new Node, and inserts it at the end of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,

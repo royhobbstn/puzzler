@@ -32,9 +32,9 @@ const solution = [
 
 export const data = {
   problemID: 8,
-  problemName: 'Implement `toArray` in a Singly Linked List',
+  problemName: 'Implement **toArray** in a *LinkedList* class.',
   problemText:
-    'Provide a class method **toArray** that converts the value property of each LinkedListNode into a new array item.',
+    'Provide a class method **toArray** that converts the value property of each LinkedListNode into a new array item, and returns that array.',
   testCases: [
     {
       id: 1,

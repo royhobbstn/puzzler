@@ -37,9 +37,9 @@ const solution = [
 
 export const data = {
   problemID: 4,
-  problemName: 'Implement `find` in a Singly Linked List',
+  problemName: 'Implement **find** in a *LinkedList* class.',
   problemText:
-    'Write a **find** method in a Singly-Linked-List Class that accepts an arbitrary value and returns the first node that matches that value, or null if no matching value was found.',
+    'Write a **find** method in a *LinkedList* class that accepts an arbitrary `value` parameter and returns the first node that matches that value, or `null` if no matching value was found.',
   testCases: [
     {
       id: 1,

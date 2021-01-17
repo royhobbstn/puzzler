@@ -30,9 +30,9 @@ const solution = [
 
 export const data = {
   problemID: 1,
-  problemName: 'Implement **prepend** in a Singly Linked List',
+  problemName: 'Implement **prepend** in a *LinkedList* class.',
   problemText:
-    'Write a **prepend** method in a *Singly Linked List* Class that accepts an arbitrary `value` parameter, creates a new Node, and inserts it at the front of the list.  The method should return the original list.',
+    'Write a **prepend** method in a *LinkedList* class that accepts an arbitrary `value` parameter, creates a new Node, and inserts it at the front of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,

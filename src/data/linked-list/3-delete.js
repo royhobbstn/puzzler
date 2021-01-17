@@ -52,9 +52,9 @@ const solution = [
 
 export const data = {
   problemID: 3,
-  problemName: 'Implement **delete** in a *Singly Linked List* Class.',
+  problemName: 'Implement **delete** in a *LinkedList* class.',
   problemText:
-    'Write a **delete** method in a *Singly Linked List* Class that accepts an arbitrary `value` parameter and removes all nodes that match that value.  The method should return the last node deleted (or `null` if no match found).',
+    'Write a **delete** method in a *LinkedList* class that accepts an arbitrary `value` parameter and removes all nodes that match that value.  The method should return the last node deleted (or `null` if no match found).',
   testCases: [
     {
       id: 1,
