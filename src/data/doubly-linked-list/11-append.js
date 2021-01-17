@@ -36,9 +36,9 @@ const solution = [
 
 export const data = {
   problemID: 11,
-  problemName: 'Implement `append` in a Doubly Linked List',
+  problemName: 'Implement **append** in a *DoublyLinkedList* class.',
   problemText:
-    'Write an **append** method in a Doubly-Linked-List Class that accepts an arbitrary value and adds it to the end of the list.  The method should return the original list.',
+    'Write an **append** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter, creates a *DoublyLinkedListNode*, and adds it to the end of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,
@@ -47,6 +47,46 @@ export const data = {
       code: `const dll=new DoublyLinkedList();`,
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
+    },
+    {
+      id: 2,
+      name: 'append onto empty list, head set correctly',
+      inherit: [1],
+      code: `dll.append(3);`,
+      evaluate: `dll.head.value;`,
+      expected: 3,
+    },
+    {
+      id: 3,
+      name: 'append onto empty list, tail set correctly',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `dll.tail.value;`,
+      expected: 3,
+    },
+    {
+      id: 4,
+      name: 'append 2nd item onto list, check head',
+      inherit: [1, 2],
+      code: `dll.append(8);`,
+      evaluate: `dll.head.value;`,
+      expected: 3,
+    },
+    {
+      id: 5,
+      name: 'append 2nd item onto list, check tail',
+      inherit: [1, 2, 4],
+      code: ``,
+      evaluate: `dll.tail.value;`,
+      expected: 8,
+    },
+    {
+      id: 6,
+      name: 'append 2nd item onto list, check head next',
+      inherit: [1, 2, 4],
+      code: ``,
+      evaluate: `dll.head.next.value;`,
+      expected: 8,
     },
   ],
   setupCode: '',

@@ -42,7 +42,7 @@ function ResultsCard() {
       <div style={{ overflowY: 'scroll' }}>
         <div style={{ padding: '1em', height: '63px' }}>
           <div style={{ display: 'inline', height: '36px', lineHeight: '36px', float: 'left' }}>
-            Found {results.length} results.
+            Found {filteredResults.length} results.
           </div>
           <Button
             onClick={() => addRandom()}
@@ -69,8 +69,8 @@ function ResultsCard() {
 
             {}
             <Table.Body>
-              {results.length ? (
-                results.map(id => {
+              {filteredResults.length ? (
+                filteredResults.map(id => {
                   const problem = inventory[id];
                   const inProblemSet = selections.includes(problem.problemID);
                   return (

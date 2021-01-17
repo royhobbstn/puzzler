@@ -42,9 +42,9 @@ const solution = [
 
 export const data = {
   problemID: 18,
-  problemName: 'Reverse a Doubly Linked List in-place',
+  problemName: 'Reverse a *DoublyLinkedList* in-place.',
   problemText:
-    'Provide a class method **reverse** that will reverse a Doubly Linked List in place (not using a copy), and return the list.',
+    'Provide a class method **reverse** that will reverse a *DoublyLinkedList* in place (not using a copy), and return the list.',
   testCases: [
     {
       id: 1,
@@ -54,8 +54,69 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'reversing an empty list - still empty',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.reverse();`,
+      expected: `{"head":null,"tail":null}`,
+    },
+    {
+      id: 3,
+      name: 'reversing a one item list - check head',
+      inherit: [1],
+      code: `dll.append(5);`,
+      evaluate: `dll.reverse().head.value;`,
+      expected: 5,
+    },
+    {
+      id: 4,
+      name: 'reversing a one item list - check head',
+      inherit: [1, 3],
+      code: ``,
+      evaluate: `dll.reverse().tail.value;`,
+      expected: 5,
+    },
+    {
+      id: 5,
+      name: 'reversing a three item list - check head',
+      inherit: [1],
+      code: `dll.append(6).append(7).append(8);`,
+      evaluate: `dll.reverse().head.value;`,
+      expected: 8,
+    },
+    {
+      id: 6,
+      name: 'reversing a three item list - check head',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.reverse().tail.value;`,
+      expected: 6,
+    },
+    {
+      id: 7,
+      name: 'reversing a three item list - check head next',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.reverse().head.next.value;`,
+      expected: 7,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function(value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

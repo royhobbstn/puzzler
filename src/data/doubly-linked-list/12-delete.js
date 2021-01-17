@@ -61,9 +61,9 @@ const solution = [
 
 export const data = {
   problemID: 12,
-  problemName: 'Implement `delete` in a Doubly Linked List',
+  problemName: 'Implement **delete** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **delete** method in a Doubly-Linked-List Class that accepts an arbitrary value and deletes all nodes that have a matching value.  The method should return the last node deleted (or null if no match found).',
+    'Write a **delete** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter and deletes all `DoublyLinkedListNode` nodes that have a matching value.  The method should return the last node deleted (or `null` if no match found).',
   testCases: [
     {
       id: 1,
@@ -73,8 +73,93 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'return null on empty list',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.delete(5);`,
+      expected: null,
+    },
+    {
+      id: 3,
+      name: 'add and cleanly remove node from list (check head)',
+      inherit: [1],
+      code: `dll.append(5);dll.delete(5);`,
+      evaluate: `dll.head`,
+      expected: null,
+    },
+    {
+      id: 4,
+      name: 'add and cleanly remove node from list (check tail)',
+      inherit: [1, 3],
+      code: ``,
+      evaluate: `dll.tail`,
+      expected: null,
+    },
+    {
+      id: 5,
+      name: 'add 3 nodes and delete the first',
+      inherit: [1],
+      code: `dll.append(1).append(2).append(3);`,
+      evaluate: `dll.delete(1);dll.head.value;`,
+      expected: 2,
+    },
+    {
+      id: 6,
+      name: 'add 3 nodes and delete the first (check tail)',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.delete(1);dll.tail.value;`,
+      expected: 3,
+    },
+    {
+      id: 7,
+      name: 'add 3 nodes and delete the second (check head connector)',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.delete(2);dll.head.next.value;`,
+      expected: 3,
+    },
+    {
+      id: 8,
+      name: 'add 3 nodes and delete the last (check tail)',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.delete(3);dll.tail.value;`,
+      expected: 2,
+    },
+    {
+      id: 9,
+      name: 'add 3 nodes and delete them all (check head)',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.delete(3);dll.delete(2);dll.delete(1);dll.head;`,
+      expected: null,
+    },
+    {
+      id: 10,
+      name: 'add 3 nodes and delete them all (check tail)',
+      inherit: [1, 5],
+      code: ``,
+      evaluate: `dll.delete(3);dll.delete(2);dll.delete(1);dll.tail;`,
+      expected: null,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function(value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

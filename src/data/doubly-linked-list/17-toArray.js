@@ -20,7 +20,7 @@ const solution = [
   { stage: 2, text: '' },
   { stage: 3, text: '    let currentNode = this.head;' },
   { stage: 3, text: '    while (currentNode) {' },
-  { stage: 4, text: '      nodes.push(currentNode);' },
+  { stage: 4, text: '      nodes.push(currentNode.value);' },
   { stage: 4, text: '      currentNode = currentNode.next;' },
   { stage: 3, text: '    }' },
   { stage: 3, text: '' },
@@ -33,9 +33,9 @@ const solution = [
 
 export const data = {
   problemID: 17,
-  problemName: 'Implement `toArray` in a Doubly Linked List',
+  problemName: 'Implement **toArray** in a *DoublyLinkedList* class.',
   problemText:
-    'Provide a class method **toArray** that converts DoublyLinkedListNode(s) (not values) into array items.',
+    "Provide a class method **toArray** that converts `DoublyLinkedListNode` `value`'s in a *DoublyLinkedList* into array elements in matching order.",
   testCases: [
     {
       id: 1,
@@ -45,8 +45,45 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'empty list makes empty array',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.toArray();`,
+      expected: JSON.stringify([]),
+    },
+    {
+      id: 3,
+      name: 'one item list',
+      inherit: [1],
+      code: `dll.append(4);`,
+      evaluate: `dll.toArray();`,
+      expected: JSON.stringify([4]),
+    },
+    {
+      id: 4,
+      name: 'three item list',
+      inherit: [1],
+      code: `dll.append(4).append(5).append(6);`,
+      evaluate: `dll.toArray();`,
+      expected: JSON.stringify([4, 5, 6]),
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function (value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

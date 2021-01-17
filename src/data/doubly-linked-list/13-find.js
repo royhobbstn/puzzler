@@ -39,9 +39,9 @@ const solution = [
 
 export const data = {
   problemID: 13,
-  problemName: 'Implement `find` in a Doubly Linked List',
+  problemName: 'Implement **find** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **find** method in a Doubly-Linked-List Class that accepts an arbitrary value and finds (returns) the first node that has a matching value (or null if no match found).',
+    'Write a **find** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter and finds (returns) the first `DoublyLinkedListNode` that has a matching value (or null if no match found).',
   testCases: [
     {
       id: 1,
@@ -51,8 +51,61 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'find on an empty list',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.find(5);`,
+      expected: null,
+    },
+    {
+      id: 3,
+      name: 'add one item, find that item',
+      inherit: [1],
+      code: `dll.append(4);`,
+      evaluate: `dll.find(4).value;`,
+      expected: 4,
+    },
+    {
+      id: 4,
+      name: 'add one item, find an item that does not exist',
+      inherit: [1],
+      code: `dll.append(4);`,
+      evaluate: `dll.find(6);`,
+      expected: null,
+    },
+    {
+      id: 5,
+      name: 'add three items, find an item',
+      inherit: [1],
+      code: `dll.append(1).append(2).append(3);`,
+      evaluate: `dll.find(2).value;`,
+      expected: 2,
+    },
+    {
+      id: 6,
+      name: 'add three items -two dupicates, return the first',
+      inherit: [1],
+      code: `dll.append(1).append(2).append(2);`,
+      evaluate: `dll.find(2) === dll.head.next;`,
+      expected: true,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function(value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

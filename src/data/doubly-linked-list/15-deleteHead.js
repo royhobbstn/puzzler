@@ -39,9 +39,9 @@ const solution = [
 
 export const data = {
   problemID: 15,
-  problemName: 'Implement `deleteHead` in a Doubly Linked List',
+  problemName: 'Implement **deleteHead** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **deleteHead** method in a Doubly-Linked-List Class that will remove and return the first node in the list (or null if the list is empty).',
+    'Write a **deleteHead** method in a *DoublyLinkedList* class that will remove and return the first `DoublyLinkedListNode` in the list (or `null` if the list is empty).',
   testCases: [
     {
       id: 1,
@@ -51,8 +51,77 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'deleteHead from an empty list returns null',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.deleteHead();`,
+      expected: null,
+    },
+    {
+      id: 3,
+      name: 'add item and delete item',
+      inherit: [1],
+      code: `dll.append(8);`,
+      evaluate: `dll.deleteHead().value;`,
+      expected: 8,
+    },
+    {
+      id: 4,
+      name: 'add item and delete item - check head;',
+      inherit: [1],
+      code: `dll.append(8);dll.deleteHead();`,
+      evaluate: `dll.head;`,
+      expected: null,
+    },
+    {
+      id: 5,
+      name: 'add item and delete item',
+      inherit: [1, 4],
+      code: ``,
+      evaluate: `dll.tail;`,
+      expected: null,
+    },
+    {
+      id: 6,
+      name: 'add 3 items and delete one',
+      inherit: [1],
+      code: `dll.append(6).append(7).append(8);`,
+      evaluate: `dll.deleteHead().value;`,
+      expected: 6,
+    },
+    {
+      id: 7,
+      name: 'add 3 items and delete one - check head',
+      inherit: [1, 6],
+      code: `dll.deleteHead();`,
+      evaluate: `dll.head.value;`,
+      expected: 7,
+    },
+    {
+      id: 8,
+      name: 'add 3 items and delete one - check tail',
+      inherit: [1, 6, 7],
+      code: ``,
+      evaluate: `dll.tail.value;`,
+      expected: 8,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function(value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

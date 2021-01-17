@@ -40,9 +40,9 @@ const solution = [
 
 export const data = {
   problemID: 14,
-  problemName: 'Implement `deleteTail` in a Doubly Linked List',
+  problemName: 'Implement **deleteTail** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **deleteTail** method in a Doubly-Linked-List Class that will remove and return the last node in the list.',
+    'Write a **deleteTail** method in a *DoublyLinkedList* class that will remove and return the last `DoublyLinkedListNode` in the list, or `null` if the list is empty.',
   testCases: [
     {
       id: 1,
@@ -52,8 +52,69 @@ export const data = {
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
     },
+    {
+      id: 2,
+      name: 'return null if list is empty',
+      inherit: [1],
+      code: ``,
+      evaluate: `dll.deleteTail();`,
+      expected: null,
+    },
+    {
+      id: 3,
+      name: 'return item from 1 item list.',
+      inherit: [1],
+      code: `dll.append(5);`,
+      evaluate: `dll.deleteTail().value;`,
+      expected: 5,
+    },
+    {
+      id: 4,
+      name: 'return item from 1 item list - head set correctly.',
+      inherit: [1, 3],
+      code: `dll.deleteTail();`,
+      evaluate: `dll.head;`,
+      expected: null,
+    },
+    {
+      id: 5,
+      name: 'return item from 1 item list - tail set correctly.',
+      inherit: [1, 3],
+      code: `dll.deleteTail();`,
+      evaluate: `dll.tail;`,
+      expected: null,
+    },
+    {
+      id: 6,
+      name: 'add 3 items, deleteTail twice.',
+      inherit: [1],
+      code: `dll.append(5).append(4).append(3);dll.deleteTail();dll.deleteTail();`,
+      evaluate: `dll.head.value`,
+      expected: 5,
+    },
+    {
+      id: 7,
+      name: 'add 3 items, deleteTail twice.',
+      inherit: [1, 6],
+      code: ``,
+      evaluate: `dll.tail.value`,
+      expected: 5,
+    },
   ],
-  setupCode: '',
+  setupCode: `
+  DoublyLinkedList.prototype.append = function(value) {
+    const newNode = new DoublyLinkedListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      return this;
+    }
+    this.tail.next = newNode;
+    newNode.previous = this.tail;
+    this.tail = newNode;
+    return this;
+  }
+  `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

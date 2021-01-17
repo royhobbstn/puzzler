@@ -36,9 +36,9 @@ const solution = [
 
 export const data = {
   problemID: 10,
-  problemName: 'Implement `prepend` in a Doubly Linked List',
+  problemName: 'Implement **prepend** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **prepend** method in a Doubly-Linked-List Class that accepts an arbitrary value and inserts it at the front of the list.  The method should return the original list.',
+    'Write a **prepend** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter, creates a *DoublyLinkedListNode*, and inserts it at the front of the list.  The method should return the original list.',
   testCases: [
     {
       id: 1,
@@ -47,6 +47,46 @@ export const data = {
       code: `const dll=new DoublyLinkedList();`,
       evaluate: `dll;`,
       expected: `{"head":null,"tail":null}`,
+    },
+    {
+      id: 2,
+      name: 'prepend element onto empty list',
+      inherit: [1],
+      code: `dll.prepend(5);`,
+      evaluate: `dll.head.value;`,
+      expected: 5,
+    },
+    {
+      id: 3,
+      name: 'prepend element onto empty list, tail correct',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `dll.tail.value;`,
+      expected: 5,
+    },
+    {
+      id: 4,
+      name: 'prepend 2nd element onto list, head correct',
+      inherit: [1],
+      code: `dll.prepend(7);`,
+      evaluate: `dll.head.value;`,
+      expected: 7,
+    },
+    {
+      id: 5,
+      name: 'prepend 2nd element onto list, tail correct',
+      inherit: [1, 2, 4],
+      code: ``,
+      evaluate: `dll.tail.value;`,
+      expected: 5,
+    },
+    {
+      id: 6,
+      name: 'prepend 2nd element onto list, head next correct',
+      inherit: [1, 2, 4],
+      code: ``,
+      evaluate: `dll.head.next.value;`,
+      expected: 5,
     },
   ],
   setupCode: '',
