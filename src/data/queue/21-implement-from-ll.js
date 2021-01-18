@@ -53,8 +53,8 @@ export const data = {
       name: 'compiles',
       inherit: [],
       code: `const queue=new Queue();`,
-      evaluate: `queue;`,
-      expected: `{"linkedList":{"head":null,"tail":null}}`,
+      evaluate: `Boolean(queue);`,
+      expected: true,
     },
     {
       id: 2,

@@ -37,8 +37,8 @@ export const data = {
       name: 'compiles',
       inherit: [],
       code: `const dll=new DoublyLinkedList();`,
-      evaluate: `dll;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(dll);`,
+      expected: true,
     },
     {
       id: 2,

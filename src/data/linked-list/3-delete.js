@@ -61,8 +61,8 @@ export const data = {
       name: 'compiles',
       inherit: [],
       code: `const ll=new LinkedList();`,
-      evaluate: `ll;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(ll);`,
+      expected: true,
     },
     {
       id: 2,

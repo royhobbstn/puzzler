@@ -43,8 +43,8 @@ export const data = {
       name: 'compiles',
       inherit: [],
       code: `const queue=new Queue();`,
-      evaluate: `queue;`,
-      expected: `{"items":[]}`,
+      evaluate: `Boolean(queue);`,
+      expected: true,
     },
     {
       id: 2,
