@@ -1,13 +1,13 @@
 import { HASH_TABLE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
-  { stage: 0, text: '// class LinkedList {' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '//   findKey(key: string) LinkedListNode' },
-  { stage: 0, text: '// ' },
-  { stage: 0, text: '// }' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '// All code above is implicitly included in your environment' },
+  { stage: -1, text: '// class LinkedList {' },
+  { stage: -1, text: '//' },
+  { stage: -1, text: '//   findKey(key: string) LinkedListNode' },
+  { stage: -1, text: '// ' },
+  { stage: -1, text: '// }' },
+  { stage: -1, text: '//' },
+  { stage: -1, text: '// All code above is implicitly included in your environment' },
   { stage: 0, text: '' },
   { stage: 0, text: 'class HashTable {' },
   { stage: 0, text: '  constructor(hashTableSize = 32) {' },
@@ -16,15 +16,8 @@ const solution = [
   { stage: 0, text: '      .map(() => new LinkedList());' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  hash(key) {' },
-  { stage: 0, text: '    const hash = Array.from(key).reduce(' },
-  {
-    stage: 0,
-    text: '      (hashAccumulator, keySymbol) => hashAccumulator + keySymbol.charCodeAt(0), 0);',
-  },
-  { stage: 0, text: '    return hash % this.buckets.length;' },
-  { stage: 0, text: '  }' },
-  { stage: 0, text: '' },
+  { stage: -1, text: '  // IMPLEMENTED:  hash(key: string) int' },
+  { stage: -1, text: '' },
   { stage: 1, text: '  get(key) {' },
   { stage: 2, text: '    const bucketLinkedList = this.buckets[this.hash(key)];' },
   { stage: 3, text: '    const node = bucketLinkedList.findKey(key);' },
@@ -37,16 +30,33 @@ const solution = [
 
 export const data = {
   problemID: 26,
-  problemName: 'Implement **get** in a Hash Table.',
-  problemText: `Given a \`HashTable\` class and an associated \`LinkedList\` class, implement a **get** method in the \`HashTable\` class that will retrieve a value in the hash table for a given key.`,
+  problemName: 'Implement **get** in a *HashTable* class.',
+  problemText:
+    'Given a *HashTable* class and an associated *LinkedList* class, implement a **get** method in the *HashTable* class that will retrieve a `value` from the hash table for a given `key`, or `undefined` if the `key` does not exist.',
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
-      code: `const ht=new Hash Table();`,
-      evaluate: `ht;`,
-      expected: `{"head":null,"tail":null}`,
+      code: `const ht=new HashTable();`,
+      evaluate: `Boolean(ht);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'get a key that doesnt exist',
+      inherit: [1],
+      code: ``,
+      evaluate: `ht.get('key1');`,
+      expected: undefined,
+    },
+    {
+      id: 3,
+      name: 'get a key',
+      inherit: [1],
+      code: `ht.set('key1', 99);`,
+      evaluate: `ht.get('key1');`,
+      expected: 99,
     },
   ],
   setupCode: `
@@ -62,6 +72,17 @@ export const data = {
       this.head = null;
       this.tail = null;
     }
+    append(key, value) {
+      const newNode = new LinkedListNode(key, value);
+      if (!this.head) {
+        this.head = newNode;
+        this.tail = newNode;
+        return this;
+      }
+      this.tail.next = newNode;
+      this.tail = newNode;
+      return this;
+    }
     findKey(key) {
       if (!this.head) {
         return null;
@@ -76,6 +97,21 @@ export const data = {
       return null;
     }
   }
+  HashTable.prototype.hash = function(key) {
+    const hash = Array.from(key).reduce(
+      (hashAccumulator, keySymbol) => hashAccumulator + keySymbol.charCodeAt(0), 0);
+      return hash % this.buckets.length;
+  };
+  HashTable.prototype.set = function(key, value) {
+    const keyHash = this.hash(key);
+    const bucketLinkedList = this.buckets[keyHash];
+    const node = bucketLinkedList.findKey(key);
+    if (!node) {
+      bucketLinkedList.append(key, value);
+    } else {
+      node.value = value;
+    }
+  };
   `,
   category: HASH_TABLE,
   type: DATA_STRUCTURE,
