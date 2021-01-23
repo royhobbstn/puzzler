@@ -6,7 +6,7 @@ const solution = [
   { stage: 0, text: '    this.heapContainer = [];' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '// IMPLEMENTED:  heapifyDown(startIndex: int = 0)' },
+  { stage: -1, text: '// IMPLEMENTED:  heapifyDown(startIndex: int = 0)' },
   { stage: 0, text: '' },
   { stage: 1, text: '  poll() {' },
   { stage: 2, text: '    if (this.heapContainer.length === 0) {' },
