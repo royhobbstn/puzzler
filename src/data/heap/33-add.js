@@ -87,6 +87,14 @@ export const data = {
       evaluate: `JSON.stringify(minheap.heapContainer);`,
       expected: JSON.stringify([1, 3, 2, 8, 6, 5, 4]),
     },
+    {
+      id: 9,
+      name: 'method should return itself',
+      inherit: [1, 2, 3, 4, 5, 6, 7],
+      code: ``,
+      evaluate: `minheap.add(2) === minheap`,
+      expected: true,
+    },
   ],
   setupCode: `
   MinHeap.prototype.getParentIndex = function (childIndex) {
