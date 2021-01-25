@@ -6,6 +6,14 @@ const solution = [
   { stage: 0, text: '    this.heapContainer = [];' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
+  { stage: -1, text: '// IMPLEMENTED:  swap(index1: int, index2: int)' },
+  { stage: -1, text: '// IMPLEMENTED:  getLeftChildIndex(index: int) int' },
+  { stage: -1, text: '// IMPLEMENTED:  getRightChildIndex(index: int) int' },
+  { stage: -1, text: '// IMPLEMENTED:  hasLeftChild(index: int) bool' },
+  { stage: -1, text: '// IMPLEMENTED:  hasRightChild(index: int) bool' },
+  { stage: -1, text: '// IMPLEMENTED:  getLeftChildIndex(index: int) int' },
+  { stage: -1, text: '// IMPLEMENTED:  getrightChildIndex(index: int) int' },
+  { stage: 0, text: '' },
   { stage: 1, text: '  heapifyDown(customStartIndex = 0) {' },
   { stage: 2, text: '    let currentIndex = customStartIndex;' },
   { stage: 2, text: '    let nextIndex = null;' },
@@ -38,119 +46,81 @@ const solution = [
 
 export const data = {
   problemID: 36,
-  problemName: `Implement **heapifyDown** for a MinHeap.`,
-  problemText: `Implement a **heapifyDown** method for a MinHeap to take an array item at a specified index (the first item in the array by default) and move it down to the correct placement in the heap.  The method must then return the heap.`,
+  problemName: `Implement **heapifyDown** for a *MinHeap* class.`,
+  problemText: `Implement a **heapifyDown** method for a *MinHeap* to take an array item at a specified \`index\` (the first item in the array by default) and move it down to the correct placement in the heap.`,
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const minheap=new MinHeap();`,
-      evaluate: `minheap;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(minheap);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'one item in heap, heap is same',
+      inherit: [1],
+      code: `minheap.heapContainer = [1];  minheap.heapifyDown();`,
+      evaluate: `JSON.stringify(minheap.heapContainer);`,
+      expected: JSON.stringify([1]),
+    },
+    {
+      id: 3,
+      name: 'two items in heap, no change',
+      inherit: [1],
+      code: `minheap.heapContainer = [1,2];  minheap.heapifyDown();`,
+      evaluate: `JSON.stringify(minheap.heapContainer);`,
+      expected: JSON.stringify([1, 2]),
+    },
+    {
+      id: 4,
+      name: 'two items in heap, reorder',
+      inherit: [1],
+      code: `minheap.heapContainer = [2,1];  minheap.heapifyDown();`,
+      evaluate: `JSON.stringify(minheap.heapContainer);`,
+      expected: JSON.stringify([1, 2]),
+    },
+    {
+      id: 5,
+      name: 'five items in heap, reorder',
+      inherit: [1],
+      code: `minheap.heapContainer = [5,1,2,3,4];  minheap.heapifyDown();`,
+      evaluate: `JSON.stringify(minheap.heapContainer);`,
+      expected: JSON.stringify([1, 3, 2, 5, 4]),
+    },
+    {
+      id: 6,
+      name: 'five items in heap, specific index',
+      inherit: [1],
+      code: `minheap.heapContainer = [1,5,2,3,4];  minheap.heapifyDown(1);`,
+      evaluate: `JSON.stringify(minheap.heapContainer);`,
+      expected: JSON.stringify([1, 3, 2, 5, 4]),
     },
   ],
   setupCode: `
-  MinHeap.Prototype.getParentIndex = function (childIndex) {
-    return Math.floor((childIndex - 1) / 2);
-  };
-  MinHeap.Prototype.hasParent = function (childIndex) {
-    return this.getParentIndex(childIndex) >= 0;
-  };
-  MinHeap.Prototype.parent = function (childIndex) {
-    return this.heapContainer[this.getParentIndex(childIndex)];
-  };
-  MinHeap.Prototype.getLeftChildIndex = function(parentIndex) {
+  MinHeap.prototype.getLeftChildIndex = function(parentIndex) {
     return 2 * parentIndex + 1;
   };
-  MinHeap.Prototype.getRightChildIndex = function(parentIndex) {
+  MinHeap.prototype.getRightChildIndex = function(parentIndex) {
     return 2 * parentIndex + 2;
   };
-  MinHeap.Prototype.hasLeftChild = function(parentIndex) {
+  MinHeap.prototype.hasLeftChild = function(parentIndex) {
     return this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
   };
-  MinHeap.Prototype.hasRightChild = function(parentIndex) {
+  MinHeap.prototype.hasRightChild = function(parentIndex) {
     return this.getRightChildIndex(parentIndex) < this.heapContainer.length;
   };
-  MinHeap.Prototype.leftChild = function(parentIndex) {
+  MinHeap.prototype.leftChild = function(parentIndex) {
     return this.heapContainer[this.getLeftChildIndex(parentIndex)];
   };
-  MinHeap.Prototype.rightChild = function(parentIndex) {
+  MinHeap.prototype.rightChild = function(parentIndex) {
     return this.heapContainer[this.getRightChildIndex(parentIndex)];
   };
-  MinHeap.Prototype.peek = function () {
-    if (this.heapContainer.length === 0) {
-      return null;
-    }
-    return this.heapContainer[0];
-  };
-  MinHeap.Prototype.find = function (item) {
-    const foundItemIndices = [];
-    for (let itemIndex = 0; itemIndex < this.heapContainer.length; itemIndex += 1) {
-      if (item === this.heapContainer[itemIndex]) {
-        foundItemIndices.push(itemIndex);
-      }
-    }
-    return foundItemIndices;
-  };
-  MinHeap.Prototype.poll = function () {
-    if (this.heapContainer.length === 0) {
-      return null;
-    }
-    if (this.heapContainer.length === 1) {
-      return this.heapContainer.pop();
-    }
-    const item = this.heapContainer[0];
-    this.heapContainer[0] = this.heapContainer.pop();
-    this.heapifyDown();
-    return item;
-  };
-  MinHeap.Prototype.add = function (item) {
-    this.heapContainer.push(item);
-    this.heapifyUp();
-    return this;
-  };
-  MinHeap.Prototype.remove = function (item) {
-    const numberOfItemsToRemove = this.find(item).length;
-    for (let iteration = 0; iteration < numberOfItemsToRemove; iteration += 1) {
-      const indexToRemove = this.find(item).pop();
-      if (indexToRemove === this.heapContainer.length - 1) {
-        this.heapContainer.pop();
-      } else {
-        this.heapContainer[indexToRemove] = this.heapContainer.pop();
-        const parentItem = this.parent(indexToRemove);
-        if (
-          this.hasLeftChild(indexToRemove) &&
-          (!parentItem || parentItem <= this.heapContainer[indexToRemove])
-        ) {
-          this.heapifyDown(indexToRemove);
-        } else {
-          this.heapifyUp(indexToRemove);
-        }
-      }
-    }
-    return this;
-  };
-  MinHeap.Prototype.heapifyUp = function (customStartIndex) {
-    let currentIndex = customStartIndex || this.heapContainer.length - 1;
-    while (
-      this.hasParent(currentIndex) &&
-      this.parent(currentIndex) > this.heapContainer[currentIndex]
-    ) {
-      this.swap(currentIndex, this.getParentIndex(currentIndex));
-      currentIndex = this.getParentIndex(currentIndex);
-    }
-  };
-  MinHeap.Prototype.swap = function (indexOne, indexTwo) {
+  MinHeap.prototype.swap = function (indexOne, indexTwo) {
     const tmp = this.heapContainer[indexTwo];
     this.heapContainer[indexTwo] = this.heapContainer[indexOne];
     this.heapContainer[indexOne] = tmp;
-  };
-  MinHeap.Prototype.isEmpty = function () {
-    return !this.heapContainer.length;
-  };
-  MinHeap.Prototype.toString = function () {
-    return this.heapContainer.toString();
   };
   `,
   category: HEAP,

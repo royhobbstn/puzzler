@@ -11,7 +11,7 @@ const solution = [
   { stage: -1, text: '// IMPLEMENTED:  find(item: int) []index:int' },
   { stage: -1, text: '// IMPLEMENTED:  parent(index: int) item:int' },
   { stage: -1, text: '// IMPLEMENTED:  hasLeftChild(index: int) bool' },
-
+  { stage: 0, text: '' },
   { stage: 1, text: '  remove(item) {' },
   { stage: 2, text: '    const numberOfItemsToRemove = this.find(item).length;' },
   { stage: 2, text: '' },
