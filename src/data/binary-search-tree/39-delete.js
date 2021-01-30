@@ -15,7 +15,7 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 1, text: '  delete(value) {' },
-  { stage: 2, text: '    return deleteRecursively(this.root, value);' },
+  { stage: 2, text: '    this.root = deleteRecursively(this.root, value);' },
   { stage: 2, text: '' },
   { stage: 2, text: '    function deleteRecursively(root, value) {' },
   { stage: 3, text: '      if (!root) {' },
@@ -57,20 +57,95 @@ const solution = [
 
 export const data = {
   problemID: 39,
-  problemName: 'Implement `delete` in a Binary Search Tree',
+  problemName: 'Implement **delete** in a *BinarySearchTree* class.',
   problemText:
-    'Write a **delete** method in a BinarySearchTree Class that accepts an integer value and deletes that value from a tree, while maintaining a valid Binary Search Tree structure.',
+    'Write a **delete** method in a *BinarySearchTree* class that accepts an integer `value` and deletes it from a tree, while maintaining a valid Binary Search Tree structure.',
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const tree=new BinarySearchTree();`,
-      evaluate: `tree;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(tree);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'delete on empty tree, no crash',
+      inherit: [1],
+      code: `tree.delete(5);`,
+      evaluate: `Boolean(tree);`,
+      expected: true,
+    },
+    {
+      id: 3,
+      name: 'insert an item into tree.  delete it. find it.',
+      inherit: [1],
+      code: `tree.insert(5);tree.delete(5);`,
+      evaluate: `tree.search(5);`,
+      expected: false,
+    },
+    {
+      id: 4,
+      name: 'insert two items into tree.  delete one. find the other.',
+      inherit: [1],
+      code: `tree.insert(5);tree.insert(6);tree.delete(5);`,
+      evaluate: `tree.search(6);`,
+      expected: true,
+    },
+    {
+      id: 5,
+      name: 'find the deleted of task #4.',
+      inherit: [1, 4],
+      code: ``,
+      evaluate: `tree.search(5);`,
+      expected: false,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  BinarySearchTree.prototype.insert = function(value) {
+    const thisNode = new BinarySearchTreeNode(value);
+    if (!this.root) {
+      this.root = thisNode;
+    } else {
+      let currentRoot = this.root;
+      while (true) {
+        if (currentRoot.value > value) {
+          if (currentRoot.left != null) {
+            currentRoot = currentRoot.left;
+          } else {
+            currentRoot.left = thisNode;
+            break;
+          }
+        } else if (currentRoot.value < value) {
+          if (currentRoot.right != null) {
+            currentRoot = currentRoot.right;
+          } else {
+            currentRoot.right = thisNode;
+            break;
+          }
+        } else {
+          break;
+        }
+      }
+    }
+  };
+  BinarySearchTree.prototype.search = function(value) {
+    let currentRoot = this.root;
+    let found = false;
+    while (currentRoot) {
+      if (currentRoot.value > value) {
+        currentRoot = currentRoot.left;
+      } else if (currentRoot.value < value) {
+        currentRoot = currentRoot.right;
+      } else {
+        found = true;
+        break;
+      }
+    }
+    return found;
+  };
+  `,
   category: BINARY_SEARCH_TREE,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

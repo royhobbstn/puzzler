@@ -144,7 +144,7 @@ class BinarySearchTree {
   }
 
   delete(value) {
-    return deleteRecursively(this.root, value);
+    this.root = deleteRecursively(this.root, value);
 
     function deleteRecursively(root, value) {
       if (!root) {
@@ -261,9 +261,9 @@ console.log(tree.tempNodeList);
 tree.clearTempNodeList();
 console.log('--');
 
-tree.delete(5);
-tree.delete(3);
-tree.delete(11);
+tree.delete(0);
+tree.delete(7);
+tree.delete(2);
 
 console.log(tree.search(5));
 console.log(tree.search(3));
