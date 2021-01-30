@@ -38,17 +38,25 @@ const solution = [
 
 export const data = {
   problemID: 46,
-  problemName: 'Implement `traverseLevelOrderBfs` in a Binary Search Tree',
+  problemName: 'Implement a **traverseLevelOrderBfs** method in a *BinarySearchTree* class.',
   problemText:
-    'Write a **traverseLevelOrderBfs** method in a BinarySearchTree Class that traverses a tree **iteratively** and runs the supplied `callback` function on each node value.',
+    'Write a **traverseLevelOrderBfs** method in a *BinarySearchTree* class that traverses a tree iteratively and runs the supplied `callback` function on each node value.',
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const tree=new BinarySearchTree();`,
-      evaluate: `tree;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(tree);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'proper bfs',
+      inherit: [1],
+      code: `tree.insert(5);tree.insert(3);tree.insert(11);tree.insert(0);tree.insert(7);tree.insert(2);tree.traverseLevelOrderBfs();`,
+      evaluate: `JSON.stringify(tree.tempNodeList);`,
+      expected: JSON.stringify([5, 3, 11, 0, 7, 2]),
     },
   ],
   setupCode: `
@@ -58,6 +66,33 @@ export const data = {
   };
   BinarySearchTree.prototype.clearTempNodeList = function (value) {
     BinarySearchTree.prototype.tempNodeList = [];
+  };
+  BinarySearchTree.prototype.insert = function(value) {
+    const thisNode = new BinarySearchTreeNode(value);
+    if (!this.root) {
+      this.root = thisNode;
+    } else {
+      let currentRoot = this.root;
+      while (true) {
+        if (currentRoot.value > value) {
+          if (currentRoot.left != null) {
+            currentRoot = currentRoot.left;
+          } else {
+            currentRoot.left = thisNode;
+            break;
+          }
+        } else if (currentRoot.value < value) {
+          if (currentRoot.right != null) {
+            currentRoot = currentRoot.right;
+          } else {
+            currentRoot.right = thisNode;
+            break;
+          }
+        } else {
+          break;
+        }
+      }
+    }
   };
   `,
   category: BINARY_SEARCH_TREE,

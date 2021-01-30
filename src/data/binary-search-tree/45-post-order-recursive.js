@@ -14,6 +14,8 @@ const solution = [
   { stage: 0, text: '    this.root = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
+  { stage: -1, text: '// IMPLEMENTED  callback(value)' },
+  { stage: -1, text: '' },
   { stage: 0, text: '  traversePostOrderRecursive(node = this.root, callback = this.callback) {' },
   { stage: 1, text: '    if (node.left) {' },
   { stage: 1, text: '      this.traversePostOrderRecursive(node.left);' },
@@ -30,17 +32,25 @@ const solution = [
 
 export const data = {
   problemID: 45,
-  problemName: 'Implement `traversePostOrderRecursive` in a Binary Search Tree',
+  problemName: 'Implement **traversePostOrderRecursive** in a *BinarySearchTree* class.',
   problemText:
-    'Write a **traversePostOrderRecursive** method in a BinarySearchTree Class that traverses a tree **recursively** and runs the supplied `callback` function on each node value.',
+    'Write a **traversePostOrderRecursive** method in a *BinarySearchTree* class that traverses a tree recursively and runs the supplied `callback` function on each node value.',
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const tree=new BinarySearchTree();`,
-      evaluate: `tree;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(tree);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'proper post-order ranking',
+      inherit: [1],
+      code: `tree.insert(5);tree.insert(3);tree.insert(11);tree.insert(0);tree.insert(7);tree.insert(2);tree.traversePostOrderRecursive();`,
+      evaluate: `JSON.stringify(tree.tempNodeList);`,
+      expected: JSON.stringify([2, 0, 3, 7, 11, 5]),
     },
   ],
   setupCode: `
@@ -50,6 +60,33 @@ export const data = {
   };
   BinarySearchTree.prototype.clearTempNodeList = function (value) {
     BinarySearchTree.prototype.tempNodeList = [];
+  };
+  BinarySearchTree.prototype.insert = function(value) {
+    const thisNode = new BinarySearchTreeNode(value);
+    if (!this.root) {
+      this.root = thisNode;
+    } else {
+      let currentRoot = this.root;
+      while (true) {
+        if (currentRoot.value > value) {
+          if (currentRoot.left != null) {
+            currentRoot = currentRoot.left;
+          } else {
+            currentRoot.left = thisNode;
+            break;
+          }
+        } else if (currentRoot.value < value) {
+          if (currentRoot.right != null) {
+            currentRoot = currentRoot.right;
+          } else {
+            currentRoot.right = thisNode;
+            break;
+          }
+        } else {
+          break;
+        }
+      }
+    }
   };
   `,
   category: BINARY_SEARCH_TREE,

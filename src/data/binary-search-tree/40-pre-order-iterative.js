@@ -16,7 +16,7 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: -1, text: '// IMPLEMENTED  callback(value)' },
-  { stage: 0, text: '' },
+  { stage: -1, text: '' },
   { stage: 0, text: '  traversePreOrderIterative(node = this.root, callback = this.callback) {' },
   { stage: 1, text: '    const nodeStack = [];' },
   { stage: 1, text: '    nodeStack.push(node);' },
