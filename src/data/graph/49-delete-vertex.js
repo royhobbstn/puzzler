@@ -18,7 +18,6 @@ const solution = [
   { stage: 0, text: '    this.isDirected = isDirected === true;' },
   { stage: 0, text: '    this.adjList = {};' },
   { stage: 0, text: '    this.vertices = {};' },
-  { stage: 0, text: '    this.tempSet = [];' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 1, text: '  deleteVertex(vertexKey) {' },
@@ -39,19 +38,64 @@ const solution = [
 
 export const data = {
   problemID: 49,
-  problemName: `Implement the deleteVertex method for a Graph class.`,
-  problemText: `Implement a deleteVertex method that accepts a vertex key, with no return value.`,
+  problemName: `Implement the **deleteVertex** method for a *Graph* class.`,
+  problemText: `Implement a **deleteVertex** method that accepts a \`vertexKey\` (string), with no return value.`,
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const graph=new Graph();`,
-      evaluate: `graph;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(graph);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'add, then delete vertex',
+      inherit: [1],
+      code: `graph.addVertex('A');graph.deleteVertex('A');`,
+      evaluate: `Boolean(graph.vertices['A']);`,
+      expected: false,
+    },
+    {
+      id: 3,
+      name: 'add edge, make sure vertex is deleted from AdjList',
+      inherit: [1],
+      code: `graph.addEdge('A','B');graph.deleteVertex('A');`,
+      evaluate: `graph.adjList['A'] === undefined;`,
+      expected: true,
+    },
+    {
+      id: 4,
+      name: 'removed from reverse side of AdjList',
+      inherit: [],
+      code: `const graph=new Graph(false);graph.addEdge('A','B');graph.deleteVertex('A');`,
+      evaluate: `JSON.stringify(graph.adjList['B']);`,
+      expected: JSON.stringify({}),
     },
   ],
-  setupCode: '',
+  setupCode: `
+  Graph.prototype.addVertex = function(key) {
+    const vertex = new Vertex(key);
+    this.vertices[key] = vertex;
+    if (!this.adjList[key]) {
+      this.adjList[key] = {};
+    }
+  };
+  Graph.prototype.addEdge = function(startVertexKey, endVertexKey, edgeWeight = 1) {
+    if (!this.vertices[startVertexKey]) {
+      this.addVertex(startVertexKey);
+    }
+    if (!this.vertices[endVertexKey]) {
+      this.addVertex(endVertexKey);
+    }
+    const edge = new Edge(edgeWeight);
+    this.adjList[startVertexKey][endVertexKey] = edge;
+    if (!this.isDirected) {
+      this.adjList[endVertexKey][startVertexKey] = edge;
+    }
+  };
+  `,
   category: GRAPH,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
