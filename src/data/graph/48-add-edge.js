@@ -21,7 +21,7 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: -1, text: '  // IMPLEMENTED: addVertex(key: string) void' },
-  { stage: 0, text: '' },
+  { stage: -1, text: '' },
   { stage: 1, text: '  addEdge(startVertexKey, endVertexKey, edgeWeight = 1) {' },
   { stage: 2, text: '    if (!this.vertices[startVertexKey]) {' },
   { stage: 2, text: '      this.addVertex(startVertexKey);' },

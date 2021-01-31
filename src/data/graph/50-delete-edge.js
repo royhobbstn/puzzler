@@ -18,7 +18,6 @@ const solution = [
   { stage: 0, text: '    this.isDirected = isDirected === true;' },
   { stage: 0, text: '    this.adjList = {};' },
   { stage: 0, text: '    this.vertices = {};' },
-  { stage: 0, text: '    this.tempSet = [];' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 1, text: '  deleteEdge(startVertexKey, endVertexKey) {' },
@@ -34,19 +33,56 @@ const solution = [
 
 export const data = {
   problemID: 50,
-  problemName: `Implement the deleteEdge method for a Graph class.`,
-  problemText: `Implement a deleteEdge method that accepts a startingVertex key and an endingVertex key, with no return value.`,
+  problemName: `Implement the **deleteEdge** method for a *Graph* class.`,
+  problemText: `Implement a **deleteEdge** method that accepts a \`startingVertex\` key (string) and an \`endingVertex\` key (string), with no return value.`,
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const graph=new Graph();`,
-      evaluate: `graph;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(graph);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'add edge, then delete. Check edge.',
+      inherit: [1],
+      code: `graph.addEdge('A', 'B');graph.deleteEdge('A', 'B');`,
+      evaluate: `Boolean(graph.adjList['A'] && graph.adjList['A']['B']);`,
+      expected: false,
+    },
+    {
+      id: 2,
+      name: 'add edge, then delete. Check reverse edge on undirected graph.',
+      inherit: [],
+      code: `const graph=new Graph(false);graph.addEdge('A', 'B');graph.deleteEdge('A', 'B');`,
+      evaluate: `Boolean(graph.adjList['B'] && graph.adjList['B']['A']);`,
+      expected: false,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  Graph.prototype.addVertex = function(key) {
+    const vertex = new Vertex(key);
+    this.vertices[key] = vertex;
+    if (!this.adjList[key]) {
+      this.adjList[key] = {};
+    }
+  };
+  Graph.prototype.addEdge = function(startVertexKey, endVertexKey, edgeWeight = 1) {
+    if (!this.vertices[startVertexKey]) {
+      this.addVertex(startVertexKey);
+    }
+    if (!this.vertices[endVertexKey]) {
+      this.addVertex(endVertexKey);
+    }
+    const edge = new Edge(edgeWeight);
+    this.adjList[startVertexKey][endVertexKey] = edge;
+    if (!this.isDirected) {
+      this.adjList[endVertexKey][startVertexKey] = edge;
+    }
+  };
+  `,
   category: GRAPH,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
