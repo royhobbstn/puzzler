@@ -20,7 +20,7 @@ const solution = [
   { stage: 0, text: '    this.vertices = {};' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: -1, text: '  // IMPLEMENTED: callback(key: string) void' },
+  { stage: -1, text: '  // IMPLEMENTED: callback(vertex: Vertex) void' },
   { stage: -1, text: '' },
   { stage: 0, text: '  bfs(startVertexKey, callback = this.callback) {' },
   { stage: 1, text: '    const queue = [];' },

@@ -44,19 +44,69 @@ const solution = [
 
 export const data = {
   problemID: 55,
-  problemName: `Implement the delete method for a Trie class.`,
-  problemText: `Implement a delete method that takes in a word (string) and removes it from the Trie.`,
+  problemName: `Implement the **delete** method for a *Trie* class.`,
+  problemText: `Implement a **delete** method that takes in a \`word\` (string) and removes it from the Trie.`,
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const trie=new Trie();`,
-      evaluate: `trie;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(trie);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'insert, delete.  search is false.',
+      inherit: [1],
+      code: `trie.insert('daniel');trie.insert('david');trie.delete('daniel');`,
+      evaluate: `trie.search('daniel');`,
+      expected: false,
+    },
+    {
+      id: 3,
+      name: 'insert, delete.  search for non-deleted is true.',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `trie.search('david');`,
+      expected: true,
+    },
+    {
+      id: 4,
+      name: 'delete remaining word.  search should be false.',
+      inherit: [1, 2],
+      code: `trie.delete('david');`,
+      evaluate: `trie.search('david');`,
+      expected: false,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  Trie.prototype.insert = function(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const ch = word.charAt(i);
+      let node = current.children[ch];
+      if (node == null) {
+        node = new TrieNode();
+        current.children[ch] = node;
+      }
+      current = node;
+    }
+    current.endOfWord = true;
+  };
+  Trie.prototype.search = function(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const ch = word.charAt(i);
+      const node = current.children[ch];
+      if (node == null) {
+        return false;
+      }
+      current = node;
+    }
+    return current.endOfWord;
+  };
+  `,
   category: TRIE,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,

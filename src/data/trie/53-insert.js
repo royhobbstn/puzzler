@@ -33,19 +33,48 @@ const solution = [
 
 export const data = {
   problemID: 53,
-  problemName: `Implement the insert method for a Trie class.`,
-  problemText: `Implement an insert method that takes a word (string) as a parameter, with no return value.`,
+  problemName: `Implement the **insert** method for a *Trie* class.`,
+  problemText: `Implement an **insert** method that takes a \`word\` (string) as a parameter, with no return value.`,
   testCases: [
     {
       id: 1,
       name: 'compiles',
       inherit: [],
       code: `const trie=new Trie();`,
-      evaluate: `trie;`,
-      expected: `{"head":null,"tail":null}`,
+      evaluate: `Boolean(trie);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'insert word, search true',
+      inherit: [1],
+      code: `trie.insert('daniel');`,
+      evaluate: `trie.search('daniel');`,
+      expected: true,
+    },
+    {
+      id: 3,
+      name: 'insert word, search half of that word.  return false',
+      inherit: [1, 2],
+      code: ``,
+      evaluate: `trie.search('dan');`,
+      expected: false,
     },
   ],
-  setupCode: '',
+  setupCode: `
+  Trie.prototype.search = function(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const ch = word.charAt(i);
+      const node = current.children[ch];
+      if (node == null) {
+        return false;
+      }
+      current = node;
+    }
+    return current.endOfWord;
+  };
+  `,
   category: TRIE,
   type: DATA_STRUCTURE,
   difficulty: BEGINNER,
