@@ -2,9 +2,7 @@ import { HASH_TABLE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
   { stage: -1, text: '// class LinkedList {' },
-  { stage: -1, text: '//' },
   { stage: -1, text: '//   findKey(key: string) LinkedListNode' },
-  { stage: -1, text: '// ' },
   { stage: -1, text: '// }' },
   { stage: -1, text: '//' },
   { stage: -1, text: '// All code above is implicitly included in your environment' },

@@ -58,6 +58,7 @@ function TestCaseTable() {
           <Table.Row>
             <Table.HeaderCell style={{ textAlign: 'center' }}>ID</Table.HeaderCell>
             <Table.HeaderCell style={{ textAlign: 'center' }}>Code</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Expected</Table.HeaderCell>
             <Table.HeaderCell>Actual</Table.HeaderCell>
             <Table.HeaderCell>Error</Table.HeaderCell>
@@ -98,6 +99,7 @@ function TestCaseTable() {
                     }}
                   ></Icon>
                 </Table.Cell>
+                <Table.Cell>{test.name}</Table.Cell>
                 <Table.Cell>
                   {typeof test.expected !== 'string'
                     ? JSON.stringify(test.expected)

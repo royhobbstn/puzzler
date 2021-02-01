@@ -29,7 +29,7 @@ function TabCards() {
   }
 
   return (
-    <Card fluid color="red" raised={true} style={{ height: 'calc(32vh - 40px)' }}>
+    <Card fluid raised={true} style={{ height: 'calc(32vh - 40px)' }}>
       <p style={{ padding: '10px 0 0 10px' }}>
         <span
           className={activeIndex === 0 ? 'pane-base chosen-pane' : 'pane-base'}
