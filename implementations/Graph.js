@@ -93,10 +93,11 @@ class Graph {
     queue.push(startVertexKey);
 
     while (queue.length) {
-      const vertex = queue.shift();
-      if (!visited[vertex]) {
-        fn(vertex);
-        for (let adjacent of Object.keys(this.adjList[vertex] || [])) {
+      const vertexKey = queue.shift();
+      if (!visited[vertexKey]) {
+        fn(vertexKey);
+        visited[vertexKey] = true;
+        for (let adjacent of Object.keys(this.adjList[vertexKey] || {})) {
           queue.push(adjacent);
         }
       }
