@@ -7,7 +7,7 @@ const solution = [
   { stage: 2, text: '  }' },
   { stage: 2, text: '' },
   { stage: 3, text: '  isEmpty() {' },
-  { stage: 0, text: '    return !this.items.length;' },
+  { stage: 5, text: '    return !this.items.length;' },
   { stage: 3, text: '  }' },
   { stage: 3, text: '' },
   { stage: 3, text: '  peek() {' },
