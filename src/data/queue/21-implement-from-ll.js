@@ -53,9 +53,16 @@ const solution = [
 
 export const data = {
   problemID: 21,
-  problemName: 'Implement a Queue using a *Linked List*',
-  problemText:
-    'Given a *Queue* class, implement the following methods: **isEmpty** (which returns a Boolean value indicating if there are any items in the queue), **peek** (which returns - but does not remove - the value at the head of the queue), **enqueue** (which adds a value to the end of the queue - does not return anything), and **dequeue** (which removes and returns the value at the head of the queue).  Base the implementation on the given *LinkedList* base data structure.  Return `null` for **peek** and **dequeue** if the queue is empty.',
+  problemName: 'Implement a *Queue* using a *Linked List*',
+  problemText: `
+Given a *Queue* class, implement the following methods: 
+    
+ - **isEmpty** (which returns a Boolean value indicating if there are any items in the queue)
+ - **peek** (which returns - but does not remove - the value at the head of the queue)
+ - **enqueue** (which adds a value to the end of the queue - does not return anything)
+ - **dequeue** (which removes and returns the value at the head of the queue).  
+    
+Base the implementation on the given *LinkedList* base data structure.  Return \`null\` for **peek** and **dequeue** if the queue is empty.`,
   testCases: [
     {
       id: 1,
