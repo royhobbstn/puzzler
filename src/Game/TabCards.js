@@ -44,6 +44,33 @@ function TabCards() {
         >
           Test Results
         </span>
+        <span style={{ float: 'right' }}>
+          {' '}
+          <span style={{ fontVariant: 'small-caps' }}>
+            {data.type} / {data.category}
+          </span>
+          <span
+            style={{
+              backgroundColor: 'azure',
+              color: 'black',
+              display: 'inline-block',
+              border: '1px solid darkslategrey',
+              borderRadius: '50%',
+              width: '1.5em',
+              height: '1.5em',
+              lineHeight: '1.25em',
+              verticalAlign: 'center',
+              boxShadow: '1px 1px 2px lightslategrey',
+              cursor: 'default',
+              marginRight: '1em',
+              marginLeft: '1em',
+              textAlign: 'center',
+            }}
+            title={data.difficulty}
+          >
+            {data.difficulty.slice(0, 1)}
+          </span>
+        </span>
       </p>
 
       <Card.Content style={{ height: 'calc(32vh - 70px)', overflowY: 'scroll' }}>

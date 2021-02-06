@@ -22,7 +22,14 @@ function TestCodeModal() {
       <Modal.Header>Test Code</Modal.Header>
       <Modal.Content>
         <div
-          style={{ whiteSpace: 'pre' }}
+          style={{
+            whiteSpace: 'pre',
+            border: '1px dotted cornflowerblue',
+            backgroundColor: 'lavender',
+            borderRadius: '5px',
+            padding: '1em',
+            fontFamily: 'monospace',
+          }}
           dangerouslySetInnerHTML={{ __html: hljs.highlight('javascript', noteCode).value }}
         ></div>
       </Modal.Content>

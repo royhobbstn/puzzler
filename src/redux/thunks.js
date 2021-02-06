@@ -24,7 +24,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
       .evaluate(
         value +
           data.setupCode +
-          constructTest(data.testCases, test.inherit, test.code, test.evaluate),
+          constructTest(data.testCases, test.inherit, test.code, test.evaluate, '').test,
       )
       .catch(e => {
         error = e.message;

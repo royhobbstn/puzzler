@@ -1,19 +1,22 @@
 import { getPersonalBests } from './personalBests.js';
 
-export function constructTest(testCases, inherit, code, evaluate) {
-  let test = ';';
+export function constructTest(testCases, inherit, code, evaluate, setupCode) {
+  let inheritedCode = ';';
 
   for (let idRef of inherit) {
     const foundCase = testCases.find(d => d.id === idRef);
     if (foundCase) {
-      test += foundCase.code;
+      inheritedCode += foundCase.code;
     } else {
       console.error(`Could not find testCase id: ${idRef}`);
     }
   }
 
-  test += code + evaluate;
-  return test;
+  const test = inheritedCode + code + evaluate;
+
+  const text = `/* Test Code */\n\n\n${inheritedCode}${code}\n\n\n/* Evaluation Code */\n\n\n${evaluate}\n\n\n/* Implicit Code Below */\n\n\n${setupCode}`;
+
+  return { test, text };
 }
 
 export function convertToSeconds(hours, minutes, seconds) {

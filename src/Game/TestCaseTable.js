@@ -89,7 +89,8 @@ function TestCaseTable() {
                         test.inherit,
                         test.code,
                         test.evaluate,
-                      );
+                        data.setupCode,
+                      ).text;
                       const formatted = prettier.format(constructedTest, {
                         parser: 'babel',
                         plugins: [parserBabel],

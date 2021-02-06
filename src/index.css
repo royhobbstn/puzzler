@@ -73,13 +73,18 @@ th {
 }
 
 .pane-base {
+  color: blue;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: lighter;
+  text-decoration: underline;
 }
 
 .chosen-pane {
-  color: blue;
+  color: black;
   font-weight: bolder;
+  font-size: medium;
+  cursor: default;
+  text-decoration: none;
 }
 
 .ui.card > .content,
