@@ -2,7 +2,7 @@
   "name": "puzzler",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://royhobbstn.github.io/puzzler",
+  "homepage": "https://www.danieltrone.com/puzzler",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
     "comlink": "^4.3.0",

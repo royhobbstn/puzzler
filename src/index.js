@@ -9,7 +9,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/webpack-resolver';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import storageSession from 'redux-persist/lib/storage/session';
@@ -55,9 +55,9 @@ let persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <Router>
+      <HashRouter>
         <App />
-      </Router>
+      </HashRouter>
     </PersistGate>
   </Provider>,
   document.getElementById('root'),
