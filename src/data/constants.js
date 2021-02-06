@@ -1,9 +1,9 @@
 export const DATA_STRUCTURE = 'data-structure';
 export const ALGORITHM = 'algorithm';
 
-export const BEGINNER = 'B';
-export const INTERMEDIATE = 'I';
-export const ADVANCED = 'A';
+export const BEGINNER = 'Beginner';
+export const INTERMEDIATE = 'Intermediate';
+export const ADVANCED = 'Advanced';
 
 export const LINKED_LIST = 'Linked List';
 export const DOUBLY_LINKED_LIST = 'Doubly Linked List';

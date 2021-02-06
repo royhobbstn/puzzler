@@ -8,8 +8,8 @@ const converter = new showdown.Converter();
 
 function ProblemTextModal() {
   const dispatch = useDispatch();
-  const showModal = useSelector(state => state.game.showModal);
-  const activeProblemText = useSelector(state => state.game.activeProblemText);
+  const showModal = useSelector(state => state.filter.showModal);
+  const activeProblemText = useSelector(state => state.filter.activeProblemText);
 
   return (
     <Modal

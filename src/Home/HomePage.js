@@ -20,7 +20,6 @@ export default function HomePage() {
 
       <div
         style={{
-          border: '1px solid yellow',
           position: 'absolute',
           top: 'calc(40px + 3vh)',
           left: '58vw',

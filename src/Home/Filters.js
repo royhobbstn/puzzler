@@ -71,7 +71,6 @@ function Filters() {
 
   return (
     <div
-      className="ui card"
       style={{
         width: '100%',
         height: '100%',
@@ -85,7 +84,7 @@ function Filters() {
             position: 'absolute',
             top: '0',
             left: '0',
-            height: 'calc(48vh - 40px)',
+            height: 'calc(47vh - 40px)',
             width: '18vw',
           }}
         >
@@ -96,7 +95,7 @@ function Filters() {
             position: 'absolute',
             top: '0',
             left: '19vw',
-            height: 'calc(48vh - 40px)',
+            height: 'calc(47vh - 40px)',
             width: '36vw',
           }}
         >

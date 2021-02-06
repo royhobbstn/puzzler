@@ -103,9 +103,11 @@ function ResultsCard() {
                             lineHeight: '1.25em',
                             verticalAlign: 'center',
                             boxShadow: '1px 1px 2px lightslategrey',
+                            cursor: 'default',
                           }}
+                          title={problem.difficulty}
                         >
-                          {problem.difficulty}
+                          {problem.difficulty.slice(0, 1)}
                         </span>
                       </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
