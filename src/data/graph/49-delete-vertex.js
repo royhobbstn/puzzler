@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -39,7 +39,7 @@ const solution = [
 export const data = {
   problemID: 49,
   problemName: `Implement the **deleteVertex** method for a *Graph* class.`,
-  problemText: `Implement a **deleteVertex** method that accepts a \`vertexKey\` (string), with no return value.`,
+  problemText: `Implement a **deleteVertex** method that accepts a \`vertexKey\` (string), with no return value.  You must delete all items in the adjacency list which use that vertex.`,
   testCases: [
     {
       id: 1,
@@ -98,7 +98,7 @@ export const data = {
   `,
   category: GRAPH,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 180],

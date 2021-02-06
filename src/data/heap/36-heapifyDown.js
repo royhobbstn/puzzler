@@ -1,4 +1,4 @@
-import { HEAP, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { HEAP, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },
@@ -125,7 +125,7 @@ export const data = {
   `,
   category: HEAP,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 240],

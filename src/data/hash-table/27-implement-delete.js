@@ -1,4 +1,4 @@
-import { HASH_TABLE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { HASH_TABLE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: -1, text: '// class LinkedList {' },
@@ -162,7 +162,7 @@ export const data = {
   `,
   category: HASH_TABLE,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 150],

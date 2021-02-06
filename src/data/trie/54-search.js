@@ -1,4 +1,4 @@
-import { TRIE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { TRIE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class TrieNode {' },
@@ -85,7 +85,7 @@ export const data = {
   `,
   category: TRIE,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 180],

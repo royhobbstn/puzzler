@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -104,7 +104,7 @@ export const data = {
   `,
   category: GRAPH,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 180],

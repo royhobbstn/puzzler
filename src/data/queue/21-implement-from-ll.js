@@ -1,4 +1,4 @@
-import { QUEUE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { QUEUE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: -1, text: '//  class LinkedListNode {' },
@@ -189,7 +189,7 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
   `,
   category: QUEUE,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 240],

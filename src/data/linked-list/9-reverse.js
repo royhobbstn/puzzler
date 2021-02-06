@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { LINKED_LIST, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
@@ -14,10 +14,10 @@ const solution = [
   { stage: 0, text: '    this.tail = null;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 1, text: '  reverse() {' },
-  { stage: 2, text: '    let currNode = this.head;' },
-  { stage: 3, text: '    let prevNode = null;' },
-  { stage: 3, text: '    let nextNode = null;' },
+  { stage: 0, text: '  reverse() {' },
+  { stage: 1, text: '    let currNode = this.head;' },
+  { stage: 2, text: '    let prevNode = null;' },
+  { stage: 2, text: '    let nextNode = null;' },
   { stage: 3, text: '' },
   { stage: 4, text: '    while (currNode) {' },
   { stage: 5, text: '      nextNode = currNode.next;' },
@@ -30,7 +30,7 @@ const solution = [
   { stage: 7, text: '    this.head = prevNode;' },
   { stage: 3, text: '' },
   { stage: 2, text: '    return this;' },
-  { stage: 1, text: '  }' },
+  { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
@@ -40,7 +40,7 @@ export const data = {
   problemID: 9,
   problemName: 'Reverse a *Linked List*.',
   problemText:
-    'Write a method to reverse a Linked List in-place (not using a copy) which then returns itself.',
+    'Write a **reverse** method to reverse a Linked List in-place (not using a copy) which then returns itself.',
   testCases: [
     {
       id: 1,
@@ -91,7 +91,7 @@ export const data = {
   `,
   category: LINKED_LIST,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 240],

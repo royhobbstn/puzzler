@@ -1,4 +1,4 @@
-import { STACK, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { STACK, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '//' },
@@ -168,7 +168,7 @@ export const data = {
   `,
   category: STACK,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 240],

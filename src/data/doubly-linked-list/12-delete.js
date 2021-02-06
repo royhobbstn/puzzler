@@ -1,4 +1,4 @@
-import { DOUBLY_LINKED_LIST, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { DOUBLY_LINKED_LIST, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class DoublyLinkedListNode {' },
@@ -162,7 +162,7 @@ export const data = {
   `,
   category: DOUBLY_LINKED_LIST,
   type: DATA_STRUCTURE,
-  difficulty: BEGINNER,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 420],

@@ -1,4 +1,4 @@
-import { FIBONACCI, ALGORITHM, BEGINNER } from '../constants.js';
+import { FIBONACCI, ALGORITHM, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: 1, text: 'function fibonacciNth(n) {' },
@@ -104,7 +104,7 @@ export const data = {
   setupCode: '',
   category: FIBONACCI,
   type: ALGORITHM,
-  difficulty: BEGINNER,
+  difficulty: INTERMEDIATE,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 210],
