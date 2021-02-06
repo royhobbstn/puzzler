@@ -38,7 +38,7 @@ const solution = [
 
 export const data = {
   problemID: 9,
-  problemName: 'Reverse a Linked List.',
+  problemName: 'Reverse a *Linked List*.',
   problemText:
     'Write a method to reverse a Linked List in-place (not using a copy) which then returns itself.',
   testCases: [
