@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/puzzler/static/css/main.5a47f319.chunk.css",
-    "main.js": "/puzzler/static/js/main.06011e7a.chunk.js",
-    "main.js.map": "/puzzler/static/js/main.06011e7a.chunk.js.map",
+    "main.css": "/puzzler/static/css/main.1760be74.chunk.css",
+    "main.js": "/puzzler/static/js/main.42094349.chunk.js",
+    "main.js.map": "/puzzler/static/js/main.42094349.chunk.js.map",
     "runtime-main.js": "/puzzler/static/js/runtime-main.568c5661.js",
     "runtime-main.js.map": "/puzzler/static/js/runtime-main.568c5661.js.map",
     "static/css/2.db771b51.chunk.css": "/puzzler/static/css/2.db771b51.chunk.css",
@@ -423,10 +423,10 @@
     "mode-groovy.js": "/puzzler/fe6efc8bf7b948aa275d980518b286b7.js",
     "theme-gruvbox.js": "/puzzler/feff703ce532f20391dfed8199b6971e.js",
     "index.html": "/puzzler/index.html",
-    "precache-manifest.6de60a2e694f69328bc43071e19da8e3.js": "/puzzler/precache-manifest.6de60a2e694f69328bc43071e19da8e3.js",
+    "precache-manifest.aa87e10b641e53a1f6cab2370b1e3563.js": "/puzzler/precache-manifest.aa87e10b641e53a1f6cab2370b1e3563.js",
     "service-worker.js": "/puzzler/service-worker.js",
     "static/css/2.db771b51.chunk.css.map": "/puzzler/static/css/2.db771b51.chunk.css.map",
-    "static/css/main.5a47f319.chunk.css.map": "/puzzler/static/css/main.5a47f319.chunk.css.map",
+    "static/css/main.1760be74.chunk.css.map": "/puzzler/static/css/main.1760be74.chunk.css.map",
     "static/js/2.6d7e90b3.chunk.js.LICENSE.txt": "/puzzler/static/js/2.6d7e90b3.chunk.js.LICENSE.txt",
     "static/js/worker.645b15e5.worker.js": "/puzzler/static/js/worker.645b15e5.worker.js",
     "static/js/worker.645b15e5.worker.js.map": "/puzzler/static/js/worker.645b15e5.worker.js.map",
@@ -436,7 +436,7 @@
     "static/js/runtime-main.568c5661.js",
     "static/css/2.db771b51.chunk.css",
     "static/js/2.6d7e90b3.chunk.js",
-    "static/css/main.5a47f319.chunk.css",
-    "static/js/main.06011e7a.chunk.js"
+    "static/css/main.1760be74.chunk.css",
+    "static/js/main.42094349.chunk.js"
   ]
 }
