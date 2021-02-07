@@ -47,7 +47,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
     }
 
     // determine if actual === expected
-    const ok = test.expected === representation;
+    const ok = test.expected === representation && !error;
 
     // format for display in table
     const presentation =

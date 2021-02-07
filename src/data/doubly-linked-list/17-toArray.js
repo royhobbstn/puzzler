@@ -35,7 +35,7 @@ export const data = {
   problemID: 17,
   problemName: 'Implement **toArray** in a *DoublyLinkedList* class.',
   problemText:
-    "Provide a class method **toArray** that converts `DoublyLinkedListNode` `value`'s in a *DoublyLinkedList* into array elements in matching order.",
+    "Provide a class method **toArray** that converts *DoublyLinkedListNode* `value`'s in a *DoublyLinkedList* into array elements in matching order.",
   testCases: [
     {
       id: 1,

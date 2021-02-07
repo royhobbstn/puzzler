@@ -21,8 +21,11 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 1, text: '  deleteEdge(startVertexKey, endVertexKey) {' },
-  { stage: 2, text: '    delete this.adjList[startVertexKey][endVertexKey];' },
-  { stage: 3, text: '    if (!this.isDirected) {' },
+  { stage: 2, text: '    if (this.adjList[startVertexKey]) {' },
+  { stage: 2, text: '      delete this.adjList[startVertexKey][endVertexKey];' },
+  { stage: 2, text: '    }' },
+  { stage: 2, text: '' },
+  { stage: 3, text: '    if (!this.isDirected && this.adjList[endVertexKey]) {' },
   { stage: 3, text: '      delete this.adjList[endVertexKey][startVertexKey];' },
   { stage: 3, text: '    }' },
   { stage: 1, text: '  }' },
@@ -34,7 +37,7 @@ const solution = [
 export const data = {
   problemID: 50,
   problemName: `Implement the **deleteEdge** method for a *Graph* class.`,
-  problemText: `Implement a **deleteEdge** method that accepts a \`startingVertex\` key (string) and an \`endingVertex\` key (string), with no return value.`,
+  problemText: `Implement a **deleteEdge** method that accepts a \`startingVertex\` key (string) and an \`endingVertex\` key (string), with no return value.  Account for directed and undirected graphs.`,
   testCases: [
     {
       id: 1,
@@ -53,12 +56,28 @@ export const data = {
       expected: false,
     },
     {
-      id: 2,
+      id: 3,
       name: 'add edge, then delete. Check reverse edge on undirected graph.',
       inherit: [],
       code: `const graph=new Graph(false);graph.addEdge('A', 'B');graph.deleteEdge('A', 'B');`,
       evaluate: `Boolean(graph.adjList['B'] && graph.adjList['B']['A']);`,
       expected: false,
+    },
+    {
+      id: 4,
+      name: 'trying to delete edge that does not exist should not throw error.',
+      inherit: [],
+      code: `const graph=new Graph();`,
+      evaluate: `graph.deleteEdge('A', 'B');`,
+      expected: undefined,
+    },
+    {
+      id: 5,
+      name: 'trying to delete reverse edge that does not exist should not throw error.',
+      inherit: [],
+      code: `const graph=new Graph(false);`,
+      evaluate: `graph.deleteEdge('A', 'B');`,
+      expected: undefined,
     },
   ],
   setupCode: `

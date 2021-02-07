@@ -20,7 +20,7 @@ const solution = [
 export const data = {
   problemID: 30,
   problemName: `Implement the **peek** method for a *MinHeap* class.`,
-  problemText: `Implement a **peek** method that will return the value of the first (next-up) item in a *MinHeap*.`,
+  problemText: `Implement a **peek** method that will return the value of the first (next-up) item in a *MinHeap*.  Return \`null\` instead if there are no items in the heap.`,
   testCases: [
     {
       id: 1,
