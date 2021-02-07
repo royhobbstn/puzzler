@@ -1,5 +1,12 @@
 import { getPersonalBests } from './personalBests.js';
 
+export const HOME_PAGE = '/';
+export const SESSION_STATS_PAGE = '/sessionStats';
+export const HISTORIC_STATS_PAGE = '/historicStats';
+export const GAME_PAGE = '/:id';
+
+export const BLANK_TIME = '00:00:00';
+
 export function constructTest(testCases, inherit, code, evaluate, setupCode) {
   let inheritedCode = ';';
 
@@ -25,7 +32,7 @@ export function convertToSeconds(hours, minutes, seconds) {
 
 export function convertToTimer(secondsRaw) {
   if (!secondsRaw) {
-    return `00:00:00`;
+    return BLANK_TIME;
   }
   const { hours, minutes, seconds } = convertToHoursMinutesSeconds(secondsRaw);
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(

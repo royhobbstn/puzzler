@@ -38,3 +38,9 @@ export function getPersonalBests() {
     return personalBests;
   }
 }
+
+export function clearPersonalBests() {
+  const personalBests = {};
+  localStorage.setItem(PERSONAL_BESTS, JSON.stringify(personalBests));
+  return personalBests;
+}

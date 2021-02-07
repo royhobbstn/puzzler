@@ -1,18 +1,19 @@
 import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
-import { getPersonalBests } from './personalBests.js';
+import { getPersonalBests, clearPersonalBests } from './personalBests.js';
 import { inventory } from './data/inventory.js';
-import { convertToTimer } from './util.js';
-import { useDispatch, useSelector } from 'react-redux';
+import { convertToTimer, BLANK_TIME } from './util.js';
+import { useDispatch } from 'react-redux';
 import showdown from 'showdown';
-import { setSessionHistory } from './redux/gameStore';
 import { setActiveProblemText, setShowModal } from './redux/filterStore';
 const converter = new showdown.Converter();
 
-function SessionStats() {
+function HistoricStats() {
   const dispatch = useDispatch();
-  const sessionHistory = useSelector(state => state.game.sessionHistory);
-  const personalBests = getPersonalBests();
+  let [forceUpdate, setForceUpdate] = React.useState(0);
+  let personalBests = getPersonalBests();
+
+  console.log({ personalBests });
 
   const showModalMarkdown = problemText => {
     dispatch(setActiveProblemText(problemText));
@@ -22,7 +23,7 @@ function SessionStats() {
   return (
     <div style={{ paddingBottom: '30px' }}>
       <h2 style={{ margin: '0 auto', padding: '30px 0', textAlign: 'center' }}>
-        Session Statistics
+        Historic Statistics
       </h2>
 
       <Table style={{ margin: 'auto', width: '80vw', maxWidth: '1200px', letterSpacing: '1px' }}>
@@ -30,36 +31,35 @@ function SessionStats() {
           <Table.Row>
             <Table.HeaderCell>ID</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell style={{ textAlign: 'center' }}>Result</Table.HeaderCell>
             <Table.HeaderCell style={{ textAlign: 'center' }}>Best</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          {sessionHistory.map((entry, index) => {
-            const measuredTime = convertToTimer(entry.seconds);
-            const bestTime = convertToTimer(personalBests[entry.id]);
+          {Object.keys(inventory).map((key, index) => {
+            const bestTime = convertToTimer(personalBests[key]);
+            if (bestTime === BLANK_TIME) {
+              return null;
+            }
 
             return (
               <Table.Row
                 key={index}
                 style={{
-                  backgroundColor:
-                    measuredTime === bestTime ? `rgba(0,255,0,0.2)` : `rgba(255,0,0,0.2)`,
+                  backgroundColor: `lavender`,
                 }}
               >
-                <Table.Cell>{entry.id}</Table.Cell>
+                <Table.Cell>{key}</Table.Cell>
                 <Table.Cell>
                   <div
                     style={{ display: 'inline' }}
                     className="hover-link"
-                    onClick={() => showModalMarkdown(inventory[entry.id].problemText)}
+                    onClick={() => showModalMarkdown(inventory[key].problemText)}
                     dangerouslySetInnerHTML={{
-                      __html: converter.makeHtml(inventory[entry.id].problemName),
+                      __html: converter.makeHtml(inventory[key].problemName),
                     }}
                   ></div>
                 </Table.Cell>
-                <Table.Cell style={{ textAlign: 'center' }}>{measuredTime}</Table.Cell>
                 <Table.Cell style={{ textAlign: 'center' }}>{bestTime}</Table.Cell>
               </Table.Row>
             );
@@ -67,10 +67,8 @@ function SessionStats() {
         </Table.Body>
       </Table>
 
-      {!sessionHistory.length ? (
-        <p style={{ padding: '10px', margin: 'auto', width: '80vw' }}>
-          The session history is empty.
-        </p>
+      {!Object.keys(personalBests).length ? (
+        <p style={{ padding: '10px', margin: 'auto', width: '80vw' }}>The history is empty.</p>
       ) : (
         <div
           style={{
@@ -81,7 +79,8 @@ function SessionStats() {
           <Button
             style={{ width: '138px', display: 'block', margin: 'auto' }}
             onClick={() => {
-              dispatch(setSessionHistory([]));
+              clearPersonalBests();
+              setForceUpdate(forceUpdate + 1);
             }}
           >
             Clear Stats
@@ -92,4 +91,4 @@ function SessionStats() {
   );
 }
 
-export default SessionStats;
+export default HistoricStats;

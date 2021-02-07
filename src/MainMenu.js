@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { Menu, Button, Icon, Popup } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertToTimer, colorCodeTime } from './util.js';
+import {
+  convertToTimer,
+  colorCodeTime,
+  HOME_PAGE,
+  GAME_PAGE,
+  SESSION_STATS_PAGE,
+  HISTORIC_STATS_PAGE,
+} from './util.js';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory.js';
 import { clickRun } from './redux/thunks';
@@ -14,7 +21,7 @@ import {
 } from './redux/gameStore';
 import { shiftSelection, pressReset } from './redux/filterStore';
 
-function MainMenu() {
+function MainMenu({ page }) {
   const dispatch = useDispatch();
   const isBusyTesting = useSelector(state => state.game.isBusyTesting);
   const revealButtonPressed = useSelector(state => state.game.revealButtonPressed);
@@ -40,7 +47,7 @@ function MainMenu() {
 
   return (
     <Menu>
-      {data && id ? (
+      {page !== HOME_PAGE ? (
         <Menu.Item>
           <Button.Group>
             <Popup
@@ -64,7 +71,7 @@ function MainMenu() {
           Puzzler
         </span>
       </Menu.Item>
-      {!id ? (
+      {page === HOME_PAGE ? (
         <Menu.Item>
           <Button.Group>
             <Popup
@@ -83,12 +90,12 @@ function MainMenu() {
           </Button.Group>
         </Menu.Item>
       ) : null}
-      {data && id ? (
+      {page === GAME_PAGE ? (
         <React.Fragment>
           <Menu.Item>
             <Button.Group>
               <Popup
-                content="Run Tests"
+                content="Run Tests (ctrl-m)"
                 trigger={
                   <Button
                     icon
@@ -208,23 +215,46 @@ function MainMenu() {
       ) : null}
 
       <Menu.Item position="right">
-        <Popup
-          content="See Session Stats"
-          trigger={
-            <Button
-              icon
-              onClick={() => {
-                // if not on homepage
-                if (id) {
-                  dispatch(clickSkipToResults(id));
-                }
-                history.push('/sessionStats');
-              }}
-            >
-              <Icon name="file alternate outline" />
-            </Button>
-          }
-        />
+        {page !== SESSION_STATS_PAGE ? (
+          <Popup
+            content="See Session Stats"
+            trigger={
+              <Button
+                icon
+                style={{ marginRight: '10px' }}
+                onClick={() => {
+                  // if not on homepage
+                  if (id) {
+                    dispatch(clickSkipToResults(id));
+                  }
+                  history.push('/sessionStats');
+                }}
+              >
+                <Icon name="file alternate outline" />
+              </Button>
+            }
+          />
+        ) : null}
+
+        {page !== HISTORIC_STATS_PAGE ? (
+          <Popup
+            content="See Historic Stats"
+            trigger={
+              <Button
+                icon
+                onClick={() => {
+                  // if not on homepage
+                  if (id) {
+                    dispatch(clickSkipToResults(id));
+                  }
+                  history.push('/historicStats');
+                }}
+              >
+                <Icon name="history" />
+              </Button>
+            }
+          />
+        ) : null}
       </Menu.Item>
     </Menu>
   );
