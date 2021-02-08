@@ -26,9 +26,9 @@ export const data = {
   problemID: 29,
   problemName: `Implement parent index functions for a *MinHeap* class.`,
   problemText: `Implement the following methods for the *MinHeap* data structure:  
-  **getParentIndex** (childIndex: integer) => integer  
-  **hasParent** (childIndex: integer) => boolean  
-  **parent** (childIndex: integer) => heap value  
+   - **getParentIndex** (childIndex: integer) => integer  
+   - **hasParent** (childIndex: integer) => boolean  
+   - **parent** (childIndex: integer) => heap value  
 `,
   testCases: [
     {

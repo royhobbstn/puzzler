@@ -40,12 +40,12 @@ export const data = {
   problemID: 28,
   problemName: `Implement child index functions for a *MinHeap* class.`,
   problemText: `Implement the following methods for the *MinHeap* data structure:  
-  **getLeftChildIndex** (parentIndex: integer) => integer  
-  **getRightChildIndex** (parentIndex: integer) => integer  
-  **hasLeftChild** (parentIndex: integer) => boolean  
-  **hasRightChild** (parentIndex: integer) => boolean  
-  **leftChild** (parentIndex: integer) => heap value  
-  **rightChild** (parentIndex: integer) => heap value
+   - **getLeftChildIndex** (parentIndex: integer) => integer  
+   - **getRightChildIndex** (parentIndex: integer) => integer  
+   - **hasLeftChild** (parentIndex: integer) => boolean  
+   - **hasRightChild** (parentIndex: integer) => boolean  
+   - **leftChild** (parentIndex: integer) => heap value  
+   - **rightChild** (parentIndex: integer) => heap value
 `,
   testCases: [
     {

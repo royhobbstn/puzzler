@@ -5,29 +5,29 @@ const solution = [
   { stage: 1, text: '  constructor() {' },
   { stage: 2, text: '    this.items = [];' },
   { stage: 1, text: '  }' },
-  { stage: 2, text: '' },
+  { stage: 0, text: '' },
   { stage: 3, text: '  isEmpty() {' },
   { stage: 5, text: '    return !this.items.length;' },
   { stage: 3, text: '  }' },
-  { stage: 3, text: '' },
+  { stage: 0, text: '' },
   { stage: 3, text: '  peek() {' },
   { stage: 5, text: '    if (this.isEmpty()) {' },
   { stage: 5, text: '      return null;' },
   { stage: 5, text: '    }' },
   { stage: 6, text: '    return this.items[0];' },
   { stage: 3, text: '  }' },
-  { stage: 3, text: '' },
+  { stage: 0, text: '' },
   { stage: 4, text: '  enqueue(value) {' },
   { stage: 6, text: '    this.items.push(value);' },
   { stage: 4, text: '  }' },
-  { stage: 4, text: '' },
+  { stage: 0, text: '' },
   { stage: 4, text: '  dequeue() {' },
   { stage: 7, text: '    if (this.isEmpty()) {' },
   { stage: 7, text: '      return null;' },
   { stage: 7, text: '    }' },
   { stage: 7, text: '    return this.items.shift();' },
   { stage: 4, text: '  }' },
-  { stage: 4, text: '' },
+  { stage: 0, text: '' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
 ];
@@ -39,9 +39,9 @@ export const data = {
 Given a *Queue* class, implement the following methods: 
     
  - **isEmpty** which returns a Boolean value indicating if there are any items in the queue.
- - **peek** which returns - but does not remove - the value at the head of the queue.
- - **enqueue** which adds a value to the end of the queue - does not return anything.
- - **dequeue** which removes and returns the value at the head of the queue.  
+ - **peek** which returns - but does not remove - the \`value\` at the head of the queue.
+ - **enqueue** which adds a \`value\` to the end of the queue - does not return anything.
+ - **dequeue** which removes and returns the \`value\` at the head of the queue.  
     
 Base the implementation on an *Array* base data structure.  Return \`null\` for **peek** and **dequeue** if the queue is empty.`,
   testCases: [

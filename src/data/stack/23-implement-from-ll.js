@@ -1,51 +1,59 @@
 import { STACK, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
-  { stage: 0, text: '//' },
-  { stage: 0, text: '//  class LinkedList {' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '//    prepend(value: any) LinkedList' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '//    deleteHead() LinkedListNode' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '//  }' },
-  { stage: 0, text: '//' },
-  { stage: 0, text: '// All code above is implicitly included in your environment' },
+  { stage: -1, text: '//  class LinkedList {' },
+  { stage: -1, text: '//    prepend(value: any) LinkedList' },
+  { stage: -1, text: '//    deleteHead() LinkedListNode' },
+  { stage: -1, text: '//  }' },
+  { stage: -1, text: '//  class LinkedListNode {' },
+  { stage: -1, text: '//    constructor(value, next = null) {' },
+  { stage: -1, text: '//      this.value = value;' },
+  { stage: -1, text: '//      this.next = next;' },
+  { stage: -1, text: '//    }' },
+  { stage: -1, text: '//  }' },
+  { stage: -1, text: '//' },
+  { stage: -1, text: '// All code above is implicitly included in your environment' },
   { stage: 0, text: '' },
-  { stage: 1, text: 'class Stack {' },
+  { stage: 0, text: 'class Stack {' },
   { stage: 2, text: '  constructor() {' },
   { stage: 2, text: '    this.linkedList = new LinkedList();' },
   { stage: 2, text: '  }' },
-  { stage: 2, text: '' },
+  { stage: 0, text: '' },
   { stage: 3, text: '  isEmpty() {' },
   { stage: 5, text: '    return !this.linkedList.head;' },
   { stage: 3, text: '  }' },
-  { stage: 3, text: '' },
+  { stage: 0, text: '' },
   { stage: 3, text: '  peek() {' },
   { stage: 5, text: '    if (this.isEmpty()) {' },
   { stage: 5, text: '      return null;' },
   { stage: 5, text: '    }' },
   { stage: 6, text: '    return this.linkedList.head.value;' },
   { stage: 3, text: '  }' },
-  { stage: 4, text: '' },
+  { stage: 0, text: '' },
   { stage: 4, text: '  push(value) {' },
   { stage: 6, text: '    this.linkedList.prepend(value);' },
   { stage: 4, text: '  }' },
-  { stage: 4, text: '' },
+  { stage: 0, text: '' },
   { stage: 4, text: '  pop() {' },
   { stage: 7, text: '    const removedHead = this.linkedList.deleteHead();' },
   { stage: 7, text: '    return removedHead ? removedHead.value : null;' },
   { stage: 4, text: '  }' },
   { stage: 1, text: '' },
-  { stage: 1, text: '}' },
-  { stage: 1, text: '' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
 ];
 
 export const data = {
   problemID: 23,
   problemName: 'Implement a *Stack* using a *Linked List*',
-  problemText:
-    'Given a *Stack* class, implement the following methods: **isEmpty** (which returns a boolean value indicating if there are any values in the stack), **peek** (which returns - but does not remove - the value at the top of the stack), **push** (which adds a value to the top of the stack - does not return anything), and **pop** (which removes and returns the value at the top of the stack).  Base the implementation on the given *LinkedList* base data structure.  Return `null` for **peek** and **pop** if the stack is empty.',
+  problemText: `Given a *Stack* class, implement the following methods: 
+
+   - **isEmpty**: returns a boolean value indicating if there are any values in the stack.
+   - **peek**: returns - but does not remove - the value at the top of the stack.
+   - **push**: adds a value to the top of the stack - does not return anything.
+   - **pop**: removes and returns the value at the top of the stack.
+   
+Base the implementation on the given *LinkedList* base data structure.  Return \`null\` for **peek** and **pop** if the stack is empty.`,
   testCases: [
     {
       id: 1,

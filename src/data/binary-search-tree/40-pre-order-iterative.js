@@ -1,4 +1,4 @@
-import { BINARY_SEARCH_TREE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { BINARY_SEARCH_TREE, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class BinarySearchTreeNode {' },
@@ -98,7 +98,7 @@ export const data = {
   `,
   category: BINARY_SEARCH_TREE,
   type: DATA_STRUCTURE,
-  difficulty: INTERMEDIATE,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 180],

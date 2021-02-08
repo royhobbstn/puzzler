@@ -2,10 +2,14 @@ import { HASH_TABLE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
   { stage: -1, text: '// class LinkedList {' },
-  { stage: -1, text: '//   append(key: string, value: any) LinkedList' },
-  { stage: -1, text: '//   findKey(key: string) LinkedListNode' },
   { stage: -1, text: '//   deleteKey(key: string) LinkedListNode' },
   { stage: -1, text: '// }' },
+  { stage: -1, text: '//  class LinkedListNode {' },
+  { stage: -1, text: '//    constructor(value, next = null) {' },
+  { stage: -1, text: '//      this.value = value;' },
+  { stage: -1, text: '//      this.next = next;' },
+  { stage: -1, text: '//    }' },
+  { stage: -1, text: '//  }' },
   { stage: -1, text: '//' },
   { stage: -1, text: '// All code above is implicitly included in your environment' },
   { stage: 0, text: '' },

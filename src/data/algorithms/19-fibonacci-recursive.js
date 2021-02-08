@@ -12,7 +12,7 @@ export const data = {
   problemID: 19,
   problemName: 'Implement a recursive fibonacci function.',
   problemText:
-    'Implement a function **fibonacciNth** which takes an integer parameter `n` and returns the nth indexed fibonnaci number in the sequence.  For example, n=0 would return 0, n=1 would return 1, n=2 would return 1, and n=3 would return 2. ([0,1,1,2,3,5,8,13... etc])',
+    'Implement a function **fibonacciNth** which takes an integer parameter `n` and returns the nth indexed fibonnaci number in the sequence.  For example, n=0 would return 0, n=1 would return 1, n=2 would return 1, and n=3 would return 2. ([0,1,1,2,3,5,8,13... etc]).  Please solve **recursively**.',
   testCases: [
     {
       id: 1,

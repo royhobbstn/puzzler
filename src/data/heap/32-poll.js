@@ -31,7 +31,7 @@ const solution = [
 export const data = {
   problemID: 32,
   problemName: `Implement **poll** for a *MinHeap* class.`,
-  problemText: `Implement a **poll** method for a *MinHeap* to remove and return the item at the top of the heap.`,
+  problemText: `Implement a **poll** method for a *MinHeap* to remove and return the item at the top of the heap.  If the heap is empty, return \`null\`.`,
   testCases: [
     {
       id: 1,
