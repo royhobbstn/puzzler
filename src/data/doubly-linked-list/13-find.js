@@ -41,7 +41,7 @@ export const data = {
   problemID: 13,
   problemName: 'Implement **find** in a *DoublyLinkedList* class.',
   problemText:
-    'Write a **find** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter and finds (returns) the first `DoublyLinkedListNode` that has a matching value (or null if no match found).',
+    'Write a **find** method in a *DoublyLinkedList* class that accepts an arbitrary `value` parameter and returns the first `DoublyLinkedListNode` that has a matching value (or `null` if no match found).',
   testCases: [
     {
       id: 1,

@@ -20,6 +20,7 @@ const solution = [
   { stage: 1, text: '      return;' },
   { stage: 1, text: '    }' },
   { stage: 2, text: '    queue.push(node);' },
+  { stage: 0, text: '' },
   { stage: 2, text: '    while (queue.length) {' },
   { stage: 3, text: '      const temp = queue.shift();' },
   { stage: 3, text: '      callback(temp.value);' },

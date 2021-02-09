@@ -19,7 +19,7 @@ const solution = [
   { stage: 0, text: '  traverseInOrderRecursive(node = this.root, callback = this.callback) {' },
   { stage: 1, text: '    if (!node) {' },
   { stage: 1, text: '      return;' },
-  { stage: 1, text: '    }' },
+  { stage: 0, text: '    }' },
   { stage: 2, text: '    this.traverseInOrderRecursive(node.left);' },
   { stage: 2, text: '    callback(node.value);' },
   { stage: 3, text: '    this.traverseInOrderRecursive(node.right);' },

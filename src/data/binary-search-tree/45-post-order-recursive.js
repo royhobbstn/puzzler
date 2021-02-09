@@ -23,6 +23,7 @@ const solution = [
   { stage: 2, text: '    if (node.right) {' },
   { stage: 2, text: '      this.traversePostOrderRecursive(node.right);' },
   { stage: 2, text: '    }' },
+  { stage: 0, text: '' },
   { stage: 3, text: '    callback(node.value);' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
