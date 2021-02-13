@@ -51,3 +51,33 @@ function dfsTraversal(g) {
 
   return result;
 }
+
+function checkPath(g, source, destination) {
+  if (source == destination) {
+    return true;
+  }
+
+  let visited = [];
+
+  let stack = new Stack();
+  stack.push(source);
+  visited[source] = true;
+
+  while (stack.isEmpty() == false) {
+    let current_node = stack.pop();
+
+    let temp = g.list[current_node].head;
+    while (temp != null) {
+      if (!visited[temp.data]) {
+        if (temp.data == destination) {
+          return true;
+        }
+        stack.push(temp.data);
+        visited[temp.data] = true;
+      }
+      temp = temp.nextElement;
+    }
+  }
+
+  return false;
+}
