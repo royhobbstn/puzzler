@@ -24,7 +24,7 @@ const solution = [
   { stage: -1, text: '' },
   { stage: 0, text: '  dfs(startVertexKey, callback = this.callback) {' },
   { stage: 1, text: '    const visited = {};' },
-  { stage: 1, text: '' },
+  { stage: 0, text: '' },
   { stage: 2, text: '    const traverseDfs = vertex => {' },
   { stage: 3, text: '      visited[vertex] = true;' },
   { stage: 3, text: '      callback(vertex);' },
@@ -44,8 +44,8 @@ const solution = [
 
 export const data = {
   problemID: 51,
-  problemName: `Implement a **dfs** (depth first search) method for a *Graph* class.`,
-  problemText: `Implement a **dfs** method that accepts a \`startingVertex\` key (string) and a \`callback\` function (supplied) to be run on each graph node.`,
+  problemName: `Implement a recursive **dfs** (depth first search) method for a *Graph* class.`,
+  problemText: `Implement a **dfs** method that accepts a \`startingVertex\` key (string) and a \`callback\` function (supplied) to be run on each graph node.  **Use recursion!**`,
   testCases: [
     {
       id: 1,

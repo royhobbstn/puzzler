@@ -50,7 +50,8 @@ import { data as _graph_add_vertex } from './graph/47-add-vertex.js';
 import { data as _graph_add_edge } from './graph/48-add-edge.js';
 import { data as _graph_delete_vertex } from './graph/49-delete-vertex.js';
 import { data as _graph_delete_edge } from './graph/50-delete-edge.js';
-import { data as _graph_dfs } from './graph/51-dfs.js';
+import { data as _graph_dfs_recursive } from './graph/51-dfs-recursive.js';
+import { data as _graph_dfs_iterative } from './graph/56-dfs-iterative.js';
 import { data as _graph_bfs } from './graph/52-bfs.js';
 import { data as _trie_insert } from './trie/53-insert.js';
 import { data as _trie_search } from './trie/54-search.js';
@@ -107,11 +108,12 @@ const aggregate = {
   48: _graph_add_edge,
   49: _graph_delete_vertex,
   50: _graph_delete_edge,
-  51: _graph_dfs,
+  51: _graph_dfs_recursive,
   52: _graph_bfs,
   53: _trie_insert,
   54: _trie_search,
   55: _trie_delete,
+  56: _graph_dfs_iterative,
 };
 
 let maxEffort = 0;
