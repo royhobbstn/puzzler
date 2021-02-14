@@ -17,3 +17,4 @@ export const TRIE = 'Trie';
 
 export const FIBONACCI = 'Fibonacci';
 export const BINARY_SEARCH = 'Binary Search';
+export const SORTING = 'Sorting';

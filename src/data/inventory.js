@@ -61,6 +61,8 @@ import { data as _trie_search } from './trie/54-search.js';
 import { data as _trie_delete } from './trie/55-delete.js';
 import { data as _binary_search_recursive } from './algorithms/60-binary-search-recursive.js';
 import { data as _binary_search_iterative } from './algorithms/61-binary-search-iterative.js';
+import { data as _sort_quicksort } from './sort/62-quicksort.js';
+import { data as _sort_mergesort } from './sort/63-mergesort.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -124,6 +126,8 @@ const aggregate = {
   59: _graph_shortest_path_simple,
   60: _binary_search_recursive,
   61: _binary_search_iterative,
+  62: _sort_quicksort,
+  63: _sort_mergesort,
 };
 
 let maxEffort = 0;
