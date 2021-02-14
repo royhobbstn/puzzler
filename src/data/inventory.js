@@ -59,6 +59,8 @@ import { data as _graph_shortest_path_simple } from './graph/59-shortest-path-si
 import { data as _trie_insert } from './trie/53-insert.js';
 import { data as _trie_search } from './trie/54-search.js';
 import { data as _trie_delete } from './trie/55-delete.js';
+import { data as _binary_search_recursive } from './algorithms/60-binary-search-recursive.js';
+import { data as _binary_search_iterative } from './algorithms/61-binary-search-iterative.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -120,6 +122,8 @@ const aggregate = {
   57: _graph_detect_cycle,
   58: _graph_check_path,
   59: _graph_shortest_path_simple,
+  60: _binary_search_recursive,
+  61: _binary_search_iterative,
 };
 
 let maxEffort = 0;

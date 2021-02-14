@@ -1,0 +1,83 @@
+import { BINARY_SEARCH, ALGORITHM, INTERMEDIATE } from '../constants.js';
+
+const solution = [
+  { stage: 0, text: '' },
+  { stage: 0, text: 'function binarySearchRecursive(array, n, startIndex, endIndex) {' },
+  { stage: 1, text: '  if (!startIndex) {' },
+  { stage: 1, text: '    startIndex = 0;' },
+  { stage: 1, text: '  }' },
+  { stage: 2, text: '  if (!endIndex) {' },
+  { stage: 2, text: '    endIndex = array.length - 1;' },
+  { stage: 2, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 3, text: '  let middleIndex = Math.floor((startIndex + endIndex) / 2);' },
+  { stage: 4, text: '  if (endIndex <= startIndex && array[middleIndex] !== n) {' },
+  { stage: 5, text: '    return -1;' },
+  { stage: 4, text: '  } else if (array[middleIndex] === n) {' },
+  { stage: 5, text: '    return middleIndex;' },
+  { stage: 4, text: '  } else if (array[middleIndex] < n) {' },
+  { stage: 6, text: '    return binarySearchRecursive(array, n, middleIndex + 1, endIndex);' },
+  { stage: 4, text: '  } else {' },
+  { stage: 7, text: '    return binarySearchRecursive(array, n, startIndex, middleIndex - 1);' },
+  { stage: 4, text: '  }' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 60,
+  problemName: 'Implement a recursive binary search function.',
+  problemText: `Implement a function **binarySearchRecursive** which takes an array of sorted, unique integers \`array\`, and a single integer \`n\` and returns the index where that integer is found in the array, or \`-1\` if not found.
+  Please solve **recursively**.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'case 1',
+      inherit: [],
+      code: `const arr = [1, 2, 3, 5, 7, 8, 9, 11, 13, 15, 17, 18, 21, 24, 27, 31, 34, 38, 42, 46, 50];`,
+      evaluate: `binarySearchRecursive(arr, 8);`,
+      expected: 5,
+    },
+    {
+      id: 2,
+      name: 'case 2',
+      inherit: [1],
+      code: ``,
+      evaluate: `binarySearchRecursive(arr, 13);`,
+      expected: 8,
+    },
+    {
+      id: 3,
+      name: 'case 3',
+      inherit: [1],
+      code: ``,
+      evaluate: `binarySearchRecursive(arr, 18);`,
+      expected: 11,
+    },
+    {
+      id: 4,
+      name: 'case 4',
+      inherit: [1],
+      code: ``,
+      evaluate: `binarySearchRecursive(arr, 42);`,
+      expected: 18,
+    },
+    {
+      id: 5,
+      name: 'case 5',
+      inherit: [1],
+      code: ``,
+      evaluate: `binarySearchRecursive(arr, 6);`,
+      expected: -1,
+    },
+  ],
+  setupCode: '',
+  category: BINARY_SEARCH,
+  type: ALGORITHM,
+  difficulty: INTERMEDIATE,
+  maxExecutionTime: 2,
+  solution: {
+    stages: [0, 30, 60, 90, 120, 150, 180, 240],
+    solutionLines: solution,
+  },
+};

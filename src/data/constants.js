@@ -16,3 +16,4 @@ export const GRAPH = 'Graph';
 export const TRIE = 'Trie';
 
 export const FIBONACCI = 'Fibonacci';
+export const BINARY_SEARCH = 'Binary Search';
