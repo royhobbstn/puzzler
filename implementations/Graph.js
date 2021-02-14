@@ -103,9 +103,37 @@ class Graph {
       }
     }
   }
-}
 
-// bfs
+  detectCycle() {
+    let visited = {};
+    let recNodes = {};
+
+    for (let key of Object.keys(this.adjList)) {
+      if (this.detectCycleRec(key, visited, recNodes)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  detectCycleRec(key, visited, recNodes) {
+    if (!visited[key]) {
+      visited[key] = true;
+      recNodes[key] = true;
+
+      for (let adjacentKey of Object.keys(this.adjList[key])) {
+        if (!visited[adjacentKey] && this.detectCycleRec(adjacentKey, visited, recNodes)) {
+          return true;
+        } else if (recNodes[adjacentKey]) {
+          return true;
+        }
+      }
+    }
+
+    recNodes[key] = false;
+    return false;
+  }
+}
 
 const graph = new Graph();
 
@@ -115,6 +143,8 @@ graph.addEdge('41', '10');
 graph.addEdge('41', '40');
 graph.addEdge('50', '45');
 graph.addEdge('50', '75');
+
+console.log(graph.detectCycle() === false);
 
 graph.bfs('42');
 console.log(
@@ -137,6 +167,8 @@ g2.addEdge('D', 'G');
 g2.addEdge('D', 'F');
 g2.addEdge('G', 'H');
 g2.addEdge('F', 'J');
+
+console.log(graph.detectCycle() === false);
 
 g2.bfs('A');
 console.log(
@@ -171,3 +203,10 @@ console.log(g3.adjList['C']['D'] === undefined);
 console.log(g3.adjList['F']['J'].weight === 1);
 g3.deleteEdge('F', 'J');
 console.log(g3.adjList['F']['J'] === undefined);
+
+const g4 = new Graph();
+g4.addEdge('A', 'B');
+g4.addEdge('B', 'C');
+g4.addEdge('C', 'A');
+
+console.log(g4.detectCycle() === true);
