@@ -160,6 +160,36 @@ class Graph {
 
     return false;
   }
+
+  shortestPath(source, destination) {
+    if (source == destination) {
+      return 0;
+    }
+
+    let visited = {};
+    let distance = {};
+    distance[source] = 0;
+
+    let queue = [];
+    queue.push(source);
+
+    while (queue.length) {
+      const currentKey = queue.shift();
+
+      for (let adjacentKey of Object.keys(this.adjList[currentKey])) {
+        if (!visited[adjacentKey]) {
+          queue.push(adjacentKey);
+          visited[currentKey] = true;
+          distance[adjacentKey] = distance[currentKey] + 1;
+        }
+        if (adjacentKey == destination) {
+          return distance[destination];
+        }
+      }
+    }
+
+    return -1;
+  }
 }
 
 const graph = new Graph();
@@ -177,6 +207,11 @@ console.log(graph.checkPath('42', '40') === true);
 console.log(graph.checkPath('42', '75') === true);
 console.log(graph.checkPath('42', '88') === false);
 console.log(graph.checkPath('50', '41') === false);
+
+console.log(graph.shortestPath('42', '42') === 0);
+console.log(graph.shortestPath('42', '10') === 2);
+console.log(graph.shortestPath('42', '40') === 2);
+console.log(graph.shortestPath('42', '75') === 2);
 
 console.log(graph.detectCycle() === false);
 
