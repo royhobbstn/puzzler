@@ -133,6 +133,33 @@ class Graph {
     recNodes[key] = false;
     return false;
   }
+
+  checkPath(source, destination) {
+    if (source === destination) {
+      return true;
+    }
+
+    const visited = {};
+    const stack = [];
+    stack.push(source);
+    visited[source] = true;
+
+    while (stack.length) {
+      let currentKey = stack.pop();
+
+      for (let adjacentKey of Object.keys(this.adjList[currentKey])) {
+        if (!visited[adjacentKey]) {
+          if (adjacentKey === destination) {
+            return true;
+          }
+          stack.push(adjacentKey);
+          visited[adjacentKey] = true;
+        }
+      }
+    }
+
+    return false;
+  }
 }
 
 const graph = new Graph();
@@ -143,6 +170,13 @@ graph.addEdge('41', '10');
 graph.addEdge('41', '40');
 graph.addEdge('50', '45');
 graph.addEdge('50', '75');
+
+console.log(graph.checkPath('42', '42') === true);
+console.log(graph.checkPath('42', '10') === true);
+console.log(graph.checkPath('42', '40') === true);
+console.log(graph.checkPath('42', '75') === true);
+console.log(graph.checkPath('42', '88') === false);
+console.log(graph.checkPath('50', '41') === false);
 
 console.log(graph.detectCycle() === false);
 

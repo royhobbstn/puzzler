@@ -54,6 +54,7 @@ import { data as _graph_dfs_recursive } from './graph/51-dfs-recursive.js';
 import { data as _graph_dfs_iterative } from './graph/56-dfs-iterative.js';
 import { data as _graph_bfs } from './graph/52-bfs.js';
 import { data as _graph_detect_cycle } from './graph/57-detect-cycle.js';
+import { data as _graph_check_path } from './graph/58-check-path-exists.js';
 import { data as _trie_insert } from './trie/53-insert.js';
 import { data as _trie_search } from './trie/54-search.js';
 import { data as _trie_delete } from './trie/55-delete.js';
@@ -116,6 +117,7 @@ const aggregate = {
   55: _trie_delete,
   56: _graph_dfs_iterative,
   57: _graph_detect_cycle,
+  58: _graph_check_path,
 };
 
 let maxEffort = 0;
