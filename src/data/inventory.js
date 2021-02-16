@@ -64,6 +64,7 @@ import { data as _binary_search_iterative } from './algorithms/61-binary-search-
 import { data as _sort_quicksort } from './sort/62-quicksort.js';
 import { data as _sort_mergesort } from './sort/63-mergesort.js';
 import { data as _two_sum } from './algorithms/64-two-sum.js';
+import { data as _minimum_rectangle } from './algorithms/65-minimum-rectangle.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -130,6 +131,7 @@ const aggregate = {
   62: _sort_quicksort,
   63: _sort_mergesort,
   64: _two_sum,
+  65: _minimum_rectangle,
 };
 
 let maxEffort = 0;
