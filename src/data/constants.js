@@ -14,6 +14,7 @@ export const HEAP = 'Heap';
 export const BINARY_SEARCH_TREE = 'Binary Search Tree';
 export const GRAPH = 'Graph';
 export const TRIE = 'Trie';
+export const CACHE = 'Cache';
 
 export const GENERAL = 'General';
 export const FIBONACCI = 'Fibonacci';
