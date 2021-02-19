@@ -66,6 +66,7 @@ import { data as _sort_mergesort } from './sort/63-mergesort.js';
 import { data as _two_sum } from './algorithms/64-two-sum.js';
 import { data as _minimum_rectangle } from './algorithms/65-minimum-rectangle.js';
 import { data as _lru_cache } from './cache/66-lru-cache.js';
+import { data as _basic_calc_parentheses } from './stack/67-basic-calc-parentheses.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -134,6 +135,7 @@ const aggregate = {
   64: _two_sum,
   65: _minimum_rectangle,
   66: _lru_cache,
+  67: _basic_calc_parentheses,
 };
 
 let maxEffort = 0;

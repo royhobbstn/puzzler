@@ -20,6 +20,7 @@ const filterSlice = createSlice({
     begChecked: true,
     intChecked: true,
     advChecked: true,
+    expChecked: true,
   },
   reducers: {
     setSelections: (state, { type, payload }) => {
@@ -59,6 +60,7 @@ const filterSlice = createSlice({
       state.begChecked = true;
       state.intChecked = true;
       state.advChecked = true;
+      state.expChecked = true;
     },
     setBegChecked: (state, { type, payload }) => {
       state.begChecked = payload;
@@ -68,6 +70,9 @@ const filterSlice = createSlice({
     },
     setAdvChecked: (state, { type, payload }) => {
       state.advChecked = payload;
+    },
+    setExpChecked: (state, { type, payload }) => {
+      state.expChecked = payload;
     },
   },
 });
@@ -86,6 +91,7 @@ export const {
   setBegChecked,
   setIntChecked,
   setAdvChecked,
+  setExpChecked,
 } = filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

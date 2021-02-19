@@ -10,6 +10,7 @@ import {
   setBegChecked,
   setIntChecked,
   setAdvChecked,
+  setExpChecked,
 } from '../redux/filterStore';
 
 function ControlCard() {
@@ -21,6 +22,7 @@ function ControlCard() {
   const begChecked = useSelector(state => state.filter.begChecked);
   const intChecked = useSelector(state => state.filter.intChecked);
   const advChecked = useSelector(state => state.filter.advChecked);
+  const expChecked = useSelector(state => state.filter.expChecked);
 
   const onEffortSliderChange = (minValue, maxValue) => {
     dispatch(setEffortSlider([minValue, maxValue]));
@@ -57,6 +59,15 @@ function ControlCard() {
                 dispatch(setAdvChecked(!advChecked));
               }}
               checked={advChecked}
+            />
+
+            <Checkbox
+              style={{ display: 'block', padding: '5px 0' }}
+              label="Expert"
+              onChange={() => {
+                dispatch(setExpChecked(!expChecked));
+              }}
+              checked={expChecked}
             />
           </div>
           <div style={{ display: 'block', width: '50%', float: 'right' }}>

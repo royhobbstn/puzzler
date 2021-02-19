@@ -4,7 +4,7 @@ import CategoryCard from './CategoryCard';
 import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
-import { BEGINNER, INTERMEDIATE, ADVANCED } from '../data/constants.js';
+import { BEGINNER, INTERMEDIATE, ADVANCED, EXPERT } from '../data/constants.js';
 import { setResults } from '../redux/filterStore';
 
 function Filters() {
@@ -17,6 +17,7 @@ function Filters() {
   const begChecked = useSelector(state => state.filter.begChecked);
   const intChecked = useSelector(state => state.filter.intChecked);
   const advChecked = useSelector(state => state.filter.advChecked);
+  const expChecked = useSelector(state => state.filter.expChecked);
 
   const runFilters = React.useCallback(() => {
     const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
@@ -37,6 +38,9 @@ function Filters() {
           return false;
         }
         if (item.difficulty === ADVANCED && !advChecked) {
+          return false;
+        }
+        if (item.difficulty === EXPERT && !expChecked) {
           return false;
         }
         // check vs effort
@@ -62,6 +66,7 @@ function Filters() {
     begChecked,
     intChecked,
     advChecked,
+    expChecked,
     dispatch,
   ]);
 

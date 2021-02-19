@@ -4,6 +4,7 @@ export const ALGORITHM = 'algorithm';
 export const BEGINNER = 'Beginner';
 export const INTERMEDIATE = 'Intermediate';
 export const ADVANCED = 'Advanced';
+export const EXPERT = 'Expert';
 
 export const LINKED_LIST = 'Linked List';
 export const DOUBLY_LINKED_LIST = 'Doubly Linked List';
