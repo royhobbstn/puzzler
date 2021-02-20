@@ -21,3 +21,4 @@ export const GENERAL = 'General';
 export const FIBONACCI = 'Fibonacci';
 export const BINARY_SEARCH = 'Binary Search';
 export const SORTING = 'Sorting';
+export const RECURSION = 'Recursion';

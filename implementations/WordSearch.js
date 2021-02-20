@@ -1,11 +1,27 @@
-const board = [
-  ['A', 'B', 'C', 'E'],
-  ['S', 'F', 'C', 'S'],
-  ['A', 'D', 'E', 'E'],
+const board1 = [
+  ['B', 'C', 'D', 'F'],
+  ['T', 'G', 'D', 'T'],
+  ['B', 'E', 'F', 'F'],
 ];
-const word = 'ABCCED';
+const word1 = 'BCDDFE';
 
-console.log(wordSearch(board, word));
+const board2 = [
+  ['B', 'C', 'D', 'F'],
+  ['T', 'G', 'D', 'T'],
+  ['B', 'E', 'F', 'F'],
+];
+const word2 = 'TFF';
+
+const board3 = [
+  ['B', 'C', 'D', 'F'],
+  ['T', 'G', 'D', 'T'],
+  ['B', 'E', 'F', 'F'],
+];
+const word3 = 'BDDC';
+
+console.log(wordSearch(board1, word1)); // true
+console.log(wordSearch(board2, word2)); // true
+console.log(wordSearch(board3, word3)); // false
 
 // ------------
 
