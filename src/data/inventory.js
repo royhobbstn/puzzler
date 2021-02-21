@@ -68,6 +68,7 @@ import { data as _minimum_rectangle } from './algorithms/65-minimum-rectangle.js
 import { data as _lru_cache } from './cache/66-lru-cache.js';
 import { data as _basic_calc_parentheses } from './stack/67-basic-calc-parentheses.js';
 import { data as _recursion_word_search } from './algorithms/68-word-search.js';
+import { data as _reorder_list } from './linked-list/69-reorder-list.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -138,6 +139,7 @@ const aggregate = {
   66: _lru_cache,
   67: _basic_calc_parentheses,
   68: _recursion_word_search,
+  69: _reorder_list,
 };
 
 let maxEffort = 0;
