@@ -70,6 +70,7 @@ import { data as _basic_calc_parentheses } from './stack/67-basic-calc-parenthes
 import { data as _recursion_word_search } from './algorithms/68-word-search.js';
 import { data as _reorder_list } from './linked-list/69-reorder-list.js';
 import { data as _anagrams_in_string } from './algorithms/70-anagrams-in-string.js';
+import { data as _randomized_set } from './algorithms/71-randomized-set.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -142,6 +143,7 @@ const aggregate = {
   68: _recursion_word_search,
   69: _reorder_list,
   70: _anagrams_in_string,
+  71: _randomized_set,
 };
 
 let maxEffort = 0;
