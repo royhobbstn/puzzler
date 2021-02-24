@@ -72,6 +72,7 @@ import { data as _reorder_list } from './linked-list/69-reorder-list.js';
 import { data as _anagrams_in_string } from './algorithms/70-anagrams-in-string.js';
 import { data as _randomized_set } from './algorithms/71-randomized-set.js';
 import { data as _minimum_path_sum } from './dp/72-minimum_path_sum.js';
+import { data as _number_of_islands } from './algorithms/73-number-of-islands.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -146,6 +147,7 @@ const aggregate = {
   70: _anagrams_in_string,
   71: _randomized_set,
   72: _minimum_path_sum,
+  73: _number_of_islands,
 };
 
 let maxEffort = 0;
