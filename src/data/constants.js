@@ -16,7 +16,7 @@ export const BINARY_SEARCH_TREE = 'Binary Search Tree';
 export const GRAPH = 'Graph';
 export const TRIE = 'Trie';
 export const CACHE = 'Cache';
-
+export const DYNAMIC_PROGRAMMING = 'Dynamic Programming';
 export const GENERAL = 'General';
 export const FIBONACCI = 'Fibonacci';
 export const BINARY_SEARCH = 'Binary Search';
