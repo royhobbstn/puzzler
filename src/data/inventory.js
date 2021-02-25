@@ -79,6 +79,7 @@ import { data as _merge_intervals } from './algorithms/76-merge-intervals.js';
 import { data as _best_time_stock } from './algorithms/77-best-time-stock.js';
 import { data as _product_except_self } from './algorithms/78-product-except-self.js';
 import { data as _shortest_path_binary_matrix } from './graph/79-shortest-path-binary-matrix.js';
+import { data as _palindrome_linked_list } from './linked-list/80-palindrome-linked-list.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -160,6 +161,7 @@ const aggregate = {
   77: _best_time_stock,
   78: _product_except_self,
   79: _shortest_path_binary_matrix,
+  80: _palindrome_linked_list,
 };
 
 let maxEffort = 0;
