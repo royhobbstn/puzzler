@@ -82,6 +82,7 @@ import { data as _shortest_path_binary_matrix } from './graph/79-shortest-path-b
 import { data as _palindrome_linked_list } from './linked-list/80-palindrome-linked-list.js';
 import { data as _verify_alien_dictionary } from './algorithms/81-verify-alien-dictionary.js';
 import { data as _length_longest_substring } from './algorithms/82-length-longest-substring.js';
+import { data as _meeting_rooms_2 } from './algorithms/83-meeting-rooms-2.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -166,6 +167,7 @@ const aggregate = {
   80: _palindrome_linked_list,
   81: _verify_alien_dictionary,
   82: _length_longest_substring,
+  83: _meeting_rooms_2,
 };
 
 let maxEffort = 0;
