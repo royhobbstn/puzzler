@@ -81,6 +81,7 @@ import { data as _product_except_self } from './algorithms/78-product-except-sel
 import { data as _shortest_path_binary_matrix } from './graph/79-shortest-path-binary-matrix.js';
 import { data as _palindrome_linked_list } from './linked-list/80-palindrome-linked-list.js';
 import { data as _verify_alien_dictionary } from './algorithms/81-verify-alien-dictionary.js';
+import { data as _length_longest_substring } from './algorithms/82-length-longest-substring.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -164,6 +165,7 @@ const aggregate = {
   79: _shortest_path_binary_matrix,
   80: _palindrome_linked_list,
   81: _verify_alien_dictionary,
+  82: _length_longest_substring,
 };
 
 let maxEffort = 0;
