@@ -75,6 +75,7 @@ import { data as _minimum_path_sum } from './dp/72-minimum_path_sum.js';
 import { data as _number_of_islands } from './algorithms/73-number-of-islands.js';
 import { data as _decode_ways_recursive } from './dp/74-decode-ways-recursive.js';
 import { data as _add_two_numbers } from './linked-list/75-add-two-numbers.js';
+import { data as _merge_intervals } from './algorithms/76-merge-intervals.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -152,6 +153,7 @@ const aggregate = {
   73: _number_of_islands,
   74: _decode_ways_recursive,
   75: _add_two_numbers,
+  76: _merge_intervals,
 };
 
 let maxEffort = 0;
