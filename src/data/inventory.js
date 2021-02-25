@@ -73,6 +73,7 @@ import { data as _anagrams_in_string } from './algorithms/70-anagrams-in-string.
 import { data as _randomized_set } from './algorithms/71-randomized-set.js';
 import { data as _minimum_path_sum } from './dp/72-minimum_path_sum.js';
 import { data as _number_of_islands } from './algorithms/73-number-of-islands.js';
+import { data as _decode_ways_recursive } from './dp/74-decode-ways-recursive.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -148,6 +149,7 @@ const aggregate = {
   71: _randomized_set,
   72: _minimum_path_sum,
   73: _number_of_islands,
+  74: _decode_ways_recursive,
 };
 
 let maxEffort = 0;
