@@ -18,10 +18,10 @@
 // Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating substring "ccc".
 
 function length_of_longest_substring(str, k) {
-  let windowStart = 0,
-    maxLength = 0,
-    maxRepeatLetterCount = 0,
-    frequencyMap = {};
+  let windowStart = 0;
+  let maxLength = 0;
+  let maxRepeatLetterCount = 0;
+  let frequencyMap = {};
 
   // Try to extend the range [windowStart, windowEnd]
   for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {

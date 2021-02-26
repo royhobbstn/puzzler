@@ -17,9 +17,9 @@
 // Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
 
 function longest_substring_with_k_distinct(str, k) {
-  let windowStart = 0,
-    maxLength = 0,
-    charFrequency = {};
+  let windowStart = 0;
+  let maxLength = 0;
+  let charFrequency = {};
 
   // in the following loop we'll try to extend the range [window_start, window_end]
   for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {

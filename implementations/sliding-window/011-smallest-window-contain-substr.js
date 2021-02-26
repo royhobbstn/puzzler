@@ -25,11 +25,11 @@
 // We will stop the shrinking process as soon as we remove a matched character from the sliding window. One thing to note here is that we could have redundant matching characters, e.g., we might have two ‘a’ in the sliding window when we only need one ‘a’. In that case, when we encounter the first ‘a’, we will simply shrink the window without decrementing the matched count. We will decrement the matched count when the second ‘a’ goes out of the window.
 
 function find_substring(str, pattern) {
-  let windowStart = 0,
-    matched = 0,
-    substrStart = 0,
-    minLength = str.length + 1,
-    charFrequency = {};
+  let windowStart = 0;
+  let matched = 0;
+  let substrStart = 0;
+  let minLength = str.length + 1;
+  let charFrequency = {};
 
   for (let i = 0; i < pattern.length; i++) {
     const chr = pattern[i];

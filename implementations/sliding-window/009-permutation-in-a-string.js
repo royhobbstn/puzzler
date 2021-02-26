@@ -42,9 +42,9 @@
 // If the window size is greater than the length of the pattern, shrink the window to make it equal to the pattern’s size. At the same time, if the character going out was part of the pattern, put it back in the frequency HashMap.
 
 function find_permutation(str, pattern) {
-  let windowStart = 0,
-    matched = 0,
-    charFrequency = {};
+  let windowStart = 0;
+  let matched = 0;
+  let charFrequency = {};
 
   for (let i = 0; i < pattern.length; i++) {
     const chr = pattern[i];

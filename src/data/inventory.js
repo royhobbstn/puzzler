@@ -86,6 +86,19 @@ import { data as _meeting_rooms_2 } from './algorithms/83-meeting-rooms-2.js';
 import { data as _design_metro_system } from './design/84-design-metro-system.js';
 import { data as _maximal_square } from './dp/85-maximal-square.js';
 
+import { data as _find_avg_subarrays } from './sliding-window/86-find-avg-of-subarrays.js';
+import { data as _find_max_subarrays } from './sliding-window/87-find-max-of-subarrays.js';
+import { data as _smallest_subarray } from './sliding-window/88-smallest-subarray-given-sum.js';
+import { data as _longest_substr_k_distinct } from './sliding-window/89-longest-substr-k-distinct.js';
+import { data as _fruits_into_basket } from './sliding-window/90-fruits-into-basket.js';
+import { data as _no_repeat_substr } from './sliding-window/91-no-repeat-substring.js';
+import { data as _longest_substr_same_letter } from './sliding-window/92-longest-substr-same-letter.js';
+import { data as _longest_binary_subarray } from './sliding-window/93-longest-binary-subarray-after-repl.js';
+import { data as _permutation_in_a_str } from './sliding-window/94-permutation-in-a-string.js';
+import { data as _string_anagrams } from './sliding-window/95-string-anagrams.js';
+import { data as _smallest_window_count_substr } from './sliding-window/96-smallest-window-count-substr.js';
+import { data as _words_concat } from './sliding-window/97-words-concatenation.js';
+
 const aggregate = {
   1: _ll_prepend,
   2: _ll_append,
@@ -172,6 +185,18 @@ const aggregate = {
   83: _meeting_rooms_2,
   84: _design_metro_system,
   85: _maximal_square,
+  86: _find_avg_subarrays,
+  87: _find_max_subarrays,
+  88: _smallest_subarray,
+  89: _longest_substr_k_distinct,
+  90: _fruits_into_basket,
+  91: _no_repeat_substr,
+  92: _longest_substr_same_letter,
+  93: _longest_binary_subarray,
+  94: _permutation_in_a_str,
+  95: _string_anagrams,
+  96: _smallest_window_count_substr,
+  97: _words_concat,
 };
 
 let maxEffort = 0;

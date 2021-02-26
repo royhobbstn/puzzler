@@ -12,8 +12,8 @@
 // Explanation: Subarray with maximum sum is [3, 4].
 
 function max_sub_array_of_size_k(k, arr) {
-  let maxSum = 0,
-    windowSum = 0;
+  let maxSum = 0;
+  let windowSum = 0;
 
   for (let i = 0; i < arr.length - k + 1; i++) {
     windowSum = 0;

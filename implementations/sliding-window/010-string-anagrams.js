@@ -23,9 +23,9 @@
 // Explanation: The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
 
 function find_string_anagrams(str, pattern) {
-  let windowStart = 0,
-    matched = 0,
-    charFrequency = {};
+  let windowStart = 0;
+  let matched = 0;
+  let charFrequency = {};
 
   for (let i = 0; i < pattern.length; i++) {
     const chr = pattern[i];

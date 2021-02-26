@@ -3,8 +3,8 @@
 
 function find_averages_of_subarrays(K, arr) {
   const result = [];
-  let windowSum = 0.0,
-    windowStart = 0;
+  let windowSum = 0.0;
+  let windowStart = 0;
   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
     windowSum += arr[windowEnd]; // add the next element
     // slide the window, we don't need to slide if we've not hit the required window size of 'k'

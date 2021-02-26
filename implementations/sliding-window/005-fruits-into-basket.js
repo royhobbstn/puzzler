@@ -21,9 +21,9 @@
 // This problem follows the Sliding Window pattern and is quite similar to Longest Substring with K Distinct Characters. In this problem, we need to find the length of the longest subarray with no more than two distinct characters (or fruit types!). This transforms the current problem into Longest Substring with K Distinct Characters where K=2.
 
 function fruits_into_baskets(fruits) {
-  let windowStart = 0,
-    maxLength = 0,
-    fruitFrequency = {};
+  let windowStart = 0;
+  let maxLength = 0;
+  let fruitFrequency = {};
 
   // try to extend the range [windowStart, windowEnd]
   for (let windowEnd = 0; windowEnd < fruits.length; windowEnd++) {

@@ -17,9 +17,9 @@
 // Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 4, 1] or [1, 1, 6].
 
 function smallest_subarray_with_given_sum(s, arr) {
-  let windowSum = 0,
-    minLength = Infinity,
-    windowStart = 0;
+  let windowSum = 0;
+  let minLength = Infinity;
+  let windowStart = 0;
 
   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
     windowSum += arr[windowEnd]; // add the next element
