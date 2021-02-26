@@ -83,6 +83,7 @@ import { data as _palindrome_linked_list } from './linked-list/80-palindrome-lin
 import { data as _verify_alien_dictionary } from './algorithms/81-verify-alien-dictionary.js';
 import { data as _length_longest_substring } from './algorithms/82-length-longest-substring.js';
 import { data as _meeting_rooms_2 } from './algorithms/83-meeting-rooms-2.js';
+import { data as _design_metro_system } from './design/84-design-metro-system.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -168,6 +169,7 @@ const aggregate = {
   81: _verify_alien_dictionary,
   82: _length_longest_substring,
   83: _meeting_rooms_2,
+  84: _design_metro_system,
 };
 
 let maxEffort = 0;
