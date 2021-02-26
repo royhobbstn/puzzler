@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -77,7 +77,7 @@ export const data = {
   setupCode: ``,
   category: SLIDING_WINDOW,
   type: ALGORITHM,
-  difficulty: INTERMEDIATE,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 540],

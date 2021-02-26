@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW, ADVANCED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -83,7 +83,7 @@ Write a function to return a list of starting indices of the anagrams of the pat
   setupCode: ``,
   category: SLIDING_WINDOW,
   type: ALGORITHM,
-  difficulty: INTERMEDIATE,
+  difficulty: ADVANCED,
   maxExecutionTime: 2,
   solution: {
     stages: [

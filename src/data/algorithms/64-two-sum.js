@@ -20,8 +20,8 @@ const solution = [
 
 export const data = {
   problemID: 64,
-  problemName: 'Solve Two Sum.',
-  problemText: `Given an array of integers \`array\`, and an integer \`target\`, return the indices of two numbers in the \`array\` that sum to \`target\`.
+  problemName: 'Solve Two Sum (Unsorted Array).',
+  problemText: `Given an unsorted array of integers \`array\`, and an integer \`target\`, return the indices of two numbers in the \`array\` that sum to \`target\`.
   Assume one solution.  Return indices in a two element array.  Solution can be returned in any order.
   Return \`null\` if no solution could be found.`,
   testCases: [
