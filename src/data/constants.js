@@ -26,3 +26,5 @@ export const DESIGN = 'Design';
 export const SLIDING_WINDOW = 'Sliding Window';
 export const BITWISE = 'Bitwise';
 export const CYCLIC_SORT = 'Cyclic Sort';
+
+export const TEMP = 'Temp';

@@ -34,10 +34,12 @@ let solveKnapsack = function (profits, weights, capacity) {
   // process all sub-arrays for all the capacities
   for (let i = 1; i < n; i++) {
     for (let c = capacity; c >= 0; c--) {
-      let profit1 = 0,
-        profit2 = 0;
+      let profit1 = 0;
+      let profit2 = 0;
       // include the item, if it is not more than the capacity
-      if (weights[i] <= c) profit1 = profits[i] + dp[c - weights[i]];
+      if (weights[i] <= c) {
+        profit1 = profits[i] + dp[c - weights[i]];
+      }
       // exclude the item
       profit2 = dp[c];
       // take maximum
