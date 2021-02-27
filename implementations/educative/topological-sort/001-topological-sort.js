@@ -37,8 +37,6 @@
 
 // There are other valid topological ordering of the graph too.
 
-const Deque = require('./collections/deque'); //http://www.collectionsjs.com
-
 function topological_sort(vertices, edges) {
   const sortedOrder = [];
   if (vertices <= 0) {
@@ -53,15 +51,15 @@ function topological_sort(vertices, edges) {
 
   // b. Build the graph
   edges.forEach(edge => {
-    let parent = edge[0],
-      child = edge[1];
+    let parent = edge[0];
+    let child = edge[1];
     graph[parent].push(child); // put the child into it's parent's list
     inDegree[child]++; // increment child's inDegree
   });
 
   // c. Find all sources i.e., all vertices with 0 in-degrees
-  const sources = new Deque();
-  for (i = 0; i < inDegree.length; i++) {
+  const sources = [];
+  for (let i = 0; i < inDegree.length; i++) {
     if (inDegree[i] === 0) {
       sources.push(i);
     }
@@ -89,6 +87,10 @@ function topological_sort(vertices, edges) {
   return sortedOrder;
 }
 
+function stringify(arr) {
+  return arr.join(',');
+}
+
 console.log(
   `Topological sort: ${topological_sort(4, [
     [3, 2],
@@ -96,6 +98,16 @@ console.log(
     [2, 0],
     [2, 1],
   ])}`,
+);
+console.log(
+  stringify(
+    topological_sort(4, [
+      [3, 2],
+      [3, 0],
+      [2, 0],
+      [2, 1],
+    ]),
+  ),
 );
 
 console.log(

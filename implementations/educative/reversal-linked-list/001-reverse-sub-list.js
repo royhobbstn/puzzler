@@ -22,8 +22,8 @@ function reverse_sub_list(head, p, q) {
   }
 
   // after skipping 'p-1' nodes, current will point to 'p'th node
-  let current = head,
-    previous = null;
+  let current = head;
+  let previous = null;
   let i = 0;
   while (current !== null && i < p - 1) {
     previous = current;
@@ -70,6 +70,6 @@ head.next.next.next.next = new Node(5);
 
 process.stdout.write('Nodes of original LinkedList are: ');
 head.print_list();
-result = reverse_sub_list(head, 2, 4);
+const result = reverse_sub_list(head, 2, 4);
 process.stdout.write('Nodes of reversed LinkedList are: ');
 result.print_list();
