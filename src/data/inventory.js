@@ -98,6 +98,37 @@ import { data as _permutation_in_a_str } from './sliding-window/94-permutation-i
 import { data as _string_anagrams } from './sliding-window/95-string-anagrams.js';
 import { data as _smallest_window_count_substr } from './sliding-window/96-smallest-window-count-substr.js';
 import { data as _words_concat } from './sliding-window/97-words-concatenation.js';
+import { data as _bitwise_xor } from './educative/98-bitwise-xor.js';
+import { data as _cyclic_sort } from './educative/99-cyclic-sort.js';
+import { data as _find_missing_number } from './educative/100-find-missing-number.js';
+import { data as _find_all_missing_numbers } from './educative/101-find-all-missing-numbers.js';
+import { data as _find_duplicate_number } from './educative/102-find-duplicate-number.js';
+import { data as _find_all_duplicate_numbers } from './educative/103-find-all-duplicate-numbers.js';
+import { data as _knapsack } from './educative/104-knapsack.js';
+import { data as _linked_list_cycle } from './educative/105-linked-list-cycle.js';
+import { data as _middle_linked_list } from './educative/106-middle-of-linked-list.js';
+import { data as _merge_k_sorted_lists } from './educative/107-merge-k-sorted-lists.js';
+import { data as _insert_intervals } from './educative/108-insert-intervals.js';
+import { data as _order_agnostic_binary_search } from './educative/109-order-agnostic-binary-search.js';
+import { data as _bitonic_array_max } from './educative/110-bitonic-array-maximum.js';
+import { data as _reverse_sub_list } from './educative/111-reverse-sub-list.js';
+import { data as _subsets } from './educative/112-subsets.js';
+import { data as _subsets_with_duplicates } from './educative/113-subsets-with-duplicates.js';
+import { data as _top_k_numbers } from './educative/114-top-k-numbers.js';
+import { data as _kth_smallest_number } from './educative/115-kth-smallest-number.js';
+import { data as _k_closest_pts } from './educative/116-k-closest-pts.js';
+import { data as _connect_ropes } from './educative/117-connect-ropes.js';
+import { data as _topological_sort } from './educative/118-topological-sort.js';
+import { data as _binary_tree_level_order } from './educative/119-binary-tree-level-order-traversal.js';
+import { data as _reverse_level_order } from './educative/120-reverse-level-order-traversal.js';
+import { data as _level_averages } from './educative/121-level-averages.js';
+import { data as _min_depth_binary_tree } from './educative/122-minimum-depth-binary-tree.js';
+import { data as _level_order_successor } from './educative/123-level-order-successor.js';
+import { data as _binary_tree_path_sum } from './educative/124-binary-tree-path-sum.js';
+import { data as _find_median_stream } from './educative/125-find-median-stream.js';
+import { data as _pair_with_target_sum } from './educative/126-pair-with-target-sum.js';
+import { data as _remove_duplicates } from './educative/127-remove-duplicates.js';
+import { data as _squaring_sorted_array } from './educative/128-squaring-sorted-array.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -197,6 +228,37 @@ const aggregate = {
   95: _string_anagrams,
   96: _smallest_window_count_substr,
   97: _words_concat,
+  98: _bitwise_xor,
+  99: _cyclic_sort,
+  100: _find_missing_number,
+  101: _find_all_missing_numbers,
+  102: _find_duplicate_number,
+  103: _find_all_duplicate_numbers,
+  104: _knapsack,
+  105: _linked_list_cycle,
+  106: _middle_linked_list,
+  107: _merge_k_sorted_lists,
+  108: _insert_intervals,
+  109: _order_agnostic_binary_search,
+  110: _bitonic_array_max,
+  111: _reverse_sub_list,
+  112: _subsets,
+  113: _subsets_with_duplicates,
+  114: _top_k_numbers,
+  115: _kth_smallest_number,
+  116: _k_closest_pts,
+  117: _connect_ropes,
+  118: _topological_sort,
+  119: _binary_tree_level_order,
+  120: _reverse_level_order,
+  121: _level_averages,
+  122: _min_depth_binary_tree,
+  123: _level_order_successor,
+  124: _binary_tree_path_sum,
+  125: _find_median_stream,
+  126: _pair_with_target_sum,
+  127: _remove_duplicates,
+  128: _squaring_sorted_array,
 };
 
 let maxEffort = 0;

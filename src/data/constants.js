@@ -24,3 +24,5 @@ export const SORTING = 'Sorting';
 export const RECURSION = 'Recursion';
 export const DESIGN = 'Design';
 export const SLIDING_WINDOW = 'Sliding Window';
+export const BITWISE = 'Bitwise';
+export const CYCLIC_SORT = 'Cyclic Sort';
