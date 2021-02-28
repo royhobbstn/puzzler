@@ -13,13 +13,14 @@ function traverse(root) {
   if (root === null) {
     return result;
   }
+
   const queue = [];
   queue.push(root);
   while (queue.length > 0) {
-    levelSize = queue.length;
-    currentLevel = [];
-    for (i = 0; i < levelSize; i++) {
-      currentNode = queue.shift();
+    let levelSize = queue.length;
+    let currentLevel = [];
+    for (let i = 0; i < levelSize; i++) {
+      let currentNode = queue.shift();
       // add the node to the current level
       currentLevel.push(currentNode.val);
       // insert the children of current node in the queue
@@ -41,4 +42,4 @@ root.right = new TreeNode(1);
 root.left.left = new TreeNode(9);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
-console.log(`Reverse level order traversal: ${traverse(root).toArray()}`);
+console.log(traverse(root));

@@ -16,7 +16,7 @@ function find_successor(root, key) {
   const queue = [];
   queue.push(root);
   while (queue.length > 0) {
-    currentNode = queue.shift();
+    let currentNode = queue.shift();
     // insert the children of current node in the queue
     if (currentNode.left !== null) {
       queue.push(currentNode.left);
@@ -31,7 +31,7 @@ function find_successor(root, key) {
   }
 
   if (queue.length > 0) {
-    return queue.peek();
+    return queue[0];
   }
   return null;
 }

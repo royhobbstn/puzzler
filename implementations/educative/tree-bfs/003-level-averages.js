@@ -9,7 +9,7 @@ class TreeNode {
 }
 
 function find_level_averages(root) {
-  result = [];
+  const result = [];
   if (root === null) {
     return result;
   }
@@ -17,10 +17,10 @@ function find_level_averages(root) {
   const queue = [];
   queue.push(root);
   while (queue.length > 0) {
-    let levelSize = queue.length,
-      levelSum = 0.0;
-    for (i = 0; i < levelSize; i++) {
-      currentNode = queue.shift();
+    let levelSize = queue.length;
+    let levelSum = 0.0;
+    for (let i = 0; i < levelSize; i++) {
+      let currentNode = queue.shift();
       // add the node's value to the running sum
       levelSum += currentNode.val;
       // insert the children of current node to the queue
@@ -45,4 +45,4 @@ root.left.left = new TreeNode(9);
 root.left.right = new TreeNode(2);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
-console.log(`Level averages are: ${find_level_averages(root)}`);
+console.log(find_level_averages(root));
