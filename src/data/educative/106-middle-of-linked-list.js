@@ -59,7 +59,14 @@ If the total number of nodes in the LinkedList is even, return the second middle
       expected: 4,
     },
   ],
-  setupCode: ``,
+  setupCode: `
+class Node {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+`,
   category: TEMP,
   type: ALGORITHM,
   difficulty: INTERMEDIATE,

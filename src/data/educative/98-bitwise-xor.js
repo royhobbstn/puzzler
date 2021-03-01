@@ -1,4 +1,4 @@
-import { ALGORITHM, BITWISE, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, BITWISE, EXPERT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -38,7 +38,7 @@ export const data = {
   setupCode: ``,
   category: BITWISE,
   type: ALGORITHM,
-  difficulty: INTERMEDIATE,
+  difficulty: EXPERT,
   maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 150],

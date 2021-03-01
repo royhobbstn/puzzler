@@ -199,7 +199,7 @@ export const data = {
     const arr = [];
     let node = this;
     while (node) {
-      arr.push(node.val);
+      arr.push(node.value);
       node = node.next;
     }
     return arr;

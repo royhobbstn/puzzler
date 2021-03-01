@@ -6,6 +6,7 @@ const solution = [
   { stage: -1, text: '  /*' },
   { stage: -1, text: '    add(item: Number)' },
   { stage: -1, text: '    poll() Number' },
+  { stage: -1, text: '    length() Number' },
   { stage: -1, text: '  */' },
   { stage: -1, text: '}' },
   { stage: 0, text: '' },
