@@ -1242,7 +1242,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/puzzler/feff703ce532f20391dfed8199b6971e.js"
   },
   {
-    "revision": "23d3fc5334c498d5f7ada01984b1ef1b",
+    "revision": "79290202edf7fb2cd8d50e3a059ca37d",
     "url": "/puzzler/index.html"
   },
   {
@@ -1250,7 +1250,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/puzzler/static/css/2.db771b51.chunk.css"
   },
   {
-    "revision": "2ef98a622aa4654fd6bb",
+    "revision": "b18290b46cbb4cd1296f",
     "url": "/puzzler/static/css/main.1760be74.chunk.css"
   },
   {
@@ -1262,8 +1262,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/puzzler/static/js/2.3bc93ef2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2ef98a622aa4654fd6bb",
-    "url": "/puzzler/static/js/main.5239e675.chunk.js"
+    "revision": "b18290b46cbb4cd1296f",
+    "url": "/puzzler/static/js/main.301c6a72.chunk.js"
   },
   {
     "revision": "39afd7805fc5676a35a3",
