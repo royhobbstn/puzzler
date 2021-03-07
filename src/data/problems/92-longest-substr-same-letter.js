@@ -1,0 +1,73 @@
+import { ALGORITHM, SLIDING_WINDOW, INTERMEDIATE } from '../constants.js';
+
+const solution = [
+  { stage: 0, text: '' },
+  { stage: 0, text: 'function length_of_longest_substring(str, k) {' },
+  { stage: 1, text: '  let windowStart = 0;' },
+  { stage: 1, text: '  let maxLength = 0;' },
+  { stage: 2, text: '  let maxRepeatLetterCount = 0;' },
+  { stage: 2, text: '  let frequencyMap = {};' },
+  { stage: 0, text: '' },
+  { stage: 3, text: '  for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {' },
+  { stage: 4, text: '    const rightChar = str[windowEnd];' },
+  { stage: 5, text: '    if (!(rightChar in frequencyMap)) {' },
+  { stage: 5, text: '      frequencyMap[rightChar] = 0;' },
+  { stage: 5, text: '    }' },
+  { stage: 6, text: '    frequencyMap[rightChar] += 1;' },
+  {
+    stage: 7,
+    text: '    maxRepeatLetterCount = Math.max(maxRepeatLetterCount, frequencyMap[rightChar]);',
+  },
+  { stage: 0, text: '' },
+  { stage: 8, text: '    if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k) {' },
+  { stage: 9, text: '      let leftChar = str[windowStart];' },
+  { stage: 9, text: '      frequencyMap[leftChar] -= 1;' },
+  { stage: 9, text: '      windowStart += 1;' },
+  { stage: 8, text: '    }' },
+  { stage: 0, text: '' },
+  { stage: 10, text: '    maxLength = Math.max(maxLength, windowEnd - windowStart + 1);' },
+  { stage: 3, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 11, text: '  return maxLength;' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 92,
+  problemName: `Longest Substring Same Letter`,
+  problemText: `Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter, find the length of the longest substring having the same letters after replacement.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'example 1',
+      inherit: [],
+      code: ``,
+      evaluate: `length_of_longest_substring('aabccbb', 2);`,
+      expected: 5,
+    },
+    {
+      id: 2,
+      name: 'example 2',
+      inherit: [],
+      code: ``,
+      evaluate: `length_of_longest_substring('abbcb', 1);`,
+      expected: 4,
+    },
+    {
+      id: 3,
+      name: 'example 3',
+      inherit: [],
+      code: ``,
+      evaluate: `length_of_longest_substring('abccde', 1);`,
+      expected: 3,
+    },
+  ],
+  setupCode: ``,
+  tags: [SLIDING_WINDOW, ALGORITHM],
+  difficulty: INTERMEDIATE,
+  solution: {
+    stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 360],
+    solutionLines: solution,
+  },
+};

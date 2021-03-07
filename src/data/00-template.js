@@ -58,10 +58,8 @@ export const data = {
     },
   ],
   setupCode: ``,
-  category: SLIDING_WINDOW,
-  type: ALGORITHM,
+  tags: [SLIDING_WINDOW, ALGORITHM],
   difficulty: INTERMEDIATE,
-  maxExecutionTime: 2,
   solution: {
     stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 390],
     solutionLines: solution,

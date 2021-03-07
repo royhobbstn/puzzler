@@ -9,9 +9,7 @@ import { setResults } from '../redux/filterStore';
 
 function Filters() {
   const dispatch = useDispatch();
-  const categories = useSelector(state => state.filter.categories);
-  const dsChecked = useSelector(state => state.filter.dsChecked);
-  const algChecked = useSelector(state => state.filter.algChecked);
+  const tags = useSelector(state => state.filter.tags);
   const minEffort = useSelector(state => state.filter.minEffort);
   const maxEffort = useSelector(state => state.filter.maxEffort);
   const begChecked = useSelector(state => state.filter.begChecked);
@@ -20,16 +18,21 @@ function Filters() {
   const expChecked = useSelector(state => state.filter.expChecked);
 
   const runFilters = React.useCallback(() => {
-    const chosenCategories = categories.filter(d => d.isSelected).map(d => d.name);
-
+    const chosenTags = tags.filter(d => d.isSelected).map(d => d.name);
+    console.log({ chosenTags });
     const filtered = Object.keys(inventory)
       .map(d => Number(d))
       .filter(key => {
         const item = inventory[String(key)];
-        // check vs categories
-        if (!chosenCategories.includes(item.category)) {
-          return false;
+        // check vs tags
+        // TODO Must have all vs must have any
+        // defaulting to must have any
+        for (let tag of item.tags) {
+          if (!chosenTags.includes(tag)) {
+            return false;
+          }
         }
+
         // check vs Beginner Intermediate Advanced
         if (item.difficulty === BEGINNER && !begChecked) {
           return false;
@@ -47,28 +50,10 @@ function Filters() {
         if (item.effort < minEffort || item.effort > maxEffort) {
           return false;
         }
-        // check vs DataStructure vs Algorithm
-        if (item.type === 'data-structure' && !dsChecked) {
-          return false;
-        }
-        if (item.type === 'algorithm' && !algChecked) {
-          return false;
-        }
         return true;
       });
     dispatch(setResults(filtered));
-  }, [
-    algChecked,
-    categories,
-    dsChecked,
-    maxEffort,
-    minEffort,
-    begChecked,
-    intChecked,
-    advChecked,
-    expChecked,
-    dispatch,
-  ]);
+  }, [tags, maxEffort, minEffort, begChecked, intChecked, advChecked, expChecked, dispatch]);
 
   React.useEffect(() => {
     runFilters();
@@ -93,7 +78,7 @@ function Filters() {
             width: '18vw',
           }}
         >
-          <CategoryCard categories={categories} />
+          <CategoryCard tags={tags} />
         </div>
         <div
           style={{

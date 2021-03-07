@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { categories, MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
+import { tags, MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
 
-const defaultCategoryData = categories.map(d => {
+const defaultCategoryData = tags.map(d => {
   return { name: d, isSelected: true };
 });
 
@@ -12,9 +12,7 @@ const filterSlice = createSlice({
     results: [],
     showModal: false,
     activeProblemText: '',
-    categories: defaultCategoryData,
-    dsChecked: true,
-    algChecked: true,
+    tags: defaultCategoryData,
     minEffort: MIN_EFFORT,
     maxEffort: MAX_EFFORT,
     begChecked: true,
@@ -38,25 +36,17 @@ const filterSlice = createSlice({
     setActiveProblemText: (state, { type, payload }) => {
       state.activeProblemText = payload;
     },
-    setCategories: (state, { type, payload }) => {
-      state.categories = payload;
-    },
-    setDsChecked: (state, { type, payload }) => {
-      state.dsChecked = payload;
-    },
-    setAlgChecked: (state, { type, payload }) => {
-      state.algChecked = payload;
+    setTags: (state, { type, payload }) => {
+      state.tags = payload;
     },
     setEffortSlider: (state, { type, payload }) => {
       state.minEffort = payload[0];
       state.maxEffort = payload[1];
     },
     pressReset: (state, { type, payload }) => {
-      state.categories = defaultCategoryData;
+      state.tags = defaultCategoryData;
       state.minEffort = MIN_EFFORT;
       state.maxEffort = MAX_EFFORT;
-      state.dsChecked = true;
-      state.algChecked = true;
       state.begChecked = true;
       state.intChecked = true;
       state.advChecked = true;
@@ -82,9 +72,7 @@ export const {
   setResults,
   setShowModal,
   setActiveProblemText,
-  setCategories,
-  setDsChecked,
-  setAlgChecked,
+  setTags,
   pressReset,
   setEffortSlider,
   shiftSelection,

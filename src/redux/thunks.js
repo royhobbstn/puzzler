@@ -7,6 +7,8 @@ import { constructTest } from '../util.js';
 import { inventory } from '../data/inventory';
 import { startRunningTests, concludeRunningTests } from './gameStore.js';
 
+const MAX_EXECUTION_TIME = 2000; // 2 second max execution time
+
 export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
   const state = thunkAPI.getState();
   const value = state.game.value;
@@ -30,7 +32,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
         error = e.message;
       });
     const timeout = new Promise((resolve, reject) => {
-      setTimeout(reject, data.maxExecutionTime * 1000, new Error('Timeout'));
+      setTimeout(reject, MAX_EXECUTION_TIME, new Error('Timeout'));
     }).catch(e => {
       error = e.message;
     });

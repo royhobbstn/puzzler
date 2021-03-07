@@ -4,8 +4,6 @@ import SliderView from 'semantic-ui-react-slider';
 import { useDispatch, useSelector } from 'react-redux';
 import { MIN_EFFORT, MAX_EFFORT } from '../data/inventory';
 import {
-  setDsChecked,
-  setAlgChecked,
   setEffortSlider,
   setBegChecked,
   setIntChecked,
@@ -15,8 +13,6 @@ import {
 
 function ControlCard() {
   const dispatch = useDispatch();
-  const dsChecked = useSelector(state => state.filter.dsChecked);
-  const algChecked = useSelector(state => state.filter.algChecked);
   const minEffort = useSelector(state => state.filter.minEffort);
   const maxEffort = useSelector(state => state.filter.maxEffort);
   const begChecked = useSelector(state => state.filter.begChecked);
@@ -68,25 +64,6 @@ function ControlCard() {
                 dispatch(setExpChecked(!expChecked));
               }}
               checked={expChecked}
-            />
-          </div>
-          <div style={{ display: 'block', width: '50%', float: 'right' }}>
-            <Checkbox
-              style={{ display: 'block', padding: '5px 0' }}
-              label="Data Structures"
-              onChange={() => {
-                dispatch(setDsChecked(!dsChecked));
-              }}
-              checked={dsChecked}
-            />
-
-            <Checkbox
-              style={{ display: 'block', padding: '5px 0' }}
-              label="Algorithms"
-              onChange={() => {
-                dispatch(setAlgChecked(!algChecked));
-              }}
-              checked={algChecked}
             />
           </div>
         </div>

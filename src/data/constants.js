@@ -1,5 +1,5 @@
-export const DATA_STRUCTURE = 'data-structure';
-export const ALGORITHM = 'algorithm';
+export const DATA_STRUCTURE = 'Data Structure';
+export const ALGORITHM = 'Algorithm';
 
 export const BEGINNER = 'Beginner';
 export const INTERMEDIATE = 'Intermediate';

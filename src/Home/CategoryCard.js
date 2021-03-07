@@ -1,26 +1,27 @@
 import * as React from 'react';
 import { Card, Checkbox, Button, Popup, Divider } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategories } from '../redux/filterStore';
+import { setTags } from '../redux/filterStore';
 
 export default function CategoryCard() {
   const dispatch = useDispatch();
-  const categories = useSelector(state => state.filter.categories);
+  const tags = useSelector(state => state.filter.tags);
+  console.log(tags);
 
   const updateCheckbox = name => {
-    const updatedCategories = categories.map(item => {
+    const updatedTags = tags.map(item => {
       if (item.name === name) {
         return { name: item.name, isSelected: !item.isSelected };
       }
       return item;
     });
-    dispatch(setCategories(updatedCategories));
+    dispatch(setTags(updatedTags));
   };
 
   const selectAll = () => {
     dispatch(
-      setCategories(
-        categories.map(d => {
+      setTags(
+        tags.map(d => {
           return { name: d.name, isSelected: true };
         }),
       ),
@@ -29,20 +30,20 @@ export default function CategoryCard() {
 
   const clearAll = () => {
     dispatch(
-      setCategories(
-        categories.map(d => {
+      setTags(
+        tags.map(d => {
           return { name: d.name, isSelected: false };
         }),
       ),
     );
   };
 
-  const allAreSelected = categories.every(d => d.isSelected === true);
-  const noneAreSelected = categories.every(d => d.isSelected === false);
+  const allAreSelected = tags.every(d => d.isSelected === true);
+  const noneAreSelected = tags.every(d => d.isSelected === false);
 
   return (
     <Card style={{ width: '100%', height: '100%' }}>
-      <Card.Content header="Categories" />
+      <Card.Content header="Tags" />
       <Divider style={{ padding: '0', margin: '0' }} />
       <div style={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
         <div style={{ padding: '1em' }}>
@@ -57,7 +58,7 @@ export default function CategoryCard() {
         </div>
         <Divider style={{ padding: '0', margin: '0' }} />
         <div style={{ padding: '1em' }}>
-          {categories.map(item => {
+          {tags.map(item => {
             return (
               <Checkbox
                 style={{ display: 'block', padding: '5px 5px' }}

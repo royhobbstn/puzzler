@@ -46,9 +46,7 @@ function TabCards() {
         </span>
         <span style={{ float: 'right' }}>
           {' '}
-          <span style={{ fontVariant: 'small-caps' }}>
-            {data.type} / {data.category}
-          </span>
+          <span style={{ fontVariant: 'small-caps' }}>{data.tags}</span>
           <span
             style={{
               backgroundColor: 'azure',
