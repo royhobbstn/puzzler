@@ -67,7 +67,10 @@ export function colorCodeTime(totalSeconds, data, revealButtonPressed, passedAll
     color = 'blue';
   }
 
-  const lastStageSeconds = data.solution.stages[data.solution.stages.length - 1];
+  const lastStage = Math.max(...data.solution.map(row => row.stage));
+
+  // each stage is 30 seconds, + 30sec to read problem at beginning, + 30 seconds before final solution reveal
+  const lastStageSeconds = lastStage * 30 + 60;
 
   if (totalSeconds > lastStageSeconds || revealButtonPressed) {
     color = 'red';

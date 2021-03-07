@@ -98,8 +98,5 @@ export const data = {
   `,
   tags: [GRAPH, DATA_STRUCTURE],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 180],
-    solutionLines: solution,
-  },
+  solution,
 };

@@ -86,8 +86,5 @@ export const data = {
   `,
   tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 90, 150],
-    solutionLines: solution,
-  },
+  solution,
 };

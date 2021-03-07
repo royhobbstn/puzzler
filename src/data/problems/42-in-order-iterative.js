@@ -101,8 +101,5 @@ export const data = {
   `,
   tags: [BINARY_SEARCH_TREE, DATA_STRUCTURE],
   difficulty: ADVANCED,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

@@ -69,8 +69,5 @@ export const data = {
   }`,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 210],
-    solutionLines: solution,
-  },
+  solution,
 };

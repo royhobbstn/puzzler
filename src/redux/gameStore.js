@@ -117,7 +117,7 @@ const gameSlice = createSlice({
       state.isRunning = false;
       state.sessionHistory.push({ id, seconds: null });
       // code to reveal
-      state.value2 = data.solution.solutionLines
+      state.value2 = data.solution
         .map(line => {
           return line.text;
         })

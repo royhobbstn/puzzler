@@ -26,7 +26,7 @@ function Problem() {
     // if nothing in main editor, place minimal in there.
     if (!value) {
       const transform = [];
-      data.solution.solutionLines.forEach(line => {
+      data.solution.forEach(line => {
         if (line.stage === 0) {
           transform.push(line.text);
         }
@@ -34,18 +34,24 @@ function Problem() {
       dispatch(setValue(transform.join('\n')));
     }
 
-    if (
-      !revealButtonPressed &&
-      totalSeconds > data.solution.stages[data.solution.stages.length - 1]
-    ) {
+    const lastStage = Math.max(...data.solution.map(row => row.stage));
+
+    // each stage is 30 seconds, + 30sec to read problem at beginning, + 30 seconds before final solution reveal
+    const lastStageSeconds = lastStage * 30 + 60;
+
+    if (!revealButtonPressed && totalSeconds > lastStageSeconds) {
       dispatch(setRevealButtonPressed(true));
       dispatch(setIsRunning(false));
     }
 
     let durationIndex = 0;
-    for (let [index, duration] of data.solution.stages.entries()) {
-      if (totalSeconds >= duration) {
-        durationIndex = index;
+    for (let i = 0; i <= lastStage; i++) {
+      let addExtra = 0;
+      if (i === lastStage) {
+        addExtra = 30;
+      }
+      if (totalSeconds >= 30 + addExtra + i * 30) {
+        durationIndex = i;
       }
     }
 
@@ -53,7 +59,7 @@ function Problem() {
       durationIndex = Infinity;
     }
 
-    const transform = data.solution.solutionLines
+    const transform = data.solution
       .map(line => {
         if (line.stage <= durationIndex) {
           return line.text;

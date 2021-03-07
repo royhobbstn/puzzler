@@ -104,8 +104,5 @@ export const data = {
   `,
   tags: [GRAPH, DATA_STRUCTURE],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 120],
-    solutionLines: solution,
-  },
+  solution,
 };

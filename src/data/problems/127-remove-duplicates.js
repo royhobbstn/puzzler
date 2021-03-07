@@ -44,8 +44,5 @@ export const data = {
   setupCode: ``,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 180],
-    solutionLines: solution,
-  },
+  solution,
 };

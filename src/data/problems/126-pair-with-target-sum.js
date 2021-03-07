@@ -51,8 +51,5 @@ Write a function to return the indices of the two numbers (i.e. the pair) such t
   setupCode: ``,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

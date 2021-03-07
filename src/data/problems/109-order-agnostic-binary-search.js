@@ -75,8 +75,5 @@ Write a function to return the index of the ‘key’ if it is present in the ar
   setupCode: ``,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 390],
-    solutionLines: solution,
-  },
+  solution,
 };

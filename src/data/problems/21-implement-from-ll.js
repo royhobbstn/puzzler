@@ -191,8 +191,5 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
   `,
   tags: [QUEUE, DATA_STRUCTURE],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

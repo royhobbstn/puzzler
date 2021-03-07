@@ -95,8 +95,5 @@ export const data = {
   setupCode: ``,
   tags: [GENERAL, ALGORITHM],
   difficulty: ADVANCED,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 510],
-    solutionLines: solution,
-  },
+  solution,
 };

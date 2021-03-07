@@ -122,8 +122,5 @@ export const data = {
   setupCode: '',
   tags: [STACK, DATA_STRUCTURE],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 210],
-    solutionLines: solution,
-  },
+  solution,
 };

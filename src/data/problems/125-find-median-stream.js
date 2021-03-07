@@ -305,8 +305,5 @@ If the count of numbers inserted in the class is even, the median will be the av
   `,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 300],
-    solutionLines: solution,
-  },
+  solution,
 };

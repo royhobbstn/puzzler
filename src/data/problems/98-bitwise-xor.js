@@ -38,8 +38,5 @@ export const data = {
   setupCode: ``,
   tags: [BITWISE, ALGORITHM],
   difficulty: EXPERT,
-  solution: {
-    stages: [0, 30, 60, 90, 150],
-    solutionLines: solution,
-  },
+  solution,
 };

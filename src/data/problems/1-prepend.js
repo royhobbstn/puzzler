@@ -78,8 +78,5 @@ export const data = {
   setupCode: '',
   tags: [LINKED_LIST, DATA_STRUCTURE],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 120],
-    solutionLines: solution,
-  },
+  solution,
 };

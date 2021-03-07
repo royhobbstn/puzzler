@@ -6,7 +6,6 @@ import { setTags } from '../redux/filterStore';
 export default function CategoryCard() {
   const dispatch = useDispatch();
   const tags = useSelector(state => state.filter.tags);
-  console.log(tags);
 
   const updateCheckbox = name => {
     const updatedTags = tags.map(item => {

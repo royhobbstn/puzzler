@@ -88,8 +88,5 @@ export const data = {
   setupCode: ``,
   tags: [HEAP, DATA_STRUCTURE],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 150],
-    solutionLines: solution,
-  },
+  solution,
 };

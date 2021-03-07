@@ -55,8 +55,5 @@ Write a function to sort the objects in-place on their creation sequence number 
   setupCode: ``,
   tags: [CYCLIC_SORT, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

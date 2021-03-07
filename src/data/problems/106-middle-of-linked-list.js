@@ -69,8 +69,5 @@ class Node {
 `,
   tags: [TEMP, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 150],
-    solutionLines: solution,
-  },
+  solution,
 };

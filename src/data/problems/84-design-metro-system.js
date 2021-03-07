@@ -109,8 +109,5 @@ You can assume all calls to **checkIn** and **checkOut** methods are consistent.
   setupCode: ``,
   tags: [DESIGN, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 360],
-    solutionLines: solution,
-  },
+  solution,
 };

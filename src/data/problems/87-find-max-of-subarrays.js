@@ -44,8 +44,5 @@ export const data = {
   setupCode: ``,
   tags: [SLIDING_WINDOW, ALGORITHM],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

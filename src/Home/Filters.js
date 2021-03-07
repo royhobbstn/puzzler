@@ -12,6 +12,7 @@ function Filters() {
   const tags = useSelector(state => state.filter.tags);
   const minEffort = useSelector(state => state.filter.minEffort);
   const maxEffort = useSelector(state => state.filter.maxEffort);
+
   const begChecked = useSelector(state => state.filter.begChecked);
   const intChecked = useSelector(state => state.filter.intChecked);
   const advChecked = useSelector(state => state.filter.advChecked);
@@ -19,16 +20,14 @@ function Filters() {
 
   const runFilters = React.useCallback(() => {
     const chosenTags = tags.filter(d => d.isSelected).map(d => d.name);
-    console.log({ chosenTags });
     const filtered = Object.keys(inventory)
       .map(d => Number(d))
       .filter(key => {
         const item = inventory[String(key)];
         // check vs tags
-        // TODO Must have all vs must have any
-        // defaulting to must have any
-        for (let tag of item.tags) {
-          if (!chosenTags.includes(tag)) {
+        // defaulting to must have any of the selected tags
+        for (let chosenTag of chosenTags) {
+          if (!item.tags.includes(chosenTag)) {
             return false;
           }
         }

@@ -266,10 +266,9 @@ let maxEffort = 0;
 // add a computed 'effort' property; estimated code lines to write
 Object.keys(aggregate).forEach(key => {
   const item = aggregate[key];
-  const solutionLines = item.solution.solutionLines;
 
   let effortCount = 0;
-  solutionLines.forEach(line => {
+  item.solution.forEach(line => {
     if (line.stage > 0) {
       effortCount++;
     }
@@ -297,5 +296,3 @@ Object.keys(aggregate).forEach(key => {
 });
 
 export const tags = Array.from(new Set(taglist)).sort();
-
-console.log(tags);

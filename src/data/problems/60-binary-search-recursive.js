@@ -74,8 +74,5 @@ export const data = {
   setupCode: '',
   tags: [BINARY_SEARCH, ALGORITHM],
   difficulty: INTERMEDIATE,
-  solution: {
-    stages: [0, 30, 60, 90, 120, 150, 180, 240],
-    solutionLines: solution,
-  },
+  solution,
 };

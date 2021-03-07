@@ -90,8 +90,5 @@ export const data = {
   setupCode: '',
   tags: [FIBONACCI, ALGORITHM],
   difficulty: BEGINNER,
-  solution: {
-    stages: [0, 30, 60, 120],
-    solutionLines: solution,
-  },
+  solution,
 };
