@@ -152,7 +152,6 @@ export const data = {
     return arr;
   };
   `,
-  tags: [CACHE, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, CACHE, ALGORITHM],
   solution,
 };

@@ -4,6 +4,7 @@ import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
+import { levelTags } from '../data/constants.js';
 
 const converter = new showdown.Converter();
 
@@ -72,6 +73,11 @@ function ResultsCard() {
               {filteredResults.length ? (
                 filteredResults.map(id => {
                   const problem = inventory[id];
+
+                  const difficulty = problem.tags.find(tag => {
+                    return levelTags.includes(tag);
+                  });
+
                   const inProblemSet = selections.includes(problem.problemID);
                   return (
                     <Table.Row
@@ -105,9 +111,9 @@ function ResultsCard() {
                             boxShadow: '1px 1px 2px lightslategrey',
                             cursor: 'default',
                           }}
-                          title={problem.difficulty}
+                          title={difficulty}
                         >
-                          {problem.difficulty.slice(0, 1)}
+                          {difficulty.slice(0, 1)}
                         </span>
                       </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>

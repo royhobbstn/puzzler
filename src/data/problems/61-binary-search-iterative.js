@@ -71,7 +71,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [BINARY_SEARCH, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, BINARY_SEARCH, ALGORITHM],
   solution,
 };

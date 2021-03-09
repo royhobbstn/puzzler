@@ -90,7 +90,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

@@ -192,7 +192,6 @@ Please note that it is the Kth smallest number in the sorted order, not the Kth 
     }
   }
   `,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

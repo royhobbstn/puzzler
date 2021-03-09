@@ -1,5 +1,6 @@
 export const DATA_STRUCTURE = 'Data Structure';
 export const ALGORITHM = 'Algorithm';
+export const DESIGN = 'Design';
 
 export const BEGINNER = 'Beginner';
 export const INTERMEDIATE = 'Intermediate';
@@ -22,9 +23,11 @@ export const FIBONACCI = 'Fibonacci';
 export const BINARY_SEARCH = 'Binary Search';
 export const SORTING = 'Sorting';
 export const RECURSION = 'Recursion';
-export const DESIGN = 'Design';
 export const SLIDING_WINDOW = 'Sliding Window';
 export const BITWISE = 'Bitwise';
 export const CYCLIC_SORT = 'Cyclic Sort';
 
 export const TEMP = 'Temp';
+
+export const levelTags = [BEGINNER, INTERMEDIATE, ADVANCED, EXPERT];
+export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
+import { levelTags } from '../data/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { useHistory, useParams } from 'react-router-dom';
@@ -80,6 +81,10 @@ function SelectionsCard() {
               {selections.length ? (
                 selections.map(id => {
                   const problem = inventory[id];
+                  const difficulty = problem.tags.find(tag => {
+                    return levelTags.includes(tag);
+                  });
+
                   return (
                     <Table.Row key={problem.problemID}>
                       <Table.Cell>
@@ -109,9 +114,9 @@ function SelectionsCard() {
                             boxShadow: '1px 1px 2px lightslategrey',
                             cursor: 'default',
                           }}
-                          title={problem.difficulty}
+                          title={difficulty}
                         >
-                          {problem.difficulty.slice(0, 1)}
+                          {difficulty.slice(0, 1)}
                         </span>
                       </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>

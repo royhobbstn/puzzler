@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveIndex } from '../redux/gameStore.js';
+import { levelTags } from '../data/constants.js';
 
 const converter = new showdown.Converter();
 
@@ -21,6 +22,10 @@ function TabCards() {
   if (!data) {
     return [];
   }
+
+  const difficulty = data.tags.find(tag => {
+    return levelTags.includes(tag);
+  });
 
   const hasTests = results.length;
 
@@ -64,9 +69,9 @@ function TabCards() {
               marginLeft: '1em',
               textAlign: 'center',
             }}
-            title={data.difficulty}
+            title={difficulty}
           >
-            {data.difficulty.slice(0, 1)}
+            {difficulty.slice(0, 1)}
           </span>
         </span>
       </p>

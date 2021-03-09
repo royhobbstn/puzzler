@@ -107,7 +107,6 @@ You can assume all calls to **checkIn** and **checkOut** methods are consistent.
     },
   ],
   setupCode: ``,
-  tags: [DESIGN, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, DESIGN, ALGORITHM],
   solution,
 };

@@ -146,7 +146,6 @@ export const data = {
     return found;
   };
   `,
-  tags: [BINARY_SEARCH_TREE, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

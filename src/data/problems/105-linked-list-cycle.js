@@ -67,7 +67,6 @@ export const data = {
       this.next = next;
     }
   }`,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

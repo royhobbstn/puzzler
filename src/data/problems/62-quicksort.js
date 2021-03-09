@@ -95,7 +95,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [SORTING, ALGORITHM],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, SORTING, ALGORITHM],
   solution,
 };

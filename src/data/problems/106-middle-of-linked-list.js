@@ -67,7 +67,6 @@ class Node {
   }
 }
 `,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

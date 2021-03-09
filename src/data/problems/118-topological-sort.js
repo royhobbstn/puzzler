@@ -114,7 +114,6 @@ Input: Vertices=4, Edges=[3, 2], [3, 0], [2, 0], [2, 1]
     return arr.join(',');
   }
   `,
-  tags: [ALGORITHM, GRAPH],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, ALGORITHM, GRAPH],
   solution,
 };

@@ -94,7 +94,6 @@ export const data = {
     }
     return arr;
   }`,
-  tags: [LINKED_LIST, ALGORITHM],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, LINKED_LIST, ALGORITHM],
   solution,
 };

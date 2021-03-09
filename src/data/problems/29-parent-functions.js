@@ -145,7 +145,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [HEAP, DATA_STRUCTURE],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, HEAP, DATA_STRUCTURE],
   solution,
 };

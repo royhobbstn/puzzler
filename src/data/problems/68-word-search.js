@@ -106,7 +106,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [RECURSION, ALGORITHM],
-  difficulty: EXPERT,
+  tags: [EXPERT, RECURSION, ALGORITHM],
   solution,
 };

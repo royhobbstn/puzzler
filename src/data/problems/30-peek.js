@@ -56,7 +56,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [HEAP, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, HEAP, DATA_STRUCTURE],
   solution,
 };

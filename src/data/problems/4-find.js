@@ -98,7 +98,6 @@ export const data = {
     this.tail = newNode;
     return this;
   };`,
-  tags: [LINKED_LIST, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

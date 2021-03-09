@@ -261,8 +261,6 @@ const aggregate = {
   128: _squaring_sorted_array,
 };
 
-let maxEffort = 0;
-
 // add a computed 'effort' property; estimated code lines to write
 Object.keys(aggregate).forEach(key => {
   const item = aggregate[key];
@@ -274,16 +272,8 @@ Object.keys(aggregate).forEach(key => {
     }
   });
 
-  if (effortCount > maxEffort) {
-    maxEffort = effortCount;
-  }
-
   aggregate[key].effort = effortCount;
 });
-
-// todo shuttle this off to constants.js
-export const MIN_EFFORT = 0;
-export const MAX_EFFORT = maxEffort;
 
 export const inventory = aggregate;
 

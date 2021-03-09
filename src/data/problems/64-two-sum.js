@@ -59,7 +59,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [GENERAL, ALGORITHM],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, GENERAL, ALGORITHM],
   solution,
 };

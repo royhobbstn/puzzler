@@ -53,7 +53,6 @@ Write a function to sort the objects in-place on their creation sequence number 
     },
   ],
   setupCode: ``,
-  tags: [CYCLIC_SORT, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, CYCLIC_SORT, ALGORITHM],
   solution,
 };

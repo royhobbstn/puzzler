@@ -89,7 +89,6 @@ export const data = {
     }
   };
   `,
-  tags: [GRAPH, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, GRAPH, DATA_STRUCTURE],
   solution,
 };

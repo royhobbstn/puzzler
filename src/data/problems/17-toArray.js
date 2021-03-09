@@ -84,7 +84,6 @@ export const data = {
     return this;
   }
   `,
-  tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

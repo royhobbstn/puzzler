@@ -63,7 +63,6 @@ export const data = {
     }
   }
   `,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

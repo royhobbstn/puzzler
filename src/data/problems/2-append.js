@@ -88,7 +88,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [LINKED_LIST, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

@@ -62,7 +62,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [SLIDING_WINDOW, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

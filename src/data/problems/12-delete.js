@@ -160,7 +160,6 @@ export const data = {
     return this;
   }
   `,
-  tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

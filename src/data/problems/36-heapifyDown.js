@@ -123,7 +123,6 @@ export const data = {
     this.heapContainer[indexOne] = tmp;
   };
   `,
-  tags: [HEAP, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, HEAP, DATA_STRUCTURE],
   solution,
 };

@@ -164,7 +164,6 @@ export const data = {
     return node ? node.value : undefined;
   };
   `,
-  tags: [HASH_TABLE, DATA_STRUCTURE],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, HASH_TABLE, DATA_STRUCTURE],
   solution,
 };

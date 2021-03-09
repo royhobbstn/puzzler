@@ -102,7 +102,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [FIBONACCI, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, FIBONACCI, ALGORITHM],
   solution,
 };

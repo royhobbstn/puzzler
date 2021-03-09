@@ -204,7 +204,6 @@ export const data = {
     }
     return arr;
   };`,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

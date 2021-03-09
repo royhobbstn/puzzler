@@ -120,7 +120,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [STACK, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, STACK, DATA_STRUCTURE],
   solution,
 };

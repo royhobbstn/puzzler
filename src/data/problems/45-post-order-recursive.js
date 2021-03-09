@@ -90,7 +90,6 @@ export const data = {
     }
   };
   `,
-  tags: [BINARY_SEARCH_TREE, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

@@ -73,7 +73,6 @@ Write a function to return the index of the ‘key’ if it is present in the ar
     },
   ],
   setupCode: ``,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

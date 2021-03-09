@@ -89,7 +89,6 @@ export const data = {
     return values;
   };
   `,
-  tags: [LINKED_LIST, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

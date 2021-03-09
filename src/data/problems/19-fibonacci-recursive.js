@@ -88,7 +88,6 @@ export const data = {
     },
   ],
   setupCode: '',
-  tags: [FIBONACCI, ALGORITHM],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, FIBONACCI, ALGORITHM],
   solution,
 };

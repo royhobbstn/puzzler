@@ -189,7 +189,6 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
     }
   }
   `,
-  tags: [QUEUE, DATA_STRUCTURE],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, QUEUE, DATA_STRUCTURE],
   solution,
 };

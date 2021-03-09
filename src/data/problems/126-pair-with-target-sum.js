@@ -49,7 +49,6 @@ Write a function to return the indices of the two numbers (i.e. the pair) such t
     },
   ],
   setupCode: ``,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

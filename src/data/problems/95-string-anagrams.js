@@ -81,7 +81,6 @@ Write a function to return a list of starting indices of the anagrams of the pat
     },
   ],
   setupCode: ``,
-  tags: [SLIDING_WINDOW, ALGORITHM],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

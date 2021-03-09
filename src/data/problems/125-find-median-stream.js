@@ -303,7 +303,6 @@ If the count of numbers inserted in the class is even, the median will be the av
     }
   }
   `,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

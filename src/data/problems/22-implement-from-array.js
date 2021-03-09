@@ -119,7 +119,6 @@ Base the implementation on an *Array* base data structure.  Return \`null\` for 
     },
   ],
   setupCode: '',
-  tags: [QUEUE, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, QUEUE, DATA_STRUCTURE],
   solution,
 };

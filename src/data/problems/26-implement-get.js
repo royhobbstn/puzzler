@@ -118,7 +118,6 @@ export const data = {
     }
   };
   `,
-  tags: [HASH_TABLE, DATA_STRUCTURE],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, HASH_TABLE, DATA_STRUCTURE],
   solution,
 };

@@ -87,7 +87,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

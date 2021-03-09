@@ -48,7 +48,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
-  difficulty: EXPERT,
+  tags: [EXPERT, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

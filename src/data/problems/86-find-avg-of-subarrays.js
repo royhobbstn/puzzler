@@ -35,7 +35,6 @@ export const data = {
     },
   ],
   setupCode: ``,
-  tags: [SLIDING_WINDOW, ALGORITHM],
-  difficulty: BEGINNER,
+  tags: [BEGINNER, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

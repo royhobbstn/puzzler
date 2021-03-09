@@ -174,7 +174,6 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
     }
   }
   `,
-  tags: [STACK, DATA_STRUCTURE],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, STACK, DATA_STRUCTURE],
   solution,
 };

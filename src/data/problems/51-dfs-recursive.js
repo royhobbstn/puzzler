@@ -101,7 +101,6 @@ export const data = {
     }
   };
   `,
-  tags: [GRAPH, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, GRAPH, DATA_STRUCTURE],
   solution,
 };

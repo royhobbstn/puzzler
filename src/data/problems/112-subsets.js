@@ -55,7 +55,6 @@ export const data = {
       })
       .sort();
   }`,
-  tags: [TEMP, ALGORITHM],
-  difficulty: INTERMEDIATE,
+  tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

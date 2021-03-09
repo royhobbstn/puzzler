@@ -107,7 +107,6 @@ export const data = {
     return current.endOfWord;
   };
   `,
-  tags: [TRIE, DATA_STRUCTURE],
-  difficulty: ADVANCED,
+  tags: [ADVANCED, TRIE, DATA_STRUCTURE],
   solution,
 };
