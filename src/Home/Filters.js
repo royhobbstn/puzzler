@@ -4,6 +4,7 @@ import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
 import { setResults } from '../redux/filterStore';
+import { levelTags, typeTags, categoryTags } from '../data/constants';
 
 function Filters() {
   const dispatch = useDispatch();
@@ -11,15 +12,62 @@ function Filters() {
 
   const runFilters = React.useCallback(() => {
     const chosenTags = tags.filter(d => d.isSelected).map(d => d.name);
+    const levelTagsChosen = [];
+    const typeTagsChosen = [];
+    const categoryTagsChosen = [];
+    for (let chosenTag of chosenTags) {
+      if (levelTags.includes(chosenTag)) {
+        levelTagsChosen.push(chosenTag);
+      }
+      if (typeTags.includes(chosenTag)) {
+        typeTagsChosen.push(chosenTag);
+      }
+      if (categoryTags.includes(chosenTag)) {
+        categoryTagsChosen.push(chosenTag);
+      }
+    }
+
     const filtered = Object.keys(inventory)
       .map(d => Number(d))
       .filter(key => {
         const item = inventory[String(key)];
-        // check vs tags
-        // defaulting to must have any of the selected tags
-        for (let chosenTag of chosenTags) {
-          if (item.tags.includes(chosenTag)) {
-            return true;
+
+        // filter out by level
+        if (levelTagsChosen.length) {
+          const levelTagsInProblem = [];
+          for (let tag of item.tags) {
+            if (levelTags.includes(tag)) {
+              levelTagsInProblem.push(tag);
+            }
+          }
+          if (!levelTagsChosen.some(tagName => levelTagsInProblem.includes(tagName))) {
+            return false;
+          }
+        }
+
+        // filter out by type
+        if (typeTagsChosen.length) {
+          const typeTagsInProblem = [];
+          for (let tag of item.tags) {
+            if (typeTags.includes(tag)) {
+              typeTagsInProblem.push(tag);
+            }
+          }
+          if (!typeTagsChosen.some(tagName => typeTagsInProblem.includes(tagName))) {
+            return false;
+          }
+        }
+
+        // filter out by category
+        if (categoryTagsChosen.length) {
+          const categoryTagsInProblem = [];
+          for (let tag of item.tags) {
+            if (categoryTags.includes(tag)) {
+              categoryTagsInProblem.push(tag);
+            }
+          }
+          if (!categoryTagsChosen.some(tagName => categoryTagsInProblem.includes(tagName))) {
+            return false;
           }
         }
 
@@ -48,7 +96,7 @@ function Filters() {
             top: '0',
             left: '0',
             height: 'calc(47vh - 40px)',
-            width: '54vw',
+            width: '55vw',
           }}
         >
           <ControlCard />
