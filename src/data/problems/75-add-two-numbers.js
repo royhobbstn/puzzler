@@ -86,6 +86,7 @@ export const data = {
     return arr;
   };
   `,
+  source: [],
   tags: [ADVANCED, LINKED_LIST, ALGORITHM],
   solution,
 };

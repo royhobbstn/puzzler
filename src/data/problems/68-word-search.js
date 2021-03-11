@@ -106,6 +106,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [EXPERT, RECURSION, ALGORITHM],
   solution,
 };

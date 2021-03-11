@@ -1,4 +1,5 @@
 import { LINKED_LIST, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
@@ -61,18 +62,8 @@ export const data = {
       expected: JSON.stringify([2, 3, 4, 5]),
     },
   ],
-  setupCode: `
-  LinkedList.prototype.append = function (value) {
-    const newNode = new LinkedListNode(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
-      return this;
-    }
-    this.tail.next = newNode;
-    this.tail = newNode;
-    return this;
-  };`,
+  setupCode: `${LINKED_LIST_PROTOTYPE_APPEND}`,
+  source: [],
   tags: [BEGINNER, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

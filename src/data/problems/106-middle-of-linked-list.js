@@ -67,6 +67,7 @@ class Node {
   }
 }
 `,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

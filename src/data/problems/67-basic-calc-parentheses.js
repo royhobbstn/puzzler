@@ -141,6 +141,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [EXPERT, STACK, ALGORITHM],
   solution,
 };

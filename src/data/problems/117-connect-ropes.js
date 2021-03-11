@@ -182,6 +182,7 @@ Example 1:
       return this.heapContainer.length;
     }
   }`,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

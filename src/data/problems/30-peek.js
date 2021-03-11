@@ -56,6 +56,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [BEGINNER, HEAP, DATA_STRUCTURE],
   solution,
 };

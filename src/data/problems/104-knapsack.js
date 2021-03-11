@@ -55,6 +55,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

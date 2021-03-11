@@ -63,6 +63,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [ADVANCED, GENERAL, ALGORITHM],
   solution,
 };

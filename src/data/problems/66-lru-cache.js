@@ -152,6 +152,7 @@ export const data = {
     return arr;
   };
   `,
+  source: [],
   tags: [INTERMEDIATE, CACHE, ALGORITHM],
   solution,
 };

@@ -83,6 +83,7 @@ export const data = {
     current.endOfWord = true;
   };
   `,
+  source: [],
   tags: [INTERMEDIATE, TRIE, DATA_STRUCTURE],
   solution,
 };

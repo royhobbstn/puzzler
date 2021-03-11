@@ -145,6 +145,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [INTERMEDIATE, HEAP, DATA_STRUCTURE],
   solution,
 };

@@ -89,6 +89,7 @@ export const data = {
     }
   };
   `,
+  source: [],
   tags: [BEGINNER, GRAPH, DATA_STRUCTURE],
   solution,
 };

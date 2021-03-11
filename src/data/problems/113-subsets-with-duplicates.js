@@ -77,6 +77,7 @@ Example 1:
       })
       .sort();
   }`,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

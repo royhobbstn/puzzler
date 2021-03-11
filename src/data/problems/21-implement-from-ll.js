@@ -1,4 +1,5 @@
 import { QUEUE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { LINKED_LIST_CLASS } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: -1, text: '//  class LinkedListNode {' },
@@ -147,48 +148,8 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
       expected: 5,
     },
   ],
-  setupCode: `
-  
-  class LinkedListNode {
-    constructor(value, next = null) {
-      this.value = value;
-      this.next = next;
-    }
-  }
-  
-  class LinkedList {
-    constructor() {
-      this.head = null;
-      this.tail = null;
-    }
-    
-    append(value) {
-      const newNode = new LinkedListNode(value);
-      if (!this.head) {
-        this.head = newNode;
-        this.tail = newNode;
-        return this;
-      }
-      this.tail.next = newNode;
-      this.tail = newNode;
-      return this;
-    }
-    
-    deleteHead() {
-      if (!this.head) {
-        return null;
-      }
-      const deletedHead = this.head;
-      if (this.head.next) {
-        this.head = this.head.next;
-      } else {
-        this.head = null;
-        this.tail = null;
-      }
-      return deletedHead;
-    }
-  }
-  `,
+  setupCode: `${LINKED_LIST_CLASS}`,
+  source: [],
   tags: [INTERMEDIATE, QUEUE, DATA_STRUCTURE],
   solution,
 };

@@ -99,6 +99,7 @@ export const data = {
     }
   };
   `,
+  source: [],
   tags: [ADVANCED, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

@@ -125,6 +125,7 @@ export const data = {
     }
   };
   `,
+  source: [],
   tags: [ADVANCED, GRAPH, DATA_STRUCTURE],
   solution,
 };

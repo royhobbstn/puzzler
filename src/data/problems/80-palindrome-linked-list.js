@@ -135,6 +135,7 @@ export const data = {
     this.next = null;
   }
   `,
+  source: [],
   tags: [ADVANCED, LINKED_LIST, ALGORITHM],
   solution,
 };

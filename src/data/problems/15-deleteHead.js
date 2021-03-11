@@ -1,4 +1,5 @@
 import { DOUBLY_LINKED_LIST, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { DOUBLY_LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class DoublyLinkedListNode {' },
@@ -108,20 +109,8 @@ export const data = {
       expected: 8,
     },
   ],
-  setupCode: `
-  DoublyLinkedList.prototype.append = function(value) {
-    const newNode = new DoublyLinkedListNode(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
-      return this;
-    }
-    this.tail.next = newNode;
-    newNode.previous = this.tail;
-    this.tail = newNode;
-    return this;
-  }
-  `,
+  setupCode: `${DOUBLY_LINKED_LIST_PROTOTYPE_APPEND}`,
+  source: [],
   tags: [INTERMEDIATE, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

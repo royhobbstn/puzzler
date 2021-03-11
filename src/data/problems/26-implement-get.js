@@ -1,3 +1,8 @@
+import {
+  LINKED_LIST_CLASS_EXT,
+  HASH_TABLE_PROTOTYPE_HASH,
+  HASH_TABLE_PROTOTYPE_SET,
+} from '../code-imports/import-index.js';
 import { HASH_TABLE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
@@ -6,7 +11,8 @@ const solution = [
   { stage: -1, text: '// }' },
   { stage: -1, text: '//' },
   { stage: -1, text: '// class LinkedListNode {' },
-  { stage: -1, text: '//   constructor(value, next = null) {' },
+  { stage: -1, text: '//   constructor(key, value, next = null) {' },
+  { stage: -1, text: '//     this.key = key;' },
   { stage: -1, text: '//     this.value = value;' },
   { stage: -1, text: '//     this.next = next;' },
   { stage: -1, text: '//   }' },
@@ -64,60 +70,8 @@ export const data = {
       expected: 99,
     },
   ],
-  setupCode: `
-  class LinkedListNode {
-    constructor(key, value, next = null) {
-      this.key = key;
-      this.value = value;
-      this.next = next;
-    }
-  }
-  class LinkedList {
-    constructor() {
-      this.head = null;
-      this.tail = null;
-    }
-    append(key, value) {
-      const newNode = new LinkedListNode(key, value);
-      if (!this.head) {
-        this.head = newNode;
-        this.tail = newNode;
-        return this;
-      }
-      this.tail.next = newNode;
-      this.tail = newNode;
-      return this;
-    }
-    findKey(key) {
-      if (!this.head) {
-        return null;
-      }
-      let current = this.head;
-      while (current) {
-        if (current.key === key) {
-          return current;
-        }
-        current = current.next;
-      }
-      return null;
-    }
-  }
-  HashTable.prototype.hash = function(key) {
-    const hash = Array.from(key).reduce(
-      (hashAccumulator, keySymbol) => hashAccumulator + keySymbol.charCodeAt(0), 0);
-      return hash % this.buckets.length;
-  };
-  HashTable.prototype.set = function(key, value) {
-    const keyHash = this.hash(key);
-    const bucketLinkedList = this.buckets[keyHash];
-    const node = bucketLinkedList.findKey(key);
-    if (!node) {
-      bucketLinkedList.append(key, value);
-    } else {
-      node.value = value;
-    }
-  };
-  `,
+  setupCode: `${LINKED_LIST_CLASS_EXT} ${HASH_TABLE_PROTOTYPE_HASH} ${HASH_TABLE_PROTOTYPE_SET}`,
+  source: [],
   tags: [BEGINNER, HASH_TABLE, DATA_STRUCTURE],
   solution,
 };

@@ -192,6 +192,7 @@ Please note that it is the Kth smallest number in the sorted order, not the Kth 
     }
   }
   `,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

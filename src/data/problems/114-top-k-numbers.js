@@ -171,6 +171,7 @@ class MinHeap {
   }
 }
 `,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

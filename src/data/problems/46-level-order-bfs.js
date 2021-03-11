@@ -96,6 +96,7 @@ export const data = {
     }
   };
   `,
+  source: [],
   tags: [INTERMEDIATE, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

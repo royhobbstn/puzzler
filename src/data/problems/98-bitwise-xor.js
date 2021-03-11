@@ -36,6 +36,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [EXPERT, BITWISE, ALGORITHM],
   solution,
 };

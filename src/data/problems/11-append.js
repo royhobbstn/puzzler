@@ -90,6 +90,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [INTERMEDIATE, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

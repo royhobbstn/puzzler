@@ -76,6 +76,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [BEGINNER, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

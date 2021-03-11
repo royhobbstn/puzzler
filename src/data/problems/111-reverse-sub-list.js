@@ -81,6 +81,7 @@ export const data = {
     }
     return arr;
   };`,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

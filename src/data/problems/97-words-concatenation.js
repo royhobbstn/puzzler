@@ -75,6 +75,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [ADVANCED, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

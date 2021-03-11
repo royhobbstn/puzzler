@@ -67,6 +67,7 @@ export const data = {
       this.next = next;
     }
   }`,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

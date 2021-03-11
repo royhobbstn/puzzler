@@ -111,6 +111,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [ADVANCED, GRAPH, ALGORITHM],
   solution,
 };

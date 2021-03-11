@@ -215,6 +215,7 @@ export const data = {
     }
   }
   `,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

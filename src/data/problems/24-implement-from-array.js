@@ -120,6 +120,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [BEGINNER, STACK, DATA_STRUCTURE],
   solution,
 };

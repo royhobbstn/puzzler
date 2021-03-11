@@ -1,4 +1,8 @@
 import { LINKED_LIST, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import {
+  LINKED_LIST_PROTOTYPE_APPEND,
+  LINKED_LIST_PROTOTYPE_TOARRAY,
+} from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
@@ -67,28 +71,8 @@ export const data = {
       expected: JSON.stringify([]),
     },
   ],
-  setupCode: `
-  LinkedList.prototype.append = function (value) {
-    const newNode = new LinkedListNode(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
-      return this;
-    }
-    this.tail.next = newNode;
-    this.tail = newNode;
-    return this;
-  };
-  LinkedList.prototype.toArray = function () {
-    const values = [];
-    let currentNode = this.head;
-    while (currentNode) {
-      values.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-    return values;
-  };
-  `,
+  setupCode: `${LINKED_LIST_PROTOTYPE_APPEND}${LINKED_LIST_PROTOTYPE_TOARRAY}`,
+  source: [],
   tags: [ADVANCED, LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

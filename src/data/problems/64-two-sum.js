@@ -59,6 +59,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [BEGINNER, GENERAL, ALGORITHM],
   solution,
 };

@@ -59,6 +59,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

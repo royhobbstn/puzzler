@@ -107,6 +107,7 @@ export const data = {
     }
   };
   `,
+  source: [],
   tags: [INTERMEDIATE, GRAPH, DATA_STRUCTURE],
   solution,
 };

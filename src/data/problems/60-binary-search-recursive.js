@@ -72,6 +72,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  source: [],
   tags: [INTERMEDIATE, BINARY_SEARCH, ALGORITHM],
   solution,
 };

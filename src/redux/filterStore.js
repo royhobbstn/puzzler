@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { tags } from '../data/inventory';
 
 const defaultCategoryData = tags.map(d => {
-  return { name: d, isSelected: true };
+  return { name: d, isSelected: false };
 });
 
 const filterSlice = createSlice({

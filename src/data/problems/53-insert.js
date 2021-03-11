@@ -75,6 +75,7 @@ export const data = {
     return current.endOfWord;
   };
   `,
+  source: [],
   tags: [INTERMEDIATE, TRIE, DATA_STRUCTURE],
   solution,
 };
