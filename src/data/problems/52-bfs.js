@@ -1,4 +1,9 @@
 import { GRAPH, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import {
+  GRAPH_PROTOTYPE_ADD_EDGE,
+  GRAPH_PROTOTYPE_TEMPSET,
+  GRAPH_PROTOTYPE_ADD_VERTEX,
+} from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -73,35 +78,7 @@ export const data = {
       expected: JSON.stringify(['A', 'B', 'C', 'E', 'D', 'G', 'F', 'H', 'J']),
     },
   ],
-  setupCode: `
-  Graph.prototype.tempSet = [];
-  Graph.prototype.callback = function(key) {
-    Graph.prototype.tempSet.push(key);
-  };
-  Graph.prototype.addVertex = function(key) {
-    const vertex = new Vertex(key);
-    this.vertices[key] = vertex;
-    if (!this.adjList[key]) {
-      this.adjList[key] = {};
-    }
-  };
-  Graph.prototype.addEdge = function(startVertexKey, endVertexKey, edgeWeight = 1) {
-    if (!this.vertices[startVertexKey]) {
-      this.addVertex(startVertexKey);
-    }
-    if (!this.vertices[endVertexKey]) {
-      this.addVertex(endVertexKey);
-    }
-
-    const edge = new Edge(edgeWeight);
-
-    this.adjList[startVertexKey][endVertexKey] = edge;
-
-    if (!this.isDirected) {
-      this.adjList[endVertexKey][startVertexKey] = edge;
-    }
-  };
-  `,
+  setupCode: `${GRAPH_PROTOTYPE_TEMPSET} ${GRAPH_PROTOTYPE_ADD_VERTEX} ${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
   tags: [ADVANCED, GRAPH, DATA_STRUCTURE],
   solution,

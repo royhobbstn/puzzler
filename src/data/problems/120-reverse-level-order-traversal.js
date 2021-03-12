@@ -1,3 +1,4 @@
+import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
 import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
 
 const solution = [
@@ -59,14 +60,7 @@ export const data = {
       expected: JSON.stringify([[9, 10, 5], [7, 1], [12]]),
     },
   ],
-  setupCode: `
-  class TreeNode {
-    constructor(val) {
-      this.val = val;
-      this.left = null;
-      this.right = null;
-    }
-  }`,
+  setupCode: `${BINARY_TREE_NODE}`,
   source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,

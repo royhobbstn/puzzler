@@ -1,3 +1,7 @@
+import {
+  GRAPH_PROTOTYPE_ADD_EDGE,
+  GRAPH_PROTOTYPE_ADD_VERTEX,
+} from '../code-imports/import-index.js';
 import { GRAPH, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
 
 const solution = [
@@ -74,28 +78,7 @@ export const data = {
       expected: JSON.stringify({}),
     },
   ],
-  setupCode: `
-  Graph.prototype.addVertex = function(key) {
-    const vertex = new Vertex(key);
-    this.vertices[key] = vertex;
-    if (!this.adjList[key]) {
-      this.adjList[key] = {};
-    }
-  };
-  Graph.prototype.addEdge = function(startVertexKey, endVertexKey, edgeWeight = 1) {
-    if (!this.vertices[startVertexKey]) {
-      this.addVertex(startVertexKey);
-    }
-    if (!this.vertices[endVertexKey]) {
-      this.addVertex(endVertexKey);
-    }
-    const edge = new Edge(edgeWeight);
-    this.adjList[startVertexKey][endVertexKey] = edge;
-    if (!this.isDirected) {
-      this.adjList[endVertexKey][startVertexKey] = edge;
-    }
-  };
-  `,
+  setupCode: `${GRAPH_PROTOTYPE_ADD_VERTEX} ${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
   tags: [INTERMEDIATE, GRAPH, DATA_STRUCTURE],
   solution,

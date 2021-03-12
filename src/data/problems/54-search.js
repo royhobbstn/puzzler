@@ -1,4 +1,5 @@
 import { TRIE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { TRIE_PROTOTYPE_INSERT } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class TrieNode {' },
@@ -68,21 +69,7 @@ export const data = {
       expected: false,
     },
   ],
-  setupCode: `
-  Trie.prototype.insert = function(word) {
-    let current = this.root;
-    for (let i = 0; i < word.length; i++) {
-      const ch = word.charAt(i);
-      let node = current.children[ch];
-      if (node == null) {
-        node = new TrieNode();
-        current.children[ch] = node;
-      }
-      current = node;
-    }
-    current.endOfWord = true;
-  };
-  `,
+  setupCode: `${TRIE_PROTOTYPE_INSERT}`,
   source: [],
   tags: [INTERMEDIATE, TRIE, DATA_STRUCTURE],
   solution,

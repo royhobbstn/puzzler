@@ -1,3 +1,4 @@
+import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
 import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
 
 const solution = [
@@ -54,15 +55,7 @@ export const data = {
       expected: false,
     },
   ],
-  setupCode: `
-  class TreeNode {
-    constructor(val, left = null, right = null) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
-  `,
+  setupCode: `${BINARY_TREE_NODE}`,
   source: [],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,

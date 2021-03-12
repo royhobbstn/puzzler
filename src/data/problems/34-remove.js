@@ -1,3 +1,11 @@
+import {
+  MIN_HEAP_CHILD_FNS,
+  MIN_HEAP_HEAPIFY_UP,
+  MIN_HEAP_HEAPIFY_DOWN,
+  MIN_HEAP_PARENT_FNS,
+  MIN_HEAP_SWAP,
+  MIN_HEAP_FIND,
+} from '../code-imports/import-index.js';
 import { HEAP, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
@@ -107,77 +115,9 @@ export const data = {
       expected: JSON.stringify([1, 2, 4, 10, 3, 7, 8]),
     },
   ],
-  setupCode: `
-  MinHeap.prototype.getParentIndex = function (childIndex) {
-    return Math.floor((childIndex - 1) / 2);
-  };
-  MinHeap.prototype.hasParent = function (childIndex) {
-    return this.getParentIndex(childIndex) >= 0;
-  };
-  MinHeap.prototype.parent = function (childIndex) {
-    return this.heapContainer[this.getParentIndex(childIndex)];
-  };
-  MinHeap.prototype.getLeftChildIndex = function(parentIndex) {
-    return 2 * parentIndex + 1;
-  };
-  MinHeap.prototype.getRightChildIndex = function(parentIndex) {
-    return 2 * parentIndex + 2;
-  };
-  MinHeap.prototype.hasLeftChild = function(parentIndex) {
-    return this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
-  };
-  MinHeap.prototype.hasRightChild = function(parentIndex) {
-    return this.getRightChildIndex(parentIndex) < this.heapContainer.length;
-  };
-  MinHeap.prototype.leftChild = function(parentIndex) {
-    return this.heapContainer[this.getLeftChildIndex(parentIndex)];
-  };
-  MinHeap.prototype.rightChild = function(parentIndex) {
-    return this.heapContainer[this.getRightChildIndex(parentIndex)];
-  };
-  MinHeap.prototype.find = function (item) {
-    const foundItemIndices = [];
-    for (let itemIndex = 0; itemIndex < this.heapContainer.length; itemIndex += 1) {
-      if (item === this.heapContainer[itemIndex]) {
-        foundItemIndices.push(itemIndex);
-      }
-    }
-    return foundItemIndices;
-  };
-  MinHeap.prototype.heapifyUp = function (customStartIndex) {
-    let currentIndex = customStartIndex || this.heapContainer.length - 1;
-    while (
-      this.hasParent(currentIndex) &&
-      this.parent(currentIndex) > this.heapContainer[currentIndex]
-    ) {
-      this.swap(currentIndex, this.getParentIndex(currentIndex));
-      currentIndex = this.getParentIndex(currentIndex);
-    }
-  };
-  MinHeap.prototype.heapifyDown = function (customStartIndex = 0) {
-    let currentIndex = customStartIndex;
-    let nextIndex = null;
-    while (this.hasLeftChild(currentIndex)) {
-      if (
-        this.hasRightChild(currentIndex) &&
-        this.rightChild(currentIndex) <= this.leftChild(currentIndex)
-      ) {
-        nextIndex = this.getRightChildIndex(currentIndex);
-      } else {
-        nextIndex = this.getLeftChildIndex(currentIndex);
-      }
-      if (this.heapContainer[currentIndex] <= this.heapContainer[nextIndex]) {
-        break;
-      }
-      this.swap(currentIndex, nextIndex);
-      currentIndex = nextIndex;
-    }
-  };
-  MinHeap.prototype.swap = function (indexOne, indexTwo) {
-    const tmp = this.heapContainer[indexTwo];
-    this.heapContainer[indexTwo] = this.heapContainer[indexOne];
-    this.heapContainer[indexOne] = tmp;
-  };
+  setupCode: `${MIN_HEAP_PARENT_FNS} ${MIN_HEAP_CHILD_FNS} ${MIN_HEAP_FIND} ${MIN_HEAP_HEAPIFY_UP} ${MIN_HEAP_HEAPIFY_DOWN} ${MIN_HEAP_SWAP}
+
+
   `,
   source: [],
   tags: [ADVANCED, HEAP, DATA_STRUCTURE],

@@ -1,4 +1,5 @@
 import { GRAPH, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { GRAPH_PROTOTYPE_ADD_VERTEX } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -98,15 +99,7 @@ export const data = {
       expected: 2,
     },
   ],
-  setupCode: `
-  Graph.prototype.addVertex = function (key) {
-    const vertex = new Vertex(key);
-    this.vertices[key] = vertex;
-    if (!this.adjList[key]) {
-      this.adjList[key] = {};
-    }
-  };
-  `,
+  setupCode: `${GRAPH_PROTOTYPE_ADD_VERTEX}`,
   source: [],
   tags: [INTERMEDIATE, GRAPH, DATA_STRUCTURE],
   solution,

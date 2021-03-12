@@ -1,4 +1,5 @@
 import { BINARY_SEARCH_TREE, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import { BST_PROTOTYPE_INSERT, BST_TEMP_NODELIST } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class BinarySearchTreeNode {' },
@@ -65,42 +66,7 @@ export const data = {
       expected: JSON.stringify([2, 0, 3, 7, 11, 5]),
     },
   ],
-  setupCode: `
-  BinarySearchTree.prototype.tempNodeList = [];
-  BinarySearchTree.prototype.callback = function (value) {
-    BinarySearchTree.prototype.tempNodeList.push(value);
-  };
-  BinarySearchTree.prototype.clearTempNodeList = function (value) {
-    BinarySearchTree.prototype.tempNodeList = [];
-  };
-  BinarySearchTree.prototype.insert = function(value) {
-    const thisNode = new BinarySearchTreeNode(value);
-    if (!this.root) {
-      this.root = thisNode;
-    } else {
-      let currentRoot = this.root;
-      while (true) {
-        if (currentRoot.value > value) {
-          if (currentRoot.left != null) {
-            currentRoot = currentRoot.left;
-          } else {
-            currentRoot.left = thisNode;
-            break;
-          }
-        } else if (currentRoot.value < value) {
-          if (currentRoot.right != null) {
-            currentRoot = currentRoot.right;
-          } else {
-            currentRoot.right = thisNode;
-            break;
-          }
-        } else {
-          break;
-        }
-      }
-    }
-  };
-  `,
+  setupCode: `${BST_TEMP_NODELIST} ${BST_PROTOTYPE_INSERT}`,
   source: [],
   tags: [ADVANCED, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,

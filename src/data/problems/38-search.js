@@ -1,4 +1,5 @@
 import { BINARY_SEARCH_TREE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { BST_PROTOTYPE_INSERT } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class BinarySearchTreeNode {' },
@@ -105,35 +106,7 @@ export const data = {
       expected: false,
     },
   ],
-  setupCode: `
-  BinarySearchTree.prototype.insert = function(value) {
-    const thisNode = new BinarySearchTreeNode(value);
-    if (!this.root) {
-      this.root = thisNode;
-    } else {
-      let currentRoot = this.root;
-      while (true) {
-        if (currentRoot.value > value) {
-          if (currentRoot.left != null) {
-            currentRoot = currentRoot.left;
-          } else {
-            currentRoot.left = thisNode;
-            break;
-          }
-        } else if (currentRoot.value < value) {
-          if (currentRoot.right != null) {
-            currentRoot = currentRoot.right;
-          } else {
-            currentRoot.right = thisNode;
-            break;
-          }
-        } else {
-          break;
-        }
-      }
-    }
-  };
-  `,
+  setupCode: `${BST_PROTOTYPE_INSERT}`,
   source: [],
   tags: [INTERMEDIATE, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,

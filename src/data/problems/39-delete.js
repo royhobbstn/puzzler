@@ -1,3 +1,4 @@
+import { BST_PROTOTYPE_SEARCH, BST_PROTOTYPE_INSERT } from '../code-imports/import-index.js';
 import { BINARY_SEARCH_TREE, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
@@ -102,50 +103,7 @@ export const data = {
       expected: false,
     },
   ],
-  setupCode: `
-  BinarySearchTree.prototype.insert = function(value) {
-    const thisNode = new BinarySearchTreeNode(value);
-    if (!this.root) {
-      this.root = thisNode;
-    } else {
-      let currentRoot = this.root;
-      while (true) {
-        if (currentRoot.value > value) {
-          if (currentRoot.left != null) {
-            currentRoot = currentRoot.left;
-          } else {
-            currentRoot.left = thisNode;
-            break;
-          }
-        } else if (currentRoot.value < value) {
-          if (currentRoot.right != null) {
-            currentRoot = currentRoot.right;
-          } else {
-            currentRoot.right = thisNode;
-            break;
-          }
-        } else {
-          break;
-        }
-      }
-    }
-  };
-  BinarySearchTree.prototype.search = function(value) {
-    let currentRoot = this.root;
-    let found = false;
-    while (currentRoot) {
-      if (currentRoot.value > value) {
-        currentRoot = currentRoot.left;
-      } else if (currentRoot.value < value) {
-        currentRoot = currentRoot.right;
-      } else {
-        found = true;
-        break;
-      }
-    }
-    return found;
-  };
-  `,
+  setupCode: `${BST_PROTOTYPE_INSERT} ${BST_PROTOTYPE_SEARCH}`,
   source: [],
   tags: [ADVANCED, BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,

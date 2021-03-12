@@ -1,4 +1,9 @@
 import { HEAP, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import {
+  MIN_HEAP_CHILD_FNS,
+  MIN_HEAP_HEAPIFY_DOWN,
+  MIN_HEAP_SWAP,
+} from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },
@@ -90,50 +95,7 @@ export const data = {
       expected: 5,
     },
   ],
-  setupCode: `
-  MinHeap.prototype.getLeftChildIndex = function(parentIndex) {
-    return 2 * parentIndex + 1;
-  };
-  MinHeap.prototype.getRightChildIndex = function(parentIndex) {
-    return 2 * parentIndex + 2;
-  };
-  MinHeap.prototype.hasLeftChild = function(parentIndex) {
-    return this.getLeftChildIndex(parentIndex) < this.heapContainer.length;
-  };
-  MinHeap.prototype.hasRightChild = function(parentIndex) {
-    return this.getRightChildIndex(parentIndex) < this.heapContainer.length;
-  };
-  MinHeap.prototype.leftChild = function(parentIndex) {
-    return this.heapContainer[this.getLeftChildIndex(parentIndex)];
-  };
-  MinHeap.prototype.rightChild = function(parentIndex) {
-    return this.heapContainer[this.getRightChildIndex(parentIndex)];
-  };
-  MinHeap.prototype.heapifyDown = function (customStartIndex = 0) {
-    let currentIndex = customStartIndex;
-    let nextIndex = null;
-    while (this.hasLeftChild(currentIndex)) {
-      if (
-        this.hasRightChild(currentIndex) &&
-        this.rightChild(currentIndex) <= this.leftChild(currentIndex)
-      ) {
-        nextIndex = this.getRightChildIndex(currentIndex);
-      } else {
-        nextIndex = this.getLeftChildIndex(currentIndex);
-      }
-      if (this.heapContainer[currentIndex] <= this.heapContainer[nextIndex]) {
-        break;
-      }
-      this.swap(currentIndex, nextIndex);
-      currentIndex = nextIndex;
-    }
-  };
-  MinHeap.prototype.swap = function (indexOne, indexTwo) {
-    const tmp = this.heapContainer[indexTwo];
-    this.heapContainer[indexTwo] = this.heapContainer[indexOne];
-    this.heapContainer[indexOne] = tmp;
-  };
-  `,
+  setupCode: `${MIN_HEAP_CHILD_FNS} ${MIN_HEAP_HEAPIFY_DOWN} ${MIN_HEAP_SWAP}`,
   source: [],
   tags: [INTERMEDIATE, HEAP, DATA_STRUCTURE],
   solution,

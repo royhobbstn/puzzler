@@ -1,4 +1,5 @@
 import { GRAPH, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { GRAPH_PROTOTYPE_ADD_EDGE } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -74,21 +75,7 @@ export const data = {
       expected: true,
     },
   ],
-  setupCode: `
-  Graph.prototype.addEdge = function(startVertexKey, endVertexKey, edgeWeight = 1) {
-    if (!this.vertices[startVertexKey]) {
-      this.addVertex(startVertexKey);
-    }
-    if (!this.vertices[endVertexKey]) {
-      this.addVertex(endVertexKey);
-    }
-    const edge = new Edge(edgeWeight);
-    this.adjList[startVertexKey][endVertexKey] = edge;
-    if (!this.isDirected) {
-      this.adjList[endVertexKey][startVertexKey] = edge;
-    }
-  };
-  `,
+  setupCode: `${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
   tags: [BEGINNER, GRAPH, DATA_STRUCTURE],
   solution,

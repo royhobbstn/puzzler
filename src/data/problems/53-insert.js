@@ -1,4 +1,5 @@
 import { TRIE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { TRIE_PROTOTYPE_SEARCH } from '../code-imports/import-index.js';
 
 const solution = [
   { stage: 0, text: 'class TrieNode {' },
@@ -61,20 +62,7 @@ export const data = {
       expected: false,
     },
   ],
-  setupCode: `
-  Trie.prototype.search = function(word) {
-    let current = this.root;
-    for (let i = 0; i < word.length; i++) {
-      const ch = word.charAt(i);
-      const node = current.children[ch];
-      if (node == null) {
-        return false;
-      }
-      current = node;
-    }
-    return current.endOfWord;
-  };
-  `,
+  setupCode: `${TRIE_PROTOTYPE_SEARCH}`,
   source: [],
   tags: [INTERMEDIATE, TRIE, DATA_STRUCTURE],
   solution,

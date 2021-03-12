@@ -1,3 +1,8 @@
+import {
+  MIN_HEAP_SWAP,
+  MIN_HEAP_PARENT_FNS,
+  MIN_HEAP_HEAPIFY_UP,
+} from '../code-imports/import-index.js';
 import { HEAP, DATA_STRUCTURE, BEGINNER } from '../constants.js';
 
 const solution = [
@@ -96,32 +101,7 @@ export const data = {
       expected: true,
     },
   ],
-  setupCode: `
-  MinHeap.prototype.getParentIndex = function (childIndex) {
-    return Math.floor((childIndex - 1) / 2);
-  };
-  MinHeap.prototype.hasParent = function (childIndex) {
-    return this.getParentIndex(childIndex) >= 0;
-  };
-  MinHeap.prototype.parent = function (childIndex) {
-    return this.heapContainer[this.getParentIndex(childIndex)];
-  };
-  MinHeap.prototype.heapifyUp = function (customStartIndex) {
-    let currentIndex = customStartIndex || this.heapContainer.length - 1;
-    while (
-      this.hasParent(currentIndex) &&
-      this.parent(currentIndex) > this.heapContainer[currentIndex]
-    ) {
-      this.swap(currentIndex, this.getParentIndex(currentIndex));
-      currentIndex = this.getParentIndex(currentIndex);
-    }
-  };
-  MinHeap.prototype.swap = function (indexOne, indexTwo) {
-    const tmp = this.heapContainer[indexTwo];
-    this.heapContainer[indexTwo] = this.heapContainer[indexOne];
-    this.heapContainer[indexOne] = tmp;
-  };
-  `,
+  setupCode: `${MIN_HEAP_PARENT_FNS} ${MIN_HEAP_HEAPIFY_UP} ${MIN_HEAP_SWAP}`,
   source: [],
   tags: [BEGINNER, HEAP, DATA_STRUCTURE],
   solution,

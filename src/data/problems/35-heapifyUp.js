@@ -1,3 +1,4 @@
+import { MIN_HEAP_PARENT_FNS, MIN_HEAP_SWAP } from '../code-imports/import-index.js';
 import { HEAP, DATA_STRUCTURE, ADVANCED } from '../constants.js';
 
 const solution = [
@@ -89,22 +90,7 @@ export const data = {
       expected: JSON.stringify([1, 2, 5, 7, 3, 6, 7, 11, 9, 8, 4]),
     },
   ],
-  setupCode: `
-  MinHeap.prototype.getParentIndex = function (childIndex) {
-    return Math.floor((childIndex - 1) / 2);
-  };
-  MinHeap.prototype.hasParent = function (childIndex) {
-    return this.getParentIndex(childIndex) >= 0;
-  };
-  MinHeap.prototype.parent = function (childIndex) {
-    return this.heapContainer[this.getParentIndex(childIndex)];
-  };
-  MinHeap.prototype.swap = function (indexOne, indexTwo) {
-    const tmp = this.heapContainer[indexTwo];
-    this.heapContainer[indexTwo] = this.heapContainer[indexOne];
-    this.heapContainer[indexOne] = tmp;
-  };
-  `,
+  setupCode: `${MIN_HEAP_PARENT_FNS} ${MIN_HEAP_SWAP}`,
   source: [],
   tags: [ADVANCED, HEAP, DATA_STRUCTURE],
   solution,
