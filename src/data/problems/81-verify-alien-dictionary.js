@@ -73,7 +73,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/verifying-an-alien-dictionary'],
   tags: [INTERMEDIATE, GENERAL, ALGORITHM],
   solution,
 };

@@ -86,7 +86,7 @@ If the count of numbers inserted in the class is even, the median will be the av
     },
   ],
   setupCode: `${MIN_HEAP_CLASS_PLAIN} ${MAX_HEAP_CLASS_PLAIN}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

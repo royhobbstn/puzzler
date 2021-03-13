@@ -59,7 +59,7 @@ export const data = {
     },
   ],
   setupCode: '',
-  source: [],
+  source: ['https://leetcode.com/problems/two-sum/'],
   tags: [BEGINNER, GENERAL, ALGORITHM],
   solution,
 };

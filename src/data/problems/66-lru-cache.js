@@ -152,7 +152,7 @@ export const data = {
     return arr;
   };
   `,
-  source: [],
+  source: ['https://leetcode.com/problems/lru-cache'],
   tags: [INTERMEDIATE, CACHE, ALGORITHM],
   solution,
 };

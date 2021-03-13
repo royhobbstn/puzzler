@@ -62,7 +62,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/merge-intervals'],
   tags: [INTERMEDIATE, GENERAL, ALGORITHM],
   solution,
 };

@@ -6,7 +6,7 @@ import { convertToTimer } from './util.js';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setSessionHistory } from './redux/gameStore';
-import { setActiveProblemText, setShowModal } from './redux/filterStore';
+import { setActiveProblemText, setShowModal, setActiveProblemId } from './redux/filterStore';
 const converter = new showdown.Converter();
 
 function SessionStats() {
@@ -14,8 +14,9 @@ function SessionStats() {
   const sessionHistory = useSelector(state => state.game.sessionHistory);
   const personalBests = getPersonalBests();
 
-  const showModalMarkdown = problemText => {
+  const showModalMarkdown = (problemText, problemId) => {
     dispatch(setActiveProblemText(problemText));
+    dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
   };
 
@@ -53,7 +54,7 @@ function SessionStats() {
                   <div
                     style={{ display: 'inline' }}
                     className="hover-link"
-                    onClick={() => showModalMarkdown(inventory[entry.id].problemText)}
+                    onClick={() => showModalMarkdown(inventory[entry.id].problemText, entry.id)}
                     dangerouslySetInnerHTML={{
                       __html: converter.makeHtml(inventory[entry.id].problemName),
                     }}

@@ -120,7 +120,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/insert-delete-getrandom-o1'],
   tags: [ADVANCED, GENERAL, ALGORITHM],
   solution,
 };

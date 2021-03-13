@@ -68,7 +68,7 @@ export const data = {
     },
   ],
   setupCode: `${BINARY_TREE_NODE}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/7nO4VmA74Lr'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

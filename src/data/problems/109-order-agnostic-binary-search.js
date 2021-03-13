@@ -73,7 +73,7 @@ Write a function to return the index of the ‘key’ if it is present in the ar
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/R8LzZQlj8lO'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

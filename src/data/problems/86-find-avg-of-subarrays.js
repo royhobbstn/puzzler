@@ -35,7 +35,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/7D5NNZWQ8Wr'],
   tags: [BEGINNER, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

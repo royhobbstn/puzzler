@@ -49,7 +49,7 @@ Write a function to return the indices of the two numbers (i.e. the pair) such t
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/xog6q15W9GP'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

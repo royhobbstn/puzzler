@@ -84,7 +84,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/3YxNVYwNR5p'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

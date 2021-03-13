@@ -67,7 +67,7 @@ class Node {
   }
 }
 `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/3j5GD3EQMGM'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

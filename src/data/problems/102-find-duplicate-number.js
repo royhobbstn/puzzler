@@ -54,7 +54,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/3wEkKy6Pr9A'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

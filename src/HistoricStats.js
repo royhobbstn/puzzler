@@ -5,7 +5,7 @@ import { inventory } from './data/inventory.js';
 import { convertToTimer, BLANK_TIME } from './util.js';
 import { useDispatch } from 'react-redux';
 import showdown from 'showdown';
-import { setActiveProblemText, setShowModal } from './redux/filterStore';
+import { setActiveProblemId, setActiveProblemText, setShowModal } from './redux/filterStore';
 const converter = new showdown.Converter();
 
 function HistoricStats() {
@@ -15,8 +15,9 @@ function HistoricStats() {
 
   console.log({ personalBests });
 
-  const showModalMarkdown = problemText => {
+  const showModalMarkdown = (problemText, problemId) => {
     dispatch(setActiveProblemText(problemText));
+    dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
   };
 
@@ -54,7 +55,7 @@ function HistoricStats() {
                   <div
                     style={{ display: 'inline' }}
                     className="hover-link"
-                    onClick={() => showModalMarkdown(inventory[key].problemText)}
+                    onClick={() => showModalMarkdown(inventory[key].problemText, key)}
                     dangerouslySetInnerHTML={{
                       __html: converter.makeHtml(inventory[key].problemName),
                     }}

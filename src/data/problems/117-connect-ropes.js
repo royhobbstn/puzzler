@@ -70,7 +70,7 @@ Example 1:
     },
   ],
   setupCode: `${MIN_HEAP_CLASS_PLAIN}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/qVZmZJVxPY0'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

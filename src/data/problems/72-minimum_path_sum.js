@@ -58,7 +58,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/minimum-path-sum'],
   tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

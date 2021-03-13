@@ -42,7 +42,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/JPKr0kqLGNP'],
   tags: [BEGINNER, SLIDING_WINDOW, ALGORITHM],
   solution,
 };

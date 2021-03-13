@@ -57,7 +57,7 @@ export const data = {
     },
   ],
   setupCode: `${MIN_HEAP_CLASS_PLAIN}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/RM535yM9DW0'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

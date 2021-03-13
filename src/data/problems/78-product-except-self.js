@@ -60,7 +60,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/product-of-array-except-self'],
   tags: [INTERMEDIATE, GENERAL, ALGORITHM],
   solution,
 };

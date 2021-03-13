@@ -64,7 +64,7 @@ Please note that it is the Kth smallest number in the sorted order, not the Kth 
     },
   ],
   setupCode: `${MAX_HEAP_CLASS_PLAIN}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/gxxPGn8vE8G'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

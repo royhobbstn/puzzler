@@ -3,7 +3,12 @@ import { Card, Table, Icon, Button, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
-import { setSelections, setActiveProblemText, setShowModal } from '../redux/filterStore';
+import {
+  setSelections,
+  setActiveProblemText,
+  setShowModal,
+  setActiveProblemId,
+} from '../redux/filterStore';
 import { levelTags } from '../data/constants.js';
 
 const converter = new showdown.Converter();
@@ -21,8 +26,9 @@ function ResultsCard() {
     dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
-  const showModalMarkdown = problemText => {
+  const showModalMarkdown = (problemText, problemId) => {
     dispatch(setActiveProblemText(problemText));
+    dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
   };
 
@@ -88,7 +94,7 @@ function ResultsCard() {
                         <div
                           style={{ display: 'inline' }}
                           className="hover-link"
-                          onClick={() => showModalMarkdown(problem.problemText)}
+                          onClick={() => showModalMarkdown(problem.problemText, problem.problemID)}
                           dangerouslySetInnerHTML={{
                             __html: converter.makeHtml(
                               `**${problem.problemID}**:  ` + problem.problemName,

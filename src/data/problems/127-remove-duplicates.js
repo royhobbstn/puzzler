@@ -42,7 +42,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/mEEA22L5mNA'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

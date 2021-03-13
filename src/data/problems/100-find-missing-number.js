@@ -49,7 +49,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/JPnp17NYXE9'],
   tags: [INTERMEDIATE, TEMP, ALGORITHM],
   solution,
 };

@@ -135,7 +135,7 @@ export const data = {
     this.next = null;
   }
   `,
-  source: [],
+  source: ['https://leetcode.com/problems/palindrome-linked-list'],
   tags: [ADVANCED, LINKED_LIST, ALGORITHM],
   solution,
 };

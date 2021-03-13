@@ -36,7 +36,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/gk20xz4VwpG'],
   tags: [EXPERT, BITWISE, ALGORITHM],
   solution,
 };

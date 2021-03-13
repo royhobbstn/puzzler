@@ -12,6 +12,7 @@ const filterSlice = createSlice({
     results: [],
     showModal: false,
     activeProblemText: '',
+    activeProblemId: '',
     tags: defaultCategoryData,
   },
   reducers: {
@@ -30,6 +31,9 @@ const filterSlice = createSlice({
     setActiveProblemText: (state, { type, payload }) => {
       state.activeProblemText = payload;
     },
+    setActiveProblemId: (state, { type, payload }) => {
+      state.activeProblemId = payload;
+    },
     setTags: (state, { type, payload }) => {
       state.tags = payload;
     },
@@ -44,6 +48,7 @@ export const {
   setResults,
   setShowModal,
   setActiveProblemText,
+  setActiveProblemId,
   setTags,
   pressReset,
   shiftSelection,

@@ -10,6 +10,7 @@ import {
   setActiveProblemText,
   setShowModal,
   shiftSelection,
+  setActiveProblemId,
 } from '../redux/filterStore';
 import { clickNext } from '../redux/gameStore';
 
@@ -36,8 +37,9 @@ function SelectionsCard() {
     dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
-  const showModalMarkdown = problemText => {
+  const showModalMarkdown = (problemText, problemId) => {
     dispatch(setActiveProblemText(problemText));
+    dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
   };
 
@@ -91,7 +93,7 @@ function SelectionsCard() {
                         <div
                           style={{ display: 'inline' }}
                           className="hover-link"
-                          onClick={() => showModalMarkdown(problem.problemText)}
+                          onClick={() => showModalMarkdown(problem.problemText, problem.problemID)}
                           dangerouslySetInnerHTML={{
                             __html: converter.makeHtml(
                               `**${problem.problemID}**:  ` + problem.problemName,

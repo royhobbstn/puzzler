@@ -55,7 +55,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk'],
   tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

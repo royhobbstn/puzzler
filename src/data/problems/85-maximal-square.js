@@ -48,7 +48,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/maximal-square'],
   tags: [EXPERT, DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

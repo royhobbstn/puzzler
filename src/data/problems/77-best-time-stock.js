@@ -46,7 +46,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://leetcode.com/problems/best-time-to-buy-and-sell-stock'],
   tags: [INTERMEDIATE, GENERAL, ALGORITHM],
   solution,
 };

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveIndex } from '../redux/gameStore.js';
 import { levelTags } from '../data/constants.js';
+import { Footnote } from '../Home/Footnote.js';
 
 const converter = new showdown.Converter();
 
@@ -77,7 +78,13 @@ function TabCards() {
       </p>
 
       <Card.Content style={{ height: 'calc(32vh - 70px)', overflowY: 'scroll' }}>
-        {activeIndex === 0 ? <div dangerouslySetInnerHTML={createMarkup()} /> : null}
+        {activeIndex === 0 ? (
+          <div>
+            <div dangerouslySetInnerHTML={createMarkup()} />
+            <Footnote noteSource={data.source || []} />
+            <br />
+          </div>
+        ) : null}
 
         {activeIndex === 1 ? (
           isBusyTesting ? (
