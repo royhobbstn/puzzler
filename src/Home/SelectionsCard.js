@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { levelTags } from '../data/constants.js';
+import { levelTags, abbrev, typeTags } from '../data/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { useHistory, useParams } from 'react-router-dom';
@@ -122,7 +122,22 @@ function SelectionsCard() {
                         </span>
                       </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
-                      <Table.Cell style={{ textAlign: 'center' }}>{problem.tags}</Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>
+                        <span
+                          style={{
+                            fontVariant: 'small-caps',
+                            fontSize: '0.75em',
+                            fontWeight: 'bold',
+                          }}
+                        >
+                          {problem.tags
+                            .filter(d => !levelTags.includes(d) && !typeTags.includes(d))
+                            .map(d => {
+                              return abbrev[d];
+                            })
+                            .join(', ')}
+                        </span>
+                      </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>
                         <Button icon onClick={() => subtractProblemId(problem.problemID)}>
                           <Icon className="hover-circle-off" name="minus" />

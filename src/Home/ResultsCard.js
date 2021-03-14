@@ -9,7 +9,7 @@ import {
   setShowModal,
   setActiveProblemId,
 } from '../redux/filterStore';
-import { levelTags } from '../data/constants.js';
+import { levelTags, typeTags, abbrev } from '../data/constants.js';
 
 const converter = new showdown.Converter();
 
@@ -123,7 +123,22 @@ function ResultsCard() {
                         </span>
                       </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>{problem.effort}</Table.Cell>
-                      <Table.Cell style={{ textAlign: 'center' }}>{problem.tags}</Table.Cell>
+                      <Table.Cell style={{ textAlign: 'center' }}>
+                        <span
+                          style={{
+                            fontVariant: 'small-caps',
+                            fontSize: '0.8em',
+                            fontWeight: 'bold',
+                          }}
+                        >
+                          {problem.tags
+                            .filter(d => !levelTags.includes(d) && !typeTags.includes(d))
+                            .map(d => {
+                              return abbrev[d];
+                            })
+                            .join(', ')}
+                        </span>
+                      </Table.Cell>
                       <Table.Cell style={{ textAlign: 'center' }}>
                         {inProblemSet ? (
                           <Button icon onClick={() => subtractProblemId(problem.problemID)}>

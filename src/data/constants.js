@@ -11,7 +11,7 @@ export const LINKED_LIST = 'Linked List';
 export const DOUBLY_LINKED_LIST = 'Doubly Linked List';
 export const QUEUE = 'Queue';
 export const STACK = 'Stack';
-export const HASH_TABLE = 'Hash-Table';
+export const HASH_TABLE = 'Hash Table';
 export const HEAP = 'Heap';
 export const BINARY_SEARCH_TREE = 'Binary Search Tree';
 export const GRAPH = 'Graph';
@@ -28,6 +28,39 @@ export const BITWISE = 'Bitwise';
 export const CYCLIC_SORT = 'Cyclic Sort';
 
 export const TEMP = 'Temp';
+
+export const abbrev = {
+  [DATA_STRUCTURE]: 'DS',
+  [ALGORITHM]: 'Alg',
+  [DESIGN]: 'Dsgn',
+
+  [BEGINNER]: 'B',
+  [INTERMEDIATE]: 'I',
+  [ADVANCED]: 'A',
+  [EXPERT]: 'E',
+
+  [LINKED_LIST]: 'LL',
+  [DOUBLY_LINKED_LIST]: 'DLL',
+  [QUEUE]: 'Q',
+  [STACK]: 'St',
+  [HASH_TABLE]: 'HTbl',
+  [HEAP]: 'Heap',
+  [BINARY_SEARCH_TREE]: 'BST',
+  [GRAPH]: 'Gr',
+  [TRIE]: 'Trie',
+  [CACHE]: 'C',
+  [DYNAMIC_PROGRAMMING]: 'DP',
+  [GENERAL]: 'Gen',
+  [FIBONACCI]: 'Fib',
+  [BINARY_SEARCH]: 'BS',
+  [SORTING]: 'Sort',
+  [RECURSION]: 'Rec',
+  [SLIDING_WINDOW]: 'SlWi',
+  [BITWISE]: 'Bit',
+  [CYCLIC_SORT]: 'Cycl',
+
+  [TEMP]: 'Temp',
+};
 
 export const levelTags = [BEGINNER, INTERMEDIATE, ADVANCED, EXPERT];
 export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];

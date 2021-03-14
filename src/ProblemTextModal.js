@@ -23,7 +23,9 @@ function ProblemTextModal() {
       <Modal.Header>Problem Text</Modal.Header>
       <Modal.Content>
         <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(activeProblemText) }}></div>
-        <Footnote noteSource={inventory[activeProblemId].source || []} />
+        <Footnote
+          noteSource={(inventory[activeProblemId] && inventory[activeProblemId].source) || []}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button style={{ width: '138px' }} onClick={() => dispatch(setShowModal(false))}>

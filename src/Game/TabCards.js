@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveIndex } from '../redux/gameStore.js';
-import { levelTags } from '../data/constants.js';
+import { levelTags, typeTags } from '../data/constants.js';
 import { Footnote } from '../Home/Footnote.js';
 
 const converter = new showdown.Converter();
@@ -34,6 +34,12 @@ function TabCards() {
     return { __html: converter.makeHtml(data.problemText) };
   }
 
+  function createTitle() {
+    return {
+      __html: `<h3>${converter.makeHtml(`${id}.&nbsp;&nbsp;&nbsp;${data.problemName}`)}</h3>`,
+    };
+  }
+
   return (
     <Card fluid raised={true} style={{ height: 'calc(32vh - 40px)' }}>
       <p style={{ padding: '10px 0 0 10px' }}>
@@ -52,7 +58,9 @@ function TabCards() {
         </span>
         <span style={{ float: 'right' }}>
           {' '}
-          <span style={{ fontVariant: 'small-caps' }}>{data.tags}</span>
+          <span style={{ fontVariant: 'small-caps' }}>
+            {data.tags.filter(d => !levelTags.includes(d) && !typeTags.includes(d)).join(', ')}
+          </span>
           <span
             style={{
               backgroundColor: 'azure',
@@ -80,6 +88,7 @@ function TabCards() {
       <Card.Content style={{ height: 'calc(32vh - 70px)', overflowY: 'scroll' }}>
         {activeIndex === 0 ? (
           <div>
+            <div className="titleStyle" dangerouslySetInnerHTML={createTitle()} />
             <div dangerouslySetInnerHTML={createMarkup()} />
             <Footnote noteSource={data.source || []} />
             <br />
