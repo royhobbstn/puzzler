@@ -26,6 +26,7 @@ export const RECURSION = 'Recursion';
 export const SLIDING_WINDOW = 'Sliding Window';
 export const BITWISE = 'Bitwise';
 export const CYCLIC_SORT = 'Cyclic Sort';
+export const FAST_SLOW_PTRS = 'Fast Slow Pointers';
 
 export const TEMP = 'Temp';
 
@@ -58,6 +59,7 @@ export const abbrev = {
   [SLIDING_WINDOW]: 'SlWi',
   [BITWISE]: 'Bit',
   [CYCLIC_SORT]: 'Cycl',
+  [FAST_SLOW_PTRS]: 'FSPt',
 
   [TEMP]: 'Temp',
 };

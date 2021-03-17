@@ -12,8 +12,8 @@ class Node {
 function find_cycle_start(head) {
   let cycle_length = 0;
   // find the LinkedList cycle
-  let slow = head,
-    fast = head;
+  let slow = head;
+  let fast = head;
   while (fast !== null && fast.next !== null) {
     fast = fast.next.next;
     slow = slow.next;
@@ -27,8 +27,8 @@ function find_cycle_start(head) {
 }
 
 function calculate_cycle_length(slow) {
-  let current = slow,
-    cycle_length = 0;
+  let current = slow;
+  let cycle_length = 0;
   while (true) {
     current = current.next;
     cycle_length += 1;
@@ -40,8 +40,8 @@ function calculate_cycle_length(slow) {
 }
 
 function find_start(head, cycle_length) {
-  let pointer1 = head,
-    pointer2 = head;
+  let pointer1 = head;
+  let pointer2 = head;
   // move pointer2 ahead 'cycle_length' nodes
   while (cycle_length > 0) {
     pointer2 = pointer2.next;

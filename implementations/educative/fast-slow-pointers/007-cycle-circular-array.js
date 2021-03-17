@@ -9,8 +9,8 @@
 function circular_array_loop_exists(arr) {
   for (let i = 0; i < arr.length; i++) {
     let isForward = arr[i] >= 0; // if we are moving forward or not
-    let slow = i,
-      fast = i;
+    let slow = i;
+    let fast = i;
 
     // if slow or fast becomes '-1' this means we can't find cycle for this number
     while (true) {

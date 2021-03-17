@@ -9,15 +9,6 @@ class Node {
     this.value = value;
     this.next = next;
   }
-
-  print_list() {
-    let temp = this;
-    while (temp !== null) {
-      process.stdout.write(`${temp.value} `);
-      temp = temp.next;
-    }
-    console.log();
-  }
 }
 
 function reorder(head) {
@@ -26,8 +17,8 @@ function reorder(head) {
   }
 
   // find middle of the LinkedList
-  let slow = head,
-    fast = head;
+  let slow = head;
+  let fast = head;
   while (fast !== null && fast.next !== null) {
     slow = slow.next;
     fast = fast.next.next;

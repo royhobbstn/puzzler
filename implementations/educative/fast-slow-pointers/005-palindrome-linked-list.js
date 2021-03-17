@@ -17,8 +17,8 @@ function is_palindromic_linked_list(head) {
   }
 
   // find middle of the LinkedList
-  let slow = head,
-    fast = head;
+  let slow = head;
+  let fast = head;
   while (fast !== null && fast.next !== null) {
     slow = slow.next;
     fast = fast.next.next;

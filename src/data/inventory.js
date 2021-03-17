@@ -132,6 +132,11 @@ import { data as _squaring_sorted_array } from './problems/128-squaring-sorted-a
 import { data as _corrupt_pair } from './problems/129-corrupt-pair.js';
 import { data as _smallest_missing_num } from './problems/130-smallest-missing-number.js';
 import { data as _first_k_missing_pos } from './problems/131-first-k-missing-positive.js';
+import { data as _start_ll_cycle } from './problems/132-start-ll-cycle.js';
+import { data as _happy_number } from './problems/133-happy-number.js';
+import { data as _palindrome_ll } from './problems/134-palindrome-ll.js';
+import { data as _rearrange_ll } from './problems/135-rearrange-linked-list.js';
+import { data as _cycle_circular_arr } from './problems/136-cycle-circular-arr.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -265,6 +270,11 @@ const aggregate = {
   129: _corrupt_pair,
   130: _smallest_missing_num,
   131: _first_k_missing_pos,
+  132: _start_ll_cycle,
+  133: _happy_number,
+  134: _palindrome_ll,
+  135: _rearrange_ll,
+  136: _cycle_circular_arr,
 };
 
 // add a computed 'effort' property; estimated code lines to write
