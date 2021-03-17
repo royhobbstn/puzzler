@@ -129,6 +129,9 @@ import { data as _find_median_stream } from './problems/125-find-median-stream.j
 import { data as _pair_with_target_sum } from './problems/126-pair-with-target-sum.js';
 import { data as _remove_duplicates } from './problems/127-remove-duplicates.js';
 import { data as _squaring_sorted_array } from './problems/128-squaring-sorted-array.js';
+import { data as _corrupt_pair } from './problems/129-corrupt-pair.js';
+import { data as _smallest_missing_num } from './problems/130-smallest-missing-number.js';
+import { data as _first_k_missing_pos } from './problems/131-first-k-missing-positive.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -259,6 +262,9 @@ const aggregate = {
   126: _pair_with_target_sum,
   127: _remove_duplicates,
   128: _squaring_sorted_array,
+  129: _corrupt_pair,
+  130: _smallest_missing_num,
+  131: _first_k_missing_pos,
 };
 
 // add a computed 'effort' property; estimated code lines to write

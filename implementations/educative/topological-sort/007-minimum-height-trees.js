@@ -83,3 +83,7 @@ console.log(
     [1, 3],
   ])}`,
 );
+
+// Roots of MHTs: 1,2
+// Roots of MHTs: 0,2
+// Roots of MHTs: 1
