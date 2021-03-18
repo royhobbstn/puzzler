@@ -64,7 +64,11 @@ export const data = {
         [new Interval(1, 3), new Interval(5, 6), new Interval(7, 9)],
         [new Interval(2, 3), new Interval(5, 7)],
       ));`,
-      expected: JSON.stringify([2, 3][(5, 6)][(7, 7)]),
+      expected: JSON.stringify([
+        [2, 3],
+        [5, 6],
+        [7, 7],
+      ]),
     },
     {
       id: 2,
@@ -75,7 +79,7 @@ export const data = {
             [new Interval(1, 3), new Interval(5, 7), new Interval(9, 12)],
             [new Interval(5, 10)],
           ));`,
-      expected: JSON.stringify([5, 7][(9, 10)]),
+      expected: JSON.stringify([[5, 7][(9, 10)]]),
     },
   ],
   setupCode: `
