@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/puzzler/static/css/main.1760be74.chunk.css",
-    "main.js": "/puzzler/static/js/main.301c6a72.chunk.js",
-    "main.js.map": "/puzzler/static/js/main.301c6a72.chunk.js.map",
+    "main.css": "/puzzler/static/css/main.bd34db45.chunk.css",
+    "main.js": "/puzzler/static/js/main.85202427.chunk.js",
+    "main.js.map": "/puzzler/static/js/main.85202427.chunk.js.map",
     "runtime-main.js": "/puzzler/static/js/runtime-main.568c5661.js",
     "runtime-main.js.map": "/puzzler/static/js/runtime-main.568c5661.js.map",
     "static/css/2.db771b51.chunk.css": "/puzzler/static/css/2.db771b51.chunk.css",
-    "static/js/2.3bc93ef2.chunk.js": "/puzzler/static/js/2.3bc93ef2.chunk.js",
-    "static/js/2.3bc93ef2.chunk.js.map": "/puzzler/static/js/2.3bc93ef2.chunk.js.map",
+    "static/js/2.c54bfb84.chunk.js": "/puzzler/static/js/2.c54bfb84.chunk.js",
+    "static/js/2.c54bfb84.chunk.js.map": "/puzzler/static/js/2.c54bfb84.chunk.js.map",
     "mode-puppet.js": "/puzzler/01218ef0aeac06bfc3a9e6e4383904b4.js",
     "apex.js": "/puzzler/01664f5c848481ad805e5c0a29627ebd.js",
     "mode-xml.js": "/puzzler/01eade92f3c728f412f540d90ac988ee.js",
@@ -423,11 +423,11 @@
     "mode-groovy.js": "/puzzler/fe6efc8bf7b948aa275d980518b286b7.js",
     "theme-gruvbox.js": "/puzzler/feff703ce532f20391dfed8199b6971e.js",
     "index.html": "/puzzler/index.html",
-    "precache-manifest.e6e5125729c6fa76bb4cd3a1ef6e3418.js": "/puzzler/precache-manifest.e6e5125729c6fa76bb4cd3a1ef6e3418.js",
+    "precache-manifest.309fb87f13f49db408a957edbbb57eae.js": "/puzzler/precache-manifest.309fb87f13f49db408a957edbbb57eae.js",
     "service-worker.js": "/puzzler/service-worker.js",
     "static/css/2.db771b51.chunk.css.map": "/puzzler/static/css/2.db771b51.chunk.css.map",
-    "static/css/main.1760be74.chunk.css.map": "/puzzler/static/css/main.1760be74.chunk.css.map",
-    "static/js/2.3bc93ef2.chunk.js.LICENSE.txt": "/puzzler/static/js/2.3bc93ef2.chunk.js.LICENSE.txt",
+    "static/css/main.bd34db45.chunk.css.map": "/puzzler/static/css/main.bd34db45.chunk.css.map",
+    "static/js/2.c54bfb84.chunk.js.LICENSE.txt": "/puzzler/static/js/2.c54bfb84.chunk.js.LICENSE.txt",
     "static/js/worker.cdb86241.worker.js": "/puzzler/static/js/worker.cdb86241.worker.js",
     "static/js/worker.cdb86241.worker.js.map": "/puzzler/static/js/worker.cdb86241.worker.js.map",
     "static/media/semantic.min.css": "/puzzler/static/media/outline-icons.ef60a4f6.woff"
@@ -435,8 +435,8 @@
   "entrypoints": [
     "static/js/runtime-main.568c5661.js",
     "static/css/2.db771b51.chunk.css",
-    "static/js/2.3bc93ef2.chunk.js",
-    "static/css/main.1760be74.chunk.css",
-    "static/js/main.301c6a72.chunk.js"
+    "static/js/2.c54bfb84.chunk.js",
+    "static/css/main.bd34db45.chunk.css",
+    "static/js/main.85202427.chunk.js"
   ]
 }
