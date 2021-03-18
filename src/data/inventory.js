@@ -85,7 +85,6 @@ import { data as _length_longest_substring } from './problems/82-length-longest-
 import { data as _meeting_rooms_2 } from './problems/83-meeting-rooms-2.js';
 import { data as _design_metro_system } from './problems/84-design-metro-system.js';
 import { data as _maximal_square } from './problems/85-maximal-square.js';
-
 import { data as _find_avg_subarrays } from './problems/86-find-avg-of-subarrays.js';
 import { data as _find_max_subarrays } from './problems/87-find-max-of-subarrays.js';
 import { data as _smallest_subarray } from './problems/88-smallest-subarray-given-sum.js';
@@ -137,6 +136,11 @@ import { data as _happy_number } from './problems/133-happy-number.js';
 import { data as _palindrome_ll } from './problems/134-palindrome-ll.js';
 import { data as _rearrange_ll } from './problems/135-rearrange-linked-list.js';
 import { data as _cycle_circular_arr } from './problems/136-cycle-circular-arr.js';
+import { data as _intervals_intersection } from './problems/137-intervals-intersection.js';
+import { data as _conflicting_appts } from './problems/138-conflicting-appointments.js';
+import { data as _minimum_mtg_rooms } from './problems/139-minimum-mtg-rooms.js';
+import { data as _max_cpu_load } from './problems/140-max-cpu-load.js';
+import { data as _employee_free_time } from './problems/141-employee-free-time.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -275,6 +279,11 @@ const aggregate = {
   134: _palindrome_ll,
   135: _rearrange_ll,
   136: _cycle_circular_arr,
+  137: _intervals_intersection,
+  138: _conflicting_appts,
+  139: _minimum_mtg_rooms,
+  140: _max_cpu_load,
+  141: _employee_free_time,
 };
 
 // add a computed 'effort' property; estimated code lines to write

@@ -9,10 +9,6 @@ class Interval {
     this.start = start;
     this.end = end;
   }
-
-  print_interval() {
-    process.stdout.write(`[${this.start}, ${this.end}]`);
-  }
 }
 
 class EmployeeInterval {
@@ -63,32 +59,26 @@ function find_employee_free_time(schedule) {
   return result;
 }
 
+function mapInterval(intervals) {
+  return intervals.map(i => {
+    return [i.start, i.end];
+  });
+}
+
 let input = [
   [new Interval(1, 3), new Interval(5, 6)],
   [new Interval(2, 3), new Interval(6, 8)],
 ];
 
-let result = find_employee_free_time(input);
-for (let i = 0; i < result.length; i++) {
-  result[i].print_interval();
-}
-console.log();
+console.log(mapInterval(find_employee_free_time(input)));
 // [3, 5]
 
 input = [[new Interval(1, 3), new Interval(9, 12)], [new Interval(2, 4)], [new Interval(6, 8)]];
 
-result = find_employee_free_time(input);
-for (let i = 0; i < result.length; i++) {
-  result[i].print_interval();
-}
-console.log();
+console.log(mapInterval(find_employee_free_time(input)));
 // [4, 6] [8, 9]
 
 input = [[new Interval(1, 3)], [new Interval(2, 4)], [new Interval(3, 5), new Interval(7, 9)]];
 
-result = find_employee_free_time(input);
-for (let i = 0; i < result.length; i++) {
-  result[i].print_interval();
-}
-console.log();
+console.log(mapInterval(find_employee_free_time(input)));
 // [5, 7]

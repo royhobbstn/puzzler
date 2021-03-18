@@ -7,16 +7,12 @@ class Interval {
     this.start = start;
     this.end = end;
   }
-
-  print_interval() {
-    process.stdout.write(`[${this.start}, ${this.end}]`);
-  }
 }
 
 function merge(intervals_a, intervals_b) {
-  let result = [],
-    i = 0,
-    j = 0;
+  let result = [];
+  let i = 0;
+  let j = 0;
 
   while (i < intervals_a.length && j < intervals_b.length) {
     // check if intervals overlap and intervals_a[i]'s start time lies within the other intervals_b[j]
@@ -47,15 +43,18 @@ function merge(intervals_a, intervals_b) {
   return result;
 }
 
+function mapInterval(intervals) {
+  return intervals.map(i => {
+    return [i.start, i.end];
+  });
+}
+
 process.stdout.write('Intervals Intersection: ');
 let result = merge(
   [new Interval(1, 3), new Interval(5, 6), new Interval(7, 9)],
   [new Interval(2, 3), new Interval(5, 7)],
 );
-for (let i = 0; i < result.length; i++) {
-  result[i].print_interval();
-}
-console.log();
+console.log(mapInterval(result));
 // [2, 3][5, 6][7, 7]
 
 process.stdout.write('Intervals Intersection: ');
@@ -63,8 +62,5 @@ result = merge(
   [new Interval(1, 3), new Interval(5, 7), new Interval(9, 12)],
   [new Interval(5, 10)],
 );
-for (let i = 0; i < result.length; i++) {
-  result[i].print_interval();
-}
-console.log();
+console.log(mapInterval(result));
 // [5, 7][9, 10]

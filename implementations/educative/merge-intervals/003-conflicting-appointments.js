@@ -7,10 +7,6 @@ class Interval {
     this.start = start;
     this.end = end;
   }
-
-  print_interval() {
-    process.stdout.write(`[${this.start}, ${this.end}]`);
-  }
 }
 
 function can_attend_all_appointments(intervals) {

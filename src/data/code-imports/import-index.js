@@ -27,6 +27,8 @@ import { maxHeapClassPlain } from './max-heap-class-plain.js';
 import { maxHeapDistance } from './max-heap-distance.js';
 import { binaryTreeNode } from './binary-tree-node.js';
 
+import { heapGeneric } from './heap-generic.js';
+
 export const LINKED_LIST_CLASS = linkedListClass;
 export const LINKED_LIST_CLASS_EXT = linkedListClassExt;
 export const LINKED_LIST_PROTOTYPE_APPEND = linkedListPrototypeAppend;
@@ -49,6 +51,8 @@ export const MIN_HEAP_CLASS_PLAIN = minHeapClassPlain;
 
 export const MAX_HEAP_CLASS_PLAIN = maxHeapClassPlain;
 export const MAX_HEAP_CLASS_DISTANCE = maxHeapDistance;
+
+export const HEAP_GENERIC = heapGeneric;
 
 export const BST_PROTOTYPE_INSERT = bstInsert;
 export const BST_PROTOTYPE_SEARCH = bstSearch;

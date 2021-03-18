@@ -16,8 +16,8 @@ function find_max_cpu_load(jobs) {
   // sort the jobs by start time
   jobs.sort((a, b) => a.start - b.start);
 
-  let maxCPULoad = 0,
-    currentCPULoad = 0;
+  let maxCPULoad = 0;
+  let currentCPULoad = 0;
   const minHeap = new Heap((a, b) => a.end <= b.end);
 
   for (let j = 0; j < jobs.length; j++) {
