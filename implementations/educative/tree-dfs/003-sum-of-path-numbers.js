@@ -19,7 +19,7 @@ function find_root_to_leaf_path_numbers(currentNode, pathSum) {
     return 0;
   }
 
-  // calculate the path number of the current node
+  // calculate the path number of the current node.
   pathSum = 10 * pathSum + currentNode.val;
 
   // if the current node is a leaf, return the current path sum

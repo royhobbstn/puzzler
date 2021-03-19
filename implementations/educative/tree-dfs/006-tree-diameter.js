@@ -41,7 +41,7 @@ class TreeDiameter {
       this.treeDiameter = Math.max(this.treeDiameter, diameter);
     }
 
-    // height of the current node will be equal to the maximum of the heights of
+    // height of the current node will be equal to the maximum of the heights  of
     // left or right subtrees plus '1' for(the current node
     return Math.max(leftTreeHeight, rightTreeHeight) + 1;
   }

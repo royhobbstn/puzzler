@@ -21,8 +21,8 @@ function count_paths_recursive(currentNode, S, currentPath) {
 
   // add the current node to the path
   currentPath.push(currentNode.val);
-  let pathCount = 0,
-    pathSum = 0;
+  let pathCount = 0;
+  let pathSum = 0;
   // find the sums of all sub-paths in the current path list
   for (let i = currentPath.length - 1; i >= 0; i--) {
     pathSum += currentPath[i];

@@ -18,6 +18,8 @@ export const BINARY_SEARCH_TREE = 'Binary Search Tree';
 export const GRAPH = 'Graph';
 export const TRIE = 'Trie';
 export const CACHE = 'Cache';
+export const BFS = 'Breadth First Search';
+export const DFS = 'Depth First Search';
 export const DYNAMIC_PROGRAMMING = 'Dynamic Programming';
 export const GENERAL = 'General';
 export const FIBONACCI = 'Fibonacci';
@@ -64,6 +66,8 @@ export const abbrev = {
   [CYCLIC_SORT]: 'Cycl',
   [FAST_SLOW_PTRS]: 'FSPt',
   [MERGE_INTERVALS]: 'MI',
+  [DFS]: 'DFS',
+  [BFS]: 'BFS',
 
   [TEMP]: 'Temp',
 };

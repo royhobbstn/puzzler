@@ -148,6 +148,15 @@ import { data as _zigzag_traversal } from './problems/145-zigzag-traversal.js';
 import { data as _connect_lo_sib } from './problems/146-connect-lo-siblings.js';
 import { data as _connect_all_lo_sib } from './problems/147-connect-all-lo-siblings.js';
 import { data as _right_view_bin_tree } from './problems/148-right-view-binary-tree.js';
+import { data as _all_paths_for_sum } from './problems/149-all-paths-for-sum.js';
+import { data as _sum_of_path_numbers } from './problems/150-sum-of-path-numbers.js';
+import { data as _path_with_given_seq } from './problems/151-path-with-given-seq.js';
+import { data as _count_paths_for_sum } from './problems/152-count-paths-for-sum.js';
+import { data as _tree_diameter } from './problems/153-tree-diameter.js';
+import { data as _path_with_max_sum } from './problems/154-path-with-max-sum.js';
+import { data as _two_heaps } from './problems/155-two-heaps.js';
+import { data as _maximize_capital } from './problems/156-maximize-capital.js';
+import { data as _next_interval } from './problems/157-next-interval.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -298,6 +307,15 @@ const aggregate = {
   146: _connect_lo_sib,
   147: _connect_all_lo_sib,
   148: _right_view_bin_tree,
+  149: _all_paths_for_sum,
+  150: _sum_of_path_numbers,
+  151: _path_with_given_seq,
+  152: _count_paths_for_sum,
+  153: _tree_diameter,
+  154: _path_with_max_sum,
+  155: _two_heaps,
+  156: _maximize_capital,
+  157: _next_interval,
 };
 
 // add a computed 'effort' property; estimated code lines to write

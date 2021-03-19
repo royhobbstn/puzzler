@@ -44,10 +44,16 @@ root.right = new TreeNode(1);
 root.left.left = new TreeNode(4);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
-let sum = 23,
-  result = find_paths(root, sum);
+const result = find_paths(root, 23);
 
-process.stdout.write(`Tree paths with sum ${sum}: `);
-for (let i = 0; i < result.length; i++) {
-  process.stdout.write(`[${result[i]}] `);
+console.log(printPaths(result));
+
+function printPaths(result) {
+  const arr = [];
+  for (let i = 0; i < result.length; i++) {
+    arr.push(result[i]);
+  }
+  return arr;
 }
+
+// [ [ 12, 7, 4 ], [ 12, 1, 10 ] ]

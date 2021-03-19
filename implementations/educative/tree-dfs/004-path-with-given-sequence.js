@@ -28,7 +28,7 @@ function find_path_recursive(currentNode, sequence, sequenceIndex) {
     return false;
   }
 
-  // if the current node is a leaf, add it is the end of the sequence, we have found a path!
+  // if the current node is a leaf, add it is the end of the sequence, we have found a path !
   if (currentNode.left === null && currentNode.right === null && sequenceIndex === seqLen - 1) {
     return true;
   }
