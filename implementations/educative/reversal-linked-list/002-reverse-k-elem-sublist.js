@@ -9,24 +9,25 @@ class Node {
     this.value = value;
     this.next = next;
   }
-
-  print_list() {
-    let temp = this;
-    while (temp !== null) {
-      process.stdout.write(`${temp.value} `);
-      temp = temp.next;
-    }
-    console.log();
-  }
 }
+
+Node.prototype.convert = function () {
+  const arr = [];
+  let node = this;
+  while (node) {
+    arr.push(node.value);
+    node = node.next;
+  }
+  return arr;
+};
 
 function reverse_every_k_elements(head, k) {
   if (k <= 1 || head === null) {
     return head;
   }
 
-  let current = head,
-    previous = null;
+  let current = head;
+  let previous = null;
   while (true) {
     const last_node_of_previous_part = previous;
     // after reversing the LinkedList 'current' will become the last node of the sub-list
@@ -68,11 +69,9 @@ head.next.next.next.next.next = new Node(6);
 head.next.next.next.next.next.next = new Node(7);
 head.next.next.next.next.next.next.next = new Node(8);
 
-process.stdout.write('Nodes of original LinkedList are: ');
-head.print_list();
 const result = reverse_every_k_elements(head, 3);
-process.stdout.write('Nodes of reversed LinkedList are: ');
-result.print_list();
+console.log(result.convert());
 
 // Nodes of original LinkedList are: 1 2 3 4 5 6 7 8
+
 // Nodes of reversed LinkedList are: 3 2 1 6 5 4 8 7

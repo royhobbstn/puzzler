@@ -9,28 +9,29 @@ class TreeNode {
     this.right = null;
     this.next = null;
   }
+}
 
-  // level order traversal using 'next' pointer
-  print_level_order() {
-    console.log("Level order traversal using 'next' pointer: ");
-    let nextLevelRoot = this;
-    while (nextLevelRoot !== null) {
-      let current = nextLevelRoot;
-      nextLevelRoot = null;
-      while (current != null) {
-        process.stdout.write(`${current.val} `);
-        if (nextLevelRoot === null) {
-          if (current.left !== null) {
-            nextLevelRoot = current.left;
-          } else if (current.right !== null) {
-            nextLevelRoot = current.right;
-          }
+function printLevelOrder(root) {
+  const arr = [];
+  let nextLevelRoot = root;
+  while (nextLevelRoot !== null) {
+    let temp = [];
+    let current = nextLevelRoot;
+    nextLevelRoot = null;
+    while (current != null) {
+      temp.push(current.val);
+      if (nextLevelRoot === null) {
+        if (current.left !== null) {
+          nextLevelRoot = current.left;
+        } else if (current.right !== null) {
+          nextLevelRoot = current.right;
         }
-        current = current.next;
       }
-      console.log();
+      current = current.next;
     }
+    arr.push(temp);
   }
+  return arr;
 }
 
 function connect_level_order_siblings(root) {
@@ -69,8 +70,5 @@ root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
 connect_level_order_siblings(root);
 
-root.print_level_order();
-// Level order traversal using 'next' pointer:
-// 12
-// 7 1
-// 9 10 5
+console.log(printLevelOrder(root));
+// [ [ 12 ], [ 7, 1 ], [ 9, 10, 5 ] ]

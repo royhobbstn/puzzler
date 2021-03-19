@@ -9,16 +9,16 @@ class TreeNode {
     this.right = null;
     this.next = null;
   }
+}
 
-  // tree traversal using 'next' pointer
-  print_tree() {
-    process.stdout.write("Traversal using 'next' pointer: ");
-    let current = this;
-    while (current !== null) {
-      process.stdout.write(`${current.val} `);
-      current = current.next;
-    }
+function printTree(root) {
+  const arr = [];
+  let current = root;
+  while (current !== null) {
+    arr.push(current.val);
+    current = current.next;
   }
+  return arr;
 }
 
 function connect_all_siblings(root) {
@@ -53,5 +53,5 @@ root.left.left = new TreeNode(9);
 root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
 connect_all_siblings(root);
-root.print_tree();
-// Traversal using 'next' pointer: 12 7 1 9 10 5
+console.log(printTree(root));
+// [ 12, 7, 1, 9, 10, 5 ]

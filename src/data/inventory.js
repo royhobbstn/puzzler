@@ -141,6 +141,13 @@ import { data as _conflicting_appts } from './problems/138-conflicting-appointme
 import { data as _minimum_mtg_rooms } from './problems/139-minimum-mtg-rooms.js';
 import { data as _max_cpu_load } from './problems/140-max-cpu-load.js';
 import { data as _employee_free_time } from './problems/141-employee-free-time.js';
+import { data as _reverse_k_elem_sublist } from './problems/142-reverse-k-elem-sublist.js';
+import { data as _reverse_alt_k_elem } from './problems/143-reverse-alt-k-elem.js';
+import { data as _rotate_ll } from './problems/144-rotate-linked-list.js';
+import { data as _zigzag_traversal } from './problems/145-zigzag-traversal.js';
+import { data as _connect_lo_sib } from './problems/146-connect-lo-siblings.js';
+import { data as _connect_all_lo_sib } from './problems/147-connect-all-lo-siblings.js';
+import { data as _right_view_bin_tree } from './problems/148-right-view-binary-tree.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -284,6 +291,13 @@ const aggregate = {
   139: _minimum_mtg_rooms,
   140: _max_cpu_load,
   141: _employee_free_time,
+  142: _reverse_k_elem_sublist,
+  143: _reverse_alt_k_elem,
+  144: _rotate_ll,
+  145: _zigzag_traversal,
+  146: _connect_lo_sib,
+  147: _connect_all_lo_sib,
+  148: _right_view_bin_tree,
 };
 
 // add a computed 'effort' property; estimated code lines to write

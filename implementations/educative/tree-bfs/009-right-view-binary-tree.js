@@ -39,6 +39,14 @@ function tree_right_view(root) {
   return result;
 }
 
+function printRight(result) {
+  const arr = [];
+  for (let i = 0; i < result.length; i++) {
+    arr.push(result[i].val);
+  }
+  return arr;
+}
+
 const root = new TreeNode(12);
 root.left = new TreeNode(7);
 root.right = new TreeNode(1);
@@ -47,9 +55,6 @@ root.right.left = new TreeNode(10);
 root.right.right = new TreeNode(5);
 root.left.left.left = new TreeNode(3);
 const result = tree_right_view(root);
-process.stdout.write('Tree right view: ');
-for (let i = 0; i < result.length; i++) {
-  process.stdout.write(`${result[i].val} `);
-}
+console.log(printRight(result));
 
-// Tree right view: 12 1 5 3
+// [12, 1, 5, 3]

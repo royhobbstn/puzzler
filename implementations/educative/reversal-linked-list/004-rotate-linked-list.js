@@ -7,16 +7,17 @@ class Node {
     this.value = value;
     this.next = next;
   }
-
-  print_list() {
-    let temp = this;
-    while (temp !== null) {
-      process.stdout.write(`${temp.value} `);
-      temp = temp.next;
-    }
-    console.log();
-  }
 }
+
+Node.prototype.convert = function () {
+  const arr = [];
+  let node = this;
+  while (node) {
+    arr.push(node.value);
+    node = node.next;
+  }
+  return arr;
+};
 
 function rotate(head, rotations) {
   if (head === null || head.next === null || rotations <= 0) {
@@ -51,8 +52,5 @@ head.next.next.next = new Node(4);
 head.next.next.next.next = new Node(5);
 head.next.next.next.next.next = new Node(6);
 
-process.stdout.write('Nodes of original LinkedList are: ');
-head.print_list();
-const result = rotate(head, 3);
-process.stdout.write('Nodes of reversed LinkedList are: ');
-result.print_list();
+console.log(rotate(head, 3).convert());
+// [4,5,6,1,2,3]
