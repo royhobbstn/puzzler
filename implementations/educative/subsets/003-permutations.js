@@ -41,9 +41,7 @@ function find_permutations(nums) {
 
 console.log('Here are all the permutations:');
 const result = find_permutations([1, 3, 5]);
-result.forEach(permutation => {
-  console.log(permutation);
-});
+console.log(result);
 
 // Here are all the permutations:
 // [ 5, 3, 1 ]
@@ -76,6 +74,4 @@ function generate_permutations_recursive(nums, index, currentPermutation, result
 
 console.log('Here are all the permutations:');
 let result2 = generate_permutations([1, 3, 5]);
-result2.forEach(permutation => {
-  console.log(permutation);
-});
+console.log(result2);

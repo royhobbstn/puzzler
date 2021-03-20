@@ -27,7 +27,13 @@ function find_letter_case_string_permutations(str) {
   return permutations;
 }
 
-console.log(`String permutations are: ${find_letter_case_string_permutations('ad52')}`);
-// String permutations are: ad52,Ad52,aD52,AD52
-console.log(`String permutations are: ${find_letter_case_string_permutations('ab7c')}`);
-// String permutations are: ab7c,Ab7c,aB7c,AB7c,ab7C,Ab7C,aB7C,AB7C
+console.log(find_letter_case_string_permutations('ad52'));
+// [ 'ad52', 'Ad52', 'aD52', 'AD52' ]
+
+console.log(find_letter_case_string_permutations('ab7c'));
+// [
+//   'ab7c', 'Ab7c',
+//   'aB7c', 'AB7c',
+//   'ab7C', 'Ab7C',
+//   'aB7C', 'AB7C'
+// ]

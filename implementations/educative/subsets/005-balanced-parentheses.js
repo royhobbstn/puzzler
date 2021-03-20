@@ -86,5 +86,6 @@ function generate_valid_parentheses_rec(
 
 console.log(`All combinations of balanced parentheses are: ${generate_valid_parentheses_start(2)}`);
 // All combinations of balanced parentheses are: (()),()()
+
 console.log(`All combinations of balanced parentheses are: ${generate_valid_parentheses_start(3)}`);
 // All combinations of balanced parentheses are: ((())),(()()),(())(),()(()),()()()

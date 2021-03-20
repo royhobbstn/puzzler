@@ -71,4 +71,5 @@ function generate_abbreviation_recursive(word, abWord, start, count, result) {
 }
 
 console.log(`Generalized abbreviation are: ${generate_generalized_abbreviation_start('BAT')}`);
+
 console.log(`Generalized abbreviation are: ${generate_generalized_abbreviation_start('code')}`);

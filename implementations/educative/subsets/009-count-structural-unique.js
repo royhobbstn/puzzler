@@ -56,4 +56,6 @@ function count_trees_rec(map, n) {
 }
 
 console.log(`Total trees: ${count_trees_memo(2)}`);
+// 2
 console.log(`Total trees: ${count_trees_memo(3)}`);
+// 5

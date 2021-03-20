@@ -45,5 +45,6 @@ function findUnique_trees_recursive(start, end) {
 
 console.log(`Total trees: ${find_unique_trees(2).length}`);
 // 2
+
 console.log(`Total trees: ${find_unique_trees(3).length}`);
 // 5

@@ -165,6 +165,16 @@ import { data as _dutch_national_flag } from './problems/162-dutch-national-flag
 import { data as _quadruple_sum_to_target } from './problems/163-quadruple-sum-to-target.js';
 import { data as _comparing_strings_backspaces } from './problems/164-comparing-strings-backspaces.js';
 import { data as _minimum_window_sort } from './problems/165-minimum-window-sort.js';
+import { data as _permutations_iter } from './problems/166-permutations-iterative.js';
+import { data as _permutations_rec } from './problems/167-permutations-recursive.js';
+import { data as _string_perm_chg_case } from './problems/168-string-perm-chg-case.js';
+import { data as _balanced_paren_iter } from './problems/169-balanced-parentheses-iterative.js';
+import { data as _balanced_paren_rec } from './problems/170-balanced-parentheses-recursive.js';
+import { data as _unique_gen_abbrev_iter } from './problems/171-unique-gen-abbrev-iter.js';
+import { data as _unique_gen_abbrev_rec } from './problems/172-unique-gen-abbrev-rec.js';
+import { data as _eval_expression } from './problems/173-evaluate-expression.js';
+import { data as _structural_unique } from './problems/174-structural-unique.js';
+import { data as _count_structural_unique } from './problems/175-count-struct-unique.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -332,6 +342,16 @@ const aggregate = {
   163: _quadruple_sum_to_target,
   164: _comparing_strings_backspaces,
   165: _minimum_window_sort,
+  166: _permutations_iter,
+  167: _permutations_rec,
+  168: _string_perm_chg_case,
+  169: _balanced_paren_iter,
+  170: _balanced_paren_rec,
+  171: _unique_gen_abbrev_iter,
+  172: _unique_gen_abbrev_rec,
+  173: _eval_expression,
+  174: _structural_unique,
+  175: _count_structural_unique,
 };
 
 // add a computed 'effort' property; estimated code lines to write

@@ -65,8 +65,8 @@ function diff_ways_to_evaluate_expression_rec(map, input) {
         const rightParts = diff_ways_to_evaluate_expression_rec(map, input.substring(i + 1));
         for (let l = 0; l < leftParts.length; l++) {
           for (let r = 0; r < rightParts.length; r++) {
-            let part1 = leftParts[l],
-              part2 = rightParts[r];
+            let part1 = leftParts[l];
+            let part2 = rightParts[r];
             if (char === '+') {
               result.push(part1 + part2);
             } else if (char === '-') {
@@ -83,5 +83,8 @@ function diff_ways_to_evaluate_expression_rec(map, input) {
   return result;
 }
 
-console.log(`Expression evaluations: ${diff_ways_to_evaluate_expression_memo('1+2*3')}`);
-console.log(`Expression evaluations: ${diff_ways_to_evaluate_expression_memo('2*3-4-5')}`);
+console.log(diff_ways_to_evaluate_expression_memo('1+2*3'));
+// [ 7, 9 ]
+
+console.log(diff_ways_to_evaluate_expression_memo('2*3-4-5'));
+// [ 8, -12, 7, -7, -3 ]
