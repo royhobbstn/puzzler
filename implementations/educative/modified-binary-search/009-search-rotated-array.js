@@ -36,5 +36,6 @@ function search_rotated_array(arr, key) {
 
 console.log(search_rotated_array([10, 15, 1, 3, 8], 15));
 // 1
+
 console.log(search_rotated_array([4, 5, 7, 9, 10, -1, 2], 10));
 // 4

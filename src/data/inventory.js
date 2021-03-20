@@ -175,6 +175,14 @@ import { data as _unique_gen_abbrev_rec } from './problems/172-unique-gen-abbrev
 import { data as _eval_expression } from './problems/173-evaluate-expression.js';
 import { data as _structural_unique } from './problems/174-structural-unique.js';
 import { data as _count_structural_unique } from './problems/175-count-struct-unique.js';
+import { data as _ceiling_of_numbers } from './problems/176-ceiling-of-number.js';
+import { data as _next_letter } from './problems/177-next-letter.js';
+import { data as _number_range } from './problems/178-number-range.js';
+import { data as _search_sorted_infinity } from './problems/179-search-sorted-infinity.js';
+import { data as _min_difference_elem } from './problems/180-min-difference-elem.js';
+import { data as _search_bitonic_arr } from './problems/181-search-bitonic-arr.js';
+import { data as _search_rotated_arr } from './problems/182-search-rotated-arr.js';
+import { data as _rotation_count } from './problems/183-rotation-count.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -352,6 +360,14 @@ const aggregate = {
   173: _eval_expression,
   174: _structural_unique,
   175: _count_structural_unique,
+  176: _ceiling_of_numbers,
+  177: _next_letter,
+  178: _number_range,
+  179: _search_sorted_infinity,
+  180: _min_difference_elem,
+  181: _search_bitonic_arr,
+  182: _search_rotated_arr,
+  183: _rotation_count,
 };
 
 // add a computed 'effort' property; estimated code lines to write

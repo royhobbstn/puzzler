@@ -23,14 +23,14 @@ const solution = [
   {
     stage: 8,
     text:
-      '        queue.push(new ParenthesesString(`${ps.str}(`, ps.openCount + 1, ps.closeCount));',
+      "        queue.push(new ParenthesesString(ps.str + '(', ps.openCount + 1, ps.closeCount));",
   },
   { stage: 7, text: '      }' },
   { stage: 9, text: '      if (ps.openCount > ps.closeCount) {' },
   {
     stage: 10,
     text:
-      '        queue.push(new ParenthesesString(`${ps.str})`, ps.openCount, ps.closeCount + 1));',
+      "        queue.push(new ParenthesesString(ps.str + ')', ps.openCount, ps.closeCount + 1));",
   },
   { stage: 9, text: '      }' },
   { stage: 5, text: '    }' },

@@ -36,6 +36,7 @@ function search_min_diff_element(arr, key) {
 
 console.log(search_min_diff_element([4, 6, 10], 7));
 // 6
+
 console.log(search_min_diff_element([4, 6, 10], 4));
 // 4
 console.log(search_min_diff_element([1, 3, 8, 10, 15], 12));

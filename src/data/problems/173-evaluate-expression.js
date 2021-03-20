@@ -15,7 +15,7 @@ const solution = [
   { stage: 5, text: '  const result = [];' },
   {
     stage: 6,
-    text: '  if (!input.includes(' + ') && !input.includes(' - ') && !input.includes(' * ')) {',
+    text: "  if (!input.includes('+') && !input.includes('-') && !input.includes('*')) {",
   },
   { stage: 7, text: '    result.push(parseInt(input));' },
   { stage: 6, text: '  } else {' },
@@ -38,7 +38,7 @@ const solution = [
   { stage: 14, text: '          for (let r = 0; r < rightParts.length; r++) {' },
   { stage: 15, text: '            let part1 = leftParts[l];' },
   { stage: 16, text: '            let part2 = rightParts[r];' },
-  { stage: 17, text: '            if (char === ' + ') {' },
+  { stage: 17, text: "            if (char === '+') {" },
   { stage: 18, text: '              result.push(part1 + part2);' },
   { stage: 17, text: '            } else if (char === ' - ') {' },
   { stage: 19, text: '              result.push(part1 - part2);' },

@@ -15,8 +15,8 @@ function search_bitonic_array(arr, key) {
 
 // find index of the maximum value in a bitonic array
 function find_max(arr) {
-  let start = 0,
-    end = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
   while (start < end) {
     const mid = Math.floor(start + (end - start) / 2);
     if (arr[mid] > arr[mid + 1]) {

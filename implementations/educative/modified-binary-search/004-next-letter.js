@@ -29,7 +29,9 @@ function search_next_letter(letters, key) {
 
 console.log(search_next_letter(['a', 'c', 'f', 'h'], 'f'));
 // h
+
 console.log(search_next_letter(['a', 'c', 'f', 'h'], 'b'));
 // c
+
 console.log(search_next_letter(['a', 'c', 'f', 'h'], 'm'));
 // a

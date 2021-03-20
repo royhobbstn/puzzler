@@ -50,10 +50,13 @@ function binary_search(reader, key, start, end) {
 let reader = new ArrayReader([4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]);
 console.log(search_in_infinite_array(reader, 16));
 // 6
+
 console.log(search_in_infinite_array(reader, 11));
 // -1
+
 reader = new ArrayReader([1, 3, 8, 10, 15]);
 console.log(search_in_infinite_array(reader, 15));
 // 4
+
 console.log(search_in_infinite_array(reader, 200));
 // -1

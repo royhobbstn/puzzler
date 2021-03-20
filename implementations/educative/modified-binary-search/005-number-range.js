@@ -42,7 +42,9 @@ function binary_search(arr, key, findMaxIndex) {
 
 console.log(find_range([4, 6, 6, 6, 9], 6));
 // [1, 3]
+
 console.log(find_range([1, 3, 8, 10, 15], 10));
 // [3, 3]
+
 console.log(find_range([1, 3, 8, 10, 15], 12));
 // [-1, -1]
