@@ -157,6 +157,14 @@ import { data as _path_with_max_sum } from './problems/154-path-with-max-sum.js'
 import { data as _two_heaps } from './problems/155-two-heaps.js';
 import { data as _maximize_capital } from './problems/156-maximize-capital.js';
 import { data as _next_interval } from './problems/157-next-interval.js';
+import { data as _triplet_sum_to_zero } from './problems/158-triplet-sum-to-zero.js';
+import { data as _triplet_sum_close_to_target } from './problems/159-triplet-sum-close-to-target.js';
+import { data as _triplets_smaller_sum } from './problems/160-triplets-with-smaller-sum.js';
+import { data as _subarrays_product_less_target } from './problems/161-subarrays-product-less-target.js';
+import { data as _dutch_national_flag } from './problems/162-dutch-national-flag.js';
+import { data as _quadruple_sum_to_target } from './problems/163-quadruple-sum-to-target.js';
+import { data as _comparing_strings_backspaces } from './problems/164-comparing-strings-backspaces.js';
+import { data as _minimum_window_sort } from './problems/165-minimum-window-sort.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -316,6 +324,14 @@ const aggregate = {
   155: _two_heaps,
   156: _maximize_capital,
   157: _next_interval,
+  158: _triplet_sum_to_zero,
+  159: _triplet_sum_close_to_target,
+  160: _triplets_smaller_sum,
+  161: _subarrays_product_less_target,
+  162: _dutch_national_flag,
+  163: _quadruple_sum_to_target,
+  164: _comparing_strings_backspaces,
+  165: _minimum_window_sort,
 };
 
 // add a computed 'effort' property; estimated code lines to write

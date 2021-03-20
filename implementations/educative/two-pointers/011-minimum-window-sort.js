@@ -3,8 +3,8 @@
 // Given an array, find the length of the smallest subarray in it which when sorted will sort the whole array.
 
 function shortest_window_sort(arr) {
-  let low = 0,
-    high = arr.length - 1;
+  let low = 0;
+  let high = arr.length - 1;
   // find the first number out of sorting order from the beginning
   while (low < arr.length - 1 && arr[low] <= arr[low + 1]) {
     low += 1;
@@ -21,8 +21,8 @@ function shortest_window_sort(arr) {
   }
 
   // find the maximum and minimum of the subarray
-  let subarrayMax = -Infinity,
-    subarrayMin = Infinity;
+  let subarrayMax = -Infinity;
+  let subarrayMin = Infinity;
   for (let k = low; k < high + 1; k++) {
     subarrayMax = Math.max(subarrayMax, arr[k]);
     subarrayMin = Math.min(subarrayMin, arr[k]);

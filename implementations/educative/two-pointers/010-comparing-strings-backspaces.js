@@ -4,11 +4,11 @@
 
 function backspace_compare(str1, str2) {
   // use two pointer approach to compare the strings
-  let index1 = str1.length - 1,
-    index2 = str2.length - 1;
+  let index1 = str1.length - 1;
+  let index2 = str2.length - 1;
   while (index1 >= 0 || index2 >= 0) {
-    let i1 = get_next_valid_char_index(str1, index1),
-      i2 = get_next_valid_char_index(str2, index2);
+    let i1 = get_next_valid_char_index(str1, index1);
+    let i2 = get_next_valid_char_index(str2, index2);
     if (i1 < 0 && i2 < 0) {
       // reached the end of both the strings
       return true;

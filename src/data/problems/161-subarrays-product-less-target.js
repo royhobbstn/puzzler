@@ -1,0 +1,55 @@
+import { ALGORITHM, INTERMEDIATE, TWO_POINTERS } from '../constants.js';
+
+const solution = [
+  { stage: 0, text: '' },
+  { stage: 0, text: 'function find_subarrays(arr, target) {' },
+  { stage: 1, text: '  let result = [];' },
+  { stage: 1, text: '  let product = 1;' },
+  { stage: 2, text: '  let left = 0;' },
+  { stage: 0, text: '' },
+  { stage: 3, text: '  for (let right = 0; right < arr.length; right++) {' },
+  { stage: 4, text: '    product *= arr[right];' },
+  { stage: 5, text: '    while (product >= target && left < arr.length) {' },
+  { stage: 6, text: '      product /= arr[left];' },
+  { stage: 6, text: '      left += 1;' },
+  { stage: 5, text: '    }' },
+  { stage: 0, text: '' },
+  { stage: 7, text: '    const tempList = [];' },
+  { stage: 8, text: '    for (let i = right; i > left - 1; i--) {' },
+  { stage: 9, text: '      tempList.unshift(arr[i]);' },
+  { stage: 10, text: '      result.push(JSON.parse(JSON.stringify(tempList)));' },
+  { stage: 8, text: '    }' },
+  { stage: 3, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 11, text: '  return result;' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 161,
+  problemName: `Subarrays with Product less than Target`,
+  problemText: `Given an array with positive numbers and a target number, find all of its contiguous subarrays whose product is less than the target number.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'example 1',
+      inherit: [],
+      code: ``,
+      evaluate: `find_subarrays([2, 5, 3, 10], 30);`,
+      expected: JSON.stringify([[2], [5], [2, 5], [3], [5, 3], [10]]),
+    },
+    {
+      id: 2,
+      name: 'example 2',
+      inherit: [],
+      code: ``,
+      evaluate: `find_subarrays([8, 2, 6, 5], 50);`,
+      expected: JSON.stringify([[8], [2], [8, 2], [6], [2, 6], [5], [6, 5]]),
+    },
+  ],
+  setupCode: ``,
+  source: [],
+  tags: [INTERMEDIATE, TWO_POINTERS, ALGORITHM],
+  solution,
+};

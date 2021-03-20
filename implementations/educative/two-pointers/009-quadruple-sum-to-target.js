@@ -22,8 +22,8 @@ function search_quadruplets(arr, target) {
 }
 
 function search_pairs(arr, targetSum, first, second, quadruplets) {
-  let left = second + 1,
-    right = arr.length - 1;
+  let left = second + 1;
+  let right = arr.length - 1;
   while (left < right) {
     let sum = arr[first] + arr[second] + arr[left] + arr[right];
     if (sum === targetSum) {

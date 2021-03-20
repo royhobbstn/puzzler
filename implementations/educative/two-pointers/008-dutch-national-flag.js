@@ -7,9 +7,9 @@
 function dutch_flag_sort(arr) {
   // all elements < low are 0, and all elements > high are 2
   // all elements from >= low < i are 1
-  let low = 0,
-    high = arr.length - 1,
-    i = 0;
+  let low = 0;
+  let high = arr.length - 1;
+  let i = 0;
   while (i <= high) {
     if (arr[i] === 0) {
       [arr[i], arr[low]] = [arr[low], arr[i]]; // swap

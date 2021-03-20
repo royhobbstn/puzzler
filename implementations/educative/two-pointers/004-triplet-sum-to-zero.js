@@ -41,5 +41,6 @@ function search_pair(arr, target_sum, left, triplets) {
 
 console.log(search_triplets([-3, 0, 1, 2, -1, 1, -2]));
 // [ [ -3, 1, 2 ], [ -2, 0, 2 ], [ -2, 1, 1 ], [ -1, 0, 1 ] ]
+
 console.log(search_triplets([-5, 2, -1, -2, 3]));
 // [ [ -5, 2, 3 ], [ -2, -1, 3 ] ]

@@ -3,9 +3,9 @@
 // Given an array with positive numbers and a target number, find all of its contiguous subarrays whose product is less than the target number.
 
 function find_subarrays(arr, target) {
-  let result = [],
-    product = 1,
-    left = 0;
+  let result = [];
+  let product = 1;
+  let left = 0;
   for (let right = 0; right < arr.length; right++) {
     product *= arr[right];
     while (product >= target && left < arr.length) {

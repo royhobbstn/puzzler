@@ -13,8 +13,8 @@ function triplet_with_smaller_sum(arr, target) {
 
 function search_pair(arr, target_sum, first) {
   let count = 0;
-  let left = first + 1,
-    right = arr.length - 1;
+  let left = first + 1;
+  let right = arr.length - 1;
   while (left < right) {
     if (arr[left] + arr[right] < target_sum) {
       // found the triplet
@@ -31,5 +31,6 @@ function search_pair(arr, target_sum, first) {
 
 console.log(triplet_with_smaller_sum([-1, 0, 2, 3], 3));
 // 2
+
 console.log(triplet_with_smaller_sum([-1, 4, 2, 1, 3], 5));
 // 4
