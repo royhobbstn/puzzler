@@ -6,9 +6,9 @@ import Heap from '../../data-structures/Heap.js';
 
 function find_smallest_range(lists) {
   const minHeap = new Heap((a, b) => a[0] <= b[0]);
-  let rangeStart = 0,
-    rangeEnd = Infinity,
-    currentMaxNumber = -Infinity;
+  let rangeStart = 0;
+  let rangeEnd = Infinity;
+  let currentMaxNumber = -Infinity;
 
   // put the 1st element of each array in the max heap
   lists.forEach(list => {
@@ -35,10 +35,10 @@ function find_smallest_range(lists) {
 }
 
 console.log(
-  `Smallest range is: ${find_smallest_range([
+  find_smallest_range([
     [1, 5, 8],
     [4, 12],
     [7, 8, 10],
-  ])}`,
+  ]),
 );
 // 4, 7

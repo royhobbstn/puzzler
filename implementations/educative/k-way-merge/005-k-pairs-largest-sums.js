@@ -36,9 +36,6 @@ function find_k_largest_pairs(nums1, nums2, k) {
   return result;
 }
 
-process.stdout.write('Pairs with largest sum are: ');
 const result = find_k_largest_pairs([9, 8, 2], [6, 3, 1], 3);
-result.forEach(a => {
-  process.stdout.write(`[${a[0]}, ${a[1]}] `);
-});
+console.log(result);
 // [9, 3] [8, 6] [9, 6]

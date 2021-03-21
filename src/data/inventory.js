@@ -183,6 +183,10 @@ import { data as _min_difference_elem } from './problems/180-min-difference-elem
 import { data as _search_bitonic_arr } from './problems/181-search-bitonic-arr.js';
 import { data as _search_rotated_arr } from './problems/182-search-rotated-arr.js';
 import { data as _rotation_count } from './problems/183-rotation-count.js';
+import { data as _kth_smlst_m_sorted } from './problems/184-kth-smallest-m-srtd.js';
+import { data as _kth_smlst_srted_mtrx } from './problems/185-kth-smallest-sorted-matrix.js';
+import { data as _smallest_num_range } from './problems/186-smallest-num-range.js';
+import { data as _k_prs_lrgst_sum } from './problems/187-k-pairs-largest-sum.js';
 
 const aggregate = {
   1: _ll_prepend,
@@ -368,6 +372,10 @@ const aggregate = {
   181: _search_bitonic_arr,
   182: _search_rotated_arr,
   183: _rotation_count,
+  184: _kth_smlst_m_sorted,
+  185: _kth_smlst_srted_mtrx,
+  186: _smallest_num_range,
+  187: _k_prs_lrgst_sum,
 };
 
 // add a computed 'effort' property; estimated code lines to write

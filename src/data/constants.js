@@ -33,6 +33,7 @@ export const FAST_SLOW_PTRS = 'Fast Slow Pointers';
 export const MERGE_INTERVALS = 'Merge Intervals';
 export const TWO_POINTERS = 'Two Pointers';
 export const SUBSETS = 'Subsets';
+export const K_WAY_MERGE = 'K-Way-Merge';
 export const TEMP = 'Temp';
 
 export const abbrev = {
@@ -71,6 +72,7 @@ export const abbrev = {
   [DFS]: 'DFS',
   [BFS]: 'BFS',
   [SUBSETS]: 'Sub',
+  [K_WAY_MERGE]: 'KWM',
 
   [TEMP]: 'Temp',
 };

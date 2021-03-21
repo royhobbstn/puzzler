@@ -44,6 +44,7 @@ console.log(
     5,
   )}`,
 );
+
 // 7
 
 // Alternate with Binary Search
