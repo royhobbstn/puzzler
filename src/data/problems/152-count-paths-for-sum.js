@@ -11,6 +11,7 @@ const solution = [
   { stage: -1, text: '}' },
   { stage: 0, text: '' },
   { stage: 0, text: 'function count_paths(root, S) {' },
+  { stage: 0, text: '' },
   { stage: 1, text: '  return count_paths_recursive(root, S, []);' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },

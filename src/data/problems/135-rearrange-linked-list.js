@@ -32,7 +32,9 @@ const solution = [
   { stage: 14, text: '    temp = headSecondHalf.next;' },
   { stage: 14, text: '    headSecondHalf.next = headFirstHalf;' },
   { stage: 14, text: '    headSecondHalf = temp;' },
+  { stage: 0, text: '  }' },
   { stage: 0, text: '' },
+
   { stage: 15, text: '  if (headFirstHalf !== null) {' },
   { stage: 15, text: '    headFirstHalf.next = null;' },
   { stage: 15, text: '  }' },
@@ -71,7 +73,7 @@ export const data = {
       head.next.next.next.next.next = new Node(12);
       reorder(head);`,
       evaluate: `printList(head);`,
-      expected: true,
+      expected: JSON.stringify([2, 12, 4, 10, 6, 8]),
     },
   ],
   setupCode: `
@@ -83,8 +85,9 @@ export const data = {
   }
   function printList(list) {
     let arr = [];
-    for(let item of list) {
-        arr.push(item.value);
+    while(list) {
+      arr.push(list.value);
+      list = list.next;
     }
     return arr;
   }

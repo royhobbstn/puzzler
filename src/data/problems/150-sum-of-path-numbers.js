@@ -11,6 +11,7 @@ const solution = [
   { stage: -1, text: '}' },
   { stage: 0, text: '' },
   { stage: 0, text: 'function find_sum_of_path_numbers(root) {' },
+  { stage: 0, text: '' },
   { stage: 1, text: '  return find_root_to_leaf_path_numbers(root, 0);' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },

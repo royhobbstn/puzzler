@@ -1,5 +1,5 @@
 export const heapGeneric = `
-export default class Heap {
+class Heap {
     constructor(fn) {
       this.heapContainer = [];
       this.isCorrectOrder = fn; // (a,b) => {}   min: a <= b, max a >= b

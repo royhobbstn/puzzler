@@ -58,7 +58,7 @@ export const data = {
       root.right.left = new TreeNode(10);
       root.right.right = new TreeNode(5);
       root.left.left.left = new TreeNode(3);`,
-      evaluate: `tree_right_view(root);`,
+      evaluate: `printRight(tree_right_view(root));`,
       expected: JSON.stringify([12, 1, 5, 3]),
     },
   ],

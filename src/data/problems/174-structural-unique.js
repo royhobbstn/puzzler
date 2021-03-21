@@ -38,7 +38,7 @@ const solution = [
   { stage: 11, text: '    }' },
   { stage: 8, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 0, text: '  return result;' },
+  { stage: 15, text: '  return result;' },
   { stage: 4, text: '}' },
   { stage: 0, text: '' },
 ];

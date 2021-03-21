@@ -67,7 +67,7 @@ export const data = {
       head.next.next.next.next.next = new Node(6);
       head.next.next.next.next.next.next = new Node(7);
       head.next.next.next.next.next.next.next = new Node(8);`,
-      evaluate: `reverse_every_k_elements(head, 3);`,
+      evaluate: `reverse_every_k_elements(head, 3).convert();`,
       expected: JSON.stringify([3, 2, 1, 6, 5, 4, 8, 7]),
     },
   ],

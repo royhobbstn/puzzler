@@ -35,7 +35,7 @@ export const data = {
       name: 'example 1',
       inherit: [],
       code: ``,
-      evaluate: `dutch_flag_sort([1, 0, 2, 1, 0]);`,
+      evaluate: `let arr = [1, 0, 2, 1, 0]; dutch_flag_sort(arr); arr;`,
       expected: JSON.stringify([0, 0, 1, 1, 2]),
     },
     {
@@ -43,7 +43,7 @@ export const data = {
       name: 'example 2',
       inherit: [],
       code: ``,
-      evaluate: `dutch_flag_sort([2, 2, 0, 1, 2, 0]);`,
+      evaluate: `let arr = [2, 2, 0, 1, 2, 0]; dutch_flag_sort(arr); arr;`,
       expected: JSON.stringify([0, 0, 1, 2, 2, 2]),
     },
   ],

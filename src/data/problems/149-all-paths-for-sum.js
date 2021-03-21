@@ -13,6 +13,7 @@ const solution = [
   { stage: 0, text: 'function find_paths(root, sum) {' },
   { stage: 1, text: '  const allPaths = [];' },
   { stage: 2, text: '  find_paths_recursive(root, sum, [], allPaths);' },
+  { stage: 0, text: '' },
   { stage: 3, text: '  return allPaths;' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
@@ -76,6 +77,14 @@ export const data = {
       this.left = left;
       this.right = right;
     }
+  }
+
+  function printPaths(result) {
+    const arr = [];
+    for (let i = 0; i < result.length; i++) {
+      arr.push(result[i]);
+    }
+    return arr;
   }
   `,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/B815A0y2Ajn'],

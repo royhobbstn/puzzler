@@ -50,7 +50,7 @@ const solution = [
 export const data = {
   problemID: 145,
   problemName: `Zigzag Traversal`,
-  problemText: `Given a binary tree, populate an array to represent its zigzag level order traversal. You should populate the values of all nodes of the first level from left to right, then right to left for the next level and keep alternating in the same manner for the following levels.`,
+  problemText: `Given a binary tree, populate an array to represent its zigzag level order traversal. You should populate the values of all nodes of the first level from left to right, then right to left for the next level and keep alternating in the same manner for the following levels.  The return array should be an array of arrays, with each tree level represented by an array.`,
   testCases: [
     {
       id: 1,
@@ -65,7 +65,7 @@ export const data = {
       root.right.left.left = new TreeNode(20);
       root.right.left.right = new TreeNode(17);`,
       evaluate: `traverse(root);`,
-      expected: JSON.stringify([12, 1, 7, 9, 10, 5, 17, 20]),
+      expected: JSON.stringify([[12], [1, 7], [9, 10, 5], [17, 20]]),
     },
   ],
   setupCode: `

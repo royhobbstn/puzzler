@@ -33,8 +33,8 @@ const solution = [
   { stage: 6, text: '      result.push(' },
   { stage: 6, text: '        new Interval(' },
   { stage: 6, text: '          Math.max(intervals_a[i].start, intervals_b[j].start),' },
-  { stage: 6, text: '          Math.min(intervals_a[i].end, intervals_b[j].end),' },
-  { stage: 6, text: '        ),' },
+  { stage: 6, text: '          Math.min(intervals_a[i].end, intervals_b[j].end)' },
+  { stage: 6, text: '        )' },
   { stage: 6, text: '      );' },
   { stage: 5, text: '    }' },
   { stage: 0, text: '' },
@@ -79,7 +79,10 @@ export const data = {
             [new Interval(1, 3), new Interval(5, 7), new Interval(9, 12)],
             [new Interval(5, 10)],
           ));`,
-      expected: JSON.stringify([[5, 7][(9, 10)]]),
+      expected: JSON.stringify([
+        [5, 7],
+        [9, 10],
+      ]),
     },
   ],
   setupCode: `

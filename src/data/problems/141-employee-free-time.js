@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [
@@ -51,8 +51,8 @@ const solution = [
   { stage: 16, text: '        new EmployeeInterval(' },
   { stage: 16, text: '          employeeSchedule[queueTop.intervalIndex + 1],' },
   { stage: 16, text: '          queueTop.employeeIndex,' },
-  { stage: 16, text: '          queueTop.intervalIndex + 1,' },
-  { stage: 16, text: '        ),' },
+  { stage: 16, text: '          queueTop.intervalIndex + 1' },
+  { stage: 16, text: '        )' },
   { stage: 16, text: '      );' },
   { stage: 15, text: '    }' },
   { stage: 7, text: '  }' },
@@ -71,25 +71,31 @@ export const data = {
       id: 1,
       name: 'example 1',
       inherit: [],
-      code: ``,
+      code: `let input = [
+        [new Interval(1, 3), new Interval(5, 6)],
+        [new Interval(2, 3), new Interval(6, 8)],
+      ];`,
       evaluate: `mapInterval(find_employee_free_time(input));`,
-      expected: JSON.stringify([3, 5]),
+      expected: JSON.stringify([[3, 5]]),
     },
     {
       id: 2,
       name: 'example 2',
       inherit: [],
-      code: ``,
+      code: `let input = [[new Interval(1, 3), new Interval(9, 12)], [new Interval(2, 4)], [new Interval(6, 8)]];`,
       evaluate: `mapInterval(find_employee_free_time(input));`,
-      expected: JSON.stringify([4, 6][(8, 9)]),
+      expected: JSON.stringify([
+        [4, 6],
+        [8, 9],
+      ]),
     },
     {
       id: 3,
       name: 'example 3',
       inherit: [],
-      code: ``,
+      code: `let input = [[new Interval(1, 3)], [new Interval(2, 4)], [new Interval(3, 5), new Interval(7, 9)]];`,
       evaluate: `mapInterval(find_employee_free_time(input));`,
-      expected: JSON.stringify([5, 7]),
+      expected: JSON.stringify([[5, 7]]),
     },
   ],
   setupCode: `
@@ -114,6 +120,6 @@ export const data = {
   }
   `,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/RLwKZWgMJ1q'],
-  tags: [SLIDING_WINDOW, ALGORITHM],
+  tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };
