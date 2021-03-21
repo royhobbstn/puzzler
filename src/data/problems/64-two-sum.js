@@ -1,4 +1,4 @@
-import { GENERAL, ALGORITHM, BEGINNER } from '../constants.js';
+import { GENERAL, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -60,6 +60,6 @@ export const data = {
   ],
   setupCode: '',
   source: ['https://leetcode.com/problems/two-sum/'],
-  tags: [BEGINNER, GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM],
   solution,
 };

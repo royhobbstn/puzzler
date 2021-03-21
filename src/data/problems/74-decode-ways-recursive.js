@@ -1,4 +1,4 @@
-import { ALGORITHM, ADVANCED, DYNAMIC_PROGRAMMING } from '../constants.js';
+import { ALGORITHM, DYNAMIC_PROGRAMMING } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -88,6 +88,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://leetcode.com/problems/decode-ways'],
-  tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
+  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

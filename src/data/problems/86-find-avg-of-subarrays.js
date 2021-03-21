@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, BEGINNER } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -36,6 +36,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/7D5NNZWQ8Wr'],
-  tags: [BEGINNER, SLIDING_WINDOW, ALGORITHM],
+  tags: [SLIDING_WINDOW, ALGORITHM],
   solution,
 };

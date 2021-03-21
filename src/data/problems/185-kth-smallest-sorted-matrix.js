@@ -1,4 +1,4 @@
-import { ALGORITHM, K_WAY_MERGE, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, K_WAY_MERGE } from '../constants.js';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [
@@ -55,6 +55,6 @@ export const data = {
   ],
   setupCode: `${HEAP_GENERIC}`,
   source: [],
-  tags: [INTERMEDIATE, K_WAY_MERGE, ALGORITHM],
+  tags: [K_WAY_MERGE, ALGORITHM],
   solution,
 };

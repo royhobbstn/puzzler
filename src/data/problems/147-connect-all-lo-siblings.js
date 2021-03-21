@@ -1,4 +1,4 @@
-import { ALGORITHM, BINARY_TREE, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, BINARY_TREE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -80,6 +80,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, BINARY_TREE, ALGORITHM],
+  tags: [BINARY_TREE, ALGORITHM],
   solution,
 };

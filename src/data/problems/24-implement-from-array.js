@@ -1,4 +1,4 @@
-import { STACK, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { STACK, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Stack {' },
@@ -121,6 +121,6 @@ export const data = {
   ],
   setupCode: '',
   source: [],
-  tags: [BEGINNER, STACK, DATA_STRUCTURE],
+  tags: [STACK, DATA_STRUCTURE],
   solution,
 };

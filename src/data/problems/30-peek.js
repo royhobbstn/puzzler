@@ -1,4 +1,4 @@
-import { HEAP, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },
@@ -57,6 +57,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [BEGINNER, HEAP, DATA_STRUCTURE],
+  tags: [HEAP, DATA_STRUCTURE],
   solution,
 };

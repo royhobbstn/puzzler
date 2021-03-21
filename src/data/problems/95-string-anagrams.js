@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, ADVANCED } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -82,6 +82,6 @@ Write a function to return a list of starting indices of the anagrams of the pat
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3'],
-  tags: [ADVANCED, SLIDING_WINDOW, ALGORITHM],
+  tags: [SLIDING_WINDOW, ALGORITHM],
   solution,
 };

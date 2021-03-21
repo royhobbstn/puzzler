@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.js';
 import { GRAPH_PROTOTYPE_ADD_EDGE } from '../code-imports/import-index.js';
 
 const solution = [
@@ -77,6 +77,6 @@ export const data = {
   ],
   setupCode: `${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
-  tags: [BEGINNER, GRAPH, DATA_STRUCTURE],
+  tags: [GRAPH, DATA_STRUCTURE],
   solution,
 };

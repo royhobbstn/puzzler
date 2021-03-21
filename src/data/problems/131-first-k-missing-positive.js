@@ -1,4 +1,4 @@
-import { ALGORITHM, CYCLIC_SORT, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, CYCLIC_SORT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -71,6 +71,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, CYCLIC_SORT, ALGORITHM],
+  tags: [CYCLIC_SORT, ALGORITHM],
   solution,
 };

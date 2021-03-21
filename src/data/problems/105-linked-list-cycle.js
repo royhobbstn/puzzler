@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, FAST_SLOW_PTRS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -68,6 +68,6 @@ export const data = {
     }
   }`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/N7rwVyAZl6D'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [FAST_SLOW_PTRS, ALGORITHM],
   solution,
 };

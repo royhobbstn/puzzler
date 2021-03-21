@@ -1,4 +1,4 @@
-import { ALGORITHM, MERGE_INTERVALS, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [
@@ -84,6 +84,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, MERGE_INTERVALS, ALGORITHM],
+  tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

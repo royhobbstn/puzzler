@@ -1,4 +1,4 @@
-import { ALGORITHM, ADVANCED, GRAPH } from '../constants.js';
+import { ALGORITHM, GRAPH } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -112,6 +112,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://leetcode.com/problems/shortest-path-in-binary-matrix'],
-  tags: [ADVANCED, GRAPH, ALGORITHM],
+  tags: [GRAPH, ALGORITHM],
   solution,
 };

@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, DESIGN } from '../constants.js';
+import { ALGORITHM, DESIGN } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -108,6 +108,6 @@ You can assume all calls to **checkIn** and **checkOut** methods are consistent.
   ],
   setupCode: ``,
   source: ['https://leetcode.com/problems/design-underground-system'],
-  tags: [INTERMEDIATE, DESIGN, ALGORITHM],
+  tags: [DESIGN, ALGORITHM],
   solution,
 };

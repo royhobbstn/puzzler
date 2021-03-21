@@ -1,4 +1,4 @@
-import { CACHE, ALGORITHM, INTERMEDIATE } from '../constants.js';
+import { CACHE, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -153,6 +153,6 @@ export const data = {
   };
   `,
   source: ['https://leetcode.com/problems/lru-cache'],
-  tags: [INTERMEDIATE, CACHE, ALGORITHM],
+  tags: [CACHE, ALGORITHM],
   solution,
 };

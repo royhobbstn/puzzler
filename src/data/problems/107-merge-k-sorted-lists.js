@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP, K_WAY_MERGE } from '../constants.js';
 import { MIN_HEAP_CLASS_VALUE } from '../code-imports/import-index.js';
 
 const solution = [
@@ -100,6 +100,6 @@ export const data = {
     return arr;
   };`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/Y5n0n3vAgYK'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [HEAP, K_WAY_MERGE, ALGORITHM],
   solution,
 };

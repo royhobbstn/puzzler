@@ -1,4 +1,4 @@
-import { ALGORITHM, MERGE_INTERVALS, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -97,6 +97,6 @@ function mapInterval(intervals) {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, MERGE_INTERVALS, ALGORITHM],
+  tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

@@ -3,7 +3,7 @@ import {
   MIN_HEAP_PARENT_FNS,
   MIN_HEAP_HEAPIFY_UP,
 } from '../code-imports/import-index.js';
-import { HEAP, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },
@@ -103,6 +103,6 @@ export const data = {
   ],
   setupCode: `${MIN_HEAP_PARENT_FNS} ${MIN_HEAP_HEAPIFY_UP} ${MIN_HEAP_SWAP}`,
   source: [],
-  tags: [BEGINNER, HEAP, DATA_STRUCTURE],
+  tags: [HEAP, DATA_STRUCTURE],
   solution,
 };

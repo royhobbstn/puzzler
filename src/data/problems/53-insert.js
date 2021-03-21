@@ -1,4 +1,4 @@
-import { TRIE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { TRIE, DATA_STRUCTURE } from '../constants.js';
 import { TRIE_PROTOTYPE_SEARCH } from '../code-imports/import-index.js';
 
 const solution = [
@@ -64,6 +64,6 @@ export const data = {
   ],
   setupCode: `${TRIE_PROTOTYPE_SEARCH}`,
   source: [],
-  tags: [INTERMEDIATE, TRIE, DATA_STRUCTURE],
+  tags: [TRIE, DATA_STRUCTURE],
   solution,
 };

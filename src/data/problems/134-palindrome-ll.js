@@ -1,4 +1,4 @@
-import { ALGORITHM, FAST_SLOW_PTRS, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, FAST_SLOW_PTRS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -96,6 +96,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, FAST_SLOW_PTRS, ALGORITHM],
+  tags: [FAST_SLOW_PTRS, ALGORITHM],
   solution,
 };

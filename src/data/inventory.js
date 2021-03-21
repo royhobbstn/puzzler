@@ -188,6 +188,8 @@ import { data as _kth_smlst_srted_mtrx } from './problems/185-kth-smallest-sorte
 import { data as _smallest_num_range } from './problems/186-smallest-num-range.js';
 import { data as _k_prs_lrgst_sum } from './problems/187-k-pairs-largest-sum.js';
 
+import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
+
 const aggregate = {
   1: _ll_prepend,
   2: _ll_append,
@@ -390,6 +392,16 @@ Object.keys(aggregate).forEach(key => {
   });
 
   aggregate[key].effort = effortCount;
+
+  if (effortCount > 30) {
+    aggregate[key].tags.push(EXPERT);
+  } else if (effortCount > 20) {
+    aggregate[key].tags.push(ADVANCED);
+  } else if (effortCount > 12) {
+    aggregate[key].tags.push(INTERMEDIATE);
+  } else {
+    aggregate[key].tags.push(BEGINNER);
+  }
 });
 
 export const inventory = aggregate;

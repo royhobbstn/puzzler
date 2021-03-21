@@ -1,4 +1,4 @@
-import { ALGORITHM, DFS, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, DFS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -84,6 +84,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, DFS, ALGORITHM],
+  tags: [DFS, ALGORITHM],
   solution,
 };

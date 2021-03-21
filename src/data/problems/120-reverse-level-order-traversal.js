@@ -1,5 +1,5 @@
 import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, BINARY_TREE, BFS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -62,6 +62,6 @@ export const data = {
   ],
   setupCode: `${BINARY_TREE_NODE}`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/m2N6GwARL8r'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [BINARY_TREE, BFS, ALGORITHM],
   solution,
 };

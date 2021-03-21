@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.js';
 import { GRAPH_PROTOTYPE_ADD_VERTEX } from '../code-imports/import-index.js';
 
 const solution = [
@@ -101,6 +101,6 @@ export const data = {
   ],
   setupCode: `${GRAPH_PROTOTYPE_ADD_VERTEX}`,
   source: [],
-  tags: [INTERMEDIATE, GRAPH, DATA_STRUCTURE],
+  tags: [GRAPH, DATA_STRUCTURE],
   solution,
 };

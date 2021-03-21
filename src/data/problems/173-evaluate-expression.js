@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, SUBSETS } from '../constants.js';
+import { ALGORITHM, SUBSETS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -81,6 +81,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, SUBSETS, ALGORITHM],
+  tags: [SUBSETS, ALGORITHM],
   solution,
 };

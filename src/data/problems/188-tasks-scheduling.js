@@ -1,4 +1,4 @@
-import { ALGORITHM, TOPOLOGICAL_SORT, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, TOPOLOGICAL_SORT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -88,6 +88,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, TOPOLOGICAL_SORT, ALGORITHM],
+  tags: [TOPOLOGICAL_SORT, ALGORITHM],
   solution,
 };

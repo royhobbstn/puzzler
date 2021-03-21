@@ -1,4 +1,4 @@
-import { FIBONACCI, ALGORITHM, BEGINNER } from '../constants.js';
+import { FIBONACCI, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 1, text: 'const fibonacciNth = n => {' },
@@ -89,6 +89,6 @@ export const data = {
   ],
   setupCode: '',
   source: [],
-  tags: [BEGINNER, FIBONACCI, ALGORITHM],
+  tags: [FIBONACCI, ALGORITHM],
   solution,
 };

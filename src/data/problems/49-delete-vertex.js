@@ -2,7 +2,7 @@ import {
   GRAPH_PROTOTYPE_ADD_EDGE,
   GRAPH_PROTOTYPE_ADD_VERTEX,
 } from '../code-imports/import-index.js';
-import { GRAPH, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -80,6 +80,6 @@ export const data = {
   ],
   setupCode: `${GRAPH_PROTOTYPE_ADD_VERTEX} ${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
-  tags: [INTERMEDIATE, GRAPH, DATA_STRUCTURE],
+  tags: [GRAPH, DATA_STRUCTURE],
   solution,
 };

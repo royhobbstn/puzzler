@@ -1,4 +1,4 @@
-import { DOUBLY_LINKED_LIST, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
 import { DOUBLY_LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
 
 const solution = [
@@ -104,6 +104,6 @@ export const data = {
   ],
   setupCode: `${DOUBLY_LINKED_LIST_PROTOTYPE_APPEND}`,
   source: [],
-  tags: [INTERMEDIATE, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
+  tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

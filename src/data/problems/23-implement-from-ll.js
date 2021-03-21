@@ -1,4 +1,4 @@
-import { STACK, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { STACK, DATA_STRUCTURE } from '../constants.js';
 import { LINKED_LIST_CLASS } from '../code-imports/import-index.js';
 
 const solution = [
@@ -139,6 +139,6 @@ Base the implementation on the given *LinkedList* base data structure.  Return \
   ],
   setupCode: `${LINKED_LIST_CLASS}`,
   source: [],
-  tags: [INTERMEDIATE, STACK, DATA_STRUCTURE],
+  tags: [STACK, DATA_STRUCTURE],
   solution,
 };

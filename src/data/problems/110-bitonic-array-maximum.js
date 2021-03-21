@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, BINARY_SEARCH } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -60,6 +60,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/RMyRR6wZoYK'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [BINARY_SEARCH, ALGORITHM],
   solution,
 };

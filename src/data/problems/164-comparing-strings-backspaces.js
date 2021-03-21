@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, TWO_POINTERS } from '../constants.js';
+import { ALGORITHM, TWO_POINTERS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -85,6 +85,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, TWO_POINTERS, ALGORITHM],
+  tags: [TWO_POINTERS, ALGORITHM],
   solution,
 };

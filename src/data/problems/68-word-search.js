@@ -1,4 +1,4 @@
-import { RECURSION, ALGORITHM, EXPERT } from '../constants.js';
+import { RECURSION, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -107,6 +107,6 @@ export const data = {
   ],
   setupCode: '',
   source: ['https://leetcode.com/problems/word-search/'],
-  tags: [EXPERT, RECURSION, ALGORITHM],
+  tags: [RECURSION, ALGORITHM],
   solution,
 };

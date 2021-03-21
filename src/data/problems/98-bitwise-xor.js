@@ -1,4 +1,4 @@
-import { ALGORITHM, BITWISE, EXPERT } from '../constants.js';
+import { ALGORITHM, BITWISE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -37,6 +37,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/gk20xz4VwpG'],
-  tags: [EXPERT, BITWISE, ALGORITHM],
+  tags: [BITWISE, ALGORITHM],
   solution,
 };

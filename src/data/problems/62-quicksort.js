@@ -1,4 +1,4 @@
-import { SORTING, ALGORITHM, ADVANCED } from '../constants.js';
+import { SORTING, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -96,6 +96,6 @@ export const data = {
   ],
   setupCode: '',
   source: [],
-  tags: [ADVANCED, SORTING, ALGORITHM],
+  tags: [SORTING, ALGORITHM],
   solution,
 };

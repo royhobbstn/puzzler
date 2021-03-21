@@ -1,4 +1,4 @@
-import { ALGORITHM, DYNAMIC_PROGRAMMING, ADVANCED } from '../constants.js';
+import { ALGORITHM, DYNAMIC_PROGRAMMING } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -56,6 +56,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk'],
-  tags: [ADVANCED, DYNAMIC_PROGRAMMING, ALGORITHM],
+  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,
 };

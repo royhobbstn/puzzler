@@ -4,7 +4,7 @@ import {
   HASH_TABLE_PROTOTYPE_GET,
   HASH_TABLE_PROTOTYPE_SET,
 } from '../code-imports/import-index.js';
-import { HASH_TABLE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { HASH_TABLE, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: -1, text: '// class LinkedList {' },
@@ -76,6 +76,6 @@ export const data = {
   ],
   setupCode: `${LINKED_LIST_CLASS_EXT} ${HASH_TABLE_PROTOTYPE_HASH} ${HASH_TABLE_PROTOTYPE_SET} ${HASH_TABLE_PROTOTYPE_GET}`,
   source: [],
-  tags: [INTERMEDIATE, HASH_TABLE, DATA_STRUCTURE],
+  tags: [HASH_TABLE, DATA_STRUCTURE],
   solution,
 };

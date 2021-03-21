@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW } from '../constants.js';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [
@@ -114,6 +114,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, SLIDING_WINDOW, ALGORITHM],
+  tags: [SLIDING_WINDOW, ALGORITHM],
   solution,
 };

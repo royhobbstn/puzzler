@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, BINARY_SEARCH } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -74,6 +74,6 @@ Write a function to return the index of the ‘key’ if it is present in the ar
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/R8LzZQlj8lO'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [BINARY_SEARCH, ALGORITHM],
   solution,
 };

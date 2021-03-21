@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
 import { LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
 
 const solution = [
@@ -83,6 +83,6 @@ export const data = {
   ],
   setupCode: `${LINKED_LIST_PROTOTYPE_APPEND}`,
   source: [],
-  tags: [INTERMEDIATE, LINKED_LIST, DATA_STRUCTURE],
+  tags: [LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

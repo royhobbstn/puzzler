@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, CYCLIC_SORT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -49,6 +49,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/RLw1Pjk1GQ0'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [CYCLIC_SORT, ALGORITHM],
   solution,
 };

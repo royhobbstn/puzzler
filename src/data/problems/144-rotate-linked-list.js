@@ -1,4 +1,4 @@
-import { ALGORITHM, LINKED_LIST, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, LINKED_LIST } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -74,6 +74,6 @@ export const data = {
   };
   `,
   source: [],
-  tags: [INTERMEDIATE, LINKED_LIST, ALGORITHM],
+  tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

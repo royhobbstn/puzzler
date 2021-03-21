@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
 import {
   LINKED_LIST_PROTOTYPE_APPEND,
   LINKED_LIST_PROTOTYPE_TOARRAY,
@@ -73,6 +73,6 @@ export const data = {
   ],
   setupCode: `${LINKED_LIST_PROTOTYPE_APPEND}${LINKED_LIST_PROTOTYPE_TOARRAY}`,
   source: [],
-  tags: [ADVANCED, LINKED_LIST, DATA_STRUCTURE],
+  tags: [LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

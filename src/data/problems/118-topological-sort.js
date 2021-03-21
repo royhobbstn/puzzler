@@ -1,4 +1,4 @@
-import { ALGORITHM, GRAPH, ADVANCED } from '../constants.js';
+import { ALGORITHM, TOPOLOGICAL_SORT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -115,6 +115,6 @@ Input: Vertices=4, Edges=[3, 2], [3, 0], [2, 0], [2, 1]
   }
   `,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/m25rBmwLV00'],
-  tags: [ADVANCED, ALGORITHM, GRAPH],
+  tags: [ALGORITHM, TOPOLOGICAL_SORT],
   solution,
 };

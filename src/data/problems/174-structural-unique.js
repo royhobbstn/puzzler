@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, SUBSETS, BINARY_SEARCH_TREE } from '../constants.js';
+import { ALGORITHM, SUBSETS, BINARY_SEARCH_TREE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -75,6 +75,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, SUBSETS, BINARY_SEARCH_TREE, ALGORITHM],
+  tags: [SUBSETS, BINARY_SEARCH_TREE, ALGORITHM],
   solution,
 };

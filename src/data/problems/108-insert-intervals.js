@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -71,6 +71,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/3jKlyNMJPEM'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

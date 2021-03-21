@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, TWO_POINTERS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -50,6 +50,6 @@ Write a function to return the indices of the two numbers (i.e. the pair) such t
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/xog6q15W9GP'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [TWO_POINTERS, ALGORITHM],
   solution,
 };

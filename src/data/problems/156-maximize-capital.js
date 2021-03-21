@@ -1,4 +1,4 @@
-import { ALGORITHM, HEAP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [
@@ -72,6 +72,6 @@ export const data = {
   ],
   setupCode: `${HEAP_GENERIC}`,
   source: [],
-  tags: [INTERMEDIATE, HEAP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };

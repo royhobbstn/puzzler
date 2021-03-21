@@ -1,5 +1,5 @@
 import { MAX_HEAP_CLASS_PLAIN, MIN_HEAP_CLASS_PLAIN } from '../code-imports/import-index.js';
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -87,6 +87,6 @@ If the count of numbers inserted in the class is even, the median will be the av
   ],
   setupCode: `${MIN_HEAP_CLASS_PLAIN} ${MAX_HEAP_CLASS_PLAIN}`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };

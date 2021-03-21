@@ -1,4 +1,4 @@
-import { ALGORITHM, LINKED_LIST, ADVANCED } from '../constants.js';
+import { ALGORITHM, LINKED_LIST } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -95,6 +95,6 @@ export const data = {
     return arr;
   }`,
   source: ['https://leetcode.com/problems/reorder-list'],
-  tags: [ADVANCED, LINKED_LIST, ALGORITHM],
+  tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

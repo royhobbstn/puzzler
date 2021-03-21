@@ -1,4 +1,4 @@
-import { DOUBLY_LINKED_LIST, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class DoublyLinkedListNode {' },
@@ -91,6 +91,6 @@ export const data = {
   ],
   setupCode: '',
   source: [],
-  tags: [INTERMEDIATE, DOUBLY_LINKED_LIST, DATA_STRUCTURE],
+  tags: [DOUBLY_LINKED_LIST, DATA_STRUCTURE],
   solution,
 };

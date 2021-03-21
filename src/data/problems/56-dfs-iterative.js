@@ -3,7 +3,7 @@ import {
   GRAPH_PROTOTYPE_ADD_VERTEX,
   GRAPH_PROTOTYPE_TEMPSET,
 } from '../code-imports/import-index.js';
-import { GRAPH, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },
@@ -81,6 +81,6 @@ export const data = {
   ],
   setupCode: `${GRAPH_PROTOTYPE_TEMPSET} ${GRAPH_PROTOTYPE_ADD_VERTEX} ${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
-  tags: [ADVANCED, GRAPH, DATA_STRUCTURE],
+  tags: [GRAPH, DATA_STRUCTURE],
   solution,
 };

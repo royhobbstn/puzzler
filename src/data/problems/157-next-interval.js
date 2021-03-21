@@ -1,5 +1,5 @@
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
-import { ALGORITHM, HEAP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -87,6 +87,6 @@ export const data = {
   }
   `,
   source: [],
-  tags: [INTERMEDIATE, HEAP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };

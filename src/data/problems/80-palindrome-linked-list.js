@@ -1,4 +1,4 @@
-import { ALGORITHM, ADVANCED, LINKED_LIST } from '../constants.js';
+import { ALGORITHM, LINKED_LIST } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -136,6 +136,6 @@ export const data = {
   }
   `,
   source: ['https://leetcode.com/problems/palindrome-linked-list'],
-  tags: [ADVANCED, LINKED_LIST, ALGORITHM],
+  tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

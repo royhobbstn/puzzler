@@ -1,4 +1,4 @@
-import { BINARY_SEARCH_TREE, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { BINARY_SEARCH_TREE, DATA_STRUCTURE } from '../constants.js';
 import { BST_PROTOTYPE_INSERT } from '../code-imports/import-index.js';
 
 const solution = [
@@ -108,6 +108,6 @@ export const data = {
   ],
   setupCode: `${BST_PROTOTYPE_INSERT}`,
   source: [],
-  tags: [INTERMEDIATE, BINARY_SEARCH_TREE, DATA_STRUCTURE],
+  tags: [BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

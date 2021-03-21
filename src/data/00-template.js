@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, TEMP } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -59,6 +59,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, SLIDING_WINDOW, ALGORITHM],
+  tags: [TEMP, ALGORITHM],
   solution,
 };

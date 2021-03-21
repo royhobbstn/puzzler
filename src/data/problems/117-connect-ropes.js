@@ -1,5 +1,5 @@
 import { MIN_HEAP_CLASS_PLAIN } from '../code-imports/import-index.js';
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -71,6 +71,6 @@ Example 1:
   ],
   setupCode: `${MIN_HEAP_CLASS_PLAIN}`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/qVZmZJVxPY0'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };

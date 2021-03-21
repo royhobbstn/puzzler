@@ -1,4 +1,4 @@
-import { QUEUE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { QUEUE, DATA_STRUCTURE } from '../constants.js';
 
 const solution = [
   { stage: 0, text: 'class Queue {' },
@@ -120,6 +120,6 @@ Base the implementation on an *Array* base data structure.  Return \`null\` for 
   ],
   setupCode: '',
   source: [],
-  tags: [BEGINNER, QUEUE, DATA_STRUCTURE],
+  tags: [QUEUE, DATA_STRUCTURE],
   solution,
 };

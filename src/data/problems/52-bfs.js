@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE, ADVANCED } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.js';
 import {
   GRAPH_PROTOTYPE_ADD_EDGE,
   GRAPH_PROTOTYPE_TEMPSET,
@@ -80,6 +80,6 @@ export const data = {
   ],
   setupCode: `${GRAPH_PROTOTYPE_TEMPSET} ${GRAPH_PROTOTYPE_ADD_VERTEX} ${GRAPH_PROTOTYPE_ADD_EDGE}`,
   source: [],
-  tags: [ADVANCED, GRAPH, DATA_STRUCTURE],
+  tags: [GRAPH, DATA_STRUCTURE],
   solution,
 };

@@ -1,4 +1,4 @@
-import { HEAP, DATA_STRUCTURE, INTERMEDIATE } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.js';
 import {
   MIN_HEAP_CHILD_FNS,
   MIN_HEAP_HEAPIFY_DOWN,
@@ -97,6 +97,6 @@ export const data = {
   ],
   setupCode: `${MIN_HEAP_CHILD_FNS} ${MIN_HEAP_HEAPIFY_DOWN} ${MIN_HEAP_SWAP}`,
   source: [],
-  tags: [INTERMEDIATE, HEAP, DATA_STRUCTURE],
+  tags: [HEAP, DATA_STRUCTURE],
   solution,
 };

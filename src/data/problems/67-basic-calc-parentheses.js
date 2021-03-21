@@ -1,4 +1,4 @@
-import { STACK, ALGORITHM, EXPERT } from '../constants.js';
+import { STACK, ALGORITHM } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -142,6 +142,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://leetcode.com/problems/basic-calculator-ii/'],
-  tags: [EXPERT, STACK, ALGORITHM],
+  tags: [STACK, ALGORITHM],
   solution,
 };

@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, BINARY_SEARCH } from '../constants.js';
+import { ALGORITHM, BINARY_SEARCH } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -58,6 +58,6 @@ export const data = {
   ],
   setupCode: ``,
   source: [],
-  tags: [INTERMEDIATE, BINARY_SEARCH, ALGORITHM],
+  tags: [BINARY_SEARCH, ALGORITHM],
   solution,
 };

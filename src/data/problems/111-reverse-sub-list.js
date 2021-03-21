@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, LINKED_LIST } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -82,6 +82,6 @@ export const data = {
     return arr;
   };`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/qVANqMonoB2'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

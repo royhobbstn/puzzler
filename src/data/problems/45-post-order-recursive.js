@@ -1,4 +1,4 @@
-import { BINARY_SEARCH_TREE, DATA_STRUCTURE, BEGINNER } from '../constants.js';
+import { BINARY_SEARCH_TREE, DATA_STRUCTURE } from '../constants.js';
 import { BST_PROTOTYPE_INSERT, BST_TEMP_NODELIST } from '../code-imports/import-index.js';
 
 const solution = [
@@ -57,6 +57,6 @@ export const data = {
   ],
   setupCode: `${BST_TEMP_NODELIST} ${BST_PROTOTYPE_INSERT}`,
   source: [],
-  tags: [BEGINNER, BINARY_SEARCH_TREE, DATA_STRUCTURE],
+  tags: [BINARY_SEARCH_TREE, DATA_STRUCTURE],
   solution,
 };

@@ -1,4 +1,4 @@
-import { ALGORITHM, INTERMEDIATE, GENERAL } from '../constants.js';
+import { ALGORITHM, GENERAL } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -74,6 +74,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://leetcode.com/problems/verifying-an-alien-dictionary'],
-  tags: [INTERMEDIATE, GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM],
   solution,
 };

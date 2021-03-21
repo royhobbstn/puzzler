@@ -1,4 +1,4 @@
-import { ALGORITHM, CYCLIC_SORT, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, CYCLIC_SORT } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -54,6 +54,6 @@ Write a function to sort the objects in-place on their creation sequence number 
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/B8qXVqVwDKY'],
-  tags: [INTERMEDIATE, CYCLIC_SORT, ALGORITHM],
+  tags: [CYCLIC_SORT, ALGORITHM],
   solution,
 };

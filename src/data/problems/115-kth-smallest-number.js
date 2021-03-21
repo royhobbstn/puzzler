@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 import { MAX_HEAP_CLASS_PLAIN } from '../code-imports/import-index.js';
 
 const solution = [
@@ -65,6 +65,6 @@ Please note that it is the Kth smallest number in the sorted order, not the Kth 
   ],
   setupCode: `${MAX_HEAP_CLASS_PLAIN}`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/gxxPGn8vE8G'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };

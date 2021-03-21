@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP, INTERMEDIATE } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.js';
 import { MAX_HEAP_CLASS_DISTANCE } from '../code-imports/import-index.js';
 
 const solution = [
@@ -85,6 +85,6 @@ export const data = {
   }
   `,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/3YxNVYwNR5p'],
-  tags: [INTERMEDIATE, TEMP, ALGORITHM],
+  tags: [HEAP, ALGORITHM],
   solution,
 };
