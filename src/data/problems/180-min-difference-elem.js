@@ -72,7 +72,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/mymvP915LY9'],
   tags: [BINARY_SEARCH, ALGORITHM],
   solution,
 };

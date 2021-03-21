@@ -70,7 +70,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/g286M2Gk3YY'],
   tags: [CYCLIC_SORT, ALGORITHM],
   solution,
 };

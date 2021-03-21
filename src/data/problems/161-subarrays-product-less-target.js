@@ -49,7 +49,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/RMV1GV1yPYz'],
   tags: [TWO_POINTERS, ALGORITHM],
   solution,
 };

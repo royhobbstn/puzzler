@@ -71,7 +71,7 @@ export const data = {
     },
   ],
   setupCode: `${HEAP_GENERIC}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/B6x69OLX4jY'],
   tags: [HEAP, ALGORITHM],
   solution,
 };

@@ -52,7 +52,7 @@ export const data = {
     },
   ],
   setupCode: `${HEAP_GENERIC}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/N767x7VoYmK'],
   tags: [K_WAY_MERGE, ALGORITHM],
   solution,
 };

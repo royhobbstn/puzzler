@@ -96,7 +96,7 @@ function mapInterval(intervals) {
     });
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/JExVVqRAN9D'],
   tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

@@ -93,7 +93,7 @@ export const data = {
     return arr;
   };
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/q2lZKgLm980'],
   tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

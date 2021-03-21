@@ -70,7 +70,7 @@ export const data = {
       this.end = end;
     }
   }`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/qVV79nGVgAG'],
   tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

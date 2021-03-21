@@ -187,6 +187,12 @@ import { data as _kth_smlst_m_sorted } from './problems/184-kth-smallest-m-srtd.
 import { data as _kth_smlst_srted_mtrx } from './problems/185-kth-smallest-sorted-matrix.js';
 import { data as _smallest_num_range } from './problems/186-smallest-num-range.js';
 import { data as _k_prs_lrgst_sum } from './problems/187-k-pairs-largest-sum.js';
+import { data as _tasks_scheduling } from './problems/188-tasks-scheduling.js';
+import { data as _tasks_sched_orders } from './problems/189-tasks-scheduling-order.js';
+import { data as _all_tasks_sched_orders } from './problems/190-all-tasks-sched-orders.js';
+import { data as _alien_dictionary } from './problems/191-alien-dictionary.js';
+import { data as _reconstructing_seq } from './problems/192-reconstructing-seq.js';
+import { data as _min_height_tree } from './problems/193-minimum-height-trees.js';
 
 import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
 
@@ -378,6 +384,12 @@ const aggregate = {
   185: _kth_smlst_srted_mtrx,
   186: _smallest_num_range,
   187: _k_prs_lrgst_sum,
+  188: _tasks_scheduling,
+  189: _tasks_sched_orders,
+  190: _all_tasks_sched_orders,
+  191: _alien_dictionary,
+  192: _reconstructing_seq,
+  193: _min_height_tree,
 };
 
 // add a computed 'effort' property; estimated code lines to write

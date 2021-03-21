@@ -95,7 +95,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/NEOZDEg5PlN'],
   tags: [SUBSETS, ALGORITHM],
   solution,
 };

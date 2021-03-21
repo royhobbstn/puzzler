@@ -115,7 +115,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/m7VAO5OrQr3'],
   tags: [TOPOLOGICAL_SORT, ALGORITHM],
   solution,
 };

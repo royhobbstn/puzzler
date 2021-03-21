@@ -78,7 +78,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/B815A0y2Ajn'],
   tags: [DFS, ALGORITHM],
   solution,
 };

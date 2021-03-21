@@ -86,7 +86,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/gkkmqXO6zrY'],
   tags: [HEAP, ALGORITHM],
   solution,
 };

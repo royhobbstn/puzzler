@@ -61,7 +61,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/R1v4P0R7VZw'],
   tags: [BINARY_SEARCH, ALGORITHM],
   solution,
 };

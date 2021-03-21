@@ -77,7 +77,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/qVA27MMYYn0'],
   tags: [BINARY_TREE, ALGORITHM],
   solution,
 };

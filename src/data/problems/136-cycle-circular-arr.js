@@ -87,7 +87,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/NE67J9YMj3m'],
   tags: [FAST_SLOW_PTRS, ALGORITHM],
   solution,
 };

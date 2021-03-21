@@ -73,7 +73,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/YVwln9kYxV2'],
   tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

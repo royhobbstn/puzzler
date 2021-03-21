@@ -48,7 +48,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/RMBxV6jz6Q0'],
   tags: [TWO_POINTERS, ALGORITHM],
   solution,
 };

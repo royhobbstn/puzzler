@@ -80,7 +80,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/N0Q3PKRKMPz'],
   tags: [SUBSETS, ALGORITHM],
   solution,
 };

@@ -46,7 +46,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/N7Vw2GBQr6D'],
   tags: [CYCLIC_SORT, ALGORITHM],
   solution,
 };

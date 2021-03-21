@@ -73,7 +73,7 @@ export const data = {
     return arr;
   };
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/mErolRNQ00R'],
   tags: [LINKED_LIST, ALGORITHM],
   solution,
 };

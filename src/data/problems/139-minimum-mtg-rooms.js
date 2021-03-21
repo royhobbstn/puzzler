@@ -83,7 +83,7 @@ export const data = {
     }
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/JQMAmrVPL7l'],
   tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

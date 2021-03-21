@@ -99,7 +99,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/7nDN8y7JKVA'],
   tags: [TOPOLOGICAL_SORT, ALGORITHM],
   solution,
 };

@@ -75,7 +75,7 @@ export const data = {
     },
   ],
   setupCode: ``,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/NEXBg8YA5A2'],
   tags: [SUBSETS, ALGORITHM],
   solution,
 };

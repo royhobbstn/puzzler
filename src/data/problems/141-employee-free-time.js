@@ -113,7 +113,7 @@ export const data = {
     });
   }
   `,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/RLwKZWgMJ1q'],
   tags: [SLIDING_WINDOW, ALGORITHM],
   solution,
 };

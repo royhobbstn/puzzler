@@ -54,7 +54,7 @@ export const data = {
     },
   ],
   setupCode: `${HEAP_GENERIC}`,
-  source: [],
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/x1NJVYKNvqz'],
   tags: [K_WAY_MERGE, ALGORITHM],
   solution,
 };
