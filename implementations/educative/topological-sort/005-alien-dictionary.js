@@ -21,11 +21,11 @@ function find_order(words) {
   // b. Build the graph
   for (let i = 0; i < words.length - 1; i++) {
     // find ordering of characters from adjacent words
-    let w1 = words[i],
-      w2 = words[i + 1];
+    let w1 = words[i];
+    let w2 = words[i + 1];
     for (let j = 0; j < Math.min(w1.length, w2.length); j++) {
-      let parent = w1[j],
-        child = w2[j];
+      let parent = w1[j];
+      let child = w2[j];
       if (parent !== child) {
         // if the two characters are different
         // put the child into it's parent's list
@@ -69,9 +69,9 @@ function find_order(words) {
   return sortedOrder.join('');
 }
 
-console.log(`Character order: ${find_order(['ba', 'bc', 'ac', 'cab'])}`);
-console.log(`Character order: ${find_order(['cab', 'aaa', 'aab'])}`);
-console.log(`Character order: ${find_order(['ywx', 'wz', 'xww', 'xz', 'zyy', 'zwz'])}`);
+console.log(find_order(['ba', 'bc', 'ac', 'cab']));
+console.log(find_order(['cab', 'aaa', 'aab']));
+console.log(find_order(['ywx', 'wz', 'xww', 'xz', 'zyy', 'zwz']));
 
 // Character order: bac
 // Character order: cab

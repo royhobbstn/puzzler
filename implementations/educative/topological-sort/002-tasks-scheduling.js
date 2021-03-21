@@ -16,8 +16,8 @@ function is_scheduling_possible(tasks, prerequisites) {
 
   // b. Build the graph
   prerequisites.forEach(prerequisite => {
-    let parent = prerequisite[0],
-      child = prerequisite[1];
+    let parent = prerequisite[0];
+    let child = prerequisite[1];
     graph[parent].push(child); // put the child into it's parent's list
     inDegree[child]++; // increment child's inDegree
   });
@@ -46,6 +46,7 @@ function is_scheduling_possible(tasks, prerequisites) {
 
   // if sortedOrder doesn't contain all tasks, there is a cyclic dependency between tasks, therefore, we
   // will not be able to schedule all tasks
+
   return sortedOrder.length === tasks;
 }
 

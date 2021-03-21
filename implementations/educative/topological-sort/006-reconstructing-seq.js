@@ -72,36 +72,36 @@ function can_construct(originalSeq, sequences) {
 }
 
 console.log(
-  `Can construct: ${can_construct(
+  can_construct(
     [1, 2, 3, 4],
     [
       [1, 2],
       [2, 3],
       [3, 4],
     ],
-  )}`,
+  ),
 );
 // true
 
 console.log(
-  `Can construct: ${can_construct(
+  can_construct(
     [1, 2, 3, 4],
     [
       [1, 2],
       [2, 3],
       [2, 4],
     ],
-  )}`,
+  ),
 );
 // false
 
 console.log(
-  `Can construct: ${can_construct(
+  can_construct(
     [3, 1, 4, 2, 5],
     [
       [3, 1, 5],
       [1, 4, 2, 5],
     ],
-  )}`,
+  ),
 );
 // true

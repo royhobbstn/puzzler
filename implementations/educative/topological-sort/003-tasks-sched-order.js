@@ -16,8 +16,8 @@ function find_order(tasks, prerequisites) {
 
   // b. Build the graph
   prerequisites.forEach(prerequisite => {
-    let parent = prerequisite[0],
-      child = prerequisite[1];
+    let parent = prerequisite[0];
+    let child = prerequisite[1];
     graph[parent].push(child); // put the child into it's parent's list
     inDegree[child]++; // increment child's inDegree
   });
@@ -54,28 +54,28 @@ function find_order(tasks, prerequisites) {
 }
 
 console.log(
-  `Is scheduling possible: ${find_order(3, [
+  find_order(3, [
     [0, 1],
     [1, 2],
-  ])}`,
+  ]),
 );
 // 0,1,2
 
 console.log(
-  `Is scheduling possible: ${find_order(3, [
+  find_order(3, [
     [0, 1],
     [1, 2],
     [2, 0],
-  ])}`,
+  ]),
 );
 // (nothing)
 
 console.log(
-  `Is scheduling possible: ${find_order(6, [
+  find_order(6, [
     [0, 4],
     [1, 4],
     [3, 2],
     [1, 3],
-  ])}`,
+  ]),
 );
 // 0,1,5,4,3,2

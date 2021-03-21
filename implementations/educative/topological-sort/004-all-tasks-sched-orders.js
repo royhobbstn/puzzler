@@ -16,8 +16,8 @@ function print_orders(tasks, prerequisites) {
 
   // b. Build the graph
   prerequisites.forEach(prerequisite => {
-    const parent = prerequisite[0],
-      child = prerequisite[1];
+    const parent = prerequisite[0];
+    let child = prerequisite[1];
     graph[parent].push(child); // put the child into it's parent's list
     inDegree[child]++; // increment child's inDegree
   });
@@ -30,10 +30,12 @@ function print_orders(tasks, prerequisites) {
     }
   }
 
-  print_all_topological_sorts(graph, inDegree, sources, sortedOrder);
+  const sorts = [];
+  print_all_topological_sorts(graph, inDegree, sources, sortedOrder, sorts);
+  return sorts;
 }
 
-function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
+function print_all_topological_sorts(graph, inDegree, sources, sortedOrder, sorts) {
   if (sources.length > 0) {
     for (let i = 0; i < sources.length; i++) {
       const vertex = sources[i];
@@ -51,7 +53,7 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
       });
 
       // recursive call to print other orderings from the remaining (and new) sources
-      print_all_topological_sorts(graph, inDegree, sourcesForNextCall, sortedOrder);
+      print_all_topological_sorts(graph, inDegree, sourcesForNextCall, sortedOrder, sorts);
 
       // backtrack, remove the vertex from the sorted order and put all of its children back to consider
       // the next source instead of the current vertex
@@ -65,49 +67,52 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
   // if sortedOrder doesn't contain all tasks, either we've a cyclic dependency between tasks, or
   // we have not processed all the tasks in this recursive call
   if (sortedOrder.length === inDegree.length) {
-    console.log(sortedOrder);
+    sorts.push(sortedOrder.slice(0));
   }
 }
 
-console.log('Task Orders: ');
-print_orders(3, [
-  [0, 1],
-  [1, 2],
-]);
+console.log(
+  print_orders(3, [
+    [0, 1],
+    [1, 2],
+  ]),
+);
 // Task Orders:
-// [ 0, 1, 2 ]
+// [[ 0, 1, 2 ]]
 
-console.log('Task Orders: ');
-print_orders(4, [
-  [3, 2],
-  [3, 0],
-  [2, 0],
-  [2, 1],
-]);
+console.log(
+  print_orders(4, [
+    [3, 2],
+    [3, 0],
+    [2, 0],
+    [2, 1],
+  ]),
+);
 // Task Orders:
-// [ 3, 2, 0, 1 ]
-// [ 3, 2, 1, 0 ]
+// [[ 3, 2, 0, 1 ],
+// [ 3, 2, 1, 0 ]]
 
-console.log('Task Orders: ');
-print_orders(6, [
-  [2, 5],
-  [0, 5],
-  [0, 4],
-  [1, 4],
-  [3, 2],
-  [1, 3],
-]);
+console.log(
+  print_orders(6, [
+    [2, 5],
+    [0, 5],
+    [0, 4],
+    [1, 4],
+    [3, 2],
+    [1, 3],
+  ]),
+);
 // Task Orders:
-// [ 0, 1, 4, 3, 2, 5 ]
-// [ 0, 1, 3, 4, 2, 5 ]
-// [ 0, 1, 3, 2, 4, 5 ]
-// [ 0, 1, 3, 2, 5, 4 ]
-// [ 1, 0, 3, 4, 2, 5 ]
-// [ 1, 0, 3, 2, 4, 5 ]
-// [ 1, 0, 3, 2, 5, 4 ]
-// [ 1, 0, 4, 3, 2, 5 ]
-// [ 1, 3, 0, 2, 4, 5 ]
-// [ 1, 3, 0, 2, 5, 4 ]
-// [ 1, 3, 0, 4, 2, 5 ]
-// [ 1, 3, 2, 0, 5, 4 ]
-// [ 1, 3, 2, 0, 4, 5 ]
+// [[ 0, 1, 4, 3, 2, 5 ],
+// [ 0, 1, 3, 4, 2, 5 ],
+// [ 0, 1, 3, 2, 4, 5 ],
+// [ 0, 1, 3, 2, 5, 4 ],
+// [ 1, 0, 3, 4, 2, 5 ],
+// [ 1, 0, 3, 2, 4, 5 ],
+// [ 1, 0, 3, 2, 5, 4 ],
+// [ 1, 0, 4, 3, 2, 5 ],
+// [ 1, 3, 0, 2, 4, 5 ],
+// [ 1, 3, 0, 2, 5, 4 ],
+// [ 1, 3, 0, 4, 2, 5 ],
+// [ 1, 3, 2, 0, 5, 4 ],
+// [ 1, 3, 2, 0, 4, 5 ]]

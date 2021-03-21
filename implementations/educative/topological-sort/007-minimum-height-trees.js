@@ -20,8 +20,8 @@ function find_trees(nodes, edges) {
 
   // b. Build the graph
   edges.forEach(edge => {
-    let n1 = edge[0],
-      n2 = edge[1];
+    let n1 = edge[0];
+    let n2 = edge[1];
     // since this is an undirected graph, therefore, add a link for both the nodes
     graph[n1].push(n2);
     graph[n2].push(n1);
@@ -63,25 +63,25 @@ function find_trees(nodes, edges) {
 }
 
 console.log(
-  `Roots of MHTs: ${find_trees(5, [
+  find_trees(5, [
     [0, 1],
     [1, 2],
     [1, 3],
     [2, 4],
-  ])}`,
+  ]),
 );
 console.log(
-  `Roots of MHTs: ${find_trees(4, [
+  find_trees(4, [
     [0, 1],
     [0, 2],
     [2, 3],
-  ])}`,
+  ]),
 );
 console.log(
-  `Roots of MHTs: ${find_trees(4, [
+  find_trees(4, [
     [1, 2],
     [1, 3],
-  ])}`,
+  ]),
 );
 
 // Roots of MHTs: 1,2

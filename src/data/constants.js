@@ -34,6 +34,7 @@ export const MERGE_INTERVALS = 'Merge Intervals';
 export const TWO_POINTERS = 'Two Pointers';
 export const SUBSETS = 'Subsets';
 export const K_WAY_MERGE = 'K-Way-Merge';
+export const TOPOLOGICAL_SORT = 'Topological Sort';
 export const TEMP = 'Temp';
 
 export const abbrev = {
@@ -73,6 +74,7 @@ export const abbrev = {
   [BFS]: 'BFS',
   [SUBSETS]: 'Sub',
   [K_WAY_MERGE]: 'KWM',
+  [TOPOLOGICAL_SORT]: 'TS',
 
   [TEMP]: 'Temp',
 };
