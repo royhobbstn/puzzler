@@ -193,6 +193,8 @@ import { data as _all_tasks_sched_orders } from './problems/190-all-tasks-sched-
 import { data as _alien_dictionary } from './problems/191-alien-dictionary.js';
 import { data as _reconstructing_seq } from './problems/192-reconstructing-seq.js';
 import { data as _min_height_tree } from './problems/193-minimum-height-trees.js';
+import { data as _range_sum_query } from './problems/194-range-sum-query.js';
+import { data as _minesweeper } from './problems/195-minesweeper.js';
 
 import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
 
@@ -390,6 +392,8 @@ const aggregate = {
   191: _alien_dictionary,
   192: _reconstructing_seq,
   193: _min_height_tree,
+  194: _range_sum_query,
+  195: _minesweeper,
 };
 
 // add a computed 'effort' property; estimated code lines to write
