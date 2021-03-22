@@ -86,6 +86,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 253,
   source: ['https://leetcode.com/problems/meeting-rooms-ii'],
   tags: [GENERAL, ALGORITHM],
   solution,

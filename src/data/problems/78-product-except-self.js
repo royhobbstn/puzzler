@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM, FACEBOOK, GENERAL } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -60,7 +60,8 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 238,
   source: ['https://leetcode.com/problems/product-of-array-except-self'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM, FACEBOOK],
   solution,
 };

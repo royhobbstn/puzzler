@@ -84,7 +84,11 @@ export const data = {
     }
   }
   `,
-  source: ['https://www.educative.io/courses/grokking-the-coding-interview/3YxNVYwNR5p'],
+  lcid: 973,
+  source: [
+    'https://www.educative.io/courses/grokking-the-coding-interview/3YxNVYwNR5p',
+    'https://leetcode.com/problems/k-closest-points-to-origin/',
+  ],
   tags: [HEAP, ALGORITHM],
   solution,
 };

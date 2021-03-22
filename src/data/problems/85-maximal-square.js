@@ -1,4 +1,4 @@
-import { ALGORITHM, DYNAMIC_PROGRAMMING } from '../constants.js';
+import { ALGORITHM, AMAZON, DYNAMIC_PROGRAMMING } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -48,7 +48,8 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 221,
   source: ['https://leetcode.com/problems/maximal-square'],
-  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
+  tags: [DYNAMIC_PROGRAMMING, ALGORITHM, AMAZON],
   solution,
 };

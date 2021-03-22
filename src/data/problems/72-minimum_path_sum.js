@@ -58,6 +58,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 64,
   source: ['https://leetcode.com/problems/minimum-path-sum'],
   tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,

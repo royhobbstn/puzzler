@@ -99,7 +99,11 @@ export const data = {
     }
     return arr;
   };`,
-  source: ['https://www.educative.io/courses/grokking-the-coding-interview/Y5n0n3vAgYK'],
+  lcid: 23,
+  source: [
+    'https://www.educative.io/courses/grokking-the-coding-interview/Y5n0n3vAgYK',
+    'https://leetcode.com/problems/merge-k-sorted-lists/',
+  ],
   tags: [HEAP, K_WAY_MERGE, ALGORITHM],
   solution,
 };

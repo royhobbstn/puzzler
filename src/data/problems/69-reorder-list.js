@@ -94,6 +94,7 @@ export const data = {
     }
     return arr;
   }`,
+  lcid: 143,
   source: ['https://leetcode.com/problems/reorder-list'],
   tags: [LINKED_LIST, ALGORITHM],
   solution,

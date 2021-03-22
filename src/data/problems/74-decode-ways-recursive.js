@@ -87,6 +87,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 91,
   source: ['https://leetcode.com/problems/decode-ways'],
   tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
   solution,

@@ -58,6 +58,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 0,
   source: [],
   tags: [TEMP, ALGORITHM],
   solution,

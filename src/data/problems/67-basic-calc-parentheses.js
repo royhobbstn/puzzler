@@ -141,6 +141,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 227,
   source: ['https://leetcode.com/problems/basic-calculator-ii/'],
   tags: [STACK, ALGORITHM],
   solution,

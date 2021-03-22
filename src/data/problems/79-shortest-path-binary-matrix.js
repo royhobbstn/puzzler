@@ -111,6 +111,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 1091,
   source: ['https://leetcode.com/problems/shortest-path-in-binary-matrix'],
   tags: [GRAPH, ALGORITHM],
   solution,

@@ -86,6 +86,7 @@ export const data = {
     return arr;
   };
   `,
+  lcid: 2,
   source: ['https://leetcode.com/problems/add-two-numbers'],
   tags: [LINKED_LIST, ALGORITHM],
   solution,

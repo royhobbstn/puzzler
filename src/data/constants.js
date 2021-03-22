@@ -37,6 +37,10 @@ export const K_WAY_MERGE = 'K-Way-Merge';
 export const TOPOLOGICAL_SORT = 'Topological Sort';
 export const TEMP = 'Temp';
 
+export const AMAZON = 'Amazon';
+export const CRUISE = 'Cruise';
+export const FACEBOOK = 'Facebook';
+
 export const abbrev = {
   [DATA_STRUCTURE]: 'DS',
   [ALGORITHM]: 'Alg',
@@ -75,9 +79,14 @@ export const abbrev = {
   [SUBSETS]: 'Sub',
   [K_WAY_MERGE]: 'KWM',
   [TOPOLOGICAL_SORT]: 'TS',
+  [AMAZON]: 'Amazon',
+  [FACEBOOK]: 'Facebook',
+  [CRUISE]: 'Cruise',
 
   [TEMP]: 'Temp',
 };
+
+export const companyTags = [AMAZON, CRUISE, FACEBOOK];
 
 export const levelTags = [BEGINNER, INTERMEDIATE, ADVANCED, EXPERT];
 export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];

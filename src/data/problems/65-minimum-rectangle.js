@@ -63,6 +63,7 @@ export const data = {
     },
   ],
   setupCode: '',
+  lcid: 939,
   source: ['https://leetcode.com/problems/minimum-area-rectangle'],
   tags: [GENERAL, ALGORITHM],
   solution,

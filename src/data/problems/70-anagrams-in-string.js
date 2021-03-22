@@ -93,6 +93,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 438,
   source: ['https://leetcode.com/problems/find-all-anagrams-in-a-string'],
   tags: [GENERAL, ALGORITHM],
   solution,

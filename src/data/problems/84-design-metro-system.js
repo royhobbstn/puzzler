@@ -107,6 +107,7 @@ You can assume all calls to **checkIn** and **checkOut** methods are consistent.
     },
   ],
   setupCode: ``,
+  lcid: 1396,
   source: ['https://leetcode.com/problems/design-underground-system'],
   tags: [DESIGN, ALGORITHM],
   solution,

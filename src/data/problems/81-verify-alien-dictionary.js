@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM, FACEBOOK, GENERAL } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -73,7 +73,8 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 953,
   source: ['https://leetcode.com/problems/verifying-an-alien-dictionary'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM, FACEBOOK],
   solution,
 };

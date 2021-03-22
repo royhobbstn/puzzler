@@ -58,6 +58,7 @@ export const data = {
     },
   ],
   setupCode: ``,
+  lcid: 3,
   source: ['https://leetcode.com/problems/longest-substring-without-repeating-characters'],
   tags: [GENERAL, ALGORITHM],
   solution,
