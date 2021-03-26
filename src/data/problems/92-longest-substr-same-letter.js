@@ -6,6 +6,8 @@ const solution = [
   { stage: 1, text: '  let windowStart = 0;' },
   { stage: 1, text: '  let maxLength = 0;' },
   { stage: 2, text: '  let maxRepeatLetterCount = 0;' },
+  { stage: 0, text: '' },
+  { stage: -2, text: '  // object is key (character) value (count)' },
   { stage: 2, text: '  let frequencyMap = {};' },
   { stage: 0, text: '' },
   { stage: 3, text: '  for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {' },
@@ -14,11 +16,23 @@ const solution = [
   { stage: 5, text: '      frequencyMap[rightChar] = 0;' },
   { stage: 5, text: '    }' },
   { stage: 6, text: '    frequencyMap[rightChar] += 1;' },
+  { stage: 0, text: '' },
+  {
+    stage: -7,
+    text: '    // we only care to find the max count of a single character within the window',
+  },
+  { stage: -7, text: '    // other characters around it will be individually replaced' },
   {
     stage: 7,
     text: '    maxRepeatLetterCount = Math.max(maxRepeatLetterCount, frequencyMap[rightChar]);',
   },
   { stage: 0, text: '' },
+  {
+    stage: -8,
+    text: '    // if the length of the window, minus count of the most frequent characters',
+  },
+  { stage: -8, text: '    // is greater than allowed replacement characters (k)' },
+  { stage: -8, text: '    // remove characters from the start until condition is met' },
   { stage: 8, text: '    if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k) {' },
   { stage: 9, text: '      let leftChar = str[windowStart];' },
   { stage: 9, text: '      frequencyMap[leftChar] -= 1;' },
@@ -36,7 +50,7 @@ const solution = [
 export const data = {
   problemID: 92,
   problemName: `Longest Substring Same Letter`,
-  problemText: `Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter, find the length of the longest substring having the same letters after replacement.`,
+  problemText: `Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ individual characters in the string with any letter, find the length of the longest substring having the same letter after replacement.`,
   testCases: [
     {
       id: 1,
