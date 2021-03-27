@@ -1,4 +1,4 @@
-import { ALGORITHM, DFS } from '../constants.js';
+import { ALGORITHM, DFS, BINARY_TREE, RECURSION } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -21,19 +21,24 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '  calculate_height(currentNode) {' },
+  { stage: 0, text: '' },
+  { stage: -1, text: '    // base case: no node.  Height of subtree is 0.' },
   { stage: 1, text: '    if (currentNode === null) {' },
   { stage: 2, text: '      return 0;' },
   { stage: 1, text: '    }' },
   { stage: 0, text: '' },
+  { stage: -3, text: '    // calculate heights of left and right subtrees' },
   { stage: 3, text: '    const leftTreeHeight = this.calculate_height(currentNode.left);' },
   { stage: 4, text: '    const rightTreeHeight = this.calculate_height(currentNode.right);' },
   { stage: 0, text: '' },
-  { stage: 5, text: '    if (leftTreeHeight !== 0 && rightTreeHeight !== 0) {' },
-  { stage: 6, text: '      const diameter = leftTreeHeight + rightTreeHeight + 1;' },
-  { stage: 7, text: '      this.treeDiameter = Math.max(this.treeDiameter, diameter);' },
-  { stage: 5, text: '    }' },
+  { stage: -5, text: '    // update the overall tree diameter if the calculated diameter' },
+  { stage: -5, text: '    // is higher than any previous calculated diameter' },
+  { stage: 5, text: '    const diameter = leftTreeHeight + rightTreeHeight + 1;' },
+  { stage: 6, text: '    this.treeDiameter = Math.max(this.treeDiameter, diameter);' },
   { stage: 0, text: '' },
-  { stage: 8, text: '    return Math.max(leftTreeHeight, rightTreeHeight) + 1;' },
+  { stage: -7, text: '    // return the height of this subtree as the maximum of either' },
+  { stage: -7, text: '    // the left or the right subtrees, plus the node itself' },
+  { stage: 7, text: '    return Math.max(leftTreeHeight, rightTreeHeight) + 1;' },
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '}' },
@@ -43,9 +48,9 @@ const solution = [
 export const data = {
   problemID: 153,
   problemName: `Tree Diameter`,
-  problemText: `Given a binary tree, find the length of its diameter. The diameter of a tree is the number of nodes on the longest path between any two leaf nodes. The diameter of a tree may or may not pass through the root.
+  problemText: `Given a binary tree, find the length of its diameter. The diameter of a tree is the number of **nodes** on the longest path between any two leaf nodes. The diameter of a tree may or may not pass through the root.  Another way to think of the diameter is the sum of a node's left and right subtree heights, plus itself.
 
-  Note: You can always assume that there are at least two leaf nodes in the given tree.`,
+  Note: Assume that there are at least two leaf nodes in the given tree.`,
   testCases: [
     {
       id: 1,
@@ -84,7 +89,11 @@ export const data = {
     }
   }
   `,
-  source: ['https://www.educative.io/courses/grokking-the-coding-interview/JYVW7l2L4EJ'],
-  tags: [DFS, ALGORITHM],
+  lcid: 543,
+  source: [
+    'https://www.educative.io/courses/grokking-the-coding-interview/JYVW7l2L4EJ',
+    'https://leetcode.com/problems/diameter-of-binary-tree/',
+  ],
+  tags: [DFS, ALGORITHM, BINARY_TREE, RECURSION],
   solution,
 };

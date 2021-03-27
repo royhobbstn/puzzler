@@ -56,6 +56,7 @@ root.right.left = new TreeNode(5);
 root.right.right = new TreeNode(6);
 console.log(`Tree Diameter: ${treeDiameter.find_diameter(root)}`);
 // 5
+console.log(diameterOfBinaryTree(root));
 
 root.left.left = null;
 root.right.left.left = new TreeNode(7);
@@ -65,3 +66,27 @@ root.right.left.right.left = new TreeNode(10);
 root.right.right.left.left = new TreeNode(11);
 console.log(`Tree Diameter: ${treeDiameter.find_diameter(root)}`);
 // 7
+
+console.log(diameterOfBinaryTree(root));
+
+// leetcode implementation (modified slightly to account for length being nodes, not edges)
+function diameterOfBinaryTree(root) {
+  let diameter = 0;
+
+  dfs(root);
+
+  return diameter;
+
+  function dfs(node, level) {
+    if (!node) return 0;
+
+    const left = dfs(node.left);
+    const right = dfs(node.right);
+
+    // update diameter at every node
+    diameter = Math.max(diameter, left + right + 1);
+
+    // update the largest number of edge so far
+    return 1 + Math.max(left, right);
+  }
+}

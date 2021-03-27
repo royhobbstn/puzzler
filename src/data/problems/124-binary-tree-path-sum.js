@@ -1,5 +1,5 @@
 import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
-import { ALGORITHM, BINARY_TREE, DFS } from '../constants.js';
+import { ALGORITHM, BINARY_TREE, DFS, RECURSION } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -12,14 +12,18 @@ const solution = [
   { stage: -1, text: '}' },
   { stage: 0, text: '' },
   { stage: 0, text: 'function hasPath(root, sum) {' },
+  { stage: 0, text: '' },
+  { stage: -1, text: '  // base case: no node' },
   { stage: 1, text: '  if (root === null) {' },
   { stage: 2, text: '    return false;' },
   { stage: 1, text: '  }' },
   { stage: 0, text: '' },
+  { stage: -3, text: '  // base case 2: value at node === remaining sum, and it is a leaf node' },
   { stage: 3, text: '  if (root.val === sum && root.left === null && root.right === null) {' },
   { stage: 4, text: '    return true;' },
   { stage: 3, text: '  }' },
   { stage: 0, text: '' },
+  { stage: -6, text: '  // if either condition is true, return true' },
   {
     stage: 6,
     text: '  return hasPath(root.left, sum - root.val) || hasPath(root.right, sum - root.val);',
@@ -31,7 +35,7 @@ const solution = [
 export const data = {
   problemID: 124,
   problemName: `Binary Tree Path Sum`,
-  problemText: `Given a binary tree and a number ‘S’, find if the tree has a path from root-to-leaf such that the sum of all the node values of that path equals ‘S’.`,
+  problemText: `Given a binary tree \`root\` and a number \`sum\`, find if the tree has a path from root-to-leaf such that the sum of all the node values of that path equals \`sum\`.`,
   testCases: [
     {
       id: 1,
@@ -57,6 +61,6 @@ export const data = {
   ],
   setupCode: `${BINARY_TREE_NODE}`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/RMlGwgpoKKY'],
-  tags: [BINARY_TREE, DFS, ALGORITHM],
+  tags: [BINARY_TREE, DFS, ALGORITHM, RECURSION],
   solution,
 };

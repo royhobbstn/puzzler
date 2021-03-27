@@ -1,4 +1,4 @@
-import { ALGORITHM, DFS } from '../constants.js';
+import { ALGORITHM, BINARY_TREE, DFS, RECURSION } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -19,10 +19,13 @@ const solution = [
   { stage: 0, text: '  }' },
   { stage: 0, text: '' },
   { stage: 0, text: '  find_maximum_path_sum_recursive(currentNode) {' },
+  { stage: 0, text: '' },
+  { stage: -1, text: '    // base case: no node.' },
   { stage: 1, text: '    if (currentNode === null) {' },
   { stage: 2, text: '      return 0;' },
   { stage: 1, text: '    }' },
   { stage: 0, text: '' },
+  { stage: -3, text: '    // calculate the max sums of the left and the right subtrees' },
   {
     stage: 3,
     text: '    let maxPathSumFromLeft = this.find_maximum_path_sum_recursive(currentNode.left);',
@@ -32,19 +35,28 @@ const solution = [
     text: '    let maxPathSumFromRight = this.find_maximum_path_sum_recursive(currentNode.right);',
   },
   { stage: 0, text: '' },
+  { stage: -5, text: '    // take the maximum value.  this will cut the path if at any point' },
+  { stage: -5, text: '    // the sum of a string of nodes is less than 0' },
   { stage: 5, text: '    maxPathSumFromLeft = Math.max(maxPathSumFromLeft, 0);' },
   { stage: 6, text: '    maxPathSumFromRight = Math.max(maxPathSumFromRight, 0);' },
   { stage: 0, text: '' },
+  { stage: -7, text: '    // path sum is left subtree + right subtree + node value itself' },
   {
     stage: 7,
     text: '    const localMaximumSum = maxPathSumFromLeft + maxPathSumFromRight + currentNode.val;',
   },
   { stage: 0, text: '' },
+  { stage: -8, text: '    // update the global maximum if new value > old' },
   {
     stage: 8,
     text: '    this.globalMaximumSum = Math.max(this.globalMaximumSum, localMaximumSum);',
   },
   { stage: 0, text: '' },
+  {
+    stage: -9,
+    text:
+      '    // for the recursive calls, return the maximum of the left or right subtrees + the node value itself',
+  },
   {
     stage: 9,
     text: '    return Math.max(maxPathSumFromLeft, maxPathSumFromRight) + currentNode.val;',
@@ -108,6 +120,6 @@ export const data = {
   }
   `,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/xVPgnOvWVJq'],
-  tags: [DFS, ALGORITHM],
+  tags: [DFS, ALGORITHM, BINARY_TREE, RECURSION],
   solution,
 };

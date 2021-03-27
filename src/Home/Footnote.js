@@ -13,6 +13,7 @@ export const Footnote = ({ noteSource }) => {
           <a href={source} target="_blank" rel="noopener noreferrer">
             {source}
           </a>
+          <br />
         </sub>
       ))}
     </div>
