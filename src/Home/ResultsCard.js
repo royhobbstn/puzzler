@@ -131,7 +131,8 @@ function ResultsCard() {
                             fontWeight: 'bold',
                           }}
                         >
-                          {problem.tags
+                          {[...problem.tags]
+                            .sort()
                             .filter(d => !levelTags.includes(d) && !typeTags.includes(d))
                             .map(d => {
                               return abbrev[d];
