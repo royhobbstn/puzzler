@@ -411,9 +411,9 @@ Object.keys(aggregate).forEach(key => {
 
   if (effortCount > 30) {
     aggregate[key].tags.push(EXPERT);
-  } else if (effortCount > 20) {
+  } else if (effortCount > 22) {
     aggregate[key].tags.push(ADVANCED);
-  } else if (effortCount > 12) {
+  } else if (effortCount > 14) {
     aggregate[key].tags.push(INTERMEDIATE);
   } else {
     aggregate[key].tags.push(BEGINNER);
