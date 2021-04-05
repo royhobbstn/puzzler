@@ -45,7 +45,7 @@ const solution = [
 
 export const data = {
   problemID: 171,
-  problemName: `Unique Generalized Abbreviations`,
+  problemName: `Unique Generalized Abbrev - Iterative`,
   problemText: `Solve Iteratively.
   
   Given a word, write a function to generate all of its unique generalized abbreviations.

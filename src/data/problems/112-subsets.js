@@ -1,22 +1,30 @@
-import { ALGORITHM, SUBSETS } from '../constants.js';
+import { ALGORITHM, BFS, SUBSETS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
   { stage: 0, text: 'function find_subsets(nums) {' },
+  { stage: -1, text: '  // initialize new array with an empty set' },
   { stage: 1, text: '  const subsets = [];' },
-  { stage: 0, text: '' },
   { stage: 2, text: '  subsets.push([]);' },
+  { stage: 0, text: '' },
+  { stage: -3, text: '  // iterate all numbers in the original array' },
   { stage: 3, text: '  for (let i = 0; i < nums.length; i++) {' },
   { stage: 4, text: '    let currentNumber = nums[i];' },
-  { stage: 4, text: '    const n = subsets.length;' },
-  { stage: 5, text: '    for (let j = 0; j < n; j++) {' },
-  { stage: 6, text: '      const set1 = subsets[j].slice(0);' },
-  { stage: 7, text: '      set1.push(currentNumber);' },
-  { stage: 7, text: '      subsets.push(set1);' },
-  { stage: 5, text: '    }' },
+  { stage: 0, text: '' },
+  { stage: -5, text: '    // iterate all existing subsets' },
+  { stage: -5, text: '    // we need to derive the length of subsets anew each iteration' },
+  { stage: 5, text: '    const n = subsets.length;' },
+  { stage: 6, text: '    for (let j = 0; j < n; j++) {' },
+  { stage: -7, text: '      // copy elements from subset to a new array' },
+  { stage: 7, text: '      const set1 = subsets[j].slice(0);' },
+  { stage: -8, text: '      // add number from original array to the new subset' },
+  { stage: 8, text: '      set1.push(currentNumber);' },
+  { stage: -9, text: '      // push new subset back into original array' },
+  { stage: 9, text: '      subsets.push(set1);' },
+  { stage: 6, text: '    }' },
   { stage: 3, text: '  }' },
   { stage: 0, text: '' },
-  { stage: 8, text: '  return subsets;' },
+  { stage: 10, text: '  return subsets;' },
   { stage: 0, text: '}' },
   { stage: 0, text: '' },
 ];
@@ -56,6 +64,6 @@ export const data = {
       .sort();
   }`,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/gx2OqlvEnWG'],
-  tags: [SUBSETS, ALGORITHM],
+  tags: [SUBSETS, ALGORITHM, BFS],
   solution,
 };
