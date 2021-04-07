@@ -1,4 +1,4 @@
-import { ALGORITHM, SUBSETS } from '../constants.js';
+import { ALGORITHM, RECURSION, SUBSETS } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -84,6 +84,6 @@ export const data = {
   ],
   setupCode: ``,
   source: ['https://www.educative.io/courses/grokking-the-coding-interview/B8R83jyN3KY'],
-  tags: [SUBSETS, ALGORITHM],
+  tags: [SUBSETS, ALGORITHM, RECURSION],
   solution,
 };
