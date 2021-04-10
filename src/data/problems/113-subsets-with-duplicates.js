@@ -1,43 +1,5 @@
 import { ALGORITHM, BFS, SUBSETS } from '../constants.js';
 
-function find_subsets(nums) {
-  // input must be sorted
-  nums.sort((a, b) => a - b);
-
-  // subsets array initialized with a single empty array
-  const subsets = [];
-  subsets.push([]);
-
-  // start / end indexes of subsets
-  let startIndex = 0;
-  // endIndex corresponds to the index of the last added subset in the
-  // previous iteration of 'i'
-  let endIndex = 0;
-
-  for (let i = 0; i < nums.length; i++) {
-    startIndex = 0;
-
-    // if current and the previous elements are same, create new subsets
-    // only from the subsets added in the previous step
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      // set the start subset iteration index to be the first new element created
-      // during the last iteration
-      startIndex = endIndex + 1;
-    }
-    // set the endIndex (to be used next iteration) to be the current last index
-    // of the subsets array
-    endIndex = subsets.length - 1;
-    for (let j = startIndex; j < endIndex + 1; j++) {
-      // create a new subset from the existing subset and add the current element to it
-      const set1 = subsets[j].slice(0);
-      set1.push(nums[i]);
-      subsets.push(set1);
-    }
-  }
-
-  return subsets;
-}
-
 const solution = [
   { stage: 0, text: '' },
   { stage: 0, text: 'function find_subsets(nums) {' },

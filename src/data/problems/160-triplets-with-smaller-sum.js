@@ -1,38 +1,5 @@
 import { ALGORITHM, TWO_POINTERS } from '../constants.js';
 
-function triplet_with_smaller_sum(arr, target) {
-  // sort array in order to be able to apply two pointers approach
-  arr.sort((a, b) => a - b);
-  // count of triplets less than target
-  let count = 0;
-
-  // iterate through the array to get the first index of the triplet
-  // the remaining problem becomes finding two unique array items
-  // that sum to less than the remaining value (target - arr[i])
-  for (let i = 0; i < arr.length; i++) {
-    // start left pointer at 1 more than i rather than the beginning of the array
-    let left = i + 1;
-    let right = arr.length - 1;
-
-    while (left < right) {
-      let remaining = target - arr[i];
-      let leftval = arr[left];
-      let rightval = arr[right];
-
-      if (leftval + rightval < remaining) {
-        // found a triplet.  additionally we know that any lesser value of right
-        // is also a triplet, we can add all values of right > left
-        count += right - left;
-        left++;
-      } else {
-        right--;
-      }
-    }
-  }
-
-  return count;
-}
-
 const solution = [
   { stage: 0, text: '' },
   { stage: 0, text: 'function triplet_with_smaller_sum(arr, target) {' },

@@ -14,7 +14,7 @@ const solution = [
   { stage: -1, text: '  constructor(comparisonFn) {' },
   { stage: -1, text: '  // comparisonFn is a function (a,b)' },
   { stage: -1, text: '  // which compares a, b and returns true or false' },
-  { stage: -1, text: '  // based on whether a should come before b in the heap' },
+  { stage: -1, text: "  // based on whether 'a' should come before 'b' in the heap" },
   { stage: -1, text: '  // ex for a min-heap of integers:  ((a, b) => a < b)' },
   { stage: -1, text: '  }' },
   { stage: -1, text: '  // length() --number of items in heap--' },
