@@ -91,6 +91,8 @@ export const companyTags = [AMAZON, CRUISE, FACEBOOK];
 export const levelTags = [BEGINNER, INTERMEDIATE, ADVANCED, EXPERT];
 export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];
 export const categoryTags = [
+  CRUISE,
+
   LINKED_LIST,
   DOUBLY_LINKED_LIST,
   QUEUE,
