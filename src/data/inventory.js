@@ -195,6 +195,8 @@ import { data as _reconstructing_seq } from './problems/192-reconstructing-seq.j
 import { data as _min_height_tree } from './problems/193-minimum-height-trees.js';
 import { data as _range_sum_query } from './problems/194-range-sum-query.js';
 import { data as _minesweeper } from './problems/195-minesweeper.js';
+import { data as _max_area_island } from './problems/196-max-area-island.js';
+import { data as _time_key_value } from './problems/197-time-key-value.js';
 
 import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
 
@@ -394,6 +396,8 @@ const aggregate = {
   193: _min_height_tree,
   194: _range_sum_query,
   195: _minesweeper,
+  196: _max_area_island,
+  197: _time_key_value,
 };
 
 // add a computed 'effort' property; estimated code lines to write
