@@ -197,6 +197,8 @@ import { data as _range_sum_query } from './problems/194-range-sum-query.js';
 import { data as _minesweeper } from './problems/195-minesweeper.js';
 import { data as _max_area_island } from './problems/196-max-area-island.js';
 import { data as _time_key_value } from './problems/197-time-key-value.js';
+import { data as _interval_intersections } from './problems/198-interval-intersections.js';
+import { data as _valid_sudoku } from './problems/199-valid-sudoku.js';
 
 import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
 
@@ -398,6 +400,8 @@ const aggregate = {
   195: _minesweeper,
   196: _max_area_island,
   197: _time_key_value,
+  198: _interval_intersections,
+  199: _valid_sudoku,
 };
 
 // add a computed 'effort' property; estimated code lines to write
