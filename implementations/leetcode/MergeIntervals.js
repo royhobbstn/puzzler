@@ -1,20 +1,41 @@
+//
+
 function merge(intervals) {
-  intervals.sort((a, b) => a[0] - b[0]);
-  const result = [];
+  const ret = [];
 
-  let currentInterval = intervals[0];
+  // sort intervvals by start value
+  intervals.sort((a, b) => {
+    return a[0] - b[0];
+  });
 
-  for (let i = 0; i < intervals.length; i++) {
-    const thisInterval = intervals[i];
-    const nextInterval = intervals[i + 1];
-    if (nextInterval && thisInterval[1] >= nextInterval[0]) {
-      currentInterval = [currentInterval[0], nextInterval[1]];
+  // create a 'draft' interval initialized to first interval in array
+  let last = intervals[0];
+
+  // start loop at second item in array
+  for (let i = 1; i < intervals.length; i++) {
+    const current = intervals[i];
+
+    // if end value in last interval is greater than first value in current interval
+    // then last and current intervals can be merged
+    if (last[1] >= current[0]) {
+      // merge by taking the greater of the end values in each interval
+      // because last interval could completely cover current interval
+      last = [last[0], Math.max(last[1], current[1])];
     } else {
-      result.push(currentInterval);
-      currentInterval = nextInterval;
+      // otherwise, push last interval to return array
+      // and iniatilize a new 'draft' interval from the current interval
+      ret.push(last);
+      last = current;
     }
   }
-  return result;
+
+  // always push the draft interval when loop has completed
+  // unless there were no items in array to begin with
+  if (last) {
+    ret.push(last);
+  }
+
+  return ret;
 }
 
 const intervals = [
@@ -41,3 +62,9 @@ const intervals3 = [
   [4, 5],
 ];
 console.log(merge(intervals3)); // [[1,5]]
+
+const intervals4 = [
+  [1, 6],
+  [4, 5],
+];
+console.log(merge(intervals4)); // [[1,6]]
