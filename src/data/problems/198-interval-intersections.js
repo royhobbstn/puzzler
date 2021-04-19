@@ -103,7 +103,7 @@ export const data = {
   ],
   setupCode: ``,
   lcid: 986,
-  source: [],
+  source: ['https://leetcode.com/problems/interval-list-intersections/'],
   tags: [MERGE_INTERVALS, CRUISE, ALGORITHM],
   solution,
 };

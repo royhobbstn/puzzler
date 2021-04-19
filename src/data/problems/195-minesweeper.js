@@ -111,7 +111,7 @@ export const data = {
   ],
   setupCode: ``,
   lcid: 529,
-  source: [],
+  source: ['https://leetcode.com/problems/minesweeper/'],
   tags: [CRUISE, ALGORITHM, DFS],
   solution,
 };

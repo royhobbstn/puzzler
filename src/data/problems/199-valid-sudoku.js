@@ -103,7 +103,7 @@ export const data = {
   ],
   setupCode: ``,
   lcid: 36,
-  source: [],
+  source: ['https://leetcode.com/problems/valid-sudoku/'],
   tags: [CRUISE, ALGORITHM],
   solution,
 };

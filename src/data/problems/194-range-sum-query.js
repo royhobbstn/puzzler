@@ -44,7 +44,7 @@ const solution = [
 export const data = {
   problemID: 194,
   problemName: `Range Sum Query 2D - Immutable`,
-  problemText: `Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
+  problemText: `Given a 2D matrix \`matrix\`, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
 
   Implement the NumMatrix class:
   
@@ -85,7 +85,7 @@ export const data = {
   ],
   setupCode: ``,
   lcid: 304,
-  source: [],
+  source: ['https://leetcode.com/problems/range-sum-query-2d-immutable/'],
   tags: [ALGORITHM, DYNAMIC_PROGRAMMING, FACEBOOK, CRUISE],
   solution,
 };
