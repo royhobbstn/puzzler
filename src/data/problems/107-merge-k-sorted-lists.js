@@ -1,4 +1,4 @@
-import { ALGORITHM, HEAP, K_WAY_MERGE } from '../constants.js';
+import { ALGORITHM, CURATED, HEAP, K_WAY_MERGE } from '../constants.js';
 import { MIN_HEAP_CLASS_VALUE } from '../code-imports/import-index.js';
 
 const solution = [
@@ -104,6 +104,6 @@ export const data = {
     'https://www.educative.io/courses/grokking-the-coding-interview/Y5n0n3vAgYK',
     'https://leetcode.com/problems/merge-k-sorted-lists/',
   ],
-  tags: [HEAP, K_WAY_MERGE, ALGORITHM],
+  tags: [HEAP, K_WAY_MERGE, ALGORITHM, CURATED],
   solution,
 };

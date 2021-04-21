@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL, CRUISE } from '../constants.js';
+import { ALGORITHM, GENERAL, CRUISE, CURATED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -94,6 +94,6 @@ export const data = {
   setupCode: ``,
   lcid: 56,
   source: ['https://leetcode.com/problems/merge-intervals'],
-  tags: [GENERAL, ALGORITHM, CRUISE],
+  tags: [GENERAL, ALGORITHM, CRUISE, CURATED],
   solution,
 };

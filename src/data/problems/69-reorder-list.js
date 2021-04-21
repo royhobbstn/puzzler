@@ -1,4 +1,4 @@
-import { ALGORITHM, LINKED_LIST } from '../constants.js';
+import { ALGORITHM, LINKED_LIST, CURATED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -96,6 +96,6 @@ export const data = {
   }`,
   lcid: 143,
   source: ['https://leetcode.com/problems/reorder-list'],
-  tags: [LINKED_LIST, ALGORITHM],
+  tags: [LINKED_LIST, ALGORITHM, CURATED],
   solution,
 };

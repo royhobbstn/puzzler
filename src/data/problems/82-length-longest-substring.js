@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM, CURATED, GENERAL } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -60,6 +60,6 @@ export const data = {
   setupCode: ``,
   lcid: 3,
   source: ['https://leetcode.com/problems/longest-substring-without-repeating-characters'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM, CURATED],
   solution,
 };

@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM, GENERAL, CURATED } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -88,6 +88,6 @@ export const data = {
   setupCode: ``,
   lcid: 253,
   source: ['https://leetcode.com/problems/meeting-rooms-ii'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [GENERAL, ALGORITHM, CURATED],
   solution,
 };

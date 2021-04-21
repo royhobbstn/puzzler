@@ -35,6 +35,7 @@ export const TWO_POINTERS = 'Two Pointers';
 export const SUBSETS = 'Subsets';
 export const K_WAY_MERGE = 'K-Way-Merge';
 export const TOPOLOGICAL_SORT = 'Topological Sort';
+export const CURATED = 'Curated';
 export const TEMP = 'Temp';
 
 export const AMAZON = 'Amazon';
@@ -82,6 +83,7 @@ export const abbrev = {
   [AMAZON]: 'Amazon',
   [FACEBOOK]: 'Facebook',
   [CRUISE]: 'Cruise',
+  [CURATED]: 'C!',
 
   [TEMP]: 'Temp',
 };
@@ -93,6 +95,7 @@ export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];
 export const categoryTags = [
   CRUISE,
 
+  CURATED,
   LINKED_LIST,
   DOUBLY_LINKED_LIST,
   QUEUE,

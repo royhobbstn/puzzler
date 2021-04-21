@@ -199,6 +199,7 @@ import { data as _max_area_island } from './problems/196-max-area-island.js';
 import { data as _time_key_value } from './problems/197-time-key-value.js';
 import { data as _interval_intersections } from './problems/198-interval-intersections.js';
 import { data as _valid_sudoku } from './problems/199-valid-sudoku.js';
+import { data as _max_subarray } from './problems/200-maximum_subarray.js';
 
 import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
 
@@ -402,6 +403,7 @@ const aggregate = {
   197: _time_key_value,
   198: _interval_intersections,
   199: _valid_sudoku,
+  200: _max_subarray,
 };
 
 // add a computed 'effort' property; estimated code lines to write

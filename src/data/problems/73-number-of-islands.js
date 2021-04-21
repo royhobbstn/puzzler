@@ -1,4 +1,4 @@
-import { ALGORITHM, AMAZON, CRUISE, GENERAL } from '../constants.js';
+import { ALGORITHM, AMAZON, CRUISE, CURATED, GENERAL } from '../constants.js';
 
 const solution = [
   { stage: 0, text: '' },
@@ -75,6 +75,6 @@ export const data = {
   setupCode: ``,
   lcid: 200,
   source: ['https://leetcode.com/problems/number-of-islands'],
-  tags: [GENERAL, ALGORITHM, AMAZON, CRUISE],
+  tags: [GENERAL, ALGORITHM, AMAZON, CRUISE, CURATED],
   solution,
 };
