@@ -1,4 +1,4 @@
-import { ALGORITHM, BFS, SUBSETS } from '../constants.js';
+import { ALGORITHM, BFS, SUBSETS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveIndex } from '../redux/gameStore.js';
-import { levelTags, typeTags } from '../data/constants.js';
+import { levelTags, typeTags } from '../data/constants.ts';
 import { Footnote } from '../Home/Footnote.js';
 
 const converter = new showdown.Converter();

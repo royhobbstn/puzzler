@@ -1,4 +1,4 @@
-import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.ts';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [

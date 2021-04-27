@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE, DFS } from '../constants.js';
+import { ALGORITHM, DFS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -112,6 +112,6 @@ export const data = {
   setupCode: ``,
   lcid: 529,
   source: ['https://leetcode.com/problems/minesweeper/'],
-  tags: [CRUISE, ALGORITHM, DFS],
+  tags: [ALGORITHM, DFS],
   solution,
 };

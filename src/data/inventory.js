@@ -201,7 +201,7 @@ import { data as _interval_intersections } from './problems/198-interval-interse
 import { data as _valid_sudoku } from './problems/199-valid-sudoku.js';
 import { data as _max_subarray } from './problems/200-maximum_subarray.js';
 
-import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.js';
+import { ADVANCED, EXPERT, INTERMEDIATE, BEGINNER } from './constants.ts';
 
 const aggregate = {
   1: _ll_prepend,

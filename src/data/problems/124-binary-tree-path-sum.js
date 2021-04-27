@@ -1,5 +1,5 @@
 import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
-import { ALGORITHM, BINARY_TREE, DFS, RECURSION } from '../constants.js';
+import { ALGORITHM, BINARY_TREE, DFS, RECURSION } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

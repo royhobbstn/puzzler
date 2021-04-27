@@ -1,4 +1,4 @@
-import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
+import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
 import { DOUBLY_LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
 
 const solution = [

@@ -1,4 +1,4 @@
-import { SORTING, ALGORITHM } from '../constants.js';
+import { SORTING, ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

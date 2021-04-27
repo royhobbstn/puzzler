@@ -1,4 +1,4 @@
-import { ALGORITHM, MERGE_INTERVALS } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

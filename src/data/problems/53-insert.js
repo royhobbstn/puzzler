@@ -1,4 +1,4 @@
-import { TRIE, DATA_STRUCTURE } from '../constants.js';
+import { TRIE, DATA_STRUCTURE } from '../constants.ts';
 import { TRIE_PROTOTYPE_SEARCH } from '../code-imports/import-index.js';
 
 const solution = [

@@ -1,4 +1,4 @@
-import { GRAPH, DATA_STRUCTURE } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.ts';
 import { GRAPH_PROTOTYPE_ADD_EDGE } from '../code-imports/import-index.js';
 
 const solution = [

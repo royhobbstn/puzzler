@@ -1,4 +1,4 @@
-import { ALGORITHM, FAST_SLOW_PTRS } from '../constants.js';
+import { ALGORITHM, FAST_SLOW_PTRS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

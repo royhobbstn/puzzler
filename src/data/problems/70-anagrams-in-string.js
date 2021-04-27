@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -95,6 +95,6 @@ export const data = {
   setupCode: ``,
   lcid: 438,
   source: ['https://leetcode.com/problems/find-all-anagrams-in-a-string'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [ALGORITHM],
   solution,
 };

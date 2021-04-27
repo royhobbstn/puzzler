@@ -1,4 +1,4 @@
-import { ALGORITHM, FACEBOOK, GENERAL, CURATED } from '../constants.js';
+import { ALGORITHM, CURATED } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -62,6 +62,6 @@ export const data = {
   setupCode: ``,
   lcid: 238,
   source: ['https://leetcode.com/problems/product-of-array-except-self'],
-  tags: [GENERAL, ALGORITHM, FACEBOOK, CURATED],
+  tags: [ALGORITHM, CURATED],
   solution,
 };

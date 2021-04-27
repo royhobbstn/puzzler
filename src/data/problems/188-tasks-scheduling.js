@@ -1,4 +1,4 @@
-import { ALGORITHM, TOPOLOGICAL_SORT } from '../constants.js';
+import { ALGORITHM, TOPOLOGICAL_SORT } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

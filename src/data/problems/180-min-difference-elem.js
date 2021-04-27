@@ -1,4 +1,4 @@
-import { ALGORITHM, BINARY_SEARCH } from '../constants.js';
+import { ALGORITHM, BINARY_SEARCH } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

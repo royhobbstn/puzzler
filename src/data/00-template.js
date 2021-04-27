@@ -1,4 +1,4 @@
-import { ALGORITHM, TEMP } from '../constants.js';
+import { ALGORITHM, TEMP } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

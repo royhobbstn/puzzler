@@ -1,4 +1,4 @@
-import { ALGORITHM, BITWISE } from '../constants.js';
+import { ALGORITHM, BITWISE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

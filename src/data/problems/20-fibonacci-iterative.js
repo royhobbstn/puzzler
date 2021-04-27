@@ -1,4 +1,4 @@
-import { FIBONACCI, ALGORITHM } from '../constants.js';
+import { FIBONACCI, ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 1, text: 'function fibonacciNth(n) {' },

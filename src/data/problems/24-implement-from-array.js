@@ -1,4 +1,4 @@
-import { STACK, DATA_STRUCTURE } from '../constants.js';
+import { STACK, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class Stack {' },

@@ -1,4 +1,4 @@
-import { HEAP, DATA_STRUCTURE } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.ts';
 import {
   MIN_HEAP_CHILD_FNS,
   MIN_HEAP_HEAPIFY_DOWN,

@@ -1,4 +1,4 @@
-import { ALGORITHM, DYNAMIC_PROGRAMMING, CURATED } from '../constants.js';
+import { ALGORITHM, DYNAMIC_PROGRAMMING, CURATED } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

@@ -1,4 +1,4 @@
-import { ALGORITHM, CURATED, HEAP, K_WAY_MERGE } from '../constants.js';
+import { ALGORITHM, CURATED, HEAP, K_WAY_MERGE } from '../constants.ts';
 import { MIN_HEAP_CLASS_VALUE } from '../code-imports/import-index.js';
 
 const solution = [

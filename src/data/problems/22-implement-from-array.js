@@ -1,4 +1,4 @@
-import { QUEUE, DATA_STRUCTURE } from '../constants.js';
+import { QUEUE, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class Queue {' },

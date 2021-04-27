@@ -3,7 +3,7 @@ import {
   GRAPH_PROTOTYPE_ADD_VERTEX,
   GRAPH_PROTOTYPE_TEMPSET,
 } from '../code-imports/import-index.js';
-import { GRAPH, DATA_STRUCTURE } from '../constants.js';
+import { GRAPH, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class Vertex {' },

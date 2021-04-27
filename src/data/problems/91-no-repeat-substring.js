@@ -1,4 +1,4 @@
-import { ALGORITHM, SLIDING_WINDOW } from '../constants.js';
+import { ALGORITHM, SLIDING_WINDOW } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

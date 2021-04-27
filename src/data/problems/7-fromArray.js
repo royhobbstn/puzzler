@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
 import {
   LINKED_LIST_PROTOTYPE_APPEND,
   LINKED_LIST_PROTOTYPE_TOARRAY,

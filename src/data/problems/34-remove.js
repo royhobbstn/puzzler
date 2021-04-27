@@ -6,7 +6,7 @@ import {
   MIN_HEAP_SWAP,
   MIN_HEAP_FIND,
 } from '../code-imports/import-index.js';
-import { HEAP, DATA_STRUCTURE } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },

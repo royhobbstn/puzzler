@@ -1,4 +1,4 @@
-import { ALGORITHM, SUBSETS, BINARY_SEARCH_TREE } from '../constants.js';
+import { ALGORITHM, SUBSETS, BINARY_SEARCH_TREE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { levelTags, abbrev, typeTags } from '../data/constants.js';
+import { levelTags, abbrev, typeTags } from '../data/constants.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { useHistory, useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { ALGORITHM, K_WAY_MERGE } from '../constants.js';
+import { ALGORITHM, K_WAY_MERGE } from '../constants.ts';
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
 
 const solution = [

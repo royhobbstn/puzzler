@@ -1,5 +1,5 @@
 import { BST_PROTOTYPE_INSERT, BST_TEMP_NODELIST } from '../code-imports/import-index.js';
-import { BINARY_SEARCH_TREE, DATA_STRUCTURE } from '../constants.js';
+import { BINARY_SEARCH_TREE, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class BinarySearchTreeNode {' },

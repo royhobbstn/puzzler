@@ -1,4 +1,4 @@
-import { BINARY_SEARCH, ALGORITHM, RECURSION } from '../constants.js';
+import { BINARY_SEARCH, ALGORITHM, RECURSION } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

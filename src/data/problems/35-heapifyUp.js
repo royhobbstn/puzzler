@@ -1,5 +1,5 @@
 import { MIN_HEAP_PARENT_FNS, MIN_HEAP_SWAP } from '../code-imports/import-index.js';
-import { HEAP, DATA_STRUCTURE } from '../constants.js';
+import { HEAP, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class MinHeap {' },

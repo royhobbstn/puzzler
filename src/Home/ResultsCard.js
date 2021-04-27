@@ -9,7 +9,7 @@ import {
   setShowModal,
   setActiveProblemId,
 } from '../redux/filterStore';
-import { levelTags, typeTags, abbrev } from '../data/constants.js';
+import { levelTags, typeTags, abbrev } from '../data/constants.ts';
 
 const converter = new showdown.Converter();
 

@@ -1,4 +1,4 @@
-import { ALGORITHM, CURATED } from '../constants.js';
+import { ALGORITHM, CURATED } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

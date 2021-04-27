@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE, DFS } from '../constants.js';
+import { ALGORITHM, DFS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -72,6 +72,6 @@ export const data = {
   setupCode: ``,
   lcid: 695,
   source: ['https://leetcode.com/problems/max-area-of-island/'],
-  tags: [DFS, ALGORITHM, CRUISE],
+  tags: [DFS, ALGORITHM],
   solution,
 };

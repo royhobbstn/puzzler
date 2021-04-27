@@ -1,4 +1,4 @@
-import { ALGORITHM, SUBSETS } from '../constants.js';
+import { ALGORITHM, SUBSETS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

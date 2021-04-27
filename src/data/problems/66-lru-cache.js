@@ -1,4 +1,4 @@
-import { CACHE, ALGORITHM, AMAZON, CRUISE } from '../constants.js';
+import { CACHE, ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -154,6 +154,6 @@ export const data = {
   `,
   lcid: 146,
   source: ['https://leetcode.com/problems/lru-cache'],
-  tags: [CACHE, ALGORITHM, AMAZON, CRUISE],
+  tags: [CACHE, ALGORITHM],
   solution,
 };

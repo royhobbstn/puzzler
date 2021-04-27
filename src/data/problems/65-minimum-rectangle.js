@@ -1,4 +1,4 @@
-import { GENERAL, ALGORITHM } from '../constants.js';
+import { ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -65,6 +65,6 @@ export const data = {
   setupCode: '',
   lcid: 939,
   source: ['https://leetcode.com/problems/minimum-area-rectangle'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [ALGORITHM],
   solution,
 };

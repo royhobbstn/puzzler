@@ -1,4 +1,4 @@
-import { STACK, DATA_STRUCTURE } from '../constants.js';
+import { STACK, DATA_STRUCTURE } from '../constants.ts';
 import { LINKED_LIST_CLASS } from '../code-imports/import-index.js';
 
 const solution = [

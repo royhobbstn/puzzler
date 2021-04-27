@@ -1,4 +1,4 @@
-import { ALGORITHM, DFS, RECURSION, BINARY_TREE } from '../constants.js';
+import { ALGORITHM, DFS, RECURSION, BINARY_TREE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

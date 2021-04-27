@@ -1,4 +1,4 @@
-import { ALGORITHM, CURATED, GENERAL } from '../constants.js';
+import { ALGORITHM, CURATED } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -47,6 +47,6 @@ export const data = {
   setupCode: ``,
   lcid: 121,
   source: ['https://leetcode.com/problems/best-time-to-buy-and-sell-stock'],
-  tags: [GENERAL, ALGORITHM, CURATED],
+  tags: [ALGORITHM, CURATED],
   solution,
 };

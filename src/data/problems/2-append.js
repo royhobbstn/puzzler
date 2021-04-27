@@ -1,4 +1,4 @@
-import { LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },

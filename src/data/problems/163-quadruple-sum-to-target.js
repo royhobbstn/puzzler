@@ -1,4 +1,4 @@
-import { ALGORITHM, TWO_POINTERS } from '../constants.js';
+import { ALGORITHM, TWO_POINTERS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

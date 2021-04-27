@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE } from '../constants.js';
+import { ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -104,6 +104,6 @@ export const data = {
   setupCode: ``,
   lcid: 36,
   source: ['https://leetcode.com/problems/valid-sudoku/'],
-  tags: [CRUISE, ALGORITHM],
+  tags: [ALGORITHM],
   solution,
 };

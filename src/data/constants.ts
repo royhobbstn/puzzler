@@ -21,7 +21,6 @@ export const CACHE = 'Cache';
 export const BFS = 'Breadth First Search';
 export const DFS = 'Depth First Search';
 export const DYNAMIC_PROGRAMMING = 'Dynamic Programming';
-export const GENERAL = 'General';
 export const FIBONACCI = 'Fibonacci';
 export const BINARY_SEARCH = 'Binary Search';
 export const SORTING = 'Sorting';
@@ -37,10 +36,6 @@ export const K_WAY_MERGE = 'K-Way-Merge';
 export const TOPOLOGICAL_SORT = 'Topological Sort';
 export const CURATED = 'Curated';
 export const TEMP = 'Temp';
-
-export const AMAZON = 'Amazon';
-export const CRUISE = 'Cruise';
-export const FACEBOOK = 'Facebook';
 
 export const abbrev = {
   [DATA_STRUCTURE]: 'DS',
@@ -64,7 +59,6 @@ export const abbrev = {
   [TRIE]: 'Trie',
   [CACHE]: 'C',
   [DYNAMIC_PROGRAMMING]: 'DP',
-  [GENERAL]: 'Gen',
   [FIBONACCI]: 'Fib',
   [BINARY_SEARCH]: 'BS',
   [SORTING]: 'Sort',
@@ -80,21 +74,14 @@ export const abbrev = {
   [SUBSETS]: 'Sub',
   [K_WAY_MERGE]: 'KWM',
   [TOPOLOGICAL_SORT]: 'TS',
-  [AMAZON]: 'Amazon',
-  [FACEBOOK]: 'Facebook',
-  [CRUISE]: 'Cruise',
   [CURATED]: 'C!',
 
   [TEMP]: 'Temp',
 };
 
-export const companyTags = [AMAZON, CRUISE, FACEBOOK];
-
 export const levelTags = [BEGINNER, INTERMEDIATE, ADVANCED, EXPERT];
 export const typeTags = [ALGORITHM, DATA_STRUCTURE, DESIGN];
 export const categoryTags = [
-  CRUISE,
-
   CURATED,
   LINKED_LIST,
   DOUBLY_LINKED_LIST,
@@ -108,7 +95,6 @@ export const categoryTags = [
   TRIE,
   CACHE,
   DYNAMIC_PROGRAMMING,
-  GENERAL,
   FIBONACCI,
   BINARY_SEARCH,
   SORTING,

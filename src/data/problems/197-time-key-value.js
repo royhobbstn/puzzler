@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE, DESIGN } from '../constants.js';
+import { ALGORITHM, DESIGN } from '../constants.ts';
 
 function TimeMap() {
   this.hash = {};
@@ -168,6 +168,6 @@ The timestamps for all TimeMap.set operations are strictly increasing.
   setupCode: ``,
   lcid: 981,
   source: ['https://leetcode.com/problems/time-based-key-value-store/'],
-  tags: [DESIGN, ALGORITHM, CRUISE],
+  tags: [DESIGN, ALGORITHM],
   solution,
 };

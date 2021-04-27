@@ -1,4 +1,4 @@
-import { ALGORITHM, GRAPH } from '../constants.js';
+import { ALGORITHM, GRAPH } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

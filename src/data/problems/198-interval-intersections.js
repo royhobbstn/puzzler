@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE, MERGE_INTERVALS } from '../constants.js';
+import { ALGORITHM, MERGE_INTERVALS } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -104,6 +104,6 @@ export const data = {
   setupCode: ``,
   lcid: 986,
   source: ['https://leetcode.com/problems/interval-list-intersections/'],
-  tags: [MERGE_INTERVALS, CRUISE, ALGORITHM],
+  tags: [MERGE_INTERVALS, ALGORITHM],
   solution,
 };

@@ -1,5 +1,5 @@
 import { TRIE_PROTOTYPE_INSERT, TRIE_PROTOTYPE_SEARCH } from '../code-imports/import-index.js';
-import { TRIE, DATA_STRUCTURE } from '../constants.js';
+import { TRIE, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class TrieNode {' },

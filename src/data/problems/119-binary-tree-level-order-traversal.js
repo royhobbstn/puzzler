@@ -1,4 +1,4 @@
-import { ALGORITHM, BINARY_TREE, BFS } from '../constants.js';
+import { ALGORITHM, BINARY_TREE, BFS } from '../constants.ts';
 import { BINARY_TREE_NODE } from '../code-imports/import-index.js';
 
 const solution = [

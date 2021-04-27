@@ -1,4 +1,4 @@
-import { STACK, ALGORITHM } from '../constants.js';
+import { STACK, ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

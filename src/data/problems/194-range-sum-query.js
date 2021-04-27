@@ -1,4 +1,4 @@
-import { ALGORITHM, CRUISE, DYNAMIC_PROGRAMMING, FACEBOOK } from '../constants.js';
+import { ALGORITHM, DYNAMIC_PROGRAMMING } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -86,6 +86,6 @@ export const data = {
   setupCode: ``,
   lcid: 304,
   source: ['https://leetcode.com/problems/range-sum-query-2d-immutable/'],
-  tags: [ALGORITHM, DYNAMIC_PROGRAMMING, FACEBOOK, CRUISE],
+  tags: [ALGORITHM, DYNAMIC_PROGRAMMING],
   solution,
 };

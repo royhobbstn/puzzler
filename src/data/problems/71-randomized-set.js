@@ -1,4 +1,4 @@
-import { ALGORITHM, GENERAL } from '../constants.js';
+import { ALGORITHM } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
@@ -122,6 +122,6 @@ export const data = {
   setupCode: ``,
   lcid: 380,
   source: ['https://leetcode.com/problems/insert-delete-getrandom-o1'],
-  tags: [GENERAL, ALGORITHM],
+  tags: [ALGORITHM],
   solution,
 };

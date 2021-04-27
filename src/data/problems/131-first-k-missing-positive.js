@@ -1,4 +1,4 @@
-import { ALGORITHM, CYCLIC_SORT } from '../constants.js';
+import { ALGORITHM, CYCLIC_SORT } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

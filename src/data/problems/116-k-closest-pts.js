@@ -1,4 +1,4 @@
-import { ALGORITHM, HEAP } from '../constants.js';
+import { ALGORITHM, HEAP } from '../constants.ts';
 import { MAX_HEAP_CLASS_DISTANCE } from '../code-imports/import-index.js';
 
 const solution = [

@@ -1,4 +1,4 @@
-import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.js';
+import { DOUBLY_LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: 'class DoublyLinkedListNode {' },

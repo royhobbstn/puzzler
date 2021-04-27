@@ -1,5 +1,5 @@
 import { HEAP_GENERIC } from '../code-imports/import-index.js';
-import { ALGORITHM, K_WAY_MERGE } from '../constants.js';
+import { ALGORITHM, K_WAY_MERGE } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

@@ -1,4 +1,4 @@
-import { ALGORITHM, DESIGN } from '../constants.js';
+import { ALGORITHM, DESIGN } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },

@@ -1,4 +1,4 @@
-import { ALGORITHM, LINKED_LIST, CURATED } from '../constants.js';
+import { ALGORITHM, LINKED_LIST, CURATED } from '../constants.ts';
 
 const solution = [
   { stage: 0, text: '' },
