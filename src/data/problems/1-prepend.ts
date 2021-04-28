@@ -1,6 +1,7 @@
-import { LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants';
+import { Problem, SolutionLine } from '../interface';
 
-const solution = [
+const solution: SolutionLine[] = [
   { stage: 0, text: 'class LinkedListNode {' },
   { stage: 0, text: '  constructor(value, next = null) {' },
   { stage: 0, text: '    this.value = value;' },
@@ -28,7 +29,7 @@ const solution = [
   { stage: 0, text: '' },
 ];
 
-export const data = {
+export const data: Problem = {
   problemID: 1,
   problemName: 'Implement **prepend** in a *LinkedList* class.',
   problemText:

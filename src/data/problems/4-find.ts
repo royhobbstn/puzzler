@@ -1,5 +1,6 @@
-import { LINKED_LIST, DATA_STRUCTURE } from '../constants.ts';
+import { LINKED_LIST, DATA_STRUCTURE } from '../constants';
 import { LINKED_LIST_PROTOTYPE_APPEND } from '../code-imports/import-index.js';
+import { Problem } from '../interface';
 
 const solution = [
   { stage: 0, text: 'class LinkedListNode {' },
@@ -32,7 +33,7 @@ const solution = [
   { stage: 0, text: '' },
 ];
 
-export const data = {
+export const data: Problem = {
   problemID: 4,
   problemName: 'Implement **find** in a *LinkedList* class.',
   problemText:

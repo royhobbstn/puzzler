@@ -1,4 +1,4 @@
-import { inventory } from '../src/data/inventory.js';
+import { inventory } from '../src/data/inventory.ts';
 
 const arr = [];
 

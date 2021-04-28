@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Card } from 'semantic-ui-react';
-import { inventory } from '../data/inventory.js';
+import { inventory } from '../data/inventory.ts';
 import TestCaseTable from './TestCaseTable';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

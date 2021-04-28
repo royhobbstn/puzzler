@@ -1,4 +1,4 @@
-import { inventory } from '../data/inventory.js';
+import { inventory } from '../data/inventory.ts';
 import * as React from 'react';
 import EditorMain from './EditorMain.js';
 import EditorSecondary from './EditorSecondary.js';

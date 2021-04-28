@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Table, Icon } from 'semantic-ui-react';
 import { constructTest } from '../util.js';
-import { inventory } from '../data/inventory.js';
+import { inventory } from '../data/inventory.ts';
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 import { useDispatch, useSelector } from 'react-redux';
