@@ -1,0 +1,93 @@
+import { ALGORITHM, FAST_SLOW_PTRS } from '../constants';
+
+const solution = [
+  { stage: 0, text: '' },
+  { stage: 0, text: 'function circular_array_loop_exists(arr) {' },
+  { stage: 1, text: '  for (let i = 0; i < arr.length; i++) {' },
+  { stage: 2, text: '    let isForward = arr[i] >= 0;' },
+  { stage: 2, text: '    let slow = i;' },
+  { stage: 2, text: '    let fast = i;' },
+  { stage: 0, text: '' },
+  { stage: 3, text: '    while (true) {' },
+  { stage: 4, text: '      slow = find_next_index(arr, isForward, slow);' },
+  { stage: 4, text: '      fast = find_next_index(arr, isForward, fast);' },
+  { stage: 0, text: '' },
+  { stage: 12, text: '      if (fast !== -1) {' },
+  { stage: 12, text: '        fast = find_next_index(arr, isForward, fast);' },
+  { stage: 12, text: '      }' },
+  { stage: 0, text: '' },
+  { stage: 13, text: '      if (slow === -1 || fast === -1 || slow === fast) {' },
+  { stage: 13, text: '        break;' },
+  { stage: 13, text: '      }' },
+  { stage: 3, text: '    }' },
+  { stage: 0, text: '' },
+  { stage: 14, text: '    if (slow !== -1 && slow === fast) {' },
+  { stage: 14, text: '      return true;' },
+  { stage: 14, text: '    }' },
+  { stage: 1, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 15, text: '  return false;' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+  { stage: 5, text: 'function find_next_index(arr, isForward, currentIndex) {' },
+  { stage: 6, text: '  let direction = arr[currentIndex] >= 0;' },
+  { stage: 0, text: '' },
+  { stage: 7, text: '  if (isForward !== direction) {' },
+  { stage: 7, text: '    return -1;' },
+  { stage: 7, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 8, text: '  let nextIndex = (currentIndex + arr[currentIndex]) % arr.length;' },
+  { stage: 9, text: '  if (nextIndex < 0) {' },
+  { stage: 9, text: '    nextIndex += arr.length;' },
+  { stage: 9, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 10, text: '  if (nextIndex === currentIndex) {' },
+  { stage: 10, text: '    nextIndex = -1;' },
+  { stage: 10, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 11, text: '  return nextIndex;' },
+  { stage: 5, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 136,
+  problemName: `Cycle in a Circular Array`,
+  problemText: `We are given an array containing positive and negative numbers. Suppose the array contains a number ‘M’ at a particular index. Now, if ‘M’ is positive we will move forward ‘M’ indices and if ‘M’ is negative move backwards ‘M’ indices. You should assume that the array is circular which means two things:
+
+  If, while moving forward, we reach the end of the array, we will jump to the first element to continue the movement.
+
+  If, while moving backward, we reach the beginning of the array, we will jump to the last element to continue the movement.
+
+  Write a method to determine if the array has a cycle. The cycle should have more than one element and should follow one direction which means the cycle should not contain both forward and backward movements.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'example 1',
+      inherit: [],
+      code: ``,
+      evaluate: `circular_array_loop_exists([1, 2, -1, 2, 2]);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'example 2',
+      inherit: [],
+      code: ``,
+      evaluate: `circular_array_loop_exists([2, 2, -1, 2]);`,
+      expected: true,
+    },
+    {
+      id: 3,
+      name: 'example 3',
+      inherit: [],
+      code: ``,
+      evaluate: `circular_array_loop_exists([2, 1, -1, -2]);`,
+      expected: false,
+    },
+  ],
+  setupCode: ``,
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/NE67J9YMj3m'],
+  tags: [FAST_SLOW_PTRS, ALGORITHM],
+  solution,
+};

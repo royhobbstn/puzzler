@@ -1,0 +1,61 @@
+import { ALGORITHM, DYNAMIC_PROGRAMMING } from '../constants';
+
+const solution = [
+  { stage: 0, text: '' },
+  { stage: 0, text: 'let solveKnapsack = function (profits, weights, capacity) {' },
+  { stage: 1, text: '  const n = profits.length;' },
+  { stage: 2, text: '  if (capacity <= 0 || n == 0 || weights.length != n) return 0;' },
+  { stage: 0, text: '' },
+  { stage: 3, text: '  const dp = Array(capacity + 1).fill(0);' },
+  { stage: 0, text: '' },
+  { stage: 4, text: '  for (let c = 0; c <= capacity; c++) {' },
+  { stage: 5, text: '    if (weights[0] <= c) dp[c] = profits[0];' },
+  { stage: 4, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 6, text: '  for (let i = 1; i < n; i++) {' },
+  { stage: 7, text: '    for (let c = capacity; c >= 0; c--) {' },
+  { stage: 8, text: '      let profit1 = 0;' },
+  { stage: 8, text: '      let profit2 = 0;' },
+  { stage: 0, text: '' },
+  { stage: 9, text: '      if (weights[i] <= c) {' },
+  { stage: 10, text: '        profit1 = profits[i] + dp[c - weights[i]];' },
+  { stage: 9, text: '      }' },
+  { stage: 0, text: '' },
+  { stage: 11, text: '      profit2 = dp[c];' },
+  { stage: 12, text: '      dp[c] = Math.max(profit1, profit2);' },
+  { stage: 7, text: '    }' },
+  { stage: 6, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: 13, text: '  return dp[capacity];' },
+  { stage: 0, text: '};' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 104,
+  problemName: `0/1 Knapsack`,
+  problemText: `Given two integer arrays to represent weights and profits of ‘N’ items, we need to find a subset of these items which will give us maximum profit such that their cumulative weight is not more than a given number ‘C.’ Each item can only be selected once, which means either we put an item in the knapsack or we skip it.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'example 1',
+      inherit: [],
+      code: `var profits = [1, 6, 10, 16];
+      var weights = [1, 2, 3, 5];`,
+      evaluate: `solveKnapsack(profits, weights, 7);`,
+      expected: 22,
+    },
+    {
+      id: 2,
+      name: 'example 2',
+      inherit: [1],
+      code: ``,
+      evaluate: `solveKnapsack(profits, weights, 6);`,
+      expected: 17,
+    },
+  ],
+  setupCode: ``,
+  source: ['https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk'],
+  tags: [DYNAMIC_PROGRAMMING, ALGORITHM],
+  solution,
+};
