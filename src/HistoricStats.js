@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
 import { getPersonalBests, clearPersonalBests } from './personalBests.js';
 import { inventory } from './data/inventory.ts';
-import { convertToTimer, BLANK_TIME } from './util.js';
+import { convertToTimer, BLANK_TIME } from './util.ts';
 import { useDispatch } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveProblemId, setActiveProblemText, setShowModal } from './redux/filterStore';

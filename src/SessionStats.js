@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
 import { getPersonalBests } from './personalBests.js';
 import { inventory } from './data/inventory.ts';
-import { convertToTimer } from './util.js';
+import { convertToTimer } from './util.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
 import { setSessionHistory } from './redux/gameStore';

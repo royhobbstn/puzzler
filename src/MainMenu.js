@@ -8,7 +8,7 @@ import {
   GAME_PAGE,
   SESSION_STATS_PAGE,
   HISTORIC_STATS_PAGE,
-} from './util.js';
+} from './util.ts';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory.ts';
 import { clickRun } from './redux/thunks';

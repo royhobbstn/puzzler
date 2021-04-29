@@ -8,7 +8,7 @@ import HomePage from './Home/HomePage.js';
 import { incrementTotalSeconds } from './redux/gameStore';
 import { useDispatch, useSelector } from 'react-redux';
 import ProblemTextModal from './ProblemTextModal';
-import { HOME_PAGE, SESSION_STATS_PAGE, HISTORIC_STATS_PAGE, GAME_PAGE } from './util.js';
+import { HOME_PAGE, SESSION_STATS_PAGE, HISTORIC_STATS_PAGE, GAME_PAGE } from './util.ts';
 
 let interval = null;
 

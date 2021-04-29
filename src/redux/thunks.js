@@ -3,7 +3,7 @@ import * as Comlink from 'comlink';
 /* eslint-disable import/no-webpack-loader-syntax */
 import Worker from 'worker-loader!../worker';
 import { submitResult } from '../personalBests.js';
-import { constructTest } from '../util.js';
+import { constructTest } from '../util.ts';
 import { inventory } from '../data/inventory';
 import { startRunningTests, concludeRunningTests } from './gameStore.js';
 

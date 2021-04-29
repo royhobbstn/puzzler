@@ -1,0 +1,81 @@
+import {
+  LINKED_LIST_CLASS_EXT,
+  HASH_TABLE_PROTOTYPE_HASH,
+  HASH_TABLE_PROTOTYPE_GET,
+  HASH_TABLE_PROTOTYPE_SET,
+} from '../code-imports/import-index.js';
+import { HASH_TABLE, DATA_STRUCTURE } from '../constants';
+
+const solution = [
+  { stage: -1, text: '// class LinkedList {' },
+  { stage: -1, text: '//   deleteKey(key: string) LinkedListNode' },
+  { stage: -1, text: '// }' },
+  { stage: -1, text: '//  class LinkedListNode {' },
+  { stage: -1, text: '//    constructor(key, value, next = null) {' },
+  { stage: -1, text: '//      this.key = key;' },
+  { stage: -1, text: '//      this.value = value;' },
+  { stage: -1, text: '//      this.next = next;' },
+  { stage: -1, text: '//    }' },
+  { stage: -1, text: '//  }' },
+  { stage: -1, text: '//' },
+  { stage: -1, text: '// All code above is implicitly included in your environment' },
+  { stage: 0, text: '' },
+  { stage: 0, text: 'class HashTable {' },
+  { stage: 0, text: '  constructor(hashTableSize = 32) {' },
+  { stage: 0, text: '    this.buckets = Array(hashTableSize)' },
+  { stage: 0, text: '      .fill(null)' },
+  { stage: 0, text: '      .map(() => new LinkedList());' },
+  { stage: 0, text: '  }' },
+  { stage: 0, text: '' },
+  { stage: -1, text: '  // IMPLEMENTED:  hash(key: string) int' },
+  { stage: -1, text: '' },
+  { stage: 1, text: '  delete(key) {' },
+  { stage: 2, text: '    const keyHash = this.hash(key);' },
+  { stage: 2, text: '    const bucketLinkedList = this.buckets[keyHash];' },
+  { stage: 3, text: '    const deletedNode = bucketLinkedList.deleteKey(key);' },
+  { stage: 4, text: '    if (deletedNode) {' },
+  { stage: 4, text: '      return deletedNode.value;' },
+  { stage: 4, text: '    }' },
+  { stage: 3, text: '    return null;' },
+  { stage: 1, text: '  }' },
+  { stage: 0, text: '}' },
+  { stage: 0, text: '' },
+];
+
+export const data = {
+  problemID: 27,
+  problemName: 'Implement **delete** in a *HashTable* class.',
+  problemText: `Given a *HashTable* class and an associated *LinkedList* class, implement a **delete** method in the *HashTable* class that will delete the entry for a given \`key\`.
+  
+  The method must return the value of the deleted item, or \`null\` if an item matching the \`key\` was not found.`,
+  testCases: [
+    {
+      id: 1,
+      name: 'compiles',
+      inherit: [],
+      code: `const ht=new HashTable();`,
+      evaluate: `Boolean(ht);`,
+      expected: true,
+    },
+    {
+      id: 2,
+      name: 'deleting a key that does not exist returns null',
+      inherit: [1],
+      code: ``,
+      evaluate: `ht.delete('key1');`,
+      expected: null,
+    },
+    {
+      id: 3,
+      name: 'deleting a key that does exist',
+      inherit: [1],
+      code: `ht.set('key1', 77);`,
+      evaluate: `ht.delete('key1');`,
+      expected: 77,
+    },
+  ],
+  setupCode: `${LINKED_LIST_CLASS_EXT} ${HASH_TABLE_PROTOTYPE_HASH} ${HASH_TABLE_PROTOTYPE_SET} ${HASH_TABLE_PROTOTYPE_GET}`,
+  source: [],
+  tags: [HASH_TABLE, DATA_STRUCTURE],
+  solution,
+};
