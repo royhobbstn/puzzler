@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/puzzler/static/css/main.bd34db45.chunk.css",
-    "main.js": "/puzzler/static/js/main.549dc18c.chunk.js",
-    "main.js.map": "/puzzler/static/js/main.549dc18c.chunk.js.map",
+    "main.js": "/puzzler/static/js/main.533fc617.chunk.js",
+    "main.js.map": "/puzzler/static/js/main.533fc617.chunk.js.map",
     "runtime-main.js": "/puzzler/static/js/runtime-main.568c5661.js",
     "runtime-main.js.map": "/puzzler/static/js/runtime-main.568c5661.js.map",
     "static/css/2.db771b51.chunk.css": "/puzzler/static/css/2.db771b51.chunk.css",
@@ -423,7 +423,7 @@
     "mode-groovy.js": "/puzzler/fe6efc8bf7b948aa275d980518b286b7.js",
     "theme-gruvbox.js": "/puzzler/feff703ce532f20391dfed8199b6971e.js",
     "index.html": "/puzzler/index.html",
-    "precache-manifest.d88454ebada03b7a99464abe00606423.js": "/puzzler/precache-manifest.d88454ebada03b7a99464abe00606423.js",
+    "precache-manifest.836f08a9b23d5598415bb9d724a6dba4.js": "/puzzler/precache-manifest.836f08a9b23d5598415bb9d724a6dba4.js",
     "service-worker.js": "/puzzler/service-worker.js",
     "static/css/2.db771b51.chunk.css.map": "/puzzler/static/css/2.db771b51.chunk.css.map",
     "static/css/main.bd34db45.chunk.css.map": "/puzzler/static/css/main.bd34db45.chunk.css.map",
@@ -437,6 +437,6 @@
     "static/css/2.db771b51.chunk.css",
     "static/js/2.3d64ffe2.chunk.js",
     "static/css/main.bd34db45.chunk.css",
-    "static/js/main.549dc18c.chunk.js"
+    "static/js/main.533fc617.chunk.js"
   ]
 }
