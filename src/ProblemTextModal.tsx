@@ -1,7 +1,7 @@
 import * as React from 'react';
 import showdown from 'showdown';
 import { Modal, Button } from 'semantic-ui-react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { setShowModal } from './redux/filterStore';
 import { Footnote } from './Home/Footnote.js';
 import { inventory } from './data/inventory';
@@ -10,9 +10,9 @@ const converter = new showdown.Converter();
 
 function ProblemTextModal() {
   const dispatch = useDispatch();
-  const showModal = useSelector(state => state.filter.showModal);
-  const activeProblemText = useSelector(state => state.filter.activeProblemText);
-  const activeProblemId = useSelector(state => state.filter.activeProblemId);
+  const showModal = useSelector((state: RootStateOrAny) => state.filter.showModal);
+  const activeProblemText = useSelector((state: RootStateOrAny) => state.filter.activeProblemText);
+  const activeProblemId = useSelector((state: RootStateOrAny) => state.filter.activeProblemId);
 
   return (
     <Modal

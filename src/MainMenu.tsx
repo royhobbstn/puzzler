@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Menu, Button, Icon, Popup } from 'semantic-ui-react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import {
   convertToTimer,
   colorCodeTime,
@@ -8,9 +8,9 @@ import {
   GAME_PAGE,
   SESSION_STATS_PAGE,
   HISTORIC_STATS_PAGE,
-} from './util.ts';
+} from './util';
 import { useParams, useHistory } from 'react-router-dom';
-import { inventory } from './data/inventory.ts';
+import { inventory } from './data/inventory';
 import { clickRun } from './redux/thunks';
 import {
   clickNextToResults,
@@ -20,17 +20,30 @@ import {
   revealAnswer,
 } from './redux/gameStore';
 import { shiftSelection, pressReset } from './redux/filterStore';
+import { TestCase } from './data/interface';
 
-function MainMenu({ page }) {
+interface RouteParams {
+  id: string;
+}
+
+interface MainMenuProps {
+  page: string;
+}
+
+// { page: VALID_PAGE }
+function MainMenu(props: MainMenuProps) {
+  const { page } = props;
   const dispatch = useDispatch();
-  const isBusyTesting = useSelector(state => state.game.isBusyTesting);
-  const revealButtonPressed = useSelector(state => state.game.revealButtonPressed);
-  const results = useSelector(state => state.game.results);
-  const totalSeconds = useSelector(state => state.game.totalSeconds);
-  const selections = useSelector(state => state.filter.selections);
+  const isBusyTesting = useSelector((state: RootStateOrAny) => state.game.isBusyTesting);
+  const revealButtonPressed = useSelector(
+    (state: RootStateOrAny) => state.game.revealButtonPressed,
+  );
+  const results = useSelector((state: RootStateOrAny) => state.game.results);
+  const totalSeconds = useSelector((state: RootStateOrAny) => state.game.totalSeconds);
+  const selections = useSelector((state: RootStateOrAny) => state.filter.selections);
 
   const history = useHistory();
-  const { id } = useParams();
+  const { id } = useParams<RouteParams>();
   const data = inventory[id];
 
   let passedTests = 0;
@@ -43,7 +56,7 @@ function MainMenu({ page }) {
   const totalTests = data && data.testCases && data.testCases.length;
   const showNextButton = totalTests === passedTests;
   const hasNext = Boolean(selections && selections.length > 0);
-  const passedAllTests = results.length > 0 && results.every(d => d.ok);
+  const passedAllTests = results.length > 0 && results.every((d: TestCase) => d.ok);
 
   return (
     <Menu>
@@ -101,7 +114,7 @@ function MainMenu({ page }) {
                     icon
                     onClick={() => {
                       if (!isBusyTesting && !revealButtonPressed) {
-                        dispatch(clickRun(id));
+                        dispatch(clickRun());
                       }
                     }}
                     disabled={isBusyTesting || revealButtonPressed}
@@ -260,7 +273,7 @@ function MainMenu({ page }) {
   );
 }
 
-function contextMessage(revealButtonPressed, passedAllTests) {
+function contextMessage(revealButtonPressed: boolean, passedAllTests: boolean) {
   if (passedAllTests) {
     return <span style={{ color: 'green', fontWeight: 'bold' }}>- PASSED!</span>;
   } else if (revealButtonPressed) {

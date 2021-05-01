@@ -19,7 +19,7 @@ const filterSlice = createSlice({
     setSelections: (state, { type, payload }) => {
       state.selections = payload;
     },
-    shiftSelection: (state, { type, payload }) => {
+    shiftSelection: state => {
       state.selections = state.selections.slice(1);
     },
     setResults: (state, { type, payload }) => {
@@ -37,7 +37,7 @@ const filterSlice = createSlice({
     setTags: (state, { type, payload }) => {
       state.tags = payload;
     },
-    pressReset: (state, { type, payload }) => {
+    pressReset: state => {
       state.tags = defaultCategoryData;
     },
   },

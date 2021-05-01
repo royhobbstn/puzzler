@@ -1,20 +1,26 @@
 import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
-import { getPersonalBests } from './personalBests.js';
-import { inventory } from './data/inventory.ts';
-import { convertToTimer } from './util.ts';
-import { useDispatch, useSelector } from 'react-redux';
+import { getPersonalBests } from './personalBests';
+import { inventory } from './data/inventory';
+import { convertToTimer } from './util';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import showdown from 'showdown';
 import { setSessionHistory } from './redux/gameStore';
 import { setActiveProblemText, setShowModal, setActiveProblemId } from './redux/filterStore';
+
+export interface SessionHistoryEntry {
+  id: string;
+  seconds: number;
+}
+
 const converter = new showdown.Converter();
 
 function SessionStats() {
   const dispatch = useDispatch();
-  const sessionHistory = useSelector(state => state.game.sessionHistory);
+  const sessionHistory = useSelector((state: RootStateOrAny) => state.game.sessionHistory);
   const personalBests = getPersonalBests();
 
-  const showModalMarkdown = (problemText, problemId) => {
+  const showModalMarkdown = (problemText: string, problemId: string) => {
     dispatch(setActiveProblemText(problemText));
     dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
@@ -37,7 +43,7 @@ function SessionStats() {
         </Table.Header>
 
         <Table.Body>
-          {sessionHistory.map((entry, index) => {
+          {sessionHistory.map((entry: SessionHistoryEntry, index: number) => {
             const measuredTime = convertToTimer(entry.seconds);
             const bestTime = convertToTimer(personalBests[entry.id]);
 

@@ -5,6 +5,7 @@ export interface TestCase {
   code: string;
   evaluate: string;
   expected: any;
+  ok?: boolean;
 }
 
 export interface SolutionLine {

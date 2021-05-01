@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Table, Button } from 'semantic-ui-react';
-import { getPersonalBests, clearPersonalBests } from './personalBests.js';
-import { inventory } from './data/inventory.ts';
-import { convertToTimer, BLANK_TIME } from './util.ts';
+import { getPersonalBests, clearPersonalBests } from './personalBests';
+import { inventory } from './data/inventory';
+import { convertToTimer, BLANK_TIME } from './util';
 import { useDispatch } from 'react-redux';
 import showdown from 'showdown';
 import { setActiveProblemId, setActiveProblemText, setShowModal } from './redux/filterStore';
@@ -15,7 +15,7 @@ function HistoricStats() {
 
   console.log({ personalBests });
 
-  const showModalMarkdown = (problemText, problemId) => {
+  const showModalMarkdown = (problemText: string, problemId: string) => {
     dispatch(setActiveProblemText(problemText));
     dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));

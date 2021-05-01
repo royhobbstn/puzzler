@@ -1,5 +1,5 @@
-import { Problem, TestCase } from './data/interface.js';
-import { getPersonalBests } from './personalBests.js';
+import { Problem, TestCase } from './data/interface';
+import { getPersonalBests } from './personalBests';
 
 export const HOME_PAGE = '/';
 export const SESSION_STATS_PAGE = '/sessionStats';

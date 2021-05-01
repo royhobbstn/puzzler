@@ -1,20 +1,20 @@
 import * as React from 'react';
 import Problem from './Game/Problem.js';
-import SessionStats from './SessionStats.js';
-import HistoricStats from './HistoricStats.js';
+import SessionStats from './SessionStats';
+import HistoricStats from './HistoricStats';
 import { Switch, Route } from 'react-router-dom';
-import MainMenu from './MainMenu.js';
+import MainMenu from './MainMenu';
 import HomePage from './Home/HomePage.js';
 import { incrementTotalSeconds } from './redux/gameStore';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import ProblemTextModal from './ProblemTextModal';
-import { HOME_PAGE, SESSION_STATS_PAGE, HISTORIC_STATS_PAGE, GAME_PAGE } from './util.ts';
+import { HOME_PAGE, SESSION_STATS_PAGE, HISTORIC_STATS_PAGE, GAME_PAGE } from './util';
 
-let interval = null;
+let interval = 0;
 
 function App() {
   const dispatch = useDispatch();
-  const isRunning = useSelector(state => state.game.isRunning);
+  const isRunning = useSelector((state: RootStateOrAny) => state.game.isRunning);
 
   // timer implementation
   React.useEffect(() => {

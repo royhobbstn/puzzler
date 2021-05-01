@@ -50,7 +50,7 @@ const gameSlice = createSlice({
     setSessionHistory: (state, { type, payload }) => {
       state.sessionHistory = payload;
     },
-    incrementTotalSeconds: (state, { type, payload }) => {
+    incrementTotalSeconds: state => {
       state.totalSeconds = state.totalSeconds + 1;
     },
     setIsRunning: (state, { type, payload }) => {
