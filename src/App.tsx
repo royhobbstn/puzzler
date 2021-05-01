@@ -4,7 +4,7 @@ import SessionStats from './SessionStats';
 import HistoricStats from './HistoricStats';
 import { Switch, Route } from 'react-router-dom';
 import MainMenu from './MainMenu';
-import HomePage from './Home/HomePage.js';
+import HomePage from './Home/HomePage';
 import { incrementTotalSeconds } from './redux/gameStore';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import ProblemTextModal from './ProblemTextModal';

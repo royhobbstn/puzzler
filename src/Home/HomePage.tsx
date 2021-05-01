@@ -1,7 +1,7 @@
 import * as React from 'react';
-import ResultsCard from './ResultsCard.js';
-import SelectionsCard from './SelectionsCard.js';
-import Filters from './Filters.js';
+import ResultsCard from './ResultsCard';
+import SelectionsCard from './SelectionsCard';
+import Filters from './Filters';
 
 export default function HomePage() {
   return (

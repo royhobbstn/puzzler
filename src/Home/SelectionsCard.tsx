@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Card, Table, Button, Icon, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { levelTags, abbrev, typeTags } from '../data/constants.ts';
-import { useDispatch, useSelector } from 'react-redux';
+import { levelTags, abbrev, typeTags } from '../data/constants';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import showdown from 'showdown';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   setSelections,
   setActiveProblemText,
@@ -18,9 +18,8 @@ const converter = new showdown.Converter();
 
 function SelectionsCard() {
   const history = useHistory();
-  const { id } = useParams();
   const dispatch = useDispatch();
-  const selections = useSelector(state => state.filter.selections);
+  const selections: number[] = useSelector((state: RootStateOrAny) => state.filter.selections);
 
   const clearAll = () => {
     dispatch(setSelections([]));
@@ -28,16 +27,16 @@ function SelectionsCard() {
 
   const clickStart = () => {
     const nextId = selections[0];
-    dispatch(clickNext(id));
+    dispatch(clickNext());
     dispatch(shiftSelection());
     history.push(`/${nextId}`);
   };
 
-  const subtractProblemId = problemID => {
+  const subtractProblemId = (problemID: number) => {
     dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
-  const showModalMarkdown = (problemText, problemId) => {
+  const showModalMarkdown = (problemText: string, problemId: number) => {
     dispatch(setActiveProblemText(problemText));
     dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
@@ -86,6 +85,9 @@ function SelectionsCard() {
                   const difficulty = problem.tags.find(tag => {
                     return levelTags.includes(tag);
                   });
+                  if (!difficulty) {
+                    return <p>Error</p>;
+                  }
 
                   return (
                     <Table.Row key={problem.problemID}>

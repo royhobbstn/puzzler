@@ -11,7 +11,7 @@ import {
 } from './util';
 import { useParams, useHistory } from 'react-router-dom';
 import { inventory } from './data/inventory';
-import { clickRun } from './redux/thunks';
+import { clickRun as clickRunFunction } from './redux/thunks';
 import {
   clickNextToResults,
   clickSkipToResults,
@@ -22,13 +22,12 @@ import {
 import { shiftSelection, pressReset } from './redux/filterStore';
 import { TestCase } from './data/interface';
 
-interface RouteParams {
-  id: string;
-}
-
 interface MainMenuProps {
   page: string;
 }
+
+type ClickRunFn = (id: string) => void;
+const clickRun: ClickRunFn = clickRunFunction;
 
 // { page: VALID_PAGE }
 function MainMenu(props: MainMenuProps) {
@@ -43,7 +42,7 @@ function MainMenu(props: MainMenuProps) {
   const selections = useSelector((state: RootStateOrAny) => state.filter.selections);
 
   const history = useHistory();
-  const { id } = useParams<RouteParams>();
+  const { id } = useParams<{ id: string }>();
   const data = inventory[id];
 
   let passedTests = 0;
@@ -114,7 +113,7 @@ function MainMenu(props: MainMenuProps) {
                     icon
                     onClick={() => {
                       if (!isBusyTesting && !revealButtonPressed) {
-                        dispatch(clickRun());
+                        dispatch(clickRun(id));
                       }
                     }}
                     disabled={isBusyTesting || revealButtonPressed}
@@ -133,11 +132,11 @@ function MainMenu(props: MainMenuProps) {
                       if (showNextButton) {
                         if (hasNext) {
                           const nextId = selections[0];
-                          dispatch(clickNext(id));
+                          dispatch(clickNext());
                           dispatch(shiftSelection());
                           history.push(`/${nextId}`);
                         } else {
-                          dispatch(clickNextToResults(id));
+                          dispatch(clickNextToResults());
                           history.push(`/sessionStats`);
                         }
                       }

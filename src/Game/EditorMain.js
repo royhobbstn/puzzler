@@ -4,7 +4,7 @@ import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setValue } from '../redux/gameStore.js';
+import { setValue } from '../redux/gameStore.ts';
 import { clickRun } from '../redux/thunks.js';
 import { useParams } from 'react-router-dom';
 

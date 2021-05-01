@@ -3,7 +3,7 @@ import showdown from 'showdown';
 import { Modal, Button } from 'semantic-ui-react';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { setShowModal } from './redux/filterStore';
-import { Footnote } from './Home/Footnote.js';
+import { Footnote } from './Home/Footnote';
 import { inventory } from './data/inventory';
 
 const converter = new showdown.Converter();

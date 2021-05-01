@@ -1,15 +1,19 @@
 import * as React from 'react';
 import { Card, Label, Popup, Divider, Button } from 'semantic-ui-react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { setTags } from '../redux/filterStore';
 import { levelTags, typeTags } from '../data/constants';
+import { Tag } from '../redux/filterStore';
 
 function ControlCard() {
   const dispatch = useDispatch();
-  const tags = useSelector(state => state.filter.tags);
+  const tags: Tag[] = useSelector((state: RootStateOrAny) => state.filter.tags);
 
-  const isTagChecked = name => {
+  const isTagChecked = (name: string): boolean => {
     const tag = tags.find(t => t.name === name);
+    if (!tag) {
+      return false;
+    }
     return tag.isSelected;
   };
 
@@ -36,7 +40,7 @@ function ControlCard() {
   const allAreSelected = tags.every(d => d.isSelected === true);
   const noneAreSelected = tags.every(d => d.isSelected === false);
 
-  const toggleTag = tag => {
+  const toggleTag = (tag: string) => {
     dispatch(
       setTags(
         tags.map(d => {

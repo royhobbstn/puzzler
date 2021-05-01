@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Table, Icon, Button, Divider } from 'semantic-ui-react';
 import { inventory } from '../data/inventory';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import showdown from 'showdown';
 import {
   setSelections,
@@ -9,24 +9,24 @@ import {
   setShowModal,
   setActiveProblemId,
 } from '../redux/filterStore';
-import { levelTags, typeTags, abbrev } from '../data/constants.ts';
+import { levelTags, typeTags, abbrev } from '../data/constants';
 
 const converter = new showdown.Converter();
 
 function ResultsCard() {
   const dispatch = useDispatch();
-  const selections = useSelector(state => state.filter.selections);
-  const results = useSelector(state => state.filter.results);
+  const selections: number[] = useSelector((state: RootStateOrAny) => state.filter.selections);
+  const results: number[] = useSelector((state: RootStateOrAny) => state.filter.results);
 
-  const addProblemId = problemID => {
+  const addProblemId = (problemID: number) => {
     dispatch(setSelections([...selections, problemID]));
   };
 
-  const subtractProblemId = problemID => {
+  const subtractProblemId = (problemID: number) => {
     dispatch(setSelections(selections.filter(d => d !== problemID)));
   };
 
-  const showModalMarkdown = (problemText, problemId) => {
+  const showModalMarkdown = (problemText: string, problemId: number) => {
     dispatch(setActiveProblemText(problemText));
     dispatch(setActiveProblemId(problemId));
     dispatch(setShowModal(true));
@@ -59,7 +59,7 @@ function ResultsCard() {
             style={{ display: 'inline', float: 'right' }}
           >
             Add Random
-            <Icon name="right arrow" />
+            <Icon name="arrow right" />
           </Button>
         </div>
         <div style={{ padding: '0 1em 1em 1em', clear: 'both' }}>
@@ -83,6 +83,9 @@ function ResultsCard() {
                   const difficulty = problem.tags.find(tag => {
                     return levelTags.includes(tag);
                   });
+                  if (!difficulty) {
+                    return <p>Error</p>;
+                  }
 
                   const inProblemSet = selections.includes(problem.problemID);
                   return (

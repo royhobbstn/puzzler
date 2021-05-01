@@ -5,7 +5,7 @@ import Worker from 'worker-loader!../worker';
 import { submitResult } from '../personalBests.ts';
 import { constructTest } from '../util.ts';
 import { inventory } from '../data/inventory';
-import { startRunningTests, concludeRunningTests } from './gameStore.js';
+import { startRunningTests, concludeRunningTests } from './gameStore.ts';
 
 const MAX_EXECUTION_TIME = 2000; // 2 second max execution time
 

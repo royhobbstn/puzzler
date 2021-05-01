@@ -37,7 +37,7 @@ export const TOPOLOGICAL_SORT = 'Topological Sort';
 export const CURATED = 'Curated';
 export const TEMP = 'Temp';
 
-export const abbrev = {
+export const abbrev: Record<string, string> = {
   [DATA_STRUCTURE]: 'DS',
   [ALGORITHM]: 'Alg',
   [DESIGN]: 'Dsgn',

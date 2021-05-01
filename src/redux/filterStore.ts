@@ -1,20 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { tags } from '../data/inventory';
 
-const defaultCategoryData = tags.map(d => {
+export interface Tag {
+  name: string;
+  isSelected: boolean;
+}
+
+const defaultCategoryData: Tag[] = tags.map(d => {
   return { name: d, isSelected: false };
 });
 
+interface FilterState {
+  selections: any[];
+  results: any[];
+  showModal: boolean;
+  activeProblemText: string;
+  activeProblemId: string;
+  tags: Tag[];
+}
+
+const initialState: FilterState = {
+  selections: [],
+  results: [],
+  showModal: false,
+  activeProblemText: '',
+  activeProblemId: '',
+  tags: defaultCategoryData,
+};
+
 const filterSlice = createSlice({
   name: 'filter',
-  initialState: {
-    selections: [],
-    results: [],
-    showModal: false,
-    activeProblemText: '',
-    activeProblemId: '',
-    tags: defaultCategoryData,
-  },
+  initialState,
   reducers: {
     setSelections: (state, { type, payload }) => {
       state.selections = payload;

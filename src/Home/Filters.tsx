@@ -2,19 +2,20 @@ import * as React from 'react';
 import { Card } from 'semantic-ui-react';
 import ControlCard from './ControlCard';
 import { inventory } from '../data/inventory';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { setResults } from '../redux/filterStore';
 import { levelTags, typeTags, categoryTags } from '../data/constants';
+import { Tag } from '../redux/filterStore';
 
 function Filters() {
   const dispatch = useDispatch();
-  const tags = useSelector(state => state.filter.tags);
+  const tags: Tag[] = useSelector((state: RootStateOrAny) => state.filter.tags);
 
   const runFilters = React.useCallback(() => {
     const chosenTags = tags.filter(d => d.isSelected).map(d => d.name);
-    const levelTagsChosen = [];
-    const typeTagsChosen = [];
-    const categoryTagsChosen = [];
+    const levelTagsChosen: string[] = [];
+    const typeTagsChosen: string[] = [];
+    const categoryTagsChosen: string[] = [];
     for (let chosenTag of chosenTags) {
       if (levelTags.includes(chosenTag)) {
         levelTagsChosen.push(chosenTag);
@@ -34,7 +35,7 @@ function Filters() {
 
         // filter out by level
         if (levelTagsChosen.length) {
-          const levelTagsInProblem = [];
+          const levelTagsInProblem: string[] = [];
           for (let tag of item.tags) {
             if (levelTags.includes(tag)) {
               levelTagsInProblem.push(tag);
@@ -47,7 +48,7 @@ function Filters() {
 
         // filter out by type
         if (typeTagsChosen.length) {
-          const typeTagsInProblem = [];
+          const typeTagsInProblem: string[] = [];
           for (let tag of item.tags) {
             if (typeTags.includes(tag)) {
               typeTagsInProblem.push(tag);
@@ -60,7 +61,7 @@ function Filters() {
 
         // filter out by category
         if (categoryTagsChosen.length) {
-          const categoryTagsInProblem = [];
+          const categoryTagsInProblem: string[] = [];
           for (let tag of item.tags) {
             if (categoryTags.includes(tag)) {
               categoryTagsInProblem.push(tag);

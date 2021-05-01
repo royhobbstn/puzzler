@@ -1,21 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { TestCase, Problem } from '../data/interface';
+import { SessionHistoryEntry } from '../SessionStats';
+
+interface GameState {
+  value: string;
+  value2: string;
+  results: TestCase[];
+  revealButtonPressed: boolean;
+  isBusyTesting: boolean;
+  activeIndex: number;
+  totalSeconds: number;
+  isRunning: boolean;
+  open: boolean;
+  noteCode: string;
+  tableSort: 'id' | 'fail' | 'success';
+  sessionHistory: SessionHistoryEntry[];
+}
+
+const initialState: GameState = {
+  value: '',
+  value2: '',
+  results: [],
+  revealButtonPressed: false,
+  isBusyTesting: false,
+  activeIndex: 0,
+  totalSeconds: 0,
+  isRunning: false,
+  open: false,
+  noteCode: '',
+  tableSort: 'id', // id | fail | success
+  sessionHistory: [],
+};
 
 const gameSlice = createSlice({
   name: 'game',
-  initialState: {
-    value: '',
-    value2: '',
-    results: [],
-    revealButtonPressed: false,
-    isBusyTesting: false,
-    activeIndex: 0,
-    totalSeconds: 0,
-    isRunning: false,
-    open: false,
-    noteCode: '',
-    tableSort: 'id', // id | fail | success
-    sessionHistory: [],
-  },
+  initialState,
   reducers: {
     setValue: (state, { type, payload }) => {
       state.value = payload;
@@ -28,9 +47,6 @@ const gameSlice = createSlice({
     },
     setRevealButtonPressed: (state, { type, payload }) => {
       state.revealButtonPressed = payload;
-    },
-    setIsBusyTesting: (state, { type, payload }) => {
-      state.setIsBusyTesting = payload;
     },
     setActiveIndex: (state, { type, payload }) => {
       state.activeIndex = payload;
@@ -56,7 +72,7 @@ const gameSlice = createSlice({
     setIsRunning: (state, { type, payload }) => {
       state.isRunning = payload;
     },
-    startRunningTests: (state, { type, payload }) => {
+    startRunningTests: state => {
       state.results = [];
       state.activeIndex = 1;
       state.isBusyTesting = true;
@@ -65,13 +81,13 @@ const gameSlice = createSlice({
       const { r, entry } = payload;
       state.results = r;
       state.isBusyTesting = false;
-      if (r.every(d => d.ok) && !state.revealButtonPressed) {
+      if (r.every((d: TestCase) => d.ok) && !state.revealButtonPressed) {
         state.isRunning = false;
         state.sessionHistory.push(entry);
         state.revealButtonPressed = true;
       }
     },
-    clickNextToResults: (state, { type, payload }) => {
+    clickNextToResults: state => {
       state.totalSeconds = 0;
       state.isRunning = false;
       state.revealButtonPressed = false;
@@ -82,7 +98,7 @@ const gameSlice = createSlice({
     clickSkipToResults: (state, { type, payload }) => {
       const id = payload;
       if (!state.revealButtonPressed) {
-        state.sessionHistory.push({ id, seconds: null });
+        state.sessionHistory.push({ id, seconds: 0 });
       }
       state.totalSeconds = 0;
       state.isRunning = false;
@@ -91,7 +107,7 @@ const gameSlice = createSlice({
       state.value = '';
       state.results = [];
     },
-    clickNext: (state, { type, payload }) => {
+    clickNext: state => {
       state.totalSeconds = 0;
       state.isRunning = true;
       state.revealButtonPressed = false;
@@ -102,7 +118,7 @@ const gameSlice = createSlice({
     clickSkip: (state, { type, payload }) => {
       const id = payload;
       if (!state.revealButtonPressed) {
-        state.sessionHistory.push({ id, seconds: null });
+        state.sessionHistory.push({ id, seconds: 0 });
       }
       state.totalSeconds = 0;
       state.isRunning = true;
@@ -112,10 +128,10 @@ const gameSlice = createSlice({
       state.results = [];
     },
     revealAnswer: (state, { type, payload }) => {
-      const { id, data } = payload;
+      const { id, data }: { id: string; data: Problem } = payload;
       state.revealButtonPressed = true;
       state.isRunning = false;
-      state.sessionHistory.push({ id, seconds: null });
+      state.sessionHistory.push({ id, seconds: 0 });
       // code to reveal
       state.value2 = data.solution
         .map(line => {
@@ -131,7 +147,6 @@ export const {
   setValue2,
   setResults,
   setRevealButtonPressed,
-  setIsBusyTesting,
   setActiveIndex,
   setTotalSeconds,
   setOpen,

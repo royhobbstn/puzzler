@@ -1,6 +1,11 @@
 import * as React from 'react';
 
-export const Footnote = ({ noteSource }) => {
+interface FootnoteProps {
+  noteSource: string[];
+}
+
+export const Footnote = (props: FootnoteProps) => {
+  const { noteSource } = props;
   return noteSource.length ? (
     <div style={{ marginTop: '10px', color: 'grey' }}>
       <div style={{ margin: '5px 0 1px 0' }}>

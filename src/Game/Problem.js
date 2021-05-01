@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import TabCards from './TabCards';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore.js';
+import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore.ts';
 
 function Problem() {
   const dispatch = useDispatch();

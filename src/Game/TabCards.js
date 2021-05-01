@@ -5,9 +5,9 @@ import TestCaseTable from './TestCaseTable';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import showdown from 'showdown';
-import { setActiveIndex } from '../redux/gameStore.js';
+import { setActiveIndex } from '../redux/gameStore.ts';
 import { levelTags, typeTags } from '../data/constants.ts';
-import { Footnote } from '../Home/Footnote.js';
+import { Footnote } from '../Home/Footnote.tsx';
 
 const converter = new showdown.Converter();
 
