@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { Table, Icon } from 'semantic-ui-react';
-import { constructTest } from '../util.ts';
-import { inventory } from '../data/inventory.ts';
-import prettier from 'prettier/esm/standalone.mjs';
-import parserBabel from 'prettier/esm/parser-babel.mjs';
-import { useDispatch, useSelector } from 'react-redux';
+import { constructTest } from '../util';
+import { inventory } from '../data/inventory';
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babel';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setOpen, setNoteCode, updateTableSort } from '../redux/gameStore';
 import TestCodeModal from './TestCodeModal';
 
 function TestCaseTable() {
   const dispatch = useDispatch();
-  const results = useSelector(state => state.game.results);
-  const tableSort = useSelector(state => state.game.tableSort);
-  const { id } = useParams();
+  const results = useSelector((state: RootStateOrAny) => state.game.results);
+  const tableSort = useSelector((state: RootStateOrAny) => state.game.tableSort);
+  const { id } = useParams<{ id: string }>();
 
   const sortedResults = [...results].sort((a, b) => {
     if (tableSort === 'id') {

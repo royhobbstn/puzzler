@@ -1,24 +1,29 @@
 import * as React from 'react';
 import AceEditor from 'react-ace';
-import prettier from 'prettier/esm/standalone.mjs';
-import parserBabel from 'prettier/esm/parser-babel.mjs';
-import { useDispatch, useSelector } from 'react-redux';
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babel';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 
-import { setValue } from '../redux/gameStore.ts';
+import { setValue } from '../redux/gameStore';
 import { clickRun } from '../redux/thunks.js';
 import { useParams } from 'react-router-dom';
+import ReactAce from 'react-ace/lib/ace';
 
 function EditorMain() {
   const dispatch = useDispatch();
-  const value = useSelector(state => state.game.value);
+  const value = useSelector((state: RootStateOrAny) => state.game.value);
 
-  const editor1 = React.useRef();
-  const propsRef = React.useRef({});
-  const { id } = useParams();
+  const editor1 = React.useRef<ReactAce>(null);
+  const propsRef = React.useRef<{ id: string }>({ id: '' });
+  const { id } = useParams<{ id: string }>();
+
   propsRef.current.id = id;
 
-  const onChange = val => {
+  const onChange = (val: string) => {
     dispatch(setValue(val));
+    if (!editor1 || !editor1.current) {
+      return;
+    }
     editor1.current.editor.resize();
   };
 
@@ -66,7 +71,8 @@ function EditorMain() {
             bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
             exec: async () => {
               try {
-                await dispatch(clickRun(propsRef.current.id));
+                // TODO after switching thunks to TS
+                // dispatch(clickRun(propsRef.current.id));
               } catch (err) {
                 console.log('Encountered an error when attempting to run tests.');
               }

@@ -1,21 +1,23 @@
-import { inventory } from '../data/inventory.ts';
+import { inventory } from '../data/inventory';
 import * as React from 'react';
-import EditorMain from './EditorMain.js';
-import EditorSecondary from './EditorSecondary.js';
+import EditorMain from './EditorMain';
+import EditorSecondary from './EditorSecondary';
 import { useParams } from 'react-router-dom';
 import TabCards from './TabCards';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 
-import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore.ts';
+import { setValue, setValue2, setRevealButtonPressed, setIsRunning } from '../redux/gameStore';
 
 function Problem() {
   const dispatch = useDispatch();
-  const value = useSelector(state => state.game.value);
-  const value2 = useSelector(state => state.game.value2);
-  const revealButtonPressed = useSelector(state => state.game.revealButtonPressed);
-  const totalSeconds = useSelector(state => state.game.totalSeconds);
+  const value = useSelector((state: RootStateOrAny) => state.game.value);
+  const value2 = useSelector((state: RootStateOrAny) => state.game.value2);
+  const revealButtonPressed = useSelector(
+    (state: RootStateOrAny) => state.game.revealButtonPressed,
+  );
+  const totalSeconds = useSelector((state: RootStateOrAny) => state.game.totalSeconds);
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const data = inventory[id];
 
   React.useEffect(() => {
@@ -25,7 +27,7 @@ function Problem() {
 
     // if nothing in main editor, place minimal in there.
     if (!value) {
-      const transform = [];
+      const transform: string[] = [];
       data.solution.forEach(line => {
         if (line.stage === 0) {
           transform.push(line.text);

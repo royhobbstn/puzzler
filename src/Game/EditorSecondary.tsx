@@ -1,12 +1,16 @@
 import * as React from 'react';
 import AceEditor from 'react-ace';
-import { useSelector } from 'react-redux';
+import ReactAce from 'react-ace/lib/ace';
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 function EditorSecondary() {
-  const value2 = useSelector(state => state.game.value2);
-  const editor2 = React.useRef();
+  const value2 = useSelector((state: RootStateOrAny) => state.game.value2);
+  const editor2 = React.useRef<ReactAce>(null);
 
   const onChange2 = () => {
+    if (editor2.current === null) {
+      return;
+    }
     editor2.current.editor.resize();
   };
 

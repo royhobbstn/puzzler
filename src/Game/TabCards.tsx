@@ -1,27 +1,27 @@
 import * as React from 'react';
 import { Card } from 'semantic-ui-react';
-import { inventory } from '../data/inventory.ts';
+import { inventory } from '../data/inventory';
 import TestCaseTable from './TestCaseTable';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import showdown from 'showdown';
-import { setActiveIndex } from '../redux/gameStore.ts';
-import { levelTags, typeTags } from '../data/constants.ts';
-import { Footnote } from '../Home/Footnote.tsx';
+import { setActiveIndex } from '../redux/gameStore';
+import { levelTags, typeTags } from '../data/constants';
+import { Footnote } from '../Home/Footnote';
 
 const converter = new showdown.Converter();
 
 function TabCards() {
   const dispatch = useDispatch();
-  const isBusyTesting = useSelector(state => state.game.isBusyTesting);
-  const activeIndex = useSelector(state => state.game.activeIndex);
-  const results = useSelector(state => state.game.results);
+  const isBusyTesting = useSelector((state: RootStateOrAny) => state.game.isBusyTesting);
+  const activeIndex = useSelector((state: RootStateOrAny) => state.game.activeIndex);
+  const results = useSelector((state: RootStateOrAny) => state.game.results);
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const data = inventory[id];
 
   if (!data) {
-    return [];
+    return <React.Fragment />;
   }
 
   const difficulty = data.tags.find(tag => {
@@ -80,7 +80,7 @@ function TabCards() {
             }}
             title={difficulty}
           >
-            {difficulty.slice(0, 1)}
+            {(difficulty || []).slice(0, 1)}
           </span>
         </span>
       </p>
@@ -101,7 +101,7 @@ function TabCards() {
           ) : !hasTests ? (
             <p>Tests have not been run yet for this problem.</p>
           ) : (
-            <TestCaseTable id={id} />
+            <TestCaseTable />
           )
         ) : null}
       </Card.Content>

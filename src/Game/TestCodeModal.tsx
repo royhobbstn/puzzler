@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Modal, Button } from 'semantic-ui-react';
+import 'highlight.js';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import 'highlight.js/styles/github.css';
 import { setOpen } from '../redux/gameStore';
 
@@ -10,8 +11,8 @@ hljs.registerLanguage('javascript', javascript);
 
 function TestCodeModal() {
   const dispatch = useDispatch();
-  const open = useSelector(state => state.game.open);
-  const noteCode = useSelector(state => state.game.noteCode);
+  const open = useSelector((state: RootStateOrAny) => state.game.open);
+  const noteCode = useSelector((state: RootStateOrAny) => state.game.noteCode);
 
   return (
     <Modal

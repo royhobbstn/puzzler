@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Problem from './Game/Problem.js';
+import Problem from './Game/Problem';
 import SessionStats from './SessionStats';
 import HistoricStats from './HistoricStats';
 import { Switch, Route } from 'react-router-dom';
