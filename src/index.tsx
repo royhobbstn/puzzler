@@ -50,6 +50,8 @@ const store = configureStore({
   }),
 });
 
+export type RootState = ReturnType<typeof store.getState>;
+
 let persistor = persistStore(store);
 
 ReactDOM.render(

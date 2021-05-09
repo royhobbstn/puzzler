@@ -80,12 +80,14 @@ const gameSlice = createSlice({
     concludeRunningTests: (state, { type, payload }) => {
       const { r, entry } = payload;
       state.results = r;
-      state.isBusyTesting = false;
       if (r.every((d: TestCase) => d.ok) && !state.revealButtonPressed) {
         state.isRunning = false;
         state.sessionHistory.push(entry);
         state.revealButtonPressed = true;
       }
+    },
+    noLongerTesting: state => {
+      state.isBusyTesting = false;
     },
     clickNextToResults: state => {
       state.totalSeconds = 0;
@@ -157,6 +159,7 @@ export const {
   setIsRunning,
   startRunningTests,
   concludeRunningTests,
+  noLongerTesting,
   clickNextToResults,
   clickSkipToResults,
   clickNext,

@@ -31,7 +31,9 @@ function TestCodeModal() {
             padding: '1em',
             fontFamily: 'monospace',
           }}
-          dangerouslySetInnerHTML={{ __html: hljs.highlight('javascript', noteCode).value }}
+          dangerouslySetInnerHTML={{
+            __html: hljs.highlight('javascript', noteCode).value,
+          }}
         ></div>
       </Modal.Content>
       <Modal.Actions>

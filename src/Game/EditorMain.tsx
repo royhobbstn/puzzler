@@ -5,7 +5,7 @@ import parserBabel from 'prettier/parser-babel';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 
 import { setValue } from '../redux/gameStore';
-import { clickRun } from '../redux/thunks.js';
+import { clickRun } from '../redux/thunks';
 import { useParams } from 'react-router-dom';
 import ReactAce from 'react-ace/lib/ace';
 
@@ -71,8 +71,7 @@ function EditorMain() {
             bindKey: { win: 'Ctrl-M', mac: 'Cmd-M' },
             exec: async () => {
               try {
-                // TODO after switching thunks to TS
-                // dispatch(clickRun(propsRef.current.id));
+                dispatch(clickRun(propsRef.current.id));
               } catch (err) {
                 console.log('Encountered an error when attempting to run tests.');
               }

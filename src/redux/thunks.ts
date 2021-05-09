@@ -1,16 +1,30 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as Comlink from 'comlink';
-/* eslint-disable import/no-webpack-loader-syntax */
-import Worker from 'worker-loader!../worker';
-import { submitResult } from '../personalBests.ts';
-import { constructTest } from '../util.ts';
+import Worker from '../worker/index.js';
+import { submitResult } from '../personalBests';
+import { constructTest } from '../util';
 import { inventory } from '../data/inventory';
-import { startRunningTests, concludeRunningTests } from './gameStore.ts';
+import { startRunningTests, concludeRunningTests, noLongerTesting } from './gameStore';
+import { RootState } from '../index';
+
+export interface EvalWorker {
+  evaluate: EvalFunc;
+}
+
+interface EvalFunc {
+  (source: string): string;
+}
 
 const MAX_EXECUTION_TIME = 2000; // 2 second max execution time
 
-export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
-  const state = thunkAPI.getState();
+export const clickRun = createAsyncThunk<
+  any,
+  string,
+  {
+    state: RootState;
+  }
+>('', async (id: string, thunkAPI) => {
+  const state: RootState = thunkAPI.getState();
   const value = state.game.value;
   const data = inventory[id];
 
@@ -20,7 +34,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
   const promisedResults = data.testCases.map(async test => {
     // run sandbox code in a worker
     const worker = new Worker();
-    const obj = Comlink.wrap(worker);
+    const obj: Comlink.Remote<EvalWorker> = Comlink.wrap(worker);
     let error = '';
     const response = obj
       .evaluate(
@@ -28,7 +42,7 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
           data.setupCode +
           constructTest(data.testCases, test.inherit, test.code, test.evaluate, '').test,
       )
-      .catch(e => {
+      .catch((e: Error) => {
         error = e.message;
       });
     const timeout = new Promise((resolve, reject) => {
@@ -41,11 +55,13 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
     worker.terminate();
 
     // update test result
-    let representation = '';
+    let representation: string | boolean | number = '';
     if (typeof val === 'object' && val != null) {
       representation = JSON.stringify(val);
-    } else {
+    } else if (typeof val === 'string' || typeof val === 'boolean' || typeof val === 'number') {
       representation = val;
+    } else {
+      throw new Error('unexpected');
     }
 
     // determine if actual === expected
@@ -58,9 +74,13 @@ export const clickRun = createAsyncThunk('', async (id, thunkAPI) => {
     return { ...test, actual: presentation, error, ok };
   });
 
-  await Promise.all(promisedResults).then(r => {
-    const entry = { id, seconds: state.game.totalSeconds };
-    thunkAPI.dispatch(concludeRunningTests({ r, entry }));
-    submitResult(entry);
-  });
+  await Promise.all(promisedResults)
+    .then(r => {
+      const entry = { id, seconds: state.game.totalSeconds };
+      thunkAPI.dispatch(concludeRunningTests({ r, entry }));
+      submitResult(entry);
+    })
+    .finally(() => {
+      thunkAPI.dispatch(noLongerTesting());
+    });
 });
